@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+function upload {
+    curl -F "fichier=@$1" http://www.noelshack.com/api.php 2> /dev/null
+}
+
+function parse {
+    search="www\.noelshack\.com\/([0-9]+)-([0-9]+)-(.+)"
+    replace="image\.noelshack\.com\/fichiers\/\1\/\2\/\3"
+    echo "$1" | sed -r "s/$search/$replace/g"
+}
+
+file="$1"
+
+if [ ! -f "$file" ]; then
+    echo "Invalid file." >&2
+    exit 1
+fi
+
+url=$(upload "$file")
+url=$(parse "$url")
+
+echo $url

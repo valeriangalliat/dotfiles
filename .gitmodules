@@ -4,3 +4,9 @@
 [submodule "gitmodules/wombat256.vim"]
 	path = gitmodules/wombat256.vim
 	url = git@github.com:vim-scripts/wombat256.vim.git
+[submodule "gitmodules/bash-deblan-wall"]
+	path = gitmodules/bash-deblan-wall
+	url = git@github.com:valeriangalliat/bash-deblan-wall.git
+[submodule "gitmodules/bash-noelshack"]
+	path = gitmodules/bash-noelshack
+	url = git@github.com:valeriangalliat/bash-noelshack.git

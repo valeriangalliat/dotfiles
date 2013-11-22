@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+function paste {
+    curl \
+        --data-urlencode code="$1" \
+        --data-urlencode language="$2" \
+        --data-urlencode title="$3" \
+        -o /dev/null \
+        -s \
+        -w "%{http_code} %{redirect_url}" \
+        "https://wall.deblan.org/"
+}
+
+function offset {
+    cut -d " " -f "$1" <<< "$2"
+}
+
+file="$1"
+language="$2"
+title="$3"
+
+if [ "$file" == - ]; then
+    file=/dev/stdin
+elif [ ! -f "$file" ]; then
+    echo "Invalid file." >&2
+    exit 1
+fi
+
+code=$(cat "$file")
+response=$(paste "$code" "$language" "$title")
+http_code=$(offset 1 "$response")
+redirect_url=$(offset 2 "$response")
+
+if [ -z "$redirect_url" ]; then
+    echo "An error occurred, got $http_code response code." >&2
+    exit 2
+fi
+
+echo "$redirect_url"
