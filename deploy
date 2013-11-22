@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+function link {
+    dir=$1
+    file=$2
+
+    # Backup existing file
+    if [ -f "$HOME/$2" ]; then
+        mv "$HOME/$2" "$HOME/$2.bak"
+    fi
+
+    # If subdirectory
+    if [ "$file" != "$dir/$(basename "$file")" ]; then
+        mkdir -p "$HOME/$(dirname "$file")"
+    fi
+
+    # The count of subdirectories
+    count=$(grep -o "/" <<< "$file" | wc -w)
+
+    # Relative link
+    rel=""
+
+    for ((c=0; c<"$count"; c++)); do
+        rel="$rel/.."
+    done
+
+    # Append dotfiles directory
+    rel="$rel/$(basename "$(pwd)")"
+
+    # Make link
+    ln -s "$rel/$dir/$file" "$HOME/$file"
+}
+
+link bash .bash_profile
+link bash .bashrc
+link i3 .i3/config
+link i3 .i3status.conf
+link vim .vim/colors/wombat256mod.vim
+link vim .vimrc
