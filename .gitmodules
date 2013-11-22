@@ -1,6 +1,6 @@
-[submodule ".submodules/wombat256.vim"]
-	path = .submodules/wombat256.vim
-	url = git@github.com:vim-scripts/wombat256.vim.git
-[submodule ".submodules/screenFetch"]
-	path = .submodules/screenFetch
+[submodule "gitmodules/screenFetch"]
+	path = gitmodules/screenFetch
 	url = git@github.com:KittyKatt/screenFetch.git
+[submodule "gitmodules/wombat256.vim"]
+	path = gitmodules/wombat256.vim
+	url = git@github.com:vim-scripts/wombat256.vim.git
