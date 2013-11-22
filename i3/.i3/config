@@ -1,0 +1,3 @@
+bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ && killall -USR1 i3status"
+bindsym XF86AudioLowerVolume exec "amixer set Master 5%- && killall -USR1 i3status"
+bindsym XF86AudioMute exec "amixer set Master toggle && killall -USR1 i3status"
