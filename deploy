@@ -1,35 +1,94 @@
 #!/usr/bin/env bash
 
+# Backup directory
+BAK=$HOME/dotfiles.bak
+
+# Uses Python to get relative path.
+#
+# $1: The absolute path
+# $2: The folder it is relative to (default is $PWD)
+function relpath {
+    python -c "import os.path; print(os.path.relpath('$1', '${2:-$PWD}'))"
+}
+
+# Creates all the subdirectories of given file in a target directory.
+#
+# $1: Template file
+# $2: Target directory
+function mksub {
+    file=$1
+    dest=$2
+    sub=$(dirname "$file")
+
+    # Return if no subdirectory or already exists
+    if [[ "$sub" == . ]] || [[ -d "$dest/$sub" ]]; then
+        return
+    fi
+
+    mkdir -p "$dest/$sub"
+}
+
+# Returns whether a file exists (including broken links).
+#
+# $1: File to test
+function exists {
+    [[ -a "$1" ]] || [[ -L "$1" ]]
+    return $?
+}
+
+# Backups given file in $BAK directory keeping the directory structure.
+# Example: $HOME/.i3/config will be moved into $BAK/.i3/config.
+#
+# $1: File to backup, relative to $HOME
+function bak {
+    file=$1
+
+    # Nothing to backup
+    if ! exists "$HOME/$file"; then
+        echo "Unable to backup unexisting file $HOME/$file" >&2
+        return 1
+    fi
+
+    if ! exists "$BAK"; then
+        mkdir "$BAK"
+    fi
+
+    mksub "$file" "$BAK"
+    mv "$HOME/$file" "$BAK/$file"
+}
+
+# Creates a link into $HOME.
+#
+# If the dotfile already exists, it will be moved in $BAK directory (with its
+# directory structure if not directly in $HOME).
+#
+# $1: Subdirectory (ignored in home)
+# $2: Dotfile path, relative to $HOME
 function link {
     dir=$1
     file=$2
 
-    # Backup existing file
-    if [ -f "$HOME/$2" ]; then
-        mv "$HOME/$2" "$HOME/$2.bak"
+    # No such file
+    if ! exists "$PWD/$dir/$file"; then
+        echo "Unexisting file $PWD/$dir/$file"
+        return 1
     fi
 
-    # If subdirectory
-    if [ "$file" != "$dir/$(basename "$file")" ]; then
-        mkdir -p "$HOME/$(dirname "$file")"
-    fi
+    # Backup existing file if exists
+    bak "$file" 2>/dev/null
 
-    # The count of subdirectories
-    count=$(grep -o "/" <<< "$file" | wc -w)
+    mksub "$file" "$HOME"
 
-    # Relative link
-    rel=""
+    # The relative path to dotfile
+    target=$(relpath "$PWD/$dir/$file" "$(dirname "$HOME/$file")")
 
-    for ((c=0; c<"$count"; c++)); do
-        rel="$rel/.."
-    done
-
-    # Append dotfiles directory
-    rel="$rel/$(basename "$(pwd)")"
-
-    # Make link
-    ln -s "$rel/$dir/$file" "$HOME/$file"
+    ln -s "$target" "$HOME/$file"
 }
+
+if exists "$BAK"; then
+    echo "Please remove $BAK before deploying dotfiles." >&2
+    exit 1
+fi
 
 link bash .bash_profile
 link bash .bashrc
