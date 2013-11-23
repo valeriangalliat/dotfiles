@@ -37,3 +37,5 @@ link i3 .i3/config
 link i3 .i3status.conf
 link vim .vim/colors/wombat256mod.vim
 link vim .vimrc
+link xorg .xinitrc
+link xorg .Xressources

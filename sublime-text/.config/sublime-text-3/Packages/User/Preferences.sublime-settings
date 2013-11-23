@@ -1,0 +1,15 @@
+{
+    "color_scheme": "Packages/User/Espresso Soda.tmTheme",
+    "default_line_ending": "unix",
+    "draw_white_space": "all",
+    "ensure_newline_at_eof_on_save": true,
+    "fallback_encoding": "UTF-8",
+    "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "ignored_packages": ["Vintage"],
+    "rulers": [80],
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "shift_tab_unindent": true,
+    "theme": "Soda Light.sublime-theme"
+}
