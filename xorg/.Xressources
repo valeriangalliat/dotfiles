@@ -1,2 +1,2 @@
-xterm*background: black
-xterm*foreground: white
+*background: black
+*foreground: white
