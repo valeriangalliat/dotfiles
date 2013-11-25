@@ -3,6 +3,27 @@
 # Backup directory
 BAK=$HOME/dotfiles.bak
 
+# Options
+OPTBAK=true
+OPTSUB=
+
+while getopts "ns:" opt; do
+    case $opt in
+        n)
+            # Do not backup
+            OPTBAK=false
+            ;;
+        s)
+            # Only one subdirectory
+            OPTSUB=$OPTARG
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            exit 1
+            ;;
+    esac
+done
+
 # Uses Python to get relative path.
 #
 # $1: The absolute path
@@ -49,6 +70,12 @@ function bak {
         return 1
     fi
 
+    # Delete instead of saving
+    if ! "$OPTBAK"; then
+        rm "$HOME/$file"
+        return
+    fi
+
     if ! exists "$BAK"; then
         mkdir "$BAK"
     fi
@@ -68,11 +95,17 @@ function link {
     dir=$1
     file=$2
 
+    # Only install specified subdirectory config if specified
+    if [ ! -z "$OPTSUB" ] && [ "$dir" != "$OPTSUB" ]; then
+        return
+    fi
+
     # No such file
     if ! exists "$PWD/$dir/$file"; then
         echo "Unexisting file $PWD/$dir/$file"
         return 1
     fi
+
 
     # Backup existing file if exists
     bak "$file" 2>/dev/null
@@ -82,18 +115,26 @@ function link {
     # The relative path to dotfile
     target=$(relpath "$PWD/$dir/$file" "$(dirname "$HOME/$file")")
 
+    echo "Linking $file"
     ln -s "$target" "$HOME/$file"
 }
 
-if exists "$BAK"; then
+if "$OPTBAK" && exists "$BAK"; then
     echo "Please remove $BAK before deploying dotfiles." >&2
     exit 1
 fi
 
 link bash .bash_profile
 link bash .bashrc
+link gtk .gtkrc-2.0
 link i3 .i3/config
 link i3 .i3status.conf
+link sublime-text ".config/sublime-text-3/Installed Packages/DocBlockr"
+link sublime-text ".config/sublime-text-3/Installed Packages/Package Control"
+link sublime-text ".config/sublime-text-3/Installed Packages/Theme - Soda"
+link sublime-text ".config/sublime-text-3/Packages/User/Espresso Soda.tmTheme"
+link sublime-text ".config/sublime-text-3/Packages/User/Monokai Soda.tmTheme"
+link sublime-text ".config/sublime-text-3/Packages/User/Preferences.sublime-settings"
 link vim .vim/colors/wombat256mod.vim
 link vim .vimrc
 link xorg .xinitrc

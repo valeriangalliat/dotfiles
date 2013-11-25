@@ -19,4 +19,4 @@ alias ll="ls -l"
 alias l="ls -lA"
 
 # Display home art and infos
-screenfetch
+archey3
