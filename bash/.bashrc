@@ -17,6 +17,3 @@ alias grep="grep --color=auto"
 # Useful aliases
 alias ll="ls -l"
 alias l="ls -lA"
-
-# Display home art and infos
-archey3

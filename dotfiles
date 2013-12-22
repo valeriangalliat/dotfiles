@@ -1,0 +1,15 @@
+link bash .bash_profile
+link bash .bashrc
+link gtk .gtkrc-2.0
+link i3 .i3/config
+link i3 .i3status.conf
+link sublime-text ".config/sublime-text-3/Packages/DocBlockr"
+link sublime-text ".config/sublime-text-3/Packages/Package Control"
+link sublime-text ".config/sublime-text-3/Packages/Theme - Soda"
+link sublime-text ".config/sublime-text-3/Packages/User/Espresso Soda.tmTheme"
+link sublime-text ".config/sublime-text-3/Packages/User/Monokai Soda.tmTheme"
+link sublime-text ".config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+link vim .vim/colors/wombat256mod.vim
+link vim .vimrc
+link xorg .xinitrc
+link xorg .Xressources
