@@ -1,21 +1,18 @@
-[submodule "gitmodules/screenFetch"]
-	path = gitmodules/screenFetch
-	url = git@github.com:KittyKatt/screenFetch.git
 [submodule "gitmodules/wombat256.vim"]
 	path = gitmodules/wombat256.vim
-	url = git@github.com:vim-scripts/wombat256.vim.git
+	url = https://github.com/vim-scripts/wombat256.vim.git
 [submodule "gitmodules/bash-deblan-wall"]
 	path = gitmodules/bash-deblan-wall
-	url = git@github.com:valeriangalliat/bash-deblan-wall.git
+	url = https://github.com/valeriangalliat/bash-deblan-wall.git
 [submodule "gitmodules/bash-noelshack"]
 	path = gitmodules/bash-noelshack
-	url = git@github.com:valeriangalliat/bash-noelshack.git
+	url = https://github.com/valeriangalliat/bash-noelshack.git
 [submodule "gitmodules/soda-theme"]
 	path = gitmodules/soda-theme
-	url = git@github.com:buymeasoda/soda-theme.git
+	url = https://github.com/buymeasoda/soda-theme.git
 [submodule "gitmodules/sublime_package_control"]
 	path = gitmodules/sublime_package_control
-	url = git@github.com:wbond/sublime_package_control.git
+	url = https://github.com/wbond/sublime_package_control.git
 [submodule "gitmodules/sublime-jsdocs"]
 	path = gitmodules/sublime-jsdocs
-	url = git@github.com:spadgos/sublime-jsdocs.git
+	url = https://github.com/spadgos/sublime-jsdocs.git
