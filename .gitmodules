@@ -16,3 +16,6 @@
 [submodule "gitmodules/sublime-jsdocs"]
 	path = gitmodules/sublime-jsdocs
 	url = https://github.com/spadgos/sublime-jsdocs.git
+[submodule "gitmodules/AsciiDoc"]
+	path = gitmodules/AsciiDoc
+	url = https://github.com/SublimeText/AsciiDoc.git
