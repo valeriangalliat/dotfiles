@@ -3,6 +3,7 @@ link bash .bashrc
 link gtk .gtkrc-2.0
 link i3 .i3/config
 link i3 .i3status.conf
+link sublime-text ".config/sublime-text-3/Packages/AsciiDoc"
 link sublime-text ".config/sublime-text-3/Packages/DocBlockr"
 link sublime-text ".config/sublime-text-3/Packages/Package Control"
 link sublime-text ".config/sublime-text-3/Packages/Theme - Soda"
