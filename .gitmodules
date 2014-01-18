@@ -1,12 +1,12 @@
 [submodule "deps/wombat256.vim"]
 	path = deps/wombat256.vim
 	url = git://github.com/vim-scripts/wombat256.vim.git
-[submodule "deps/bash-deblan-wall"]
-	path = deps/bash-deblan-wall
-	url = git://github.com/valeriangalliat/bash-deblan-wall.git
-[submodule "deps/bash-noelshack"]
-	path = deps/bash-noelshack
-	url = git://github.com/valeriangalliat/bash-noelshack.git
+[submodule "deps/dwall"]
+	path = deps/dwall
+	url = git://github.com/valeriangalliat/dwall.git
+[submodule "deps/noelup"]
+	path = deps/noelup
+	url = git://github.com/valeriangalliat/noelup.git
 [submodule "deps/spacegray"]
 	path = deps/spacegray
 	url = git://github.com/kkga/spacegray
@@ -19,3 +19,6 @@
 [submodule "deps/AsciiDoc"]
 	path = deps/AsciiDoc
 	url = git://github.com/SublimeText/AsciiDoc.git
+[submodule "deps/noelscrot"]
+	path = deps/noelscrot
+	url = git://github.com/valeriangalliat/noelscrot.git
