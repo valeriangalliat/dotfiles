@@ -7,9 +7,12 @@
 [submodule "deps/noelup"]
 	path = deps/noelup
 	url = git://github.com/valeriangalliat/noelup.git
+[submodule "deps/noelscrot"]
+	path = deps/noelscrot
+	url = git://github.com/valeriangalliat/noelscrot.git
 [submodule "deps/spacegray"]
 	path = deps/spacegray
-	url = git://github.com/kkga/spacegray
+	url = git://github.com/kkga/spacegray.git
 [submodule "deps/sublime_package_control"]
 	path = deps/sublime_package_control
 	url = git://github.com/wbond/sublime_package_control.git
@@ -19,6 +22,3 @@
 [submodule "deps/AsciiDoc"]
 	path = deps/AsciiDoc
 	url = git://github.com/SublimeText/AsciiDoc.git
-[submodule "deps/noelscrot"]
-	path = deps/noelscrot
-	url = git://github.com/valeriangalliat/noelscrot.git
