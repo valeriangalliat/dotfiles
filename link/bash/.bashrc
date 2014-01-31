@@ -5,7 +5,7 @@
 HISTCONTROL=ignoreboth
 
 # Set prompt with title
-PS1="\e]0;\w\a\]\$(ret=\$?; [ \$ret != 0 ] && echo \$ret\ )\$ "
+PS1="\[\e]0;\w\a\]\$(ret=\$?; [ \$ret != 0 ] && echo \$ret\ )\$ "
 
 # Append to the history file, don't overwrite it
 shopt -s histappend
