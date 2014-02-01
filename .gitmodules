@@ -1,24 +1,24 @@
 [submodule "deps/wombat256.vim"]
 	path = deps/wombat256.vim
-	url = git://github.com/vim-scripts/wombat256.vim.git
+	url = https://github.com/vim-scripts/wombat256.vim.git
 [submodule "deps/dwall"]
 	path = deps/dwall
-	url = git://github.com/valeriangalliat/dwall.git
+	url = https://github.com/valeriangalliat/dwall.git
 [submodule "deps/noelup"]
 	path = deps/noelup
-	url = git://github.com/valeriangalliat/noelup.git
+	url = https://github.com/valeriangalliat/noelup.git
 [submodule "deps/noelscrot"]
 	path = deps/noelscrot
-	url = git://github.com/valeriangalliat/noelscrot.git
+	url = https://github.com/valeriangalliat/noelscrot.git
 [submodule "deps/spacegray"]
 	path = deps/spacegray
-	url = git://github.com/kkga/spacegray.git
+	url = https://github.com/kkga/spacegray.git
 [submodule "deps/sublime_package_control"]
 	path = deps/sublime_package_control
-	url = git://github.com/wbond/sublime_package_control.git
+	url = https://github.com/wbond/sublime_package_control.git
 [submodule "deps/sublime-jsdocs"]
 	path = deps/sublime-jsdocs
-	url = git://github.com/spadgos/sublime-jsdocs.git
+	url = https://github.com/spadgos/sublime-jsdocs.git
 [submodule "deps/AsciiDoc"]
 	path = deps/AsciiDoc
-	url = git://github.com/SublimeText/AsciiDoc.git
+	url = https://github.com/SublimeText/AsciiDoc.git
