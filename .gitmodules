@@ -22,3 +22,6 @@
 [submodule "deps/AsciiDoc"]
 	path = deps/AsciiDoc
 	url = https://github.com/SublimeText/AsciiDoc.git
+[submodule "deps/vimpager"]
+	path = deps/vimpager
+	url = https://github.com/rkitover/vimpager.git
