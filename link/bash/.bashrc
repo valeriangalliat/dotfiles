@@ -1,5 +1,5 @@
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+[[ $- != *i* ]] && return
 
 # Force ignoredups and ignorespace
 HISTCONTROL=ignoreboth
@@ -13,10 +13,8 @@ shopt -s histappend
 # Check the window size after each command
 shopt -s checkwinsize
 
-# Enable color
-alias ls="ls --color=auto"
-alias grep="grep --color=auto"
+alias ls="ls -Fh --color=auto --group-directories-first"
+alias l="ls -l"
+alias la="l -A"
 
-# Useful aliases
-alias ll="ls -l"
-alias l="ls -lA"
+alias grep="grep --color=auto"
