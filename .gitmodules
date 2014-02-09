@@ -25,3 +25,9 @@
 [submodule "deps/vimpager"]
 	path = deps/vimpager
 	url = https://github.com/rkitover/vimpager.git
+[submodule "deps/vim-pathogen"]
+	path = deps/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "deps/nerdtree"]
+	path = deps/nerdtree
+	url = https://github.com/scrooloose/nerdtree
