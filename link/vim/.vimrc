@@ -1,3 +1,4 @@
+execute pathogen#infect()
 syntax on
 set t_Co=256
 colorscheme wombat256mod
@@ -6,3 +7,5 @@ set autoindent
 set expandtab
 set shiftwidth=4
 set tabstop=4
+set clipboard=unnamed
+set mouse=a
