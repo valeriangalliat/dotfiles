@@ -27,7 +27,7 @@ a recursive clone is required for them to work.
 git clone https://github.com/valeriangalliat/relpath.git
 git clone https://github.com/valeriangalliat/dotfiles-utils.git
 git clone https://github.com/valeriangalliat/dotfiles.git
-PATH=$(pwd)/realpath:$(pwd)/dotfiles-utils:$PATH
+PATH=$(pwd)/relpath:$(pwd)/dotfiles-utils:$PATH
 cd dotfiles
 dotfiles-deploy
 ```
