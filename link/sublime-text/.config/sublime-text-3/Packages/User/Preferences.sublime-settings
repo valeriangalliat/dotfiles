@@ -13,5 +13,6 @@
     "show_line_endings": true,
     "theme": "Spacegray.sublime-theme",
     "translate_tabs_to_spaces": true,
-    "trim_trailing_white_space_on_save": true
+    "trim_trailing_white_space_on_save": true,
+    "wordWrap": false
 }
