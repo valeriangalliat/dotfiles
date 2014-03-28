@@ -1,0 +1,23 @@
+servers = (
+  {
+    address = "ssl.neutralnetwork.org";
+    chatnet = "neutralnetwork";
+    port = "6697";
+    use_ssl = "yes";
+  }
+);
+
+channels = (
+  {
+    name = "#linux";
+    chatnet = "neutralnetwork";
+  }
+);
+
+settings = {
+  core = {
+    real_name = "";
+    user_name = "val";
+    nick = "val";
+  };
+};
