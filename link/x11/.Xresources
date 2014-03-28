@@ -1,3 +1,8 @@
 URxvt.background: black
 URxvt.foreground: white
 URxvt.scrollBar: false
+
+URxvt.perl-ext-common: default,matcher
+URxvt.underlineURLs: true
+URxvt.url-launcher: /usr/bin/iceweasel
+URxvt.matcher.button: 1
