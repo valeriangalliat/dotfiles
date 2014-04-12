@@ -4,5 +4,5 @@ URxvt.scrollBar: false
 
 URxvt.perl-ext-common: default,matcher
 URxvt.underlineURLs: true
-URxvt.url-launcher: /usr/bin/iceweasel
+URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1

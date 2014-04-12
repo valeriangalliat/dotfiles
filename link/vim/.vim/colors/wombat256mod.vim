@@ -1,1 +1,1 @@
-../../../../deps/wombat256.vim/colors/wombat256mod.vim
+../../../../deps/vim/wombat/colors/wombat256mod.vim
