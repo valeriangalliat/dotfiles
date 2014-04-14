@@ -5,7 +5,7 @@ TARGET = .zshrc
 # and sort results to get them in required order by the prefix
 # numbers.
 #
-SOURCES != find -L $(TARGET).d -type f | sort
+SOURCES != find -L $(TARGET).d -type f ! -name '.*' | sort
 
 all: $(TARGET)
 

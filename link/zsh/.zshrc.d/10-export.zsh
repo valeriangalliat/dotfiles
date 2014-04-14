@@ -10,4 +10,3 @@ SAVEHIST=1000
 
 # Set custom directory colors
 eval "$(dircolors $HOME/.dircolors)"
-#export LS_COLORS
