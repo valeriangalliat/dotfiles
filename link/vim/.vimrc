@@ -46,3 +46,4 @@ set mouse=a " Enable mouse support (all modes)
 set ignorecase " Case insensitive matching
 set smartcase " Case sensisitive if pattern containe upper case characters
 set incsearch " Highlight pattern while typed
+set hlsearch " Highlight all search matches
