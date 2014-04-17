@@ -1,4 +1,5 @@
-deps
+deps/*
+!deps/deps.mk
 
 link/sublime-text/.config/sublime-text-3/Cache
 link/sublime-text/.config/sublime-text-3/Index
