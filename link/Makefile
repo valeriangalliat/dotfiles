@@ -1,4 +1,4 @@
-link.mk: .FORCE
+link.mk: force
 	./make-link > $@
 
-.FORCE:
+force:
