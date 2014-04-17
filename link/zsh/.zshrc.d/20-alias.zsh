@@ -26,9 +26,6 @@ alias grep='grep -Ei --color'
 # Always recursive copy
 alias cp='cp -r'
 
-# Always substitute with real login environment
-alias su='su -'
-
 # Shortcut to quit terminal
 alias q='exit'
 
