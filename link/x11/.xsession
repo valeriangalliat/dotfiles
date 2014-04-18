@@ -2,7 +2,7 @@
 [ -f ~/.Xresources ] && xrdb ~/.Xresources
 
 # Auto lock screen if required softwares are installed
-which autolock && which slock && xautolock -time 1 -locker slock &
+which xautolock && which slock && xautolock -time 1 -locker slock &
 
 # Execute redshift if available
 which redshift && redshift -l 45.209481:5.788305 &

@@ -25,9 +25,9 @@ for cat in $cats; do
 
     for file in $files; do
         echo "\$(DESTDIR)/$file: link/$cat/$file"
-        echo -e '\tmkdir -p $$(dirname $@)'
+        /bin/echo -e '\tmkdir -p $$(dirname $@)'
         code='$$(python -c "import os; print(os.path.relpath('"'"'$(PWD)'"'"', '"'"'$$(dirname $@)'"'"'))")'
-        echo -e "\tln -fs $code/\$< \$@"
+        /bin/echo -e "\tln -fs $code/\$< \$@"
         echo
     done
 done
