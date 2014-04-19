@@ -23,6 +23,7 @@ deps-misc: \
 	deps/misc/noelup \
 	deps/misc/noelscrot \
 	deps/misc/dwall \
+	deps/misc/block \
 	deps/misc/vimpager
 
 deps-shell: \
@@ -54,6 +55,9 @@ deps/misc/noelscrot:
 
 deps/misc/dwall:
 	git clone https://github.com/valeriangalliat/dwall.git $@
+
+deps/misc/block:
+	git clone https://github.com/valeriangalliat/block.git $@
 
 deps/misc/vimpager:
 	git clone https://github.com/rkitover/vimpager.git $@

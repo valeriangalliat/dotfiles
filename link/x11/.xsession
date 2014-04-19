@@ -1,11 +1,11 @@
 # Load resources file if exist
 [ -f ~/.Xresources ] && xrdb ~/.Xresources
 
-# Auto lock screen if required softwares are installed
-which xautolock && which slock && xautolock -time 5 -locker slock &
+# Auto lock screen if all commands are available
+command -v xautolock block && command -v $(block -d) && xautolock -time 5 -locker block &
 
 # Execute redshift if available
-which redshift && redshift -l 45.209481:5.788305 &
+command -v redshift && redshift -l 45.209481:5.788305 &
 
 # Execute window manager
 exec i3
