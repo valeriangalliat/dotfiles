@@ -18,6 +18,9 @@ set wildmenu " Enhanced command mode (display matches on tab)
 set encoding=utf-8 " UTF-8 support
 set nowrap " No word wrap
 
+" Change leader key
+let mapleader='_'
+
 "
 " Colors for highlighted lines.
 "
