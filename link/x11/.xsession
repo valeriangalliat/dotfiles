@@ -1,3 +1,9 @@
+#
+# ~/.xsession
+#
+# Executed at X11 start. Load and execute stuff, then start environment.
+#
+
 # Load resources file if exist
 [ -f ~/.Xresources ] && xrdb ~/.Xresources
 

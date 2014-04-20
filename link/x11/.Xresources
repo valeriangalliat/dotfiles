@@ -1,7 +1,16 @@
+!
+! ~/.Xresources
+!
+
+! Font
+*.font: xft:DejaVu Sans Mono:size=8
+
+! Terminal style
 URxvt.background: black
 URxvt.foreground: white
 URxvt.scrollBar: false
 
+! Clickable URLs in urxvt
 URxvt.perl-ext-common: default,matcher
 URxvt.underlineURLs: true
 URxvt.url-launcher: /usr/bin/firefox
