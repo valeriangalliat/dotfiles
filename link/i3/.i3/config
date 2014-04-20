@@ -9,7 +9,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # Font
-font xft:DejaVu Sans Mono 8
+font xft:monospace 8
 
 #
 # Window format.
@@ -29,7 +29,7 @@ workspace_layout tabbed
 workspace_auto_back_and_forth yes
 
 # Start launcher
-bindsym $mod+d exec dmenu_run -fn 'DejaVu Sans Mono:size=8'
+bindsym $mod+d exec dmenu_run -fn 'monospace:size=8'
 
 # Start terminal
 bindsym $mod+Return exec i3-sensible-terminal

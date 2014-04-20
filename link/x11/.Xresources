@@ -3,7 +3,7 @@
 !
 
 ! Font
-*.font: xft:DejaVu Sans Mono:size=8
+*.font: xft:monospace:size=8
 
 ! Terminal style
 URxvt.background: black
