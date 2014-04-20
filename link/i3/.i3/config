@@ -29,7 +29,7 @@ workspace_layout tabbed
 workspace_auto_back_and_forth yes
 
 # Start launcher
-bindsym $mod+d exec dmenu_run -fn 'monospace:size=8'
+bindsym $mod+d exec dmenu_run -fn "monospace:size=8"
 
 # Start terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -165,6 +165,6 @@ bar {
 }
 
 # Keyboard volume keys
-bindsym XF86AudioRaiseVolume exec 'amixer set Master 1.5dB+ && killall -USR1 i3status'
-bindsym XF86AudioLowerVolume exec 'amixer set Master 1.5dB- && killall -USR1 i3status'
-bindsym XF86AudioMute exec 'amixer set Master toggle && killall -USR1 i3status'
+bindsym XF86AudioRaiseVolume exec "amixer set Master 1.5dB+ && killall -USR1 i3status"
+bindsym XF86AudioLowerVolume exec "amixer set Master 1.5dB- && killall -USR1 i3status"
+bindsym XF86AudioMute exec "amixer set Master toggle && killall -USR1 i3status"
