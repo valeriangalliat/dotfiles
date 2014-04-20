@@ -15,6 +15,9 @@ alias ll='l'
 # Show almost all (except `.` and `..`)
 alias la='l -A'
 
+# Simple move command
+alias mmv='noglob zmv -W'
+
 #
 # `E` for extended regular expressions,
 # `i` to be case insensitive.

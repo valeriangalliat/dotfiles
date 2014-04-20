@@ -1,3 +1,7 @@
+#
+# ~/.zshenv
+#
+
 export DOTFILES=~/dotfiles
 export EDITOR=vim
 
@@ -16,4 +20,3 @@ export PATH
 # Set custom directory colors
 eval "$(dircolors $HOME/.dircolors)"
 export LS_COLORS
-export EDITOR=vim

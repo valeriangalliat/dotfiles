@@ -1,2 +1,4 @@
 .dircolors
+.profile
+.zshenv
 .zshrc

@@ -28,25 +28,11 @@ compinit
 #
 autoload -Uz promptinit
 promptinit
-export DOTFILES=~/dotfiles
-export EDITOR=vim
 
-export HISTFILE=~/.histfile
-export HISTSIZE=1000
-export SAVEHIST=1000
-
-# Include dotfiles' bin if exists
-[ -d "$DOTFILES/bin" ] && PATH="$DOTFILES/bin:$PATH"
-
-# Include private bin if exists
-[ -d ~/bin ] && PATH="$HOME/bin:$PATH"
-
-export PATH
-
-# Set custom directory colors
-eval "$(dircolors $HOME/.dircolors)"
-export LS_COLORS
-export EDITOR=vim
+#
+# Enable advanced move command.
+#
+autoload -Uz zmv
 #
 # `F` to append file indicators (`/` for dir, `@` for link, etc),
 # `h` to display human readable sizes (for when combined with `l`).
@@ -63,6 +49,9 @@ alias ll='l'
 
 # Show almost all (except `.` and `..`)
 alias la='l -A'
+
+# Simple move command
+alias mmv='noglob zmv -W'
 
 #
 # `E` for extended regular expressions,

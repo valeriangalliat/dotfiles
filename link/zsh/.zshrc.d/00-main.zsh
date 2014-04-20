@@ -28,3 +28,8 @@ compinit
 #
 autoload -Uz promptinit
 promptinit
+
+#
+# Enable advanced move command.
+#
+autoload -Uz zmv
