@@ -58,7 +58,16 @@ set ignorecase " Case insensitive
 set infercase " Sensitive completion
 set smartcase " Sensitive search if upper characters
 set incsearch " Highlight pattern while typed
-set hlsearch " Highlight all search matches
+
+"
+" Highlight search matches after search command, and automatically disable
+" it after idle time.
+"
+autocmd cursorhold * set nohlsearch
+noremap n :set hlsearch<cr>n
+noremap N :set hlsearch<cr>N
+noremap / :set hlsearch<cr>/
+noremap ? :set hlsearch<cr>?
 
 " Whitespaces
 
