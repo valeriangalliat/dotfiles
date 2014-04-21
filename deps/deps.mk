@@ -46,7 +46,8 @@ deps-vim: \
 	deps/vim/nerdtree \
 	deps/vim/autocomplpop \
 	deps/vim/ctrlp \
-	deps/vim/multiple-cursors
+	deps/vim/multiple-cursors \
+	deps/vim/dogescript
 
 deps/misc/noelup:
 	git clone https://github.com/valeriangalliat/noelup.git $@
@@ -101,3 +102,6 @@ deps/vim/ctrlp:
 
 deps/vim/multiple-cursors:
 	git clone https://github.com/terryma/vim-multiple-cursors.git $@
+
+deps/vim/dogescript:
+	git clone https://github.com/valeriangalliat/dogescript.git $@

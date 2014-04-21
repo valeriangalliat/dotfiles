@@ -23,7 +23,7 @@ set encoding=utf-8 " UTF-8 support
 set nowrap " No word wrap
 
 " Change leader key
-let mapleader=','
+let mapleader=","
 
 "
 " Complete until longest match. On tab, list matches. If tab is pressed
