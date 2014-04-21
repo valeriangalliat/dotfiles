@@ -42,6 +42,7 @@ deps-vim: \
 	deps/vim \
 	deps/vim/pathogen \
 	deps/vim/wombat \
+	deps/vim/railscasts \
 	deps/vim/nerdtree \
 	deps/vim/autocomplpop \
 	deps/vim/ctrlp \
@@ -85,6 +86,9 @@ deps/vim/pathogen:
 
 deps/vim/wombat:
 	git clone https://github.com/vim-scripts/wombat256.vim.git $@
+
+deps/vim/railscasts:
+	git clone https://github.com/oguzbilgic/sexy-railscasts-theme.git @
 
 deps/vim/nerdtree:
 	git clone https://github.com/scrooloose/nerdtree.git $@
