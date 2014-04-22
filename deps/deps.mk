@@ -89,7 +89,7 @@ deps/vim/wombat:
 	git clone https://github.com/vim-scripts/wombat256.vim.git $@
 
 deps/vim/railscasts:
-	git clone https://github.com/oguzbilgic/sexy-railscasts-theme.git @
+	git clone https://github.com/oguzbilgic/sexy-railscasts-theme.git $@
 
 deps/vim/nerdtree:
 	git clone https://github.com/scrooloose/nerdtree.git $@
@@ -104,4 +104,4 @@ deps/vim/multiple-cursors:
 	git clone https://github.com/terryma/vim-multiple-cursors.git $@
 
 deps/vim/dogescript:
-	git clone https://github.com/valeriangalliat/dogescript.git $@
+	git clone https://github.com/valeriangalliat/vim-dogescript.git $@
