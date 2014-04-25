@@ -14,6 +14,7 @@ setopt autocd # Change directory when typing only directory name
 setopt nomatch # Error when file pattern has no matches
 setopt completealiases # Enable completion for aliases
 setopt correct # Try to correct mispelled command names
+setopt extendedglob # Use advanced globbing patterns
 
 #
 # Enable zsh advanced completion (`z` option to autoload with zsh style).
