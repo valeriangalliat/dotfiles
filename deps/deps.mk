@@ -47,6 +47,7 @@ deps-vim: \
 	deps/vim/autocomplpop \
 	deps/vim/ctrlp \
 	deps/vim/multiple-cursors \
+	deps/vim/minibufexpl \
 	deps/vim/dogescript
 
 deps/misc/noelup:
@@ -102,6 +103,9 @@ deps/vim/ctrlp:
 
 deps/vim/multiple-cursors:
 	git clone https://github.com/terryma/vim-multiple-cursors.git $@
+
+deps/vim/minibufexpl:
+	git clone https://github.com/fholgado/minibufexpl.vim.git $@
 
 deps/vim/dogescript:
 	git clone https://github.com/valeriangalliat/vim-dogescript.git $@
