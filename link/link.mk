@@ -13,7 +13,11 @@ $(DESTDIR)/.weechat: link/weechat/.weechat
 	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
 
 INSTALL_TARGETS += link-vim
-link-vim: $(DESTDIR)/.vim $(DESTDIR)/.vimrc
+link-vim: $(DESTDIR)/.gvimrc $(DESTDIR)/.vim $(DESTDIR)/.vimrc
+
+$(DESTDIR)/.gvimrc: link/vim/.gvimrc
+	mkdir -p $$(dirname $@)
+	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
 
 $(DESTDIR)/.vim: link/vim/.vim
 	mkdir -p $$(dirname $@)
