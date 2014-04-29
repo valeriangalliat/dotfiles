@@ -1,6 +1,7 @@
 DIRS += deps
 DIRS += deps/misc
 DIRS += deps/shell
+DIRS += deps/urxvt
 DIRS += deps/sublime-text
 DIRS += deps/vim
 
@@ -30,6 +31,10 @@ deps-shell: \
 	deps/shell \
 	deps/shell/ls-colors \
 	deps/shell/zsh-syntax-highlighting
+
+deps-urxvt: \
+	deps/urxvt \
+	deps/urxvt/perls
 
 deps-sublime-text: \
 	deps/sublime-text \
@@ -70,6 +75,9 @@ deps/shell/ls-colors:
 
 deps/shell/zsh-syntax-highlighting:
 	git clone https://github.com/valeriangalliat/zsh-syntax-highlighting-filetypes.git $@
+
+deps/urxvt/perls:
+	git clone https://github.com/muennich/urxvt-perls.git $@
 
 deps/sublime-text/package-control:
 	git clone https://github.com/wbond/sublime_package_control.git $@

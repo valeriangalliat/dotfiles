@@ -28,9 +28,17 @@ $(DESTDIR)/.vimrc: link/vim/.vimrc
 	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
 
 INSTALL_TARGETS += link-x11
-link-x11: $(DESTDIR)/.Xresources $(DESTDIR)/.xsession
+link-x11: $(DESTDIR)/.Xresources $(DESTDIR)/.xinitrc $(DESTDIR)/.Xresources.swp $(DESTDIR)/.xsession
 
 $(DESTDIR)/.Xresources: link/x11/.Xresources
+	mkdir -p $$(dirname $@)
+	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
+
+$(DESTDIR)/.xinitrc: link/x11/.xinitrc
+	mkdir -p $$(dirname $@)
+	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
+
+$(DESTDIR)/.Xresources.swp: link/x11/.Xresources.swp
 	mkdir -p $$(dirname $@)
 	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
 
@@ -72,6 +80,13 @@ $(DESTDIR)/.zshenv: link/zsh/.zshenv
 	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
 
 $(DESTDIR)/.zshrc: link/zsh/.zshrc
+	mkdir -p $$(dirname $@)
+	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
+
+INSTALL_TARGETS += link-urxvt
+link-urxvt: $(DESTDIR)/.urxvt
+
+$(DESTDIR)/.urxvt: link/urxvt/.urxvt
 	mkdir -p $$(dirname $@)
 	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
 
