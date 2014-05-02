@@ -29,10 +29,10 @@ workspace_layout tabbed
 workspace_auto_back_and_forth yes
 
 # Start launcher
-bindsym $mod+d exec dmenu_run -fn "monospace:size=8"
+bindsym $mod+d exec dmenu_run -fn monospace:size=8
 
 # Start terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvtc
 
 # Kill focused window
 bindsym $mod+Shift+a kill
@@ -70,26 +70,16 @@ bindsym $mod+v split v
 # Toggle fullscreen
 bindsym $mod+f fullscreen
 
-# Change layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# Change layout
 bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 
-# Toggle tiling and floating
-bindsym $mod+Shift+space floating toggle
+# Toggle music
+bindsym $mod+Space exec mpc toggle
 
-# Change focus between tiling and floating windows
-bindsym $mod+space focus mode_toggle
-
-# Focus parent container
+# Focus parent/child container
 bindsym $mod+q focus parent
-
-#
-# Focus child container.
-#
-# It is disabled because it conflicts with the menu launcher.
-#
-#bindsym $mod+d focus child
+bindsym $mod+s focus child
 
 # Workspace names
 set $w1 1-web
@@ -165,6 +155,6 @@ bar {
 }
 
 # Keyboard volume keys
-bindsym XF86AudioRaiseVolume exec "amixer set Master 1.5dB+ && killall -USR1 i3status"
-bindsym XF86AudioLowerVolume exec "amixer set Master 1.5dB- && killall -USR1 i3status"
-bindsym XF86AudioMute exec "amixer set Master toggle && killall -USR1 i3status"
+bindsym XF86AudioRaiseVolume exec amixer set Master 1.5dB+ && killall -USR1 i3status
+bindsym XF86AudioLowerVolume exec amixer set Master 1.5dB- && killall -USR1 i3status
+bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3status
