@@ -13,10 +13,13 @@ export SAVEHIST=1000
 [ -d "$DOTFILES/bin" ] && PATH="$DOTFILES/bin:$PATH"
 
 # Include private bin if exists
-[ -d ~/bin ] && PATH="$HOME/bin:$PATH"
+[ -d ~/bin ] && PATH=~/bin:"$PATH"
 
 export PATH
 
 # Set custom directory colors
-eval "$(dircolors $HOME/.dircolors)"
+eval "$(dircolors ~/.dircolors)"
 export LS_COLORS
+
+# Source local file if exists
+[ -f ~/.zshenv.local ] && source ~/.zshenv.local

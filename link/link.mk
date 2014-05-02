@@ -68,7 +68,11 @@ $(DESTDIR)/.i3: link/i3/.i3
 	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
 
 INSTALL_TARGETS += link-zsh
-link-zsh: $(DESTDIR)/.dircolors $(DESTDIR)/.profile $(DESTDIR)/.zshenv $(DESTDIR)/.zshrc
+link-zsh: $(DESTDIR)/.config/zsh $(DESTDIR)/.dircolors $(DESTDIR)/.profile $(DESTDIR)/.zshenv $(DESTDIR)/.zshrc
+
+$(DESTDIR)/.config/zsh: link/zsh/.config/zsh
+	mkdir -p $$(dirname $@)
+	ln -fs $$(python -c "import os; print(os.path.relpath('$(PWD)', '$$(dirname $@)'))")/$< $@
 
 $(DESTDIR)/.dircolors: link/zsh/.dircolors
 	mkdir -p $$(dirname $@)

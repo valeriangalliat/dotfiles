@@ -31,6 +31,14 @@ autoload -Uz promptinit
 promptinit
 
 #
+# Enable colors variables (see `colors` in zshall(1)).
+#
+# This will in particular provide the `$fg` and `$bg` array variables.
+#
+autoload -Uz colors
+colors
+
+#
 # Enable advanced move command.
 #
 autoload -Uz zmv
