@@ -1,4 +1,5 @@
-DESTDIR ?= ~
+PYTHON = python
+DESTDIR ?= $(HOME)
 
 all:
 
