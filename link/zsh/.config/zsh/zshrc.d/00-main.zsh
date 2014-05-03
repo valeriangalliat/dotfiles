@@ -7,21 +7,23 @@
 
 setopt appendhistory # Do not overwrite history on new session
 setopt histignoredups # Ignore duplicate lines
-setopt histignorespace # Ignore lines beginning with a space
 setopt histnostore # Do not store history command in history
+setopt incappendhistory # Do not wait exit to append history
+setopt sharehistory # Share history between sessions
 
 setopt autocd # Change directory when typing only directory name
 setopt nomatch # Error when file pattern has no matches
 setopt completealiases # Enable completion for aliases
 setopt correct # Try to correct mispelled command names
 setopt extendedglob # Use advanced globbing patterns
+setopt printexitvalue # Print exit value if non-zero
 
 #
 # Enable zsh advanced completion (`z` option to autoload with zsh style).
 # I don't know what the `U` option does but everybody uses it with `autoload`.
 #
 autoload -Uz compinit
-compinit
+compinit -d ~/.cache/zsh/completion
 
 #
 # Enable advanced prompt. I don't know what it does but well, if

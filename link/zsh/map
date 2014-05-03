@@ -1,4 +1,5 @@
 .config/zsh
+.config/profile
 .dircolors
 .profile
 .zshenv

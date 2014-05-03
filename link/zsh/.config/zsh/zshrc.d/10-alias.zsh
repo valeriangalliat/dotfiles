@@ -1,10 +1,18 @@
+if "$PROFILE_BSD"; then
+    # Enable colored version
+    alias lsc='colorls -G'
+fi
+
+if "$PROFILE_LINUX"; then
+    # Enable color, display directories before files
+    alias lsc='ls --color --group-directories-first'
+fi
+
 #
 # `F` to append file indicators (`/` for dir, `@` for link, etc),
 # `h` to display human readable sizes (for when combined with `l`).
 #
-# Also enable color and display directories before files.
-#
-alias ls='ls -Fh --color --group-directories-first'
+alias ls="lsc -Fh"
 
 # List view
 alias l='ls -l'
@@ -24,13 +32,21 @@ alias mmv='noglob zmv -W'
 #
 # Also enable color.
 #
-alias grep='grep -Ei --color'
+alias grep='grep -Ei'
+
+if "$PROFILE_LINUX"; then
+    # Enable color
+    alias grep='grep --color'
+fi
 
 # Always recursive copy
 alias cp='cp -r'
 
-# Shortcut to quit terminal
+# Misc aliases
 alias q='exit'
+alias j='jobs'
+alias r='reset' # Overrides a zsh builtin
+alias c='clear'
 
 # Get remote IP from SFR box homepage (absolute grep to skip alias)
 alias ipb="curl -s 192.168.1.1 | awk '/Adresse IP/{getline;print;exit}' | /usr/bin/grep -Eo '[0-9\.]+'"

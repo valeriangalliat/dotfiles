@@ -1,0 +1,60 @@
+#
+# ~/.config/profile
+#
+# Real environment file. This file is used by `~/.zshenv` and `~/.profile`,
+# and must be POSIX shell compatible.
+#
+# Variables beginning with `GRACEFUL_` are computed and cached, to allow
+# an export to be defined regarding of available commands. For example,
+# `GRACEFUL_EDITOR='vim vi'` will set `EDITOR` to `vim` if available,
+# otherwise fallback to `vi`.
+#
+# The `PROFILE_PATH` special variable contains additions to `PATH`, that
+# can be cached for performance considerations. This variable should be
+# used instead of directly messing with `PATH`.
+#
+# Some variables are defined to `true` or `false` regarding of the
+# environment. They are eloquent enough so they don't need a description:
+#
+# - `PROFILE_LINUX`,
+# - `PROFILE_BSD`,
+# - `PROFILE_OPENBSD`,
+# - `PROFILE_FREEBSD`.
+#
+# When the cache must be generated, the `PROFILE_CACHE` variable is set
+# to `true`, and a `profile_cache` function is available to append data to
+# the cache file (taking a string to add to cache as parameter).
+#
+
+DOTFILES=~/dotfiles
+
+export LANG=en_US.UTF-8
+
+HISTFILE=~/.cache/zsh/history
+HISTSIZE=1024
+SAVEHIST=1024
+
+if "$PROFILE_CACHE"; then
+    # Make zsh cache directory if needed
+    mkdir -p ~/.cache/zsh
+
+    # Include dotfiles' bin if exists
+    [ -d "$DOTFILES/bin" ] && PROFILE_PATH="$DOTFILES/bin:$PROFILE_PATH"
+
+    # Include private bin if exists
+    [ -d ~/bin ] && PROFILE_PATH=~/bin:"$PROFILE_PATH"
+
+    GRACEFUL_EDITOR='vim vi'
+    GRACEFUL_BROWSER='firefox elinks links lynx'
+    GRACEFUL_PAGER='less more'
+
+    if "$PROFILE_LINUX"; then
+        # Set custom directory colors
+        eval "$(dircolors ~/.dircolors)"
+        export LS_COLORS
+        profile_cache "export LS_COLORS='$LS_COLORS'"
+    fi
+fi
+
+# Source local file if exists
+[ -f ~/.config/profile.local ] && . ~/.config/profile.local

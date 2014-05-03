@@ -1,25 +1,88 @@
 #
 # ~/.zshenv
 #
+# This file contains a script to compute and cache environment variables
+# automatically.
+#
+# See `~/.config/profile` for real configuration.
+#
 
-export DOTFILES=~/dotfiles
-export EDITOR=vim
+# Whether to generate the cache
+PROFILE_CACHE=false
 
-export HISTFILE=~/.histfile
-export HISTSIZE=1000
-export SAVEHIST=1000
+if [ -f ~/.cache/profile ]; then
+    . ~/.cache/profile
+else
+    # The cache needs to be generated
+    PROFILE_CACHE=true
 
-# Include dotfiles' bin if exists
-[ -d "$DOTFILES/bin" ] && PATH="$DOTFILES/bin:$PATH"
+    PROFILE_LINUX=false
+    PROFILE_BSD=false
+    PROFILE_OPENBSD=false
+    PROFILE_FREEBSD=false
 
-# Include private bin if exists
-[ -d ~/bin ] && PATH=~/bin:"$PATH"
+    case "$(uname)" in
+        Linux) PROFILE_LINUX=true ;;
+        *BSD) PROFILE_BSD=true ;&
+        OpenBSD) PROFILE_OPENBSD=true ;;
+        FreeBSD) PROFILE_FREEBSD=true ;;
+    esac
 
-export PATH
+    # Create cache directory if needed
+    [ ! -d ~/.cache ] && mkdir ~/.cache
 
-# Set custom directory colors
-eval "$(dircolors ~/.dircolors)"
-export LS_COLORS
+    # Write to cache file
+    profile_cache() {
+        echo "$@" >> ~/.cache/profile
+    }
 
-# Source local file if exists
-[ -f ~/.zshenv.local ] && source ~/.zshenv.local
+    profile_cache "PROFILE_LINUX=$PROFILE_LINUX"
+    profile_cache "PROFILE_BSD=$PROFILE_BSD"
+    profile_cache "PROFILE_OPENBSD=$PROFILE_OPENBSD"
+    profile_cache "PROFILE_FREEBSD=$PROFILE_FREEBSD"
+fi
+
+#
+# When the cache exists, it is already loaded, otherwise, the needed
+# variables are already computed.
+#
+. ~/.config/profile
+
+if "$PROFILE_CACHE"; then
+    #
+    # Use `set` to dump all defined variables and find the lines beginning
+    # with `GRACEFUL_` to process them.
+    #
+    set | while read l; do
+        # Pass if the line does not begins with `GRACEFUL_`
+        [[ "$l" != GRACEFUL_* ]] && continue
+
+        # Delete everything after `=` (graceful variable)
+        g="${l%=*}"
+
+        # Delete prefix (final export)
+        e="${g#GRACEFUL_}"
+
+        #
+        # Loop through the graceful variable content.
+        #
+        # Caution: this is not properly escaped.
+        #
+        for c in $(eval "echo \$$g"); do
+            #
+            # In zsh, the `commands` variable is a map indexed by command
+            # names. If the command exists, export it and append the export
+            # to the cache.
+            #
+            if (( $+commands[$c] )); then
+                export "$e=$c"
+                profile_cache "export $e=$c"
+                break
+            fi
+        done
+    done
+
+    # Compute path
+    export PATH="${PROFILE_PATH}$PATH"
+    profile_cache "export PATH='$PROFILE_PATH'"'"$PATH"'
+fi

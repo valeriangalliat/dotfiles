@@ -5,13 +5,15 @@
 # See zshoptions(1) for options documentation.
 #
 
-# Source partial files in order
-for file in "$HOME"/.config/zsh/*.zsh; do
+for file in ~/.config/zsh/zshrc.d/*.zsh; do
     source "$file"
 done
 
-# Source local file if exists
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+if [ -d ~/.config/zsh/zshrc.local.d ]; then
+    for file in ~/.config/zsh/zshrc.local.d/*.zsh; do
+        source "$file"
+    done
+fi
 
 #
 # Prevent the previous command to propagate an error in `$?`
