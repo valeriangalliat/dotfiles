@@ -75,7 +75,7 @@ bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 
 # Toggle music
-bindsym $mod+Space exec mpc toggle
+bindsym $mod+space exec mpc toggle
 
 # Focus parent/child container
 bindsym $mod+q focus parent
