@@ -28,7 +28,7 @@ make deps-all
 Special targets are created for each subdirectory of the `deps` directory.
 
 ```sh
-make deps-shell deps-vim
+make deps-zsh deps-vim
 ```
 
 ### Install in home directory
@@ -43,10 +43,13 @@ make install
 make install DESTDIR=/path/to/destdir
 ```
 
+### Link specific categories
+
+```sh
+make link-zsh link-vim
+```
+
 The `link` directory has its own makefile to build `link.mk` dynamically. This
 file contains all the targets to link in destination directory. For each
 subdirectory of `link`, if a `map` file is present, it will be used as the list
 of files to link, else the whole directory content will be linked.
-
-The `link/zsh/.zshrc` file is also made with its own makefile, to concatenate
-all the files from `.zshrc.d` in right order.
