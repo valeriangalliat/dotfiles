@@ -1,6 +1,6 @@
 DIRS += deps
 DIRS += deps/misc
-DIRS += deps/shell
+DIRS += deps/zsh
 DIRS += deps/urxvt
 DIRS += deps/sublime-text
 DIRS += deps/vim
@@ -27,10 +27,10 @@ deps-misc: \
 	deps/misc/block \
 	deps/misc/vimpager
 
-deps-shell: \
-	deps/shell \
-	deps/shell/ls-colors \
-	deps/shell/zsh-syntax-highlighting
+deps-zsh: \
+	deps/zsh \
+	deps/zsh/ls-colors \
+	deps/zsh/syntax-highlighting
 
 deps-urxvt: \
 	deps/urxvt \
@@ -70,10 +70,10 @@ deps/misc/block:
 deps/misc/vimpager:
 	git clone https://github.com/rkitover/vimpager.git $@
 
-deps/shell/ls-colors:
+deps/zsh/ls-colors:
 	git clone https://github.com/trapd00r/LS_COLORS.git $@
 
-deps/shell/zsh-syntax-highlighting:
+deps/zsh/syntax-highlighting:
 	git clone https://github.com/valeriangalliat/zsh-syntax-highlighting-filetypes.git $@
 
 deps/urxvt/perls:
