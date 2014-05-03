@@ -6,12 +6,12 @@
 #
 
 for file in ~/.config/zsh/zshrc.d/*.zsh; do
-    source "$file"
+    . "$file"
 done
 
 if [ -d ~/.config/zsh/zshrc.local.d ]; then
     for file in ~/.config/zsh/zshrc.local.d/*.zsh; do
-        source "$file"
+        . "$file"
     done
 fi
 
