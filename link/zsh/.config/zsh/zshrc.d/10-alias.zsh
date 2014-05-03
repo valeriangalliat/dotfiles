@@ -1,18 +1,18 @@
 if "$PROFILE_BSD"; then
     # Enable colored version
-    alias lsc='colorls -G'
-fi
-
-if "$PROFILE_LINUX"; then
+    _ls='colorls -G'
+elif "$PROFILE_LINUX"; then
     # Enable color, display directories before files
-    alias lsc='ls --color --group-directories-first'
+    _ls='ls --color --group-directories-first'
+else
+    _ls='ls'
 fi
 
 #
 # `F` to append file indicators (`/` for dir, `@` for link, etc),
 # `h` to display human readable sizes (for when combined with `l`).
 #
-alias ls="lsc -Fh"
+alias ls="$_ls -Fh"
 
 # List view
 alias l='ls -l'
@@ -26,18 +26,20 @@ alias la='l -A'
 # Simple move command
 alias mmv='noglob zmv -W'
 
+if "$PROFILE_LINUX"; then
+    # Enable color
+    _grep='grep --color'
+else
+    _grep='grep'
+fi
+
 #
 # `E` for extended regular expressions,
 # `i` to be case insensitive.
 #
 # Also enable color.
 #
-alias grep='grep -Ei'
-
-if "$PROFILE_LINUX"; then
-    # Enable color
-    alias grep='grep --color'
-fi
+_grep="$_grep -Ei"
 
 # Always recursive copy
 alias cp='cp -r'
