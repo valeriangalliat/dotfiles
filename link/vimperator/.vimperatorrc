@@ -1,2 +1,6 @@
+" No navigation and scrollbars
 set gui=nonavigation
 set scrollbars=false
+
+" Pause music on YouTube video page open (this is gold)
+autocmd PageLoadPre ^https://www\\.youtube\\.com/watch\\? :silent !mpc pause
