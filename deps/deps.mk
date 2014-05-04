@@ -8,7 +8,8 @@ DIRS += deps/vim
 deps-all: \
 	deps \
 	deps-misc \
-	deps-shell \
+	deps-zsh \
+	deps-urxvt \
 	deps-sublime-text \
 	deps-vim
 
