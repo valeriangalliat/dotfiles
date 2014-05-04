@@ -74,12 +74,15 @@ bindsym $mod+f fullscreen
 bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 
-# Toggle music
-bindsym $mod+space exec mpc toggle
-
 # Focus parent/child container
 bindsym $mod+q focus parent
 bindsym $mod+s focus child
+
+# Music stuff
+bindsym $mod+space exec mpc toggle
+bindsym $mod+n exec mpc next
+bindsym $mod+p exec mpc prev
+bindsym $mod+BackSpace exec mpc seek 0
 
 # Workspace names
 set $w1 1-web
