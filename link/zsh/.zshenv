@@ -58,7 +58,7 @@ if "$PROFILE_CACHE"; then
         [[ "$l" != GRACEFUL_* ]] && continue
 
         # Delete everything after `=` (graceful variable)
-        g="${l%=*}"
+        g=$(echo "$l" | sed 's/=.*//')
 
         # Delete prefix (final export)
         e="${g#GRACEFUL_}"
