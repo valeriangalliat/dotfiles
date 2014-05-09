@@ -9,7 +9,6 @@ setopt appendhistory # Do not overwrite history on new session
 setopt histignoredups # Ignore duplicate lines
 setopt histnostore # Do not store history command in history
 setopt incappendhistory # Do not wait exit to append history
-setopt sharehistory # Share history between sessions
 
 setopt autocd # Change directory when typing only directory name
 setopt nomatch # Error when file pattern has no matches
