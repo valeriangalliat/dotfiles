@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+pyrnotify 4321 &
+ssh -R 4321:localhost:4321 "$@"

@@ -1,5 +1,6 @@
 DIRS += deps
 DIRS += deps/misc
+DIRS += deps/weechat
 DIRS += deps/zsh
 DIRS += deps/urxvt
 DIRS += deps/sublime-text
@@ -8,6 +9,7 @@ DIRS += deps/vim
 deps-all: \
 	deps \
 	deps-misc \
+	deps-weechat \
 	deps-zsh \
 	deps-urxvt \
 	deps-sublime-text \
@@ -27,6 +29,10 @@ deps-misc: \
 	deps/misc/dwall \
 	deps/misc/block \
 	deps/misc/vimpager
+
+deps-weechat: \
+	deps/weechat \
+	deps/weechat/pyrnotify
 
 deps-zsh: \
 	deps/zsh \
@@ -70,6 +76,10 @@ deps/misc/block:
 
 deps/misc/vimpager:
 	git clone https://github.com/rkitover/vimpager.git $@
+
+deps/weechat/pyrnotify:
+	mkdir $@
+	wget -P $@ http://www.weechat.org/files/scripts/pyrnotify.py
 
 deps/zsh/ls-colors:
 	git clone https://github.com/trapd00r/LS_COLORS.git $@
