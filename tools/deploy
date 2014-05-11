@@ -1,0 +1,57 @@
+#!/bin/sh -e
+
+# Default environment variables
+[ -z "$PYTHON" ] && PYTHON=python
+[ -z "$DESTDIR" ] && DESTDIR=~
+
+DIR="$1"
+
+relpath() {
+    "$PYTHON" -c \
+        "import os; import sys; print(os.path.relpath(sys.argv[1], sys.argv[2]))" \
+        "$1" "$2"
+}
+
+dir() {
+    dir=$(dirname "$1")
+    mkdir -p "$dir"
+}
+
+alink() {
+    dir "$2"
+    ln -fs "$(relpath "$1" "$(dirname "$2")")" "$2"
+}
+
+link() {
+    alink "$DIR/$1" "$DESTDIR/$2"
+}
+
+hlink() {
+    alink "$DESTDIR/$1" "$DESTDIR/$2"
+}
+
+acopy() {
+    dir "$2"
+
+    #
+    # If destination file already exists and the cheksum of both files
+    # is the same, do nothing.
+    #
+    if [ -f "$2" ]; then
+        if [ "$(md5sum < "$1")" = "$(md5sum < $2)" ]; then
+            return
+        fi
+    fi
+
+    cp -i "$1" "$2"
+}
+
+copy() {
+    acopy "$DIR/$1" "$DESTDIR/$2"
+}
+
+hcopy() {
+    acopy "$DESTDIR/$1" "$DESTDIR/$2"
+}
+
+. "$DIR/install.sh"

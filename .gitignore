@@ -1,26 +1,3 @@
 deps/*
-!deps/deps.mk
-
-link/sublime-text/.config/sublime-text-3/Cache
-link/sublime-text/.config/sublime-text-3/Index
-link/sublime-text/.config/sublime-text-3/Installed Packages
-link/sublime-text/.config/sublime-text-3/Local
-link/sublime-text/.config/sublime-text-3/Packages/User/Package Control.cache
-link/sublime-text/.config/sublime-text-3/Packages/User/Package Control.last-run
-link/sublime-text/.config/sublime-text-3/Packages/User/Package Control.sublime-settings
-
-link/vim/.vim/.netrwhist
-
-link/weechat/.weechat/alias.conf
-link/weechat/.weechat/charset.conf
-link/weechat/.weechat/iset.conf
-link/weechat/.weechat/logger.conf
-link/weechat/.weechat/logs/
-link/weechat/.weechat/plugins.conf
-link/weechat/.weechat/relay.conf
-link/weechat/.weechat/rmodifier.conf
-link/weechat/.weechat/script.conf
-link/weechat/.weechat/script/
-link/weechat/.weechat/sec.conf
-link/weechat/.weechat/weechat.log
-link/weechat/.weechat/xfer.conf
+!deps/deps.yaml
+!deps/make

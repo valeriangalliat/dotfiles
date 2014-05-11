@@ -1,0 +1,7 @@
+#
+# ~/.config/zsh/zshenv
+#
+
+HISTFILE=~/.cache/zsh/history
+HISTSIZE=1024
+SAVEHIST=1024

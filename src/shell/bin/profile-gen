@@ -1,0 +1,64 @@
+#!/bin/sh -e
+
+dir=$(dirname "$0")
+
+mkdir -p ~/.cache/shell
+
+# Reset profile cache
+> ~/.cache/shell/profile
+
+cache() {
+    echo "$1='$2'" >> ~/.cache/shell/profile
+}
+
+PROFILE_LINUX=false
+PROFILE_BSD=false
+PROFILE_OPENBSD=false
+PROFILE_FREEBSD=false
+
+case "$(uname)" in
+    Linux) PROFILE_LINUX=true ;;
+    *BSD) PROFILE_BSD=true ;&
+    OpenBSD) PROFILE_OPENBSD=true ;;
+    FreeBSD) PROFILE_FREEBSD=true ;;
+esac
+
+cache PROFILE_LINUX "$PROFILE_LINUX"
+cache PROFILE_BSD "$PROFILE_BSD"
+cache PROFILE_OPENBSD "$PROFILE_OPENBSD"
+cache PROFILE_FREEBSD "$PROFILE_FREEBSD"
+
+# Source cached profile generator
+. ~/.config/shell/profile.gen
+
+#
+# Use `set` to dump all defined variables and find the lines beginning
+# with `GRACEFUL_` to process them.
+#
+set | while read l; do
+    # Pass if the line does not begins with `GRACEFUL_`
+    echo "$l" | grep -qv '^GRACEFUL_' && continue
+
+    # Delete everything after `=` (graceful variable)
+    g=$(echo "$l" | sed 's/=.*//')
+
+    # Delete prefix (final export)
+    e=$(echo "$g" | sed 's/^GRACEFUL_//')
+
+    echo $g
+
+    #
+    # Loop through the graceful variable content.
+    #
+    # Caution: this is not properly escaped.
+    #
+    for c in $(eval "echo \$$g"); do
+        #
+        # Use the `command` builtin to check for existing commands.
+        #
+        if command -v "$c" > /dev/null; then
+            cache "$e" "$c"
+            break
+        fi
+    done
+done

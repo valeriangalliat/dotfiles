@@ -1,0 +1,146 @@
+#!/usr/bin/env python
+
+import os
+import subprocess
+import sys
+import yaml
+
+
+class Dep:
+    def install(self):
+        pass
+
+    def update(self):
+        pass
+
+
+class Url(Dep):
+    def __init__(self, url):
+        self.url = url
+
+
+class Git(Url):
+    def install(self):
+        return ['git', 'clone', self.url]
+
+    def update(self):
+        return ['git', 'pull']
+
+
+class Wget(Url):
+    def __init__(self, url, name=None):
+        super().__init__(url)
+        self.name = name
+
+    def install(self):
+        # `nv` to have less verbosity, `-N` to take only newer and overwrite
+        args = ['wget', '-nv', '-N']
+
+        if self.name is not None:
+            args.extend(('-O', self.name))
+
+        args.append(self.url)
+        return args
+
+    def update(self):
+        return self.install()
+
+
+
+class Deploy:
+    def __init__(self, selection, deps):
+        self.selection = selection
+        self.deps = deps
+
+
+class Deps(dict, Dep):
+    @classmethod
+    def from_yaml(cls, stream):
+        y = yaml.load(stream)
+        d = cls()
+
+        for cat, sub in y.items():
+            d[cat] = {}
+
+            for dir, opts in sub.items():
+                type = opts['type']
+                del opts['type']
+
+                d[cat][dir] = getattr(sys.modules[__name__], type)(**opts)
+
+        return d
+
+    @classmethod
+    def from_yaml_file(cls, file):
+        with open(file, 'r') as f:
+            return cls.from_yaml(f)
+
+    def __iter__(self):
+        for cat, sub in self.items():
+            for dir, dep in sub.items():
+                yield cat, dir, dep
+
+    def sub(self, selection):
+        d = __class__()
+
+        for item in selection:
+            if '.' in item:
+                # Directory
+                cat, dir = item.split('.', 1)
+
+                if not cat in d:
+                    d[cat] = {}
+
+                d[cat][dir] = self[cat][dir]
+            else:
+                # Category
+                cat = item
+                d[cat] = self[cat]
+
+        return d
+
+    def install(self):
+        for cat, dir, dep in self:
+            dir = '/'.join([cat, dir])
+
+            if not os.path.exists(dir):
+                yield dir, dep.install()
+
+    def update(self):
+        for cat, dir, dep in self:
+            yield '/'.join([cat, dir]), dep.update()
+
+
+def main():
+    assert(len(sys.argv) >= 2)
+
+    command = sys.argv[1]
+    selection = sys.argv[2:]
+
+    # Will throw if the command is not a `Dep` method
+    getattr(Dep, command)
+
+    # Load config file
+    deps = Deps.from_yaml_file('deps.yaml')
+
+    if len(selection) == 0:
+        tasks = getattr(deps, command)()
+    else:
+        tasks = getattr(deps.sub(selection), command)()
+
+    for dir, args in tasks:
+        cwd = os.getcwd()
+        os.chdir(dir)
+
+        print(dir)
+        print(' '.join(args))
+
+        subprocess.call(args, stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr)
+
+        print()
+
+        os.chdir(cwd)
+
+
+if __name__ == '__main__':
+    main()

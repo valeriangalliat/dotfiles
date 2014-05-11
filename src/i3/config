@@ -1,0 +1,163 @@
+#
+# ~/.config/i3/config
+#
+# See i3(1) for documentation.
+#
+
+# Modifiers
+set $mod Mod4
+floating_modifier $mod
+
+# Font
+font xft:monospace 8
+
+#
+# Window format.
+#
+# `1pixel` is like `pixel 1`. The borders will be 1 pixel large, and
+# if the window is "alone" the title bar is hidden (unline `default` mode).
+#
+new_window 1pixel
+new_float 1pixel
+
+# Tabbed workspace by default
+workspace_layout tabbed
+
+#
+# Focus previous workspace when switching two times to the same workspace.
+#
+workspace_auto_back_and_forth yes
+
+# Start launcher
+bindsym $mod+d exec dmenu_run -fn monospace:size=8
+
+# Start terminal
+bindsym $mod+Return exec urxvtc
+
+# Kill focused window
+bindsym $mod+Shift+a kill
+
+# Change focus (Vi keys shifted right)
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+m focus right
+
+# Change focus (cursor keys)
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move window (Vi keys shifted right)
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+m move right
+
+# Move window (cursor keys)
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Horizontal split
+bindsym $mod+h split h
+
+# Vertical split
+bindsym $mod+v split v
+
+# Toggle fullscreen
+bindsym $mod+f fullscreen
+
+# Change layout
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# Focus parent/child container
+bindsym $mod+q focus parent
+bindsym $mod+s focus child
+
+# Music stuff
+bindsym $mod+space exec mpc toggle
+bindsym $mod+n exec mpc next
+bindsym $mod+p exec mpc prev
+bindsym $mod+BackSpace exec mpc seek 0
+
+# Workspace names
+set $w1 1-web
+set $w2 2-irc
+set $w3 3-dev
+set $w4 4-mus
+set $w5 5
+set $w6 6
+set $w7 7
+set $w8 8
+set $w9 9
+set $w10 10
+
+# Switch to workspace
+bindsym $mod+1 workspace $w1
+bindsym $mod+2 workspace $w2
+bindsym $mod+3 workspace $w3
+bindsym $mod+4 workspace $w4
+bindsym $mod+5 workspace $w5
+bindsym $mod+6 workspace $w6
+bindsym $mod+7 workspace $w7
+bindsym $mod+8 workspace $w8
+bindsym $mod+9 workspace $w9
+bindsym $mod+10 workspace $w10
+
+# Move container to workspace
+bindsym $mod+Shift+1 move container to workspace $w1
+bindsym $mod+Shift+2 move container to workspace $w2
+bindsym $mod+Shift+3 move container to workspace $w3
+bindsym $mod+Shift+4 move container to workspace $w4
+bindsym $mod+Shift+5 move container to workspace $w5
+bindsym $mod+Shift+6 move container to workspace $w6
+bindsym $mod+Shift+7 move container to workspace $w7
+bindsym $mod+Shift+8 move container to workspace $w8
+bindsym $mod+Shift+9 move container to workspace $w9
+bindsym $mod+Shift+10 move container to workspace $w10
+
+# Reload configuration
+bindsym $mod+Shift+c reload
+
+# Restart i3 in place
+bindsym $mod+Shift+r restart
+
+# Exit X11 session
+bindsym $mod+Shift+e exec i3-msg exit
+
+mode resize {
+    # Resize (Vi keys shifted right)
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym m resize grow width 10 px or 10 ppt
+
+    # Resize (cursor keys)
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # Back to default mode
+    bindsym Return mode default
+    bindsym Escape mode default
+}
+
+# Enter resize mode
+bindsym $mod+r mode resize
+
+bar {
+    status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf -d ~/.config/i3blocks/scripts
+
+    # No tray icons
+    tray_output none
+}
+
+# Keyboard volume keys
+bindsym XF86AudioRaiseVolume exec amixer set Master 1.5dB+ && killall -USR1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer set Master 1.5dB- && killall -USR1 i3blocks
+bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3blocks

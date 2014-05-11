@@ -1,0 +1,32 @@
+#
+# ~/.config/x11/session
+#
+# Executed at X11 start. Load and execute stuff, then start environment.
+#
+
+# Load dotfiles' resources file
+xrdb "$DOTFILES/src/x11/resources"
+
+# Load local recources file if exists
+[ -f ~/.config/x11/resources ] && xrdb -merge ~/.config/x11/resources
+
+# Auto lock screen if all commands are available
+command -v xautolock block scrot mogrify i3lock && xautolock -time 5 -locker block &
+
+# Execute redshift if available
+if command -v redshift; then
+
+    if redshift -l list | grep geoclue; then
+        # Use GeoClue provider
+        redshift -l geoclue:name=org.freedesktop.Geoclue.Providers.Hostip:path=/org/freedesktop/Geoclue/Providers/Hostip &
+    else
+        # Static location (Grenoble)
+        redshift -l 45.188529:5.724524 &
+    fi
+fi
+
+# Start urxvt daemon
+urxvtd -qof
+
+# Execute window manager
+exec i3

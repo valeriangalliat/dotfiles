@@ -1,0 +1,17 @@
+#
+# ~/.config/shell/profile.gen
+#
+# Cached profile generator.
+#
+
+GRACEFUL_EDITOR='vim vi'
+GRACEFUL_BROWSER='firefox elinks links lynx'
+GRACEFUL_PAGER='less more'
+
+if "$PROFILE_LINUX"; then
+    # Generate custom directory colors
+    eval "$(dircolors "$DOTFILES/src/shell/dircolors")"
+
+    # Cache generated colors
+    cache LS_COLORS "$LS_COLORS"
+fi

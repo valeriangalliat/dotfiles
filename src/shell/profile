@@ -1,0 +1,25 @@
+#
+# ~/.config/shell/profile
+#
+# Profile environment variables.
+#
+
+export XDG_DATA_HOME=~/.local/share
+export XDG_CONFIG_HOME=~/.config
+export XDG_CACHE_HOME=~/.cache
+
+export LANG=en_US.UTF-8
+
+# Include dotfiles' bin
+PATH="$DOTFILES/bin:$PATH"
+
+# Include private bin
+PATH="$HOME/bin:$PATH"
+
+export PATH
+
+# First generate cache if needed
+[ ! -f ~/.cache/shell/profile ] && "$DOTFILES/src/shell/bin/profile-gen"
+
+# Source cached profile
+. ~/.cache/shell/profile
