@@ -25,8 +25,8 @@ if command -v redshift; then
     fi
 fi
 
-# Start urxvt daemon
-urxvtd -qof
+# Start urxvt daemon (do not support concatenated options)
+urxvtd -q -o -f
 
 # Execute window manager
 exec i3
