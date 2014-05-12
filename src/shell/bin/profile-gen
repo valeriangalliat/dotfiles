@@ -8,7 +8,7 @@ mkdir -p ~/.cache/shell
 > ~/.cache/shell/profile
 
 cache() {
-    echo "$1='$2'" >> ~/.cache/shell/profile
+    echo "export $1='$2'" >> ~/.cache/shell/profile
 }
 
 PROFILE_LINUX=false
@@ -17,8 +17,11 @@ PROFILE_OPENBSD=false
 PROFILE_FREEBSD=false
 
 case "$(uname)" in
+    *BSD) PROFILE_BSD=true ;;
+esac
+
+case "$(uname)" in
     Linux) PROFILE_LINUX=true ;;
-    *BSD) PROFILE_BSD=true ;&
     OpenBSD) PROFILE_OPENBSD=true ;;
     FreeBSD) PROFILE_FREEBSD=true ;;
 esac
@@ -44,8 +47,6 @@ set | while read l; do
 
     # Delete prefix (final export)
     e=$(echo "$g" | sed 's/^GRACEFUL_//')
-
-    echo $g
 
     #
     # Loop through the graceful variable content.
