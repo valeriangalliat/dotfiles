@@ -8,7 +8,7 @@ DIR="$1"
 
 relpath() {
     "$PYTHON" -c \
-        "import os; import sys; print(os.path.relpath(sys.argv[1], sys.argv[2]))" \
+        'import os; import sys; print(os.path.relpath(sys.argv[1], sys.argv[2]))' \
         "$1" "$2"
 }
 
@@ -19,7 +19,7 @@ dir() {
 
 alink() {
     dir "$2"
-    ln -fs "$(relpath "$1" "$(dirname "$2")")" "$2"
+    ln -fns "$(relpath "$1" "$(dirname "$2")")" "$2"
 }
 
 link() {
@@ -43,7 +43,7 @@ acopy() {
         fi
     fi
 
-    cp -i "$1" "$2"
+    cp -di "$1" "$2"
 }
 
 copy() {
