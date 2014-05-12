@@ -27,6 +27,11 @@ class Git(Url):
         return ['git', 'pull']
 
 
+class GitHub(Git):
+    def __init__(self, path):
+        super().__init__('https://github.com/{0}.git'.format(path))
+
+
 class Wget(Url):
     def __init__(self, url, name=None):
         super().__init__(url)

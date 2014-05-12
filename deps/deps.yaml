@@ -1,23 +1,23 @@
 misc:
     noelup:
-        type: Git
-        url: https://github.com/valeriangalliat/noelup.git
+        type: GitHub
+        path: valeriangalliat/noelup
 
     noelscrot:
-        type: Git
-        url: https://github.com/valeriangalliat/noelscrot.git
+        type: GitHub
+        path: valeriangalliat/noelscrot
 
     dwall:
-        type: Git
-        url: https://github.com/valeriangalliat/dwall.git
+        type: GitHub
+        path: valeriangalliat/dwall
 
     block:
-        type: Git
-        url: https://github.com/valeriangalliat/block.git
+        type: GitHub
+        path: valeriangalliat/block
 
     vimpager:
-        type: Git
-        url: https://github.com/rkitover/vimpager.git
+        type: GitHub
+        path: rkitover/vimpager
 
 
 weechat:
@@ -28,71 +28,71 @@ weechat:
 
 zsh:
     ls-colors:
-        type: Git
-        url: https://github.com/trapd00r/LS_COLORS.git
+        type: GitHub
+        path: trapd00r/LS_COLORS
 
     syntax-highlighting:
-        type: Git
-        url: https://github.com/valeriangalliat/zsh-syntax-highlighting-filetypes.git
+        type: GitHub
+        path: valeriangalliat/zsh-syntax-highlighting-filetypes
 
 
 urxvt:
     perls:
-        type: Git
-        url: https://github.com/muennich/urxvt-perls.git
+        type: GitHub
+        path: muennich/urxvt-perls
 
 
 sublime-text:
     package-control:
-        type: Git
-        url: https://github.com/wbond/sublime_package_control.git
+        type: GitHub
+        path: wbond/sublime_package_control
 
     spacegray:
-        type: Git
-        url: https://github.com/kkga/spacegray.git
+        type: GitHub
+        path: kkga/spacegray
 
     jsdocs:
-        type: Git
-        url: https://github.com/spadgos/sublime-jsdocs.git
+        type: GitHub
+        path: spadgos/sublime-jsdocs
 
     asciidoc:
-        type: Git
-        url: https://github.com/SublimeText/AsciiDoc.git
+        type: GitHub
+        path: SublimeText/AsciiDoc
 
 
 vim:
     pathogen:
-        type: Git
-        url: https://github.com/tpope/vim-pathogen.git
+        type: GitHub
+        path: tpope/vim-pathogen
 
     wombat:
-        type: Git
-        url: https://github.com/vim-scripts/wombat256.vim.git
+        type: GitHub
+        path: vim-scripts/wombat256.vim
 
     railscasts:
-        type: Git
-        url: https://github.com/oguzbilgic/sexy-railscasts-theme.git
+        type: GitHub
+        path: oguzbilgic/sexy-railscasts-theme
 
     nerdtree:
-        type: Git
-        url: https://github.com/scrooloose/nerdtree.git
+        type: GitHub
+        path: scrooloose/nerdtree
 
     autocomplpop:
-        type: Git
-        url: https://github.com/vim-scripts/AutoComplPop.git
+        type: GitHub
+        path: vim-scripts/AutoComplPop
 
     ctrlp:
-        type: Git
-        url: https://github.com/kien/ctrlp.vim.git
+        type: GitHub
+        path: kien/ctrlp.vim
 
     multiple-cursors:
-        type: Git
-        url: https://github.com/terryma/vim-multiple-cursors.git
+        type: GitHub
+        path: terryma/vim-multiple-cursors
 
     minibufexpl:
-        type: Git
-        url: https://github.com/fholgado/minibufexpl.vim.git
+        type: GitHub
+        path: fholgado/minibufexpl.vim
 
     dogescript:
-        type: Git
-        url: https://github.com/valeriangalliat/vim-dogescript.git
+        type: GitHub
+        path: valeriangalliat/vim-dogescript
