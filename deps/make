@@ -46,7 +46,6 @@ class Wget(Url):
         return self.install()
 
 
-
 class Deploy:
     def __init__(self, selection, deps):
         self.selection = selection
@@ -114,6 +113,9 @@ class Deps(dict, Dep):
 def main():
     assert(len(sys.argv) >= 2)
 
+    # Always execute in program directory
+    os.chdir(os.path.dirname(sys.argv[0]))
+
     command = sys.argv[1]
     selection = sys.argv[2:]
 
@@ -135,7 +137,8 @@ def main():
         print(dir)
         print(' '.join(args))
 
-        subprocess.call(args, stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr)
+        subprocess.call(args, stdin=sys.stdin, stdout=sys.stdout,
+                        stderr=sys.stderr)
 
         print()
 
