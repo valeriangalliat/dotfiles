@@ -59,6 +59,10 @@ sublime-text:
         type: GitHub
         path: SublimeText/AsciiDoc
 
+    twig:
+        type: GitHub
+        path: Anomareh/PHP-Twig.tmbundle
+
 
 vim:
     pathogen:
