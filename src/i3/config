@@ -158,6 +158,6 @@ bar {
 }
 
 # Keyboard volume keys
-bindsym XF86AudioRaiseVolume exec amixer set Master 1.5dB+ && killall -USR1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer set Master 1.5dB- && killall -USR1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer set Master 1+ && killall -USR1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer set Master 1- && killall -USR1 i3blocks
 bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3blocks
