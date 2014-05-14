@@ -9,6 +9,7 @@ setopt completealiases # Enable completion for aliases
 setopt correct # Try to correct mispelled command names
 setopt extendedglob # Use advanced globbing patterns
 setopt printexitvalue # Print exit value if non-zero
+setopt interactivecomments # Support comments in interactive mode
 
 #
 # Enable zsh advanced completion (`z` option to autoload with zsh style).
