@@ -19,7 +19,21 @@ dir() {
 
 alink() {
     dir "$2"
-    ln -fns "$(relpath "$1" "$(dirname "$2")")" "$2"
+
+    target=$(relpath "$1" "$(dirname "$2")")
+
+    #
+    # If the link already exists and have the same target, do nothing.
+    #
+    if [ -h "$2" ] && [ "$(readlink "$2")" = "$target" ]; then
+        return
+    fi
+
+    #
+    # Always remove destination file, ask before overwriting, and ignore
+    # target directory.
+    #
+    ln -s --force --interactive --no-target-directory "$target" "$2"
 }
 
 link() {
@@ -43,7 +57,12 @@ acopy() {
         fi
     fi
 
-    cp -di "$1" "$2"
+    #
+    # Confirm before overwriting, always remove destination before
+    # overwriting (prevent link to the same file bug), ignore target
+    # directory.
+    #
+    cp --interactive --no-target-directory --remove-destination "$1" "$2"
 }
 
 copy() {
