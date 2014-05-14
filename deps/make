@@ -137,6 +137,10 @@ def main():
 
     for dir, args in tasks:
         cwd = os.getcwd()
+
+        if not os.path.isdir(dir):
+            os.mkdir(dir)
+
         os.chdir(dir)
 
         print(dir)
