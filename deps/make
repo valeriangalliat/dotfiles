@@ -21,7 +21,7 @@ class Url(Dep):
 
 class Git(Url):
     def install(self):
-        return ['git', 'clone', self.url]
+        return ['git', 'clone', self.url, '.']
 
     def update(self):
         return ['git', 'pull']
