@@ -6,3 +6,9 @@ Vim `set ft=markdown` on `.md` files.
 
 The deploy script will fail if it needs to create a directory where a link
 already exists.
+
+Add i3blocks to dependencies.
+
+Create directory `~/.config/i3blocks/scripts` and link i3blocks scripts.
+
+Add custom `volume_fix` script.
