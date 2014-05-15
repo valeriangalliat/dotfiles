@@ -139,7 +139,7 @@ def main():
         cwd = os.getcwd()
 
         if not os.path.isdir(dir):
-            os.mkdir(dir)
+            os.makedirs(dir)
 
         os.chdir(dir)
 
