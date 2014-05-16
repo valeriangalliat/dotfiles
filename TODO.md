@@ -12,3 +12,7 @@ Add i3blocks to dependencies.
 Create directory `~/.config/i3blocks/scripts` and link i3blocks scripts.
 
 Add custom `volume_fix` script.
+
+Precompile dependencies to avoid installing YAML extension.
+
+Deps clean target to remove directories not configured.
