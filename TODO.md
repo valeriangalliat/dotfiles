@@ -16,3 +16,10 @@ Add custom `volume_fix` script.
 Precompile dependencies to avoid installing YAML extension.
 
 Deps clean target to remove directories not configured.
+
+Refactor `link` and `copy` functions with an option for directories, to
+allow to link file with same name in directory like default behavior.
+
+Maybe change directory to category directory to allow glob in link, like
+`link User/*.sublime-settings .config/sublime-text-3/Packages/User` for
+Sublime Text.
