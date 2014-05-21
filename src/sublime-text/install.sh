@@ -12,3 +12,4 @@ setting Preferences
 setting HTML
 setting 'HTML (Twig)'
 setting XML
+setting JavaScript
