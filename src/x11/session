@@ -15,7 +15,6 @@ command -v xautolock block scrot mogrify i3lock && xautolock -time 5 -locker blo
 
 # Execute redshift if available
 if command -v redshift; then
-
     if redshift -l list | grep geoclue; then
         # Use GeoClue provider
         redshift -l geoclue:name=org.freedesktop.Geoclue.Providers.Hostip:path=/org/freedesktop/Geoclue/Providers/Hostip &
