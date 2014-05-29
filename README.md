@@ -80,7 +80,7 @@ Some configuration files are suffixed by `.home`, like
 `src/shell/profile.gen.home`, `src/zsh/zshenv.home`. These files are
 meant to be copied by the `install.sh` script, so they can be easily
 modified for a local configuration. They usually source a similar
-file in "$DOTFILES" directory.
+file in `$DOTFILES` directory.
 
 For example, `src/zsh/zshenv.home` is copied in `~/.zshenv`, and will
 source `src/zsh/zshenv` file.
