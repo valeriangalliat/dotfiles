@@ -83,7 +83,7 @@ modified for a local configuration. They usually source a similar
 file in `$DOTFILES` directory.
 
 For example, `src/zsh/zshenv.home` is copied in `~/.zshenv`, and will
-source `src/zsh/zshenv` file.
+source `$DOTFILES/src/zsh/zshenv` file.
 
 ### Profile
 
