@@ -67,8 +67,8 @@ utility functions.
   file paths. If a file or a directory of the same name already exists,
   it will prompt to overwrite.
 * `link` takes two paths, the first relative to the category directory
-  (e.g. `src/vim`), and the second relative to the target directory. It will
-  just resolve the absolute paths and call `alink`.
+  (e.g., `vimrc`, relative to `src/vim`), and the second relative to the
+  target directory. It will just resolve the absolute paths and call `alink`.
 * `hlink` is the same as `link` but both parameters are relative to the
   target directory.
 * `acopy`, `copy` and `hlink` are the same as their `link` equivalents, but
