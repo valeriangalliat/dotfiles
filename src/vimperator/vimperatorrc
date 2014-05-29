@@ -8,3 +8,20 @@ set scrollbars=false
 
 " Pause music on YouTube video page open (this is gold)
 autocmd PageLoadPre ^https://www\\.youtube\\.com/watch\\? :silent !mpc pause
+
+" Yank all tabs' URL
+nnoremap gya :js yankAll();<CR>
+
+:js << EOF
+function yankAll() {
+  var urls = [];
+
+  tabs.get().forEach(function (info) {
+    var url = info[2];
+    urls.push(url);
+  });
+
+  util.copyToClipboard(urls.join('\n'));
+  liberator.echomsg('Copied ' + urls.length + ' URLs');
+}
+EOF
