@@ -112,8 +112,10 @@ class Deps(dict, Dep):
 
     def update(self):
         for cat, dir, dep in self:
+            dir = '/'.join([cat, dir])
+
             if os.path.exists(dir):
-                yield '/'.join([cat, dir]), dep.update()
+                yield dir, dep.update()
 
 
 def main():
