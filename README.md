@@ -93,7 +93,7 @@ shell profile is loaded, it will load the `profile.gen` file, and parse all
 the `GRACEFUL_` variables. For example, you can define the folowing variable:
 
 ```sh
-GRACEFUL_EDITOR='vim vi'
+GRACEFUL_EDITOR='vim,vi'
 ```
 
 If `vim` is available, the `EDITOR` environment variable will be exported

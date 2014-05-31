@@ -16,6 +16,7 @@ PROFILE_BSD=false
 PROFILE_OPENBSD=false
 PROFILE_FREEBSD=false
 
+# No fallthrough in classic shell
 case "$(uname)" in
     *BSD) PROFILE_BSD=true ;;
 esac
@@ -48,18 +49,27 @@ set | while read l; do
     # Delete prefix (final export)
     e=$(echo "$g" | sed 's/^GRACEFUL_//')
 
-    #
-    # Loop through the graceful variable content.
-    #
-    # Caution: this is not properly escaped.
-    #
-    for c in $(eval "echo \$$g"); do
-        #
-        # Use the `command` builtin to check for existing commands.
-        #
-        if command -v "$c" > /dev/null; then
+    # Extract the graceful variable (value)
+    v=$(eval "echo \$$g")
+
+    # Use comma as loop separator
+    IFS=,
+
+    for c in $v; do
+        # Restore separator (won't affect main loop)
+        unset IFS
+
+        # Extract first item (command name)
+        for cn in $c; do break; done
+
+        # Use the `command` builtin to check for existing commands
+        if command -v "$cn" > /dev/null; then
+            # Cache command with arguments
             cache "$e" "$c"
             break
         fi
     done
+
+    # Ensure normal separator (if the loop was empty)
+    unset IFS
 done
