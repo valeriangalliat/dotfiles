@@ -33,7 +33,7 @@ zsh:
 
     syntax-highlighting:
         type: GitHub
-        path: valeriangalliat/zsh-syntax-highlighting-filetypes
+        path: trapd00r/zsh-syntax-highlighting-filetypes
 
 
 urxvt:
