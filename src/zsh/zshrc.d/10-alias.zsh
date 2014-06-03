@@ -34,7 +34,7 @@ alias la='l -A'
 alias mmv='noglob zmv -W'
 
 # Enable color if possible
-if "$PROFILE_LINUX"; then
+if "$PROFILE_LINUX" || "$PROFILE_FREEBSD"; then
     _grep='grep --color'
 else
     _grep='grep'
@@ -55,6 +55,7 @@ alias q='exit'
 alias j='jobs'
 alias r='reset' # Overrides a zsh builtin
 alias c='clear'
+alias p="$AUDIO_PLAYER"
 
 # Get remote IP from SFR box homepage (absolute grep to skip alias)
 alias ipb="curl -s 192.168.1.1 | awk '/Adresse IP/{getline;print;exit}' | /usr/bin/grep -Eo '[0-9\.]+'"
@@ -66,4 +67,4 @@ alias ipc='curl ip.codejam.info && echo'
 alias ipd='curl ip.deblan.org && echo'
 
 # Infinite funk
-alias funk='ffplay -nodisp "http://gene-wr05.ice.infomaniak.ch/gene-wr05.mp3"'
+alias funk="p 'http://gene-wr05.ice.infomaniak.ch/gene-wr05.mp3'"

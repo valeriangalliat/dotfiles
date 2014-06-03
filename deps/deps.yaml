@@ -77,6 +77,10 @@ vim:
         type: GitHub
         path: oguzbilgic/sexy-railscasts-theme
 
+    unite:
+        type: GitHub
+        path: Shougo/unite.vim
+
     nerdtree:
         type: GitHub
         path: scrooloose/nerdtree
@@ -84,18 +88,6 @@ vim:
     autocomplpop:
         type: GitHub
         path: vim-scripts/AutoComplPop
-
-    ctrlp:
-        type: GitHub
-        path: kien/ctrlp.vim
-
-    multiple-cursors:
-        type: GitHub
-        path: terryma/vim-multiple-cursors
-
-    minibufexpl:
-        type: GitHub
-        path: fholgado/minibufexpl.vim
 
     dogescript:
         type: GitHub

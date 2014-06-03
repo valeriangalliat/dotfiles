@@ -1,9 +1,9 @@
 #
-# ~/config/gtk/gtkrc-2.0
+# ~/.config/gtk/gtkrc-2.0
 #
 
 # Use Clearlooks theme
-include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
+gtk-theme-name = "Clearlooks"
 
 #
 # gVim hook to keep background color in GTK window for overflowing pixels.
