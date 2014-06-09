@@ -40,11 +40,9 @@ else
     _grep='grep'
 fi
 
-#
-# `E` for extended regular expressions,
-# `i` to be case insensitive.
-#
-alias grep="$_grep -Ei"
+alias grep="$_grep"
+alias egrep="e$_grep"
+
 unset _grep
 
 # Always recursive copy
