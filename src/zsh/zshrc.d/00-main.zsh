@@ -12,8 +12,9 @@ setopt printexitvalue # Print exit value if non-zero
 setopt interactivecomments # Support comments in interactive mode
 
 #
-# Enable zsh advanced completion (`z` option to autoload with zsh style).
-# I don't know what the `U` option does but everybody uses it with `autoload`.
+# Enable zsh advanced completion (`-z` option to autoload with zsh style).
+# I don't know what the `-U` option does but everybody uses it with
+# `autoload`.
 #
 autoload -Uz compinit
 compinit -d ~/.cache/zsh/completion

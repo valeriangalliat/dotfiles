@@ -3,8 +3,8 @@
 #
 precmd() {
     #
-    # `P` for prompt expansion, see zshmisc(1),
-    # `n` to avoid new line.
+    # `-P` for prompt expansion, see zshmisc(1),
+    # `-n` to avoid new line.
     #
     # `\e]0;` begins terminal title escape sequence,
     # `\a` ends escape sequence.

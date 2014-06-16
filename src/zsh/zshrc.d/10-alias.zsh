@@ -15,8 +15,8 @@ if "$PROFILE_LINUX"; then
 fi
 
 #
-# `F` to append file indicators (`/` for dir, `@` for link, etc),
-# `h` to display human readable sizes (for when combined with `l`).
+# `-F` to append file indicators (`/` for dir, `@` for link, etc),
+# `-h` to display human readable sizes (for when combined with `-l`).
 #
 alias ls="$_ls -Fh"
 unset _ls
