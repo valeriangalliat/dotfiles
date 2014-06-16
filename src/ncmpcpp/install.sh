@@ -1,2 +1,2 @@
 link config .config/ncmpcpp/config
-hlink .ncmpcpp/config .config/ncmpcpp/config
+hlink .config/ncmpcpp/config .ncmpcpp/config
