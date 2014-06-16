@@ -27,5 +27,8 @@ fi
 # Start urxvt daemon (do not support concatenated options) if not started
 ps -C urxvtd || urxvtd -q -o -f
 
+# Activate numpad if `numlockx` is available
+command -v numlockx && numlockx
+
 # Execute window manager
 exec i3
