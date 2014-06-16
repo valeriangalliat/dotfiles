@@ -3,19 +3,15 @@ export DESTDIR ?= $(HOME)
 
 all:
 
-install: \
+install: install-cli \
 	install-gtk \
 	install-i3 \
+	install-mpd \
 	install-qt \
-	install-shell \
 	install-sublime-text \
-	install-tmux \
 	install-urxvt \
-	install-vim \
 	install-vimperator \
-	install-weechat \
-	install-x11 \
-	install-zsh
+	install-x11
 
 install-cli: \
 	install-shell \
@@ -24,38 +20,41 @@ install-cli: \
 	install-weechat \
 	install-zsh
 
+install-shell:
+	tools/deploy src/shell
+
+install-tmux:
+	tools/deploy src/tmux
+
+install-vim:
+	tools/deploy src/vim
+
+install-weechat:
+	tools/deploy src/weechat
+
+install-zsh:
+	tools/deploy src/zsh
+
 install-gtk:
 	tools/deploy src/gtk
 
 install-i3:
 	tools/deploy src/i3
 
+install-mpd:
+	tools/deploy src/mpd
+
 install-qt:
 	tools/deploy src/qt
-
-install-shell:
-	tools/deploy src/shell
 
 install-sublime-text:
 	tools/deploy src/sublime-text
 
-install-tmux:
-	tools/deploy src/tmux
-
 install-urxvt:
 	tools/deploy src/urxvt
-
-install-vim:
-	tools/deploy src/vim
 
 install-vimperator:
 	tools/deploy src/vimperator
 
-install-weechat:
-	tools/deploy src/weechat
-
 install-x11:
 	tools/deploy src/x11
-
-install-zsh:
-	tools/deploy src/zsh
