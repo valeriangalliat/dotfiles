@@ -89,7 +89,7 @@ set $w1 1-web
 set $w2 2-irc
 set $w3 3-dev
 set $w4 4-mus
-set $w5 5
+set $w5 5-xmpp
 set $w6 6
 set $w7 7
 set $w8 8
