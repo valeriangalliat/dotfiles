@@ -1,1 +1,1 @@
-copy mpd.conf .config/mpd/mpd.conf
+link mpd.conf .config/mpd/mpd.conf
