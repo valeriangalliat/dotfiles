@@ -48,11 +48,12 @@ acopy() {
     dir "$2"
 
     #
-    # If destination file already exists and the cheksum of both files
-    # is the same, do nothing.
+    # If destination file already exists print both file differencies.
+    #
+    # If the files are the same (diff(1) will not fail), do nothing.
     #
     if [ -f "$2" ]; then
-        if [ "$(md5sum < "$1")" = "$(md5sum < $2)" ]; then
+        if diff --unified "$2" "$1"; then
             return
         fi
     fi
