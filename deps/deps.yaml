@@ -3,9 +3,9 @@ misc:
         type: GitHub
         path: valeriangalliat/noelup
 
-    noelscrot:
+    printscreen:
         type: GitHub
-        path: valeriangalliat/noelscrot
+        path: valeriangalliat/printscreen
 
     dwall:
         type: GitHub
