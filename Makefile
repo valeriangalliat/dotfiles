@@ -7,6 +7,7 @@ install: install-cli \
 	install-gtk \
 	install-i3 \
 	install-mpd \
+	install-ncmpcpp \
 	install-qt \
 	install-sublime-text \
 	install-urxvt \
@@ -43,6 +44,9 @@ install-i3:
 
 install-mpd:
 	tools/deploy src/mpd
+
+install-ncmpcpp:
+	tools/deploy src/ncmpcpp
 
 install-qt:
 	tools/deploy src/qt
