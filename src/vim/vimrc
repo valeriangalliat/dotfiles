@@ -77,7 +77,6 @@ noremap ? :set hlsearch<cr>?
 
 set listchars=tab:——,trail:•,nbsp:•
 set list " Show whitespaces
-autocmd BufWritePre * :%s/\s\+$//e " Trim trailing whitespaces on save
 
 " Misc
 
