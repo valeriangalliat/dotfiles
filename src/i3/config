@@ -162,6 +162,12 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 1+ && killall -USR1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer set Master 1- && killall -USR1 i3blocks
 bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3blocks
 
+# Print screen bindings
+bindsym Print exec printscreen cjup
+bindsym Shift+Print exec printscreen cjup -s
+bindsym Control+Print exec printscreen noelup
+bindsym Control+Shift+Print exec printscreen noelup -s
+
 # Auto launch programs
 exec i3-msg 'workspace $w1; exec firefox'
 exec i3-msg 'workspace $w2; exec urxvtc'

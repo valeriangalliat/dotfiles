@@ -1,0 +1,70 @@
+#!/bin/sh -e
+
+readonly PROGNAME=$(basename "$0")
+
+help() {
+    cat << EOF
+Take a screenshot with scrot(1) passing it given <argument>s, and pass
+generated file to <command>.
+
+The scrot(1) \`-e\` option will be used to execute <command>.
+
+If the command returns 0, its output is copied to clipboard using xclip(1).
+xsel(1x) is not used because it seems not to work in i3(1) key bindings.
+
+If notify-send(1) is available, a notification will be sent after executing
+scrot(1), with a success or error message.
+
+Usage:
+  $PROGNAME <command> [<argument>...]
+  $PROGNAME -h | --help
+
+Options:
+  <command>   The upload command to use. It must take a file path as only
+              argument, and return 0 on success with the file URL in
+              standard output. The output of this command will be directly
+              displayed.
+  <argument>  Argument passed to scrot(1) during the capture.
+  -h, --help  Show this screen.
+EOF
+}
+
+notify() {
+    if command -v notify-send > /dev/null; then
+        notify-send "$@"
+    fi
+}
+
+main() {
+    # Asking for help
+    if [ "$1" = '-h' ] || [ "$1" = "--help" ]; then
+        help
+        return
+    fi
+
+    # The first argument is not a valid command
+    if ! command -v "$1" > /dev/null; then
+        help
+        return 1
+    fi
+
+    command=$1; shift
+
+    #
+    # Sleep before running scrot(1), otherwise the program is unable to grab
+    # the mouse pointer if needed.
+    #
+    # See <https://bbs.archlinux.org/viewtopic.php?pid=1391992#p1391992>.
+    #
+    sleep .1
+
+    # Capture command output
+    if data=$(scrot "$@" -e "$command \$f; rm \$f" 2>&1); then
+        notify "Screenshot success: $data"
+        echo "$data" | xclip
+    else
+        notify "Screenshot error: $data"
+    fi
+}
+
+main "$@"
