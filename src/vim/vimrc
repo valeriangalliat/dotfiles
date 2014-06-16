@@ -51,6 +51,9 @@ filetype on
 filetype indent on " Load indentation rules regarding of filetype
 filetype plugin on " Filetype specific config
 
+" Syntax associations
+au BufRead,BufNewFile *.md set filetype=markdown
+
 " X11 integration
 
 set clipboard=unnamed " X11 clipboard

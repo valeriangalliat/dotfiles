@@ -1,5 +1,3 @@
-Vim `set ft=markdown` on `.md` files.
-
 The deploy script will fail if it needs to create a directory where a link
 already exists.
 
