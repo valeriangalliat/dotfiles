@@ -92,3 +92,7 @@ vim:
     dogescript:
         type: GitHub
         path: valeriangalliat/vim-dogescript
+
+    vimperator:
+        type: Wget
+        url: http://vimperator-labs.googlecode.com/hg/vimperator/contrib/vim/syntax/vimperator.vim

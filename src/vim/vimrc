@@ -52,7 +52,9 @@ filetype indent on " Load indentation rules regarding of filetype
 filetype plugin on " Filetype specific config
 
 " Syntax associations
+
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile vimperatorrc set filetype=vimperator
 
 " X11 integration
 
