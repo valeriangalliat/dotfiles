@@ -10,7 +10,7 @@ generated file to <command>.
 The scrot(1) \`-e\` option will be used to execute <command>.
 
 If the command returns 0, its output is copied to clipboard using xclip(1).
-xsel(1x) is not used because it seems not to work in i3(1) key bindings.
+xsel(1) is not used because it seems not to work in i3(1) key bindings.
 
 If notify-send(1) is available, a notification will be sent after executing
 scrot(1), with a success or error message.
