@@ -13,7 +13,7 @@ xrdb "$DOTFILES/src/x11/resources"
 # Auto lock screen if all commands are available
 command -v xautolock block scrot mogrify i3lock && xautolock -time 5 -locker block &
 
-# Execute redshift if available
+# Execute Redshift if available
 if command -v redshift; then
     if redshift -l list | grep geoclue; then
         # Use GeoClue provider
