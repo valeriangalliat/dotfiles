@@ -48,7 +48,7 @@ acopy() {
     dir "$2"
 
     #
-    # If destination file already exists print both file differencies.
+    # If destination file already exists print the diff.
     #
     # If the files are the same (diff(1) will not fail), do nothing.
     #

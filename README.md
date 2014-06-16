@@ -65,7 +65,7 @@ utility functions.
 * `alink`, like `acopy`, is not meant to be called directly. It is a wrapper
   for `ln`, but will make the link target relative, even if given absolute
   file paths. If a file or a directory of the same name already exists,
-  it will prompt to overwrite.
+  it will show a diff and prompt to overwrite.
 * `link` takes two paths, the first relative to the category directory
   (e.g., `vimrc`, relative to `src/vim`), and the second relative to the
   target directory. It will just resolve the absolute paths and call `alink`.
