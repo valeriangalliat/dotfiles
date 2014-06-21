@@ -35,6 +35,10 @@ zsh:
         type: GitHub
         path: trapd00r/zsh-syntax-highlighting-filetypes
 
+    jvc-tools:
+        type: GitHub
+        path: valeriangalliat/jvc-tools
+
 
 urxvt:
     perls:
