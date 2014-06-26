@@ -3,7 +3,7 @@
 !
 
 ! Font
-*.font: xft:monospace:size=8
+URxvt.font: xft:monospace:size=8
 
 ! Terminal style
 URxvt.background: black
