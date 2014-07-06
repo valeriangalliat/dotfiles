@@ -7,10 +7,6 @@ misc:
         type: GitHub
         path: valeriangalliat/printscreen
 
-    dwall:
-        type: GitHub
-        path: valeriangalliat/dwall
-
     block:
         type: GitHub
         path: valeriangalliat/block
