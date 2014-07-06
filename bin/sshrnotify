@@ -1,4 +1,11 @@
 #!/bin/sh -e
+#
+# Open a SSH connection with port 4321 forwarding after launching the
+# `pyrnotify` daemon if needed.
+#
 
-pyrnotify 4321 &
+if ! pgrep pyrnotify; then
+    nohup pyrnotify 4321 &
+fi
+
 ssh -R 4321:localhost:4321 "$@"
