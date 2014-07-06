@@ -1,3 +1,4 @@
 deps/*
 !deps/deps.yaml
+!deps/deps.json
 !deps/make

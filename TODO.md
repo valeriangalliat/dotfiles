@@ -7,15 +7,6 @@ Create directory `~/.config/i3blocks/scripts` and link i3blocks scripts.
 
 Add custom `volume_fix` script.
 
-Precompile dependencies to avoid installing YAML extension.
-
-Deps clean target to remove directories not configured.
-
-Keep track of installed dependencies in a cache file; if the dependency
-type or URL has changed, delete the existing directory and download
-the dependency again (example, when changing the Git repository to clone
-for a certain dependency).
-
 Keep track of linked/copied files, to be able to remove dead links. For
 example, if the deploy links a file `foo` in the home directory, and then
 this file is removed from the repo and `install.sh` file, the deploy script

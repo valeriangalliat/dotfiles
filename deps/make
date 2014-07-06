@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import os
 import shutil
 import subprocess
@@ -7,6 +8,11 @@ import sys
 import yaml
 
 from functools import lru_cache
+
+
+DEPS_FILE = 'deps.yaml'
+DEPS_CACHE_FILE = 'deps.json'
+CACHE_FILE = 'cache.json'
 
 
 class Dep:
@@ -28,7 +34,6 @@ class Git(Url):
 
     def update(self):
         return [
-            ['git', 'remote', 'set-url', 'origin', self.url],
             ['git', 'reset', '--hard'],
             ['git', 'clean', '-df'],
             ['git', 'pull'],
@@ -68,11 +73,10 @@ class Deploy:
 
 class Deps(dict, Dep):
     @classmethod
-    def from_yaml(cls, stream):
-        y = yaml.load(stream)
+    def from_obj(cls, obj):
         d = cls()
 
-        for cat, sub in y.items():
+        for cat, sub in obj.items():
             d[cat] = {}
 
             for dir, opts in sub.items():
@@ -82,11 +86,6 @@ class Deps(dict, Dep):
                 d[cat][dir] = getattr(sys.modules[__name__], type)(**opts)
 
         return d
-
-    @classmethod
-    def from_yaml_file(cls, file):
-        with open(file, 'r') as f:
-            return cls.from_yaml(f)
 
     def __iter__(self):
         for cat, sub in self.items():
@@ -132,34 +131,16 @@ def rmtree(path, *args, **kwargs):
 
     print('rm -rf {0}'.format(path))
     shutil.rmtree(path, *args, **kwargs)
+    print()
 
 
-def clean(deps):
-    '''Walk the directory structure and remove any unknown directory.'''
-
-    for path in os.listdir('.'):
-        if not os.path.isdir(path):
-            continue
-
-        if not path in deps():
-            rmtree(path)
-            continue
-
-        for subpath in os.listdir(path):
-            if not subpath in deps()[path]:
-                rmtree(os.path.join(path, subpath))
-
-
-def task(deps, command, selection):
+def task(deps, command):
     '''Execute a task from `Dep` class on given selection.'''
 
     # Will throw if the command is not a `Dep` method
     getattr(Dep, command)
 
-    if len(selection) == 0:
-        tasks = getattr(deps(), command)()
-    else:
-        tasks = getattr(deps().sub(selection), command)()
+    tasks = getattr(deps, command)()
 
     for dir, commands in tasks:
         cwd = os.getcwd()
@@ -183,9 +164,82 @@ def task(deps, command, selection):
 
 
 @lru_cache()
-def deps():
-    '''Lazy load and cache the dependencies data.'''
-    return Deps.from_yaml_file('deps.yaml')
+def deps(selection=None):
+    if selection is not None and len(selection) != 0:
+        return deps().sub(selection)
+
+    try:
+        if os.path.getctime(DEPS_FILE) > os.path.getctime(DEPS_CACHE_FILE):
+            # Raise dummy error to jump to exception handling
+            raise FileNotFoundError()
+        else:
+            obj = json.load(open(DEPS_CACHE_FILE))
+    except FileNotFoundError:
+        obj = yaml.load(open(DEPS_FILE, 'r'))
+
+        # Save new object to cache
+        json.dump(obj, open(DEPS_CACHE_FILE, 'w'))
+
+    return Deps.from_obj(obj)
+
+
+@lru_cache()
+def cache():
+    try:
+        return json.load(open(CACHE_FILE))
+    except FileNotFoundError:
+        return {}
+
+
+def clean_removed(deps):
+    '''Walk the directory structure and remove any unknown directory.'''
+
+    for path in os.listdir('.'):
+        if not os.path.isdir(path):
+            continue
+
+        if not path in deps:
+            rmtree(path)
+            continue
+
+        for subpath in os.listdir(path):
+            if not subpath in deps[path]:
+                rmtree(os.path.join(path, subpath))
+
+
+def clean_existing(deps, cache):
+    '''Remove existing directories that don't match current dependencies.'''
+
+    for cat, dir, dep in deps:
+        key = '{0}/{1}'.format(cat, dir)
+
+        if not key in cache:
+            continue
+
+        if (cache[key]['class'] != dep.__class__.__name__
+            or cache[key]['dict'] != dep.__dict__):
+            rmtree(os.path.join(cat, dir))
+
+
+def before(deps, cache):
+    clean_removed(deps)
+    clean_existing(deps, cache)
+
+
+def after(deps):
+    '''Write cache file of installed dependencies.'''
+
+    cache = {}
+
+    for cat, dir, dep in deps:
+        key = '{0}/{1}'.format(cat, dir)
+
+        cache[key] = {
+            'class': dep.__class__.__name__,
+            'dict': dep.__dict__,
+        }
+
+    json.dump(cache, open(CACHE_FILE, 'w'))
 
 
 def main():
@@ -195,15 +249,20 @@ def main():
     os.chdir(os.path.dirname(sys.argv[0]))
 
     command = sys.argv[1]
+    selection = sys.argv[2:]
+
+    deps_ = deps(tuple(selection))
+    cache_ = cache()
+
+    before(deps_, cache_)
 
     if command == 'all':
-        clean(deps)
-        task(deps, 'install', sys.argv[2:])
-        task(deps, 'update', sys.argv[2:])
-    elif command == 'clean':
-        clean(deps)
+        task(deps_, 'install')
+        task(deps_, 'update')
     else:
-        task(deps, command, sys.argv[2:])
+        task(deps_, command)
+
+    after(deps_)
 
 
 if __name__ == '__main__':
