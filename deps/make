@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 
 import os
+import shutil
 import subprocess
 import sys
 import yaml
+
+from functools import lru_cache
 
 
 class Dep:
@@ -21,10 +24,15 @@ class Url(Dep):
 
 class Git(Url):
     def install(self):
-        return ['git', 'clone', self.url, '.']
+        return [['git', 'clone', self.url, '.']]
 
     def update(self):
-        return ['git', 'pull']
+        return [
+            ['git', 'remote', 'set-url', 'origin', self.url],
+            ['git', 'reset', '--hard'],
+            ['git', 'clean', '-df'],
+            ['git', 'pull'],
+        ]
 
 
 class GitHub(Git):
@@ -45,7 +53,8 @@ class Wget(Url):
             args.extend(('-O', self.name))
 
         args.append(self.url)
-        return args
+
+        return [args]
 
     def update(self):
         return self.install()
@@ -118,27 +127,41 @@ class Deps(dict, Dep):
                 yield dir, dep.update()
 
 
-def main():
-    assert(len(sys.argv) >= 2)
+def rmtree(path, *args, **kwargs):
+    '''Wrapper for `shutil.rmtree`, printing a `rm -rf` command.'''
 
-    # Always execute in program directory
-    os.chdir(os.path.dirname(sys.argv[0]))
+    print('rm -rf {0}'.format(path))
+    shutil.rmtree(path, *args, **kwargs)
 
-    command = sys.argv[1]
-    selection = sys.argv[2:]
+
+def clean(deps):
+    '''Walk the directory structure and remove any unknown directory.'''
+
+    for path in os.listdir('.'):
+        if not os.path.isdir(path):
+            continue
+
+        if not path in deps():
+            rmtree(path)
+            continue
+
+        for subpath in os.listdir(path):
+            if not subpath in deps()[path]:
+                rmtree(os.path.join(path, subpath))
+
+
+def task(deps, command, selection):
+    '''Execute a task from `Dep` class on given selection.'''
 
     # Will throw if the command is not a `Dep` method
     getattr(Dep, command)
 
-    # Load config file
-    deps = Deps.from_yaml_file('deps.yaml')
-
     if len(selection) == 0:
-        tasks = getattr(deps, command)()
+        tasks = getattr(deps(), command)()
     else:
-        tasks = getattr(deps.sub(selection), command)()
+        tasks = getattr(deps().sub(selection), command)()
 
-    for dir, args in tasks:
+    for dir, commands in tasks:
         cwd = os.getcwd()
 
         if not os.path.isdir(dir):
@@ -147,14 +170,40 @@ def main():
         os.chdir(dir)
 
         print(dir)
-        print(' '.join(args))
 
-        subprocess.call(args, stdin=sys.stdin, stdout=sys.stdout,
-                        stderr=sys.stderr)
+        for command in commands:
+            print(' '.join(command))
+
+            subprocess.call(command, stdin=sys.stdin, stdout=sys.stdout,
+                            stderr=sys.stderr)
 
         print()
 
         os.chdir(cwd)
+
+
+@lru_cache()
+def deps():
+    '''Lazy load and cache the dependencies data.'''
+    return Deps.from_yaml_file('deps.yaml')
+
+
+def main():
+    assert(len(sys.argv) >= 2)
+
+    # Always execute in program directory
+    os.chdir(os.path.dirname(sys.argv[0]))
+
+    command = sys.argv[1]
+
+    if command == 'all':
+        clean(deps)
+        task(deps, 'install', sys.argv[2:])
+        task(deps, 'update', sys.argv[2:])
+    elif command == 'clean':
+        clean(deps)
+    else:
+        task(deps, command, sys.argv[2:])
 
 
 if __name__ == '__main__':
