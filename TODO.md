@@ -7,6 +7,8 @@ Create directory `~/.config/i3blocks/scripts` and link i3blocks scripts.
 
 Add custom `volume_fix` script.
 
+In dependencies script, do not run update if install was already run before.
+
 Keep track of linked/copied files, to be able to remove dead links. For
 example, if the deploy links a file `foo` in the home directory, and then
 this file is removed from the repo and `install.sh` file, the deploy script
