@@ -171,10 +171,10 @@ def deps(selection=None):
     try:
         if os.path.getctime(DEPS_FILE) > os.path.getctime(DEPS_CACHE_FILE):
             # Raise dummy error to jump to exception handling
-            raise FileNotFoundError()
+            raise IOError() # FileNotFoundError()
         else:
             obj = json.load(open(DEPS_CACHE_FILE))
-    except FileNotFoundError:
+    except IOError: # FileNotFoundError:
         obj = yaml.load(open(DEPS_FILE, 'r'))
 
         # Save new object to cache
@@ -187,7 +187,7 @@ def deps(selection=None):
 def cache():
     try:
         return json.load(open(CACHE_FILE))
-    except FileNotFoundError:
+    except IOError: # FileNotFoundError:
         return {}
 
 
