@@ -5,7 +5,7 @@
 #
 
 if ! pgrep pyrnotify; then
-    nohup pyrnotify 4321 &
+    nohup pyrnotify 4321 > /dev/null 2>&1 &
 fi
 
 ssh -R 4321:localhost:4321 "$@"
