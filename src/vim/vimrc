@@ -6,6 +6,7 @@
 execute pathogen#infect()
 
 " Theme
+" =====
 
 set t_Co=256
 colorscheme wombat256mod
@@ -15,6 +16,7 @@ syntax on " Syntax highlighting
 highlight ColorColumn term=underline ctermbg=236 guibg=#32322f
 
 " Global
+" ======
 
 set nocompatible " Not compatible with Vi
 set backspace=indent,eol,start " More powerful backspace
@@ -36,9 +38,14 @@ let mapleader=","
 set wildmode=longest,list,full
 
 " Indentation
+" ===========
 
 set autoindent " Automatic indentation (keep previous line offset)
+
+" Removed because typing `#` in Python deletes indentation like if
+" it was a C preprocessor directive.
 set smartindent " Improved automatic indentation
+
 set tabstop=4 " Tab width
 set expandtab " Use spaces instead of tabs
 set softtabstop=4 " Remove 4 spaces with backspace
@@ -46,23 +53,32 @@ set shiftwidth=4 " Indentation command width
 set shiftround " Indentation is always a multiple of configured width
 
 " Filetypes
+" =========
 
 filetype on
 filetype indent on " Load indentation rules regarding of filetype
 filetype plugin on " Filetype specific config
 
-" Syntax associations
+" Filetypes Indentation
+" =====================
+
+au BufRead,BufNewFile *.js set tabstop=2 softtabstop=2 shiftwidth=2
+
+" Syntax Associations
+" ===================
 
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.ronn set filetype=markdown
 au BufRead,BufNewFile vimperatorrc set filetype=vimperator
 
-" X11 integration
+" X11 Integration
+" ===============
 
 set clipboard=unnamed " X11 clipboard
 set mouse=a " Enable mouse
 
 " Search
+" ======
 
 set ignorecase " Case insensitive
 set infercase " Sensitive completion
@@ -80,11 +96,13 @@ noremap / :set hlsearch<cr>/
 noremap ? :set hlsearch<cr>?
 
 " Whitespaces
+" ===========
 
 set listchars=tab:——,trail:•,nbsp:•
 set list " Show whitespaces
 
 " Misc
+" ====
 
 set virtualedit=block " No bounds when in visual block
 set spelllang=en " Spell check language

@@ -3,13 +3,15 @@
 "
 
 " Theme
+" =====
 
 colorscheme sexy-railscasts
 
 " Color columns like cursor line
 highlight ColorColumn guibg=#333435
 
-" GUI stuff
+" GUI Stuff
+" =========
 
 set guioptions-=m " Remove menu bar
 set guioptions-=T " Remove toolbar
