@@ -4,6 +4,9 @@
 # See i3(1) for documentation.
 #
 
+# Basics
+# ======
+
 # Modifiers
 set $mod Mod4
 floating_modifier $mod
@@ -27,6 +30,9 @@ workspace_layout tabbed
 # Focus previous workspace when switching two times to the same workspace.
 #
 workspace_auto_back_and_forth yes
+
+# Bindings
+# ========
 
 # Start launcher
 bindsym $mod+d exec dmenu_run -fn monospace:size=8
@@ -78,11 +84,28 @@ bindsym $mod+e layout toggle split
 bindsym $mod+q focus parent
 bindsym $mod+s focus child
 
-# Music stuff
+# Reload configuration
+bindsym $mod+Shift+c reload
+
+# Restart i3 in place
+bindsym $mod+Shift+r restart
+
+# Music
+# -----
+
+# Keyboard volume keys
+bindsym XF86AudioRaiseVolume exec amixer set Master 1+ && killall -USR1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer set Master 1- && killall -USR1 i3blocks
+bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3blocks
+
+# MPD controls
 bindsym $mod+space exec mpc toggle
 bindsym $mod+n exec mpc next
 bindsym $mod+p exec mpc prev
 bindsym $mod+BackSpace exec mpc seek 0
+
+# Workspaces
+# ----------
 
 # Workspace names
 set $w1 1-web
@@ -120,14 +143,13 @@ bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+10 move container to workspace $w10
 
-# Reload configuration
-bindsym $mod+Shift+c reload
+# Modes
+# =====
 
-# Restart i3 in place
-bindsym $mod+Shift+r restart
+# Resize
+# ------
 
-# Exit X11 session
-bindsym $mod+Shift+e exec i3-msg exit
+bindsym $mod+r mode resize
 
 mode resize {
     # Resize (Vi keys shifted right)
@@ -147,8 +169,48 @@ mode resize {
     bindsym Escape mode default
 }
 
-# Enter resize mode
-bindsym $mod+r mode resize
+# Print
+# -----
+
+bindsym Print mode print
+
+mode print {
+    # Home
+    bindsym h exec sleep .5 && scrot -s; mode default
+    bindsym Shift+h exec sleep .5 && scrot; mode default
+
+    # CodeJam
+    bindsym c exec printscreen cjup -s; mode default
+    bindsym Shift+c exec printscreen cjup; mode default
+
+    # NoelShack
+    bindsym n exec printscreen noelup -s; mode default
+    bindsym Shift+n exec printscreen noelup; mode default
+
+    # Back to default mode
+    bindsym Return mode default
+    bindsym Escape mode default
+}
+
+# System
+# ------
+
+set $mode_system system (l) lock, (e) logout, (r) reboot, (x) shutdown
+bindsym $mod+x mode "$mode_system"
+
+mode "$mode_system" {
+    bindsym l exec block; mode default
+    bindsym e exec i3-msg exit; mode default
+    bindsym r exec reboot; mode default
+    bindsym x exec shutdown; mode default
+
+    # Back to default mode
+    bindsym Return mode default
+    bindsym Escape mode default
+}
+
+# Bar
+# ===
 
 bar {
     status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf -d ~/.config/i3blocks/scripts
@@ -157,18 +219,8 @@ bar {
     tray_output none
 }
 
-# Keyboard volume keys
-bindsym XF86AudioRaiseVolume exec amixer set Master 1+ && killall -USR1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer set Master 1- && killall -USR1 i3blocks
-bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3blocks
+# Autorun
 
-# Print screen bindings
-bindsym Print exec printscreen cjup
-bindsym Shift+Print exec printscreen cjup -s
-bindsym Control+Print exec printscreen noelup
-bindsym Control+Shift+Print exec printscreen noelup -s
-
-# Auto launch programs
 exec i3-msg 'workspace $w1; exec firefox'
 exec i3-msg 'workspace $w2; exec urxvtc'
 exec i3-msg 'workspace $w5; exec pidgin'
