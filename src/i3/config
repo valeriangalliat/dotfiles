@@ -177,14 +177,17 @@ bindsym Print mode print
 mode print {
     # Home
     bindsym h exec sleep .5 && scrot -s; mode default
+    bindsym Control+h exec sleep .5 && scrot -u; mode default
     bindsym Shift+h exec sleep .5 && scrot; mode default
 
     # CodeJam
     bindsym c exec printscreen cjup -s; mode default
+    bindsym Control+c exec printscreen cjup -u; mode default
     bindsym Shift+c exec printscreen cjup; mode default
 
     # NoelShack
     bindsym n exec printscreen noelup -s; mode default
+    bindsym Control+n exec printscreen noelup -u; mode default
     bindsym Shift+n exec printscreen noelup; mode default
 
     # Back to default mode
