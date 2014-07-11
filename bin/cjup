@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+file=$1; shift
+scp "$file" vcj:www/scrot
+echo "http://val.codejam.info/scrot/$file"
