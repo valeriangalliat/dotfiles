@@ -205,7 +205,7 @@ mode "$mode_system" {
     bindsym l exec block; mode default
     bindsym e exec i3-msg exit; mode default
     bindsym r exec reboot; mode default
-    bindsym x exec shutdown; mode default
+    bindsym x exec poweroff; mode default
 
     # Back to default mode
     bindsym Return mode default
