@@ -24,6 +24,7 @@ set ruler " Show cursor position
 set number " Display numbers
 set cursorline " Highlight cursor line
 set colorcolumn=80 " Show 80 chars limit
+set textwidth=72 " Auto return to line after 72 chars
 set wildmenu " Enhanced command mode (display matches on tab)
 set encoding=utf-8 " UTF-8 support
 set nowrap " No word wrap
