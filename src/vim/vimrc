@@ -2,14 +2,26 @@
 " ~/.config/vim/vimrc
 "
 
-" Init pathogen.vim
-execute pathogen#infect()
+" Init pathogen.vim (silent if not installed)
+silent! execute pathogen#infect()
 
 " Theme
 " =====
 
 set t_Co=256
-colorscheme wombat256mod
+
+try
+    colorscheme wombat256mod
+catch
+    " Download the theme and try to set it again
+    silent! !sh -c '
+    \ u="http://www.vim.org/scripts/download_script.php?src_id=13400";
+    \ p=~/.vim/colors/wombat256mod.vim;
+    \ mkdir -p ~/.vim/colors && curl -o "$p" "$u" || wget -O "$p" "$u"'
+
+    colorscheme wombat256mod
+endtry
+
 syntax on " Syntax highlighting
 
 " Color columns like cursor line
@@ -30,7 +42,7 @@ set encoding=utf-8 " UTF-8 support
 set nowrap " No word wrap
 
 " Change leader key
-let mapleader=","
+let mapleader=','
 
 "
 " Complete until longest match. On tab, list matches. If tab is pressed
