@@ -42,11 +42,6 @@ set wildmode=longest,list,full
 " ===========
 
 set autoindent " Automatic indentation (keep previous line offset)
-
-" Removed because typing `#` in Python deletes indentation like if
-" it was a C preprocessor directive.
-set smartindent " Improved automatic indentation
-
 set tabstop=4 " Tab width
 set expandtab " Use spaces instead of tabs
 set softtabstop=4 " Remove 4 spaces with backspace
@@ -63,7 +58,9 @@ filetype plugin on " Filetype specific config
 " Filetypes Indentation
 " =====================
 
-au BufRead,BufNewFile *.js set tabstop=2 softtabstop=2 shiftwidth=2
+au FileType apache set noexpandtab
+au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2
+au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2
 
 " Syntax Associations
 " ===================
@@ -72,12 +69,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.ronn set filetype=markdown
 au BufRead,BufNewFile vimperatorrc set filetype=vimperator
 
-" X11 Integration
-" ===============
-
-set clipboard=unnamed " X11 clipboard
-set mouse=a " Enable mouse
-
 " Search
 " ======
 
@@ -85,16 +76,6 @@ set ignorecase " Case insensitive
 set infercase " Sensitive completion
 set smartcase " Sensitive search if upper characters
 set incsearch " Highlight pattern while typed
-
-"
-" Highlight search matches after search command, and automatically disable
-" it after idle time.
-"
-autocmd cursorhold * set nohlsearch
-noremap n :set hlsearch<cr>n
-noremap N :set hlsearch<cr>N
-noremap / :set hlsearch<cr>/
-noremap ? :set hlsearch<cr>?
 
 " Whitespaces
 " ===========
