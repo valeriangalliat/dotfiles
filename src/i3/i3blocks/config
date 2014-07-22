@@ -3,7 +3,7 @@
 #
 
 [track]
-command=mpc current | awk '{print; print}'; mpc | grep -q paused && echo '#FFFF00'
+command=mpc current | awk '{print; print}'; mpc | grep -q paused && echo '#FFFF00' || :
 signal=2
 
 [memory]
