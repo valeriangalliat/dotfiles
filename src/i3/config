@@ -94,9 +94,9 @@ bindsym $mod+Shift+r restart
 # -----
 
 # Keyboard volume keys
-bindsym XF86AudioRaiseVolume exec amixer set Master 1+ && killall -USR1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer set Master 1- && killall -USR1 i3blocks
-bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer set Master 1+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer set Master 1- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer set Master toggle && pkill -RTMIN+1 i3blocks
 
 # MPD controls
 bindsym $mod+space exec mpc toggle
@@ -216,14 +216,18 @@ mode "$mode_system" {
 # ===
 
 bar {
-    status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf -d ~/.config/i3blocks/scripts
+    status_command i3blocks -d ~/.config/i3blocks/scripts
 
     # No tray icons
     tray_output none
 }
 
 # Autorun
+# =======
 
 exec i3-msg 'workspace $w1; exec firefox'
 exec i3-msg 'workspace $w2; exec urxvtc'
 exec i3-msg 'workspace $w5; exec pidgin'
+
+# Music background job
+exec while :; do if mpc idle; then pkill -RTMIN+2 i3blocks; else sleep 10; fi; done

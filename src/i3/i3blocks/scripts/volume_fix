@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+query() {
+    amixer get Master \
+        | grep Playback \
+        | awk 'BEGIN {FS="[\[\]]"} length($2) && length($6) {print $2, $6}' \
+        | head -n1
+}
+
+set -- $(query)
+volume="$1"
+status="$2"
+
+if [ "off" = "$status" ]; then
+    echo 0%
+    echo 0%
+    echo '#FFFF00'
+else
+    echo "$volume"
+    echo "$volume"
+fi
