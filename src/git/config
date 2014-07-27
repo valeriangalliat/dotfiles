@@ -1,0 +1,7 @@
+[color]
+	ui = auto
+[credential]
+	helper = cache --timeout=604800
+[user]
+	email = val@codejam.info
+	name = Valérian Galliat

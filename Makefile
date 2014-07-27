@@ -4,6 +4,7 @@ export DESTDIR ?= $(HOME)
 all:
 
 install: install-cli \
+	install-git \
 	install-gtk \
 	install-i3 \
 	install-mpd \
@@ -35,6 +36,9 @@ install-weechat:
 
 install-zsh:
 	tools/deploy src/zsh
+
+install-git:
+	tools/deploy src/git
 
 install-gtk:
 	tools/deploy src/gtk
