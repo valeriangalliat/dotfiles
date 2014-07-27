@@ -13,6 +13,10 @@ URxvt.scrollBar: false
 ! No strange yellow popup
 URxvt.iso14755: false
 
+! Enable transparency
+!URxvt.transparent: true
+!URxvt.shading: 5
+
 !
 ! Extensions are from <https://github.com/muennich/urxvt-perls>, the key
 ! bindings and default options are described there.
