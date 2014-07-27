@@ -3,7 +3,7 @@
 query() {
     amixer get Master \
         | grep Playback \
-        | awk 'BEGIN {FS="[\[\]]"} length($2) && length($6) {print $2, $6}' \
+        | awk 'BEGIN {FS="[\\[\\]]"} length($2) && length($6) {print $2, $6}' \
         | head -n1
 }
 
