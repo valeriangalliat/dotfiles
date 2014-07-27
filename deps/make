@@ -34,6 +34,7 @@ class Git(Url):
 
     def update(self):
         return [
+            ['git', 'remote', 'set-url', 'origin', self.url],
             ['git', 'reset', '--hard'],
             ['git', 'clean', '-df'],
             ['git', 'pull'],
