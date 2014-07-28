@@ -68,6 +68,7 @@ filetype plugin on " Filetype specific config
 
 " Auto return to line after 72 chars for text files
 au FileType text set textwidth=72
+au FileType tex set textwidth=72
 au FileType markdown set textwidth=72
 
 
