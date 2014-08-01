@@ -11,19 +11,15 @@ setopt extendedglob # Use advanced globbing patterns
 setopt printexitvalue # Print exit value if non-zero
 setopt interactivecomments # Support comments in interactive mode
 
-#
-# Enable zsh advanced completion (`-z` option to autoload with zsh style).
-# I don't know what the `-U` option does but everybody uses it with
-# `autoload`.
-#
-autoload -Uz compinit
+# Enable zsh advanced completion
+autoload compinit
 compinit -d ~/.cache/zsh/completion
 
 #
 # Enable advanced prompt. I don't know what it does but well, if
 # they say it's "advanced"... maybe it's better?
 #
-autoload -Uz promptinit
+autoload promptinit
 promptinit
 
 #
@@ -31,10 +27,8 @@ promptinit
 #
 # This will in particular provide the `$fg` and `$bg` array variables.
 #
-autoload -Uz colors
+autoload colors
 colors
 
-#
-# Enable advanced move command.
-#
-autoload -Uz zmv
+# Enable advanced move command
+autoload zmv
