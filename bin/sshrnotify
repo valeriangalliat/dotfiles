@@ -4,7 +4,7 @@
 # `pyrnotify` daemon if needed.
 #
 
-if ! pgrep pyrnotify; then
+if ! pgrep pyrnotify > /dev/null; then
     nohup pyrnotify 4321 > /dev/null 2>&1 &
 fi
 
