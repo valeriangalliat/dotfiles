@@ -3,7 +3,7 @@
 #
 
 [track]
-command=mpc current | sed -r '/.{48,}/{s/(.{48}).*/\1.../g};p'; mpc | grep -q paused && echo '#FFFF00' || :
+command=[ ! -z "$BLOCK_BUTTON" ] && mpc toggle; mpc current | sed -r '/.{48,}/{s/(.{48}).*/\1.../g};p'; mpc | grep -q paused && echo '#FFFF00' || :
 signal=2
 
 [memory]
