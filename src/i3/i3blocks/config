@@ -24,9 +24,5 @@ command=$BLOCK_LIBEXEC/volume_fix
 signal=1
 
 [date]
-command=date '+%m/%d/%Y'
-interval=1
-
-[time]
-command=date '+%H:%M:%S'
+command=date '+%a %d %b %X'
 interval=1
