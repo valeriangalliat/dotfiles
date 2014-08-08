@@ -7,20 +7,20 @@ command=[ "$BLOCK_BUTTON" = 1 ] && mpc toggle -q; mpc current | sed -r '/.{48,}/
 signal=2
 
 [memory]
-command=$BLOCK_LIBEXEC/memory | cut -d' ' -f2 | sed 's/\(.\)$/ \1iB/'
+command="$BLOCK_LIBEXEC/memory" | cut -d' ' -f2 | sed 's/\(.\)$/ \1iB/'
 interval=30
 
 [disk]
-command=$BLOCK_LIBEXEC/disk | sed 's/\(.\)$/ \1iB/'
+command="$BLOCK_LIBEXEC/disk" | sed 's/\(.\)$/ \1iB/'
 interval=60
 
 [ethernet]
-command=$BLOCK_LIBEXEC/network enp2s0 | cut -d' ' -f2
+command="$BLOCK_LIBEXEC/network" | cut -d' ' -f2
 color=#00FF00
 interval=60
 
 [volume]
-command=$BLOCK_LIBEXEC/volume_fix
+command=[ "$BLOCK_BUTTON" = 1 ] && amixer set Master toggle -q; "$BLOCK_LIBEXEC/volume_fix"
 signal=1
 
 [date]
