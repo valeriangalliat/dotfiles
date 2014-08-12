@@ -7,7 +7,7 @@ bindkey -v '^Z' undo
 bindkey -v '^R' redo
 
 #
-# Standard Bindings
+# Standard bindings
 # =================
 #
 # More standard behavior even in Vi mode.
@@ -31,7 +31,7 @@ bindkey '\eOd' backward-word # Control+Left
 bindkey '\eOc' forward-word # Control+Right
 
 #
-# Move or Search
+# Move or search
 # ==============
 #
 # Bind up/down keys to search the command beginning in history if
@@ -65,3 +65,16 @@ zle -N down-line-or-beginning-search-color
 
 bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search-color # Up
 bindkey "${terminfo[kcud1]}" down-line-or-beginning-search-color # Down
+
+#
+# Great stuff
+# ===========
+#
+# `^[` represnets the meta key which is probably the Alt key.
+#
+
+# Go through last words
+bindkey '^[.' insert-last-word
+
+# Show the man of command to the left (awesome)
+bindkey '^[h' run-help
