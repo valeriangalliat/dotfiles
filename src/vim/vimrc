@@ -72,7 +72,7 @@ au FileType tex set textwidth=72
 au FileType markdown set textwidth=72
 
 
-" Filetypes Indentation
+" Filetypes indentation
 " =====================
 
 au FileType apache set et!
@@ -82,7 +82,7 @@ au FileType javascript set ts=2 sts=2 sw=2
 au FileType html set ts=2 sts=2 sw=2
 au FileType markdown set ts=2 sts=2 sw=2
 
-" Syntax Associations
+" Syntax associations
 " ===================
 
 au BufRead,BufNewFile *.md set filetype=markdown

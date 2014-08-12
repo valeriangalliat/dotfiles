@@ -10,7 +10,7 @@ colorscheme sexy-railscasts
 " Color columns like cursor line
 highlight ColorColumn guibg=#333435
 
-" GUI Stuff
+" GUI stuff
 " =========
 
 set guioptions-=m " Remove menu bar
