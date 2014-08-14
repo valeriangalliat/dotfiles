@@ -10,6 +10,9 @@ URxvt.background: black
 URxvt.foreground: white
 URxvt.scrollBar: false
 
+! Urgent
+URxvt.urgentOnBell: true
+
 ! No strange yellow popup
 URxvt.iso14755: false
 
