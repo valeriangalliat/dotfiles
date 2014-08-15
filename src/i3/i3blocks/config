@@ -24,5 +24,5 @@ command=[ "$BLOCK_BUTTON" = 1 ] && amixer set Master toggle -q; "$BLOCK_LIBEXEC/
 signal=1
 
 [date]
-command=date '+%a %d %b %X'
+command=date | awk '{NF -= 2} 1'
 interval=1
