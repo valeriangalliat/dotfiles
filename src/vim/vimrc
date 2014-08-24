@@ -80,7 +80,7 @@ au FileType gitconfig set et!
 
 au FileType javascript set ts=2 sts=2 sw=2
 au FileType html set ts=2 sts=2 sw=2
-au FileType markdown set ts=2 sts=2 sw=2
+au FileType markdown set ts=2 sts=2 sw=2 wrap
 
 " Syntax associations
 " ===================
@@ -108,3 +108,18 @@ set list " Show whitespaces
 
 set virtualedit=block " No bounds when in visual block
 set spelllang=en " Spell check language
+
+
+" Wrap
+" ====
+
+"
+" Include the wrap lines for following moves.
+"
+noremap j gj
+noremap k gk
+noremap $ g$
+noremap ^ g^
+noremap 0 g0
+
+set linebreak " Do not break words
