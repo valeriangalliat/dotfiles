@@ -1,27 +1,38 @@
-"
-" ~/.config/vim/vimrc
-"
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" Init pathogen.vim (silent if not installed)
-silent! execute pathogen#infect()
+try
+    call vundle#begin()
+catch
+    " Download Vundle and try again
+    silent! !sh -c '
+    \ u="https://github.com/gmarik/Vundle.vim.git";
+    \ p=~/.vim/bundle/Vundle.vim;
+    \ mkdir -p ~/.vim/bundle && git clone "$u" "$p"'
+
+    call vundle#begin()
+endtry
+
+Plugin 'gmarik/Vundle.vim' " Required for Vundle
+Plugin 'tpope/vim-fugitive' " Git wrapper
+Plugin 'bling/vim-airline' " Fancy status line
+Plugin 'bling/vim-bufferline' " Buffers in status line
+Plugin 'Shougo/unite.vim' " Awesome finder
+Plugin 'wombat256.vim' " Color scheme
+Plugin 'bohrshaw/vim-vimperator-syntax' " Vimperator syntax
+
+call vundle#end()
+
+" Filetype
+" ========
+
+filetype plugin on " Filetype specific config (required for Vundle)
+filetype indent on " Load indentation rules regarding of filetype
 
 " Theme
 " =====
 
 set t_Co=256
-
-try
-    colorscheme wombat256mod
-catch
-    " Download the theme and try to set it again
-    silent! !sh -c '
-    \ u="http://www.vim.org/scripts/download_script.php?src_id=13400";
-    \ p=~/.vim/colors/wombat256mod.vim;
-    \ mkdir -p ~/.vim/colors && curl -o "$p" "$u" || wget -O "$p" "$u"'
-
-    colorscheme wombat256mod
-endtry
-
+colorscheme wombat256mod
 syntax on " Syntax highlighting
 
 " Color columns like cursor line
@@ -39,6 +50,8 @@ set colorcolumn=80 " Show 80 chars limit
 set wildmenu " Enhanced command mode (display matches on tab)
 set encoding=utf-8 " UTF-8 support
 set nowrap " No word wrap
+set showcmd " Show commands being typed
+set laststatus=2 " Always show status line
 
 " Change leader key
 let mapleader=','
@@ -53,27 +66,23 @@ set wildmode=longest,list,full
 " ===========
 
 set autoindent " Automatic indentation (keep previous line offset)
+set copyindent " Copy previous line indentation
 set tabstop=4 " Tab width
 set expandtab " Use spaces instead of tabs
 set softtabstop=4 " Remove 4 spaces with backspace
 set shiftwidth=4 " Indentation command width
 set shiftround " Indentation is always a multiple of configured width
 
-" Filetypes
-" =========
-
-filetype on
-filetype indent on " Load indentation rules regarding of filetype
-filetype plugin on " Filetype specific config
+" Custom filetypes
+" ================
 
 " Auto return to line after 72 chars for text files
 au FileType text set textwidth=72
 au FileType tex set textwidth=72
 au FileType markdown set textwidth=72
 
-
-" Filetypes indentation
-" =====================
+" Filetype indentation
+" ====================
 
 au FileType apache set et!
 au FileType gitconfig set et!
@@ -109,17 +118,29 @@ set list " Show whitespaces
 set virtualedit=block " No bounds when in visual block
 set spelllang=en " Spell check language
 
-
 " Wrap
 " ====
 
-"
-" Include the wrap lines for following moves.
-"
+" Include the wrap lines for following moves
 noremap j gj
 noremap k gk
-noremap $ g$
-noremap ^ g^
-noremap 0 g0
 
 set linebreak " Do not break words
+
+" Plugins
+" =======
+
+" `unite`
+" -------
+
+noremap f :Unite file<CR>
+noremap b :Unite buffer<CR>
+
+" `bufferline`
+" ------------
+
+let g:bufferline_echo=0
+
+autocmd VimEnter *
+    \ let &statusline='%{bufferline#refresh_status()}'
+    \ .bufferline#get_status_string()
