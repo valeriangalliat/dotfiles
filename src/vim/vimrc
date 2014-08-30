@@ -38,6 +38,7 @@ Plugin 'plasticboy/vim-markdown' " Improved Markdown
 "Plugin 'honza/vim-snippets' " Actual snippets
 Plugin 'PeterRincker/vim-argumentative' " Switch arguments
 "Plugin 'wellle/targets.vim' " New text objects
+Plugin 'svermeulen/vim-easyclip' " Clipboard helper
 
 call vundle#end()
 
@@ -153,7 +154,7 @@ set linebreak " Do not break words
 " `nerdtree`
 " ----------
 
-noremap <C-n> :NERDTreeToggle<CR>
+noremap <leader>n :NERDTreeToggle<CR>
 
 " `unite`
 " -------
@@ -169,3 +170,8 @@ let g:bufferline_echo=0
 autocmd VimEnter *
     \ let &statusline='%{bufferline#refresh_status()}'
     \ .bufferline#get_status_string()
+
+" `easyclip`
+" ----------
+
+imap <C-v> <Plug>EasyClipInsertModePaste
