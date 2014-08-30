@@ -13,12 +13,31 @@ catch
 endtry
 
 Plugin 'gmarik/Vundle.vim' " Required for Vundle
-Plugin 'tpope/vim-fugitive' " Git wrapper
+Plugin 'scrooloose/nerdtree' " File explorer
 Plugin 'bling/vim-airline' " Fancy status line
 Plugin 'bling/vim-bufferline' " Buffers in status line
 Plugin 'Shougo/unite.vim' " Awesome finder
-Plugin 'wombat256.vim' " Color scheme
+Plugin 'tpope/vim-fugitive' " Git wrapper
+Plugin 'AutoComplPop' " Autocompletion (lightweight)
+"Plugin 'Valloric/YouCompleteMe' " Autocompletion (heavy)
 Plugin 'bohrshaw/vim-vimperator-syntax' " Vimperator syntax
+Plugin 'wombat256.vim' " Color scheme
+Plugin 'airblade/vim-rooter' " Change to project root
+Plugin 'Lokaltog/vim-easymotion' " Quick motions
+Plugin 'tommcdo/vim-exchange' " Exchange operator
+Plugin 'tpope/vim-surround' " Change surroundings
+Plugin 'tpope/vim-repeat' " Repeat with `.` for plugins
+Plugin 'tpope/vim-commentary' " Comment stuff out
+Plugin 'tpope/vim-endwise' " Auto close blocks
+Plugin 'Auto-Pairs' " Auto close structures and quotes
+Plugin 'Align' " Statements alignment helper
+Plugin 'pangloss/vim-javascript' " Improved JavaScript
+Plugin 'godlygeek/tabular' " Text alignment helper
+Plugin 'plasticboy/vim-markdown' " Improved Markdown
+"Plugin 'SirVer/ultisnips' " Snippets engine
+"Plugin 'honza/vim-snippets' " Actual snippets
+Plugin 'PeterRincker/vim-argumentative' " Switch arguments
+"Plugin 'wellle/targets.vim' " New text objects
 
 call vundle#end()
 
@@ -52,6 +71,7 @@ set encoding=utf-8 " UTF-8 support
 set nowrap " No word wrap
 set showcmd " Show commands being typed
 set laststatus=2 " Always show status line
+set hidden " Silently change unsaved buffer
 
 " Change leader key
 let mapleader=','
@@ -130,11 +150,16 @@ set linebreak " Do not break words
 " Plugins
 " =======
 
+" `nerdtree`
+" ----------
+
+noremap <C-n> :NERDTreeToggle<CR>
+
 " `unite`
 " -------
 
-noremap f :Unite file<CR>
-noremap b :Unite buffer<CR>
+noremap <leader>f :Unite file<CR>
+noremap <leader>b :Unite buffer<CR>
 
 " `bufferline`
 " ------------
