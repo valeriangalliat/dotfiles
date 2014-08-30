@@ -39,6 +39,8 @@ Plugin 'plasticboy/vim-markdown' " Improved Markdown
 Plugin 'PeterRincker/vim-argumentative' " Switch arguments
 "Plugin 'wellle/targets.vim' " New text objects
 Plugin 'svermeulen/vim-easyclip' " Clipboard helper
+" Plugin 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
+Plugin 'valeriangalliat/vim-bracketed-paste' " Auto toggle paste mode
 
 call vundle#end()
 
