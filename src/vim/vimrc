@@ -1,3 +1,6 @@
+" Vundle
+" ======
+
 set rtp+=~/.vim/bundle/Vundle.vim
 
 try
@@ -12,46 +15,94 @@ catch
     call vundle#begin()
 endtry
 
-Plugin 'gmarik/Vundle.vim' " Required for Vundle
-Plugin 'scrooloose/nerdtree' " File explorer
+Plugin 'gmarik/Vundle.vim' " Core
+
+" Essentials
+" ----------
+
 Plugin 'bling/vim-airline' " Fancy status line
 Plugin 'bling/vim-bufferline' " Buffers in status line
+Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim' " Awesome finder
-Plugin 'tpope/vim-fugitive' " Git wrapper
-Plugin 'AutoComplPop' " Autocompletion (lightweight)
+Plugin 'tsukkee/unite-tag' " Find tags
+Plugin 'scrooloose/nerdtree' " File explorer
+"Plugin 'kien/ctrlp.vim' " Fuzzy finder
+
+" Autocompletion
+" --------------
+
+"Plugin 'AutoComplPop' " Autocompletion (lightweight)
+"Plugin 'Shougo/neocomplete.vim' " Autocompletion
+"Plugin 'Shougo/neocomplcache.vim' " Autocompletion
+"Plugin 'ervandew/supertab'
 "Plugin 'Valloric/YouCompleteMe' " Autocompletion (heavy)
-Plugin 'bohrshaw/vim-vimperator-syntax' " Vimperator syntax
+
+" Theme
+" -----
+
 Plugin 'wombat256.vim' " Color scheme
-Plugin 'airblade/vim-rooter' " Change to project root
+
+" Moves/objects
+" -------------
+
+Plugin 'PeterRincker/vim-argumentative' " Switch arguments
+"Plugin 'wellle/targets.vim' " New text objects
 Plugin 'Lokaltog/vim-easymotion' " Quick motions
 Plugin 'tommcdo/vim-exchange' " Exchange operator
 Plugin 'tpope/vim-surround' " Change surroundings
-Plugin 'tpope/vim-repeat' " Repeat with `.` for plugins
-Plugin 'tpope/vim-commentary' " Comment stuff out
-Plugin 'tpope/vim-endwise' " Auto close blocks
 Plugin 'qstrahl/vim-dentures' " Select by indent level
-Plugin 'Auto-Pairs' " Auto close structures and quotes
 Plugin 'Align' " Statements alignment helper
-Plugin 'pangloss/vim-javascript' " Improved JavaScript
-Plugin 'godlygeek/tabular' " Text alignment helper
-Plugin 'plasticboy/vim-markdown' " Improved Markdown
+
+" Snippets
+" --------
+
 "Plugin 'SirVer/ultisnips' " Snippets engine
 "Plugin 'honza/vim-snippets' " Actual snippets
-Plugin 'PeterRincker/vim-argumentative' " Switch arguments
-"Plugin 'wellle/targets.vim' " New text objects
-Plugin 'svermeulen/vim-easyclip' " Clipboard helper
-"Plugin 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
-Plugin 'valeriangalliat/vim-bracketed-paste' " Auto toggle paste mode (rxvt compatible fork)
-Plugin 'kien/ctrlp.vim' " Fuzzy finder
-Plugin 'mbbill/undotree' " Undo helper
-Plugin 'scrooloose/syntastic' " Syntax checker
+"Plugin 'Shougo/neosnippet'
+"Plugin 'Shougo/neosnippet-snippets'
+
+" Integration
+" -----------
+
+Plugin 'tpope/vim-fugitive' " Git wrapper
+Plugin 'pangloss/vim-javascript' " Improved JavaScript
+Plugin 'godlygeek/tabular' " Text alignment helper (used by `markdown`)
+Plugin 'plasticboy/vim-markdown' " Improved Markdown
+Plugin 'bohrshaw/vim-vimperator-syntax' " Vimperator syntax
+
+" Web API
+" -------
+
 Plugin 'mattn/webapi-vim' " Web API framework
 "Plugin 'mattn/gist-vim' " Gist integration
 Plugin 'valeriangalliat/gist-vim' " Gist integration (globally anonymous fork)
+
+" Helpers
+" -------
+
+Plugin 'tpope/vim-repeat' " Repeat with `.` for plugins
+Plugin 'tpope/vim-endwise' " Auto close blocks
+Plugin 'airblade/vim-rooter' " Change to project root
+Plugin 'svermeulen/vim-easyclip' " Clipboard helper
+"Plugin 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
+Plugin 'valeriangalliat/vim-bracketed-paste' " Auto toggle paste mode (rxvt compatible fork)
+Plugin 'tpope/vim-commentary' " Comment stuff out
+Plugin 'Auto-Pairs' " Auto close structures and quotes
 Plugin 'chrisbra/NrrwRgn' " Narrow region to focus edit
-Plugin 'majutsushi/tagbar' " Display and jump to tags
+
+" Code analysis
+" -------------
+
+Plugin 'scrooloose/syntastic' " Syntax checker
+
+" UI
+" --
+
 Plugin 'wesleyche/SrcExpl' " Source explorer
+Plugin 'mbbill/undotree' " Undo column
 Plugin 'kshenoy/vim-signature' " Marks column
+Plugin 'majutsushi/tagbar' " Tags column
+
 
 call vundle#end()
 
@@ -173,13 +224,22 @@ let airline#extensions#tabline#enabled=1
 " `nerdtree`
 " ----------
 
-noremap <leader>n :NERDTreeToggle<CR>
+noremap <Leader>n :NERDTreeToggle<CR>
 
 " `unite`
 " -------
 
-noremap <leader>f :Unite file<CR>
-noremap <leader>b :Unite buffer<CR>
+noremap <Leader>f :Unite file<CR>
+noremap <Leader>r :Unite file_rec<CR>
+noremap <Leader>b :Unite buffer<CR>
+noremap <Leader>t :Unite tag<CR>
+noremap <Leader>g :Unite grep:.<CR>
+
+call unite#filters#matcher_default#use(['matcher_fuzzy', 'sorter_rank'])
+
+call unite#custom#profile('default', 'context', {
+    \ 'start_insert': 1,
+    \ })
 
 " `bufferline`
 " ------------
@@ -206,7 +266,7 @@ let vim_markdown_folding_disabled=1
 " `undotree`
 " ----------
 
-noremap <leader>u :UndotreeToggle<CR>
+noremap <Leader>u :UndotreeToggle<CR>
 
 " `easymotion`
 " ------------
@@ -216,10 +276,10 @@ let EasyMotion_enter_jump_first=1
 let EasyMotion_space_jump_first=1
 
 " Improve standard moves
-map <leader>l <Plug>(easymotion-lineforward)
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
-map <leader>h <Plug>(easymotion-linebackward)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
 
 let EasyMotion_startofline=0 " Keep cursor horizontal position
 
@@ -262,5 +322,5 @@ let SignatureMap = {
     \ 'GotoPrevMarker'   : '[-',
     \ 'GotoNextMarkerAny': ']=',
     \ 'GotoPrevMarkerAny': '[=',
-    \ 'ListLocalMarks'   : '''?'
+    \ 'ListLocalMarks'   : '''?',
     \ }
