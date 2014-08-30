@@ -1,6 +1,0 @@
-#!/bin/sh -e
-#
-# Executable wrapper for WeeChat `pyrnotify.py` script.
-#
-
-python2 "$(dirname "$0")/../deps/weechat/pyrnotify/pyrnotify.py" "$@"

@@ -16,12 +16,6 @@ misc:
         path: rkitover/vimpager
 
 
-weechat:
-    pyrnotify:
-        type: Wget
-        url: http://www.weechat.org/files/scripts/pyrnotify.py
-
-
 zsh:
     ls-colors:
         type: GitHub
