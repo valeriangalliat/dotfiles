@@ -56,37 +56,3 @@ sublime-text:
     twig:
         type: GitHub
         path: Anomareh/PHP-Twig.tmbundle
-
-
-vim:
-    pathogen:
-        type: GitHub
-        path: tpope/vim-pathogen
-
-    wombat:
-        type: GitHub
-        path: vim-scripts/wombat256.vim
-
-    railscasts:
-        type: GitHub
-        path: oguzbilgic/sexy-railscasts-theme
-
-    unite:
-        type: GitHub
-        path: Shougo/unite.vim
-
-    nerdtree:
-        type: GitHub
-        path: scrooloose/nerdtree
-
-    autocomplpop:
-        type: GitHub
-        path: vim-scripts/AutoComplPop
-
-    dogescript:
-        type: GitHub
-        path: valeriangalliat/vim-dogescript
-
-    vimperator:
-        type: Wget
-        url: http://vimperator-labs.googlecode.com/hg/vimperator/contrib/vim/syntax/vimperator.vim
