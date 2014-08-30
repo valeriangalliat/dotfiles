@@ -2,14 +2,6 @@
 " ~/.config/vim/gvimrc
 "
 
-" Theme
-" =====
-
-colorscheme sexy-railscasts
-
-" Color columns like cursor line
-highlight ColorColumn guibg=#333435
-
 " GUI stuff
 " =========
 
