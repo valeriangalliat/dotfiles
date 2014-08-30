@@ -29,6 +29,7 @@ Plugin 'tpope/vim-surround' " Change surroundings
 Plugin 'tpope/vim-repeat' " Repeat with `.` for plugins
 Plugin 'tpope/vim-commentary' " Comment stuff out
 Plugin 'tpope/vim-endwise' " Auto close blocks
+Plugin 'qstrahl/vim-dentures' " Select by indent level
 Plugin 'Auto-Pairs' " Auto close structures and quotes
 Plugin 'Align' " Statements alignment helper
 Plugin 'pangloss/vim-javascript' " Improved JavaScript
@@ -43,6 +44,14 @@ Plugin 'svermeulen/vim-easyclip' " Clipboard helper
 Plugin 'valeriangalliat/vim-bracketed-paste' " Auto toggle paste mode (rxvt compatible fork)
 Plugin 'kien/ctrlp.vim' " Fuzzy finder
 Plugin 'mbbill/undotree' " Undo helper
+Plugin 'scrooloose/syntastic' " Syntax checker
+Plugin 'mattn/webapi-vim' " Web API framework
+"Plugin 'mattn/gist-vim' " Gist integration
+Plugin 'valeriangalliat/gist-vim' " Gist integration (globally anonymous fork)
+Plugin 'chrisbra/NrrwRgn' " Narrow region to focus edit
+Plugin 'majutsushi/tagbar' " Display and jump to tags
+Plugin 'wesleyche/SrcExpl' " Source explorer
+Plugin 'kshenoy/vim-signature' " Marks column
 
 call vundle#end()
 
@@ -219,3 +228,39 @@ map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
+
+" `syntastic`
+" -----------
+
+let syntastic_javascript_checkers=['eslint', 'jshint', 'jslint']
+
+" `gist`
+" ------
+
+let gist_post_anonymous=1
+
+" `signature`
+" -----------
+
+" Override default map to add `g` prefix
+let SignatureMap = {
+    \ 'Leader'           : 'gm',
+    \ 'PlaceNextMark'    : 'gm,',
+    \ 'ToggleMarkAtLine' : 'gm.',
+    \ 'PurgeMarksAtLine' : 'gm-',
+    \ 'PurgeMarks'       : 'gm<Space>',
+    \ 'PurgeMarkers'     : 'gm<BS>',
+    \ 'GotoNextLineAlpha': ''']',
+    \ 'GotoPrevLineAlpha': '''[',
+    \ 'GotoNextSpotAlpha': '`]',
+    \ 'GotoPrevSpotAlpha': '`[',
+    \ 'GotoNextLineByPos': ']''',
+    \ 'GotoPrevLineByPos': '[''',
+    \ 'GotoNextSpotByPos': ']`',
+    \ 'GotoPrevSpotByPos': '[`',
+    \ 'GotoNextMarker'   : '[+',
+    \ 'GotoPrevMarker'   : '[-',
+    \ 'GotoNextMarkerAny': ']=',
+    \ 'GotoPrevMarkerAny': '[=',
+    \ 'ListLocalMarks'   : '''?'
+    \ }
