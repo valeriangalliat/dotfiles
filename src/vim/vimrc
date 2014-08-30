@@ -39,8 +39,10 @@ Plugin 'plasticboy/vim-markdown' " Improved Markdown
 Plugin 'PeterRincker/vim-argumentative' " Switch arguments
 "Plugin 'wellle/targets.vim' " New text objects
 Plugin 'svermeulen/vim-easyclip' " Clipboard helper
-" Plugin 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
-Plugin 'valeriangalliat/vim-bracketed-paste' " Auto toggle paste mode
+"Plugin 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
+Plugin 'valeriangalliat/vim-bracketed-paste' " Auto toggle paste mode (rxvt compatible fork)
+Plugin 'kien/ctrlp.vim' " Fuzzy finder
+Plugin 'mbbill/undotree' " Undo helper
 
 call vundle#end()
 
@@ -153,6 +155,12 @@ set linebreak " Do not break words
 " Plugins
 " =======
 
+" `airline`
+" ---------
+
+let airline#extensions#tabline#enabled=1
+"let airline_powerline_fonts=1
+
 " `nerdtree`
 " ----------
 
@@ -167,8 +175,10 @@ noremap <leader>b :Unite buffer<CR>
 " `bufferline`
 " ------------
 
-let g:bufferline_echo=0
+" Do not echo since it's integrated in the status line
+let bufferline_echo=0
 
+" Append buffer line to status line
 autocmd VimEnter *
     \ let &statusline='%{bufferline#refresh_status()}'
     \ .bufferline#get_status_string()
@@ -177,3 +187,35 @@ autocmd VimEnter *
 " ----------
 
 imap <C-v> <Plug>EasyClipInsertModePaste
+
+" `markdown`
+" ----------
+
+" Do not fold
+let vim_markdown_folding_disabled=1
+
+" `undotree`
+" ----------
+
+noremap <leader>u :UndotreeToggle<CR>
+
+" `easymotion`
+" ------------
+
+let EasyMotion_smartcase=1 " Lower match upper
+let EasyMotion_enter_jump_first=1
+let EasyMotion_space_jump_first=1
+
+" Improve standard moves
+map <leader>l <Plug>(easymotion-lineforward)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+map <leader>h <Plug>(easymotion-linebackward)
+
+let EasyMotion_startofline=0 " Keep cursor horizontal position
+
+" Replace search
+map / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
