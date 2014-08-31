@@ -331,8 +331,11 @@ let SuperTabDefaultCompletionType='<C-n>'
 " Misc
 " ====
 
+" `dwall`
+" -------
+
 function! Dwall(line1, line2, ...) range
-    let buffer=join(getline(a:line1, a:line2), '\n')
+    let buffer=join(getline(a:line1, a:line2), "\n")
     let args=(a:0 > 0) ? a:0 : ''
     echom system('echo '.shellescape(buffer).' | dwall '.args)
 endfunction
