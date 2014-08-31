@@ -1,6 +1,7 @@
 " Vundle
 " ======
 
+set nocompatible " Not compatible with Vi
 set rtp+=~/.vim/bundle/Vundle.vim
 
 try
@@ -124,7 +125,6 @@ highlight ColorColumn term=underline ctermbg=236 guibg=#32322f
 " Global
 " ======
 
-set nocompatible " Not compatible with Vi
 set backspace=indent,eol,start " More powerful backspace
 set ruler " Show cursor position
 set number " Display numbers
