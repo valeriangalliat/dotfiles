@@ -75,8 +75,7 @@ Plugin 'bohrshaw/vim-vimperator-syntax' " Vimperator syntax
 " -------
 
 Plugin 'mattn/webapi-vim' " Web API framework
-"Plugin 'mattn/gist-vim' " Gist integration
-Plugin 'valeriangalliat/gist-vim' " Gist integration (globally anonymous fork)
+Plugin 'mattn/gist-vim' " Gist integration
 
 " Helpers
 " -------
@@ -85,8 +84,7 @@ Plugin 'tpope/vim-repeat' " Repeat with `.` for plugins
 Plugin 'tpope/vim-endwise' " Auto close blocks
 Plugin 'airblade/vim-rooter' " Change to project root
 Plugin 'svermeulen/vim-easyclip' " Clipboard helper
-"Plugin 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
-Plugin 'valeriangalliat/vim-bracketed-paste' " Auto toggle paste mode (rxvt compatible fork)
+Plugin 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
 Plugin 'tpope/vim-commentary' " Comment stuff out
 Plugin 'Auto-Pairs' " Auto close structures and quotes
 Plugin 'chrisbra/NrrwRgn' " Narrow region to focus edit
