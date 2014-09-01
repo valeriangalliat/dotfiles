@@ -326,6 +326,11 @@ let neocomplcache_enable_auto_select=1
 
 let SuperTabDefaultCompletionType='<C-n>'
 
+" `tagbar`
+" --------
+
+noremap <Leader>t :TagbarToggle<CR>
+
 " Misc
 " ====
 
