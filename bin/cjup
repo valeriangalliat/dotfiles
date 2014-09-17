@@ -1,5 +1,11 @@
 #!/bin/sh -e
 
 file=$1; shift
-scp "$file" vcj:www/scrot
+
+if [ -d "$HOME/codejam" ]; then
+    cp "$file" "$HOME/codejam/jail/www/scrot"
+else
+    scp "$file" vcj:www/scrot
+fi
+
 echo "http://val.codejam.info/scrot/$file"
