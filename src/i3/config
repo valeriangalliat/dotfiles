@@ -227,7 +227,6 @@ bar {
 
 exec i3-msg 'workspace $w1; exec firefox'
 exec i3-msg 'workspace $w2; exec urxvtc'
-exec i3-msg 'workspace $w5; exec pidgin'
 
 # Music background job
 exec while :; do mpc idle && pkill -RTMIN+2 i3blocks || sleep 10; done
