@@ -23,7 +23,7 @@ NeoBundle 'Shougo/neobundle.vim' " Core
 
 NeoBundle 'bling/vim-airline' " Fancy status line
 NeoBundle 'bling/vim-bufferline' " Buffers in status line
-NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make'}}
 NeoBundle 'Shougo/unite.vim' " Awesome finder
 NeoBundle 'tsukkee/unite-tag' " Find tags
 NeoBundle 'scrooloose/nerdtree' " File explorer
