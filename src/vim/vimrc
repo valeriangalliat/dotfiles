@@ -86,7 +86,7 @@ NeoBundle 'airblade/vim-rooter' " Change to project root
 NeoBundle 'svermeulen/vim-easyclip' " Clipboard helper
 NeoBundle 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
 NeoBundle 'tpope/vim-commentary' " Comment stuff out
-NeoBundle 'Auto-Pairs' " Auto close structures and quotes
+NeoBundle 'A2K/auto-pairs' " Auto close structures and quotes (awesome fork to avoid annoying mode)
 NeoBundle 'chrisbra/NrrwRgn' " Narrow region to focus edit
 
 " Code analysis
