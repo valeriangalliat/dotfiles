@@ -2,113 +2,120 @@
 " ======
 
 set nocompatible " Not compatible with Vi
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/neobundle.vim
 
 try
-    call vundle#begin()
+    call neobundle#begin()
 catch
     " Download Vundle and try again
     silent! !sh -c '
-    \ u="https://github.com/gmarik/Vundle.vim.git";
-    \ p=~/.vim/bundle/Vundle.vim;
+    \ u="https://github.com/Shougo/neobundle.vim.git";
+    \ p=~/.vim/bundle/neobundle.vim;
     \ mkdir -p ~/.vim/bundle && git clone "$u" "$p"'
 
-    call vundle#begin()
+    call neobundle#begin()
 endtry
 
-Plugin 'gmarik/Vundle.vim' " Core
+NeoBundle 'Shougo/neobundle.vim' " Core
 
 " Essentials
 " ----------
 
-Plugin 'bling/vim-airline' " Fancy status line
-Plugin 'bling/vim-bufferline' " Buffers in status line
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/unite.vim' " Awesome finder
-Plugin 'tsukkee/unite-tag' " Find tags
-Plugin 'scrooloose/nerdtree' " File explorer
-"Plugin 'kien/ctrlp.vim' " Fuzzy finder
+NeoBundle 'bling/vim-airline' " Fancy status line
+NeoBundle 'bling/vim-bufferline' " Buffers in status line
+NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'Shougo/unite.vim' " Awesome finder
+NeoBundle 'tsukkee/unite-tag' " Find tags
+NeoBundle 'scrooloose/nerdtree' " File explorer
+"NeoBundle 'kien/ctrlp.vim' " Fuzzy finder
 
 " Autocompletion
 " --------------
 
-"Plugin 'AutoComplPop' " Autocompletion (lightweight)
-"Plugin 'Shougo/neocomplete.vim' " Autocompletion
-Plugin 'Shougo/neocomplcache.vim' " Autocompletion
-Plugin 'ervandew/supertab' " Browse completion with Tab
-"Plugin 'Valloric/YouCompleteMe' " Autocompletion (heavy)
+"NeoBundle 'AutoComplPop' " Autocompletion (lightweight)
+"NeoBundle 'Shougo/neocomplete.vim' " Autocompletion
+NeoBundle 'Shougo/neocomplcache.vim' " Autocompletion
+NeoBundle 'ervandew/supertab' " Browse completion with Tab
+"NeoBundle 'Valloric/YouCompleteMe' " Autocompletion (heavy)
 
 " Theme
 " -----
 
-Plugin 'wombat256.vim' " Color scheme
+NeoBundle 'wombat256.vim' " Color scheme
 
 " Moves/objects
 " -------------
 
-Plugin 'PeterRincker/vim-argumentative' " Switch arguments
-"Plugin 'wellle/targets.vim' " New text objects
-Plugin 'Lokaltog/vim-easymotion' " Quick motions
-Plugin 'tommcdo/vim-exchange' " Exchange operator
-Plugin 'tpope/vim-surround' " Change surroundings
-Plugin 'qstrahl/vim-dentures' " Select by indent level
-Plugin 'Align' " Statements alignment helper
+NeoBundle 'PeterRincker/vim-argumentative' " Switch arguments
+"NeoBundle 'wellle/targets.vim' " New text objects
+NeoBundle 'Lokaltog/vim-easymotion' " Quick motions
+NeoBundle 'tommcdo/vim-exchange' " Exchange operator
+NeoBundle 'tpope/vim-surround' " Change surroundings
+NeoBundle 'qstrahl/vim-dentures' " Select by indent level
+NeoBundle 'Align' " Statements alignment helper
 
 " Snippets
 " --------
 
-"Plugin 'SirVer/ultisnips' " Snippets engine
-"Plugin 'honza/vim-snippets' " Actual snippets
-"Plugin 'Shougo/neosnippet'
-"Plugin 'Shougo/neosnippet-snippets'
+"NeoBundle 'SirVer/ultisnips' " Snippets engine
+"NeoBundle 'honza/vim-snippets' " Actual snippets
+"NeoBundle 'Shougo/neosnippet'
+"NeoBundle 'Shougo/neosnippet-snippets'
 
 " Integration
 " -----------
 
-Plugin 'tpope/vim-fugitive' " Git wrapper
-Plugin 'pangloss/vim-javascript' " Improved JavaScript
-Plugin 'godlygeek/tabular' " Text alignment helper (used by `markdown`)
-Plugin 'plasticboy/vim-markdown' " Improved Markdown
-Plugin 'bohrshaw/vim-vimperator-syntax' " Vimperator syntax
+NeoBundle 'tpope/vim-fugitive' " Git wrapper
+NeoBundle 'pangloss/vim-javascript' " Improved JavaScript
+NeoBundle 'godlygeek/tabular' " Text alignment helper (used by `markdown`)
+NeoBundle 'plasticboy/vim-markdown' " Improved Markdown
+NeoBundle 'bohrshaw/vim-vimperator-syntax' " Vimperator syntax
 
 " Web API
 " -------
 
-Plugin 'mattn/webapi-vim' " Web API framework
-Plugin 'mattn/gist-vim' " Gist integration
+NeoBundle 'mattn/webapi-vim' " Web API framework
+NeoBundle 'mattn/gist-vim' " Gist integration
 
 " Helpers
 " -------
 
-Plugin 'tpope/vim-repeat' " Repeat with `.` for plugins
-Plugin 'tpope/vim-endwise' " Auto close blocks
-Plugin 'airblade/vim-rooter' " Change to project root
-Plugin 'svermeulen/vim-easyclip' " Clipboard helper
-Plugin 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
-Plugin 'tpope/vim-commentary' " Comment stuff out
-Plugin 'Auto-Pairs' " Auto close structures and quotes
-Plugin 'chrisbra/NrrwRgn' " Narrow region to focus edit
+NeoBundle 'tpope/vim-repeat' " Repeat with `.` for plugins
+NeoBundle 'tpope/vim-endwise' " Auto close blocks
+NeoBundle 'airblade/vim-rooter' " Change to project root
+NeoBundle 'svermeulen/vim-easyclip' " Clipboard helper
+NeoBundle 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
+NeoBundle 'tpope/vim-commentary' " Comment stuff out
+NeoBundle 'Auto-Pairs' " Auto close structures and quotes
+NeoBundle 'chrisbra/NrrwRgn' " Narrow region to focus edit
 
 " Code analysis
 " -------------
 
-Plugin 'scrooloose/syntastic' " Syntax checker
+NeoBundle 'scrooloose/syntastic' " Syntax checker
 
 " UI
 " --
 
-Plugin 'wesleyche/SrcExpl' " Source explorer
-Plugin 'mbbill/undotree' " Undo column
-Plugin 'kshenoy/vim-signature' " Marks column
-Plugin 'majutsushi/tagbar' " Tags column
+NeoBundle 'wesleyche/SrcExpl' " Source explorer
+NeoBundle 'mbbill/undotree' " Undo column
+NeoBundle 'kshenoy/vim-signature' " Marks column
+NeoBundle 'majutsushi/tagbar' " Tags column
 
-call vundle#end()
+call neobundle#end()
 
 " Filetype
 " ========
 
 filetype plugin on " Filetype specific config (required for Vundle)
 filetype indent on " Load indentation rules regarding of filetype
+
+"
+" Check bundles to install and prompt.
+"
+" This must be executed after the Filetype part.
+"
+NeoBundleCheck
 
 " Theme
 " =====
