@@ -12,8 +12,8 @@ extract_url() {
     sed -e 's/.*"webpage_url": "//' -e 's/".*//'
 }
 
-file=~/music/$(mpc current -f %file%)
-info=$(echo "$file" | sed -r 's/\..+$/.info.json/')
+file=$(readlink -f "$HOME/music/$(mpc current -f %file%)")
+info=$(echo "$file" | sed -r 's/\.[^.]+$/.info.json/')
 
 if url=$(cat "$info" | extract_url); then
     echo "$url"
