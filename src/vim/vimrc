@@ -82,7 +82,7 @@ NeoBundle 'mattn/gist-vim' " Gist integration
 
 NeoBundle 'tpope/vim-repeat' " Repeat with `.` for plugins
 NeoBundle 'tpope/vim-endwise' " Auto close blocks
-NeoBundle 'airblade/vim-rooter' " Change to project root
+"NeoBundle 'airblade/vim-rooter' " Change to project root
 NeoBundle 'svermeulen/vim-easyclip' " Clipboard helper
 NeoBundle 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
 NeoBundle 'tpope/vim-commentary' " Comment stuff out
