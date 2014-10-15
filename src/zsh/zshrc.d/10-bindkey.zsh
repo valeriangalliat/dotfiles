@@ -1,8 +1,8 @@
-# Multiple undo/redo in Vi command mode
+# Multiple undo/redo in vi command mode
 bindkey -a u undo
 bindkey -a '^R' redo
 
-# Undo/redo in Vi insert mode
+# Undo/redo in vi insert mode
 bindkey -v '^Z' undo
 bindkey -v '^R' redo
 
@@ -10,7 +10,7 @@ bindkey -v '^R' redo
 # Standard bindings
 # =================
 #
-# More standard behavior even in Vi mode.
+# More standard behavior even in vi mode.
 #
 # See <https://wiki.archlinux.org/index.php/Zsh#Key_Bindings>.
 #
@@ -37,34 +37,15 @@ bindkey '\eOc' forward-word # Control+Right
 # Bind up/down keys to search the command beginning in history if
 # something is typed, else just move one line in history.
 #
-# This needs to autoload specific functions and to create user-defined
-# widgets with `zle -N`.
-#
-# See zshzle(1).
-#
-# I've made custom functions to wrap the original widgets to call
-# `forward-char` after the actual command, just to trigger an event
-# supported by the syntax highlighting function.
+# Needed twice because the `terminfo` variable don't work on all
+# setups.
 #
 
-autoload up-line-or-beginning-search
-autoload down-line-or-beginning-search
+bindkey "${terminfo[kcuu1]}" history-beginning-search-backward # Up
+bindkey "${terminfo[kcud1]}" history-beginning-search-forward # Down
 
-up-line-or-beginning-search-color() {
-    up-line-or-beginning-search
-    forward-char
-}
-
-down-line-or-beginning-search-color() {
-    down-line-or-beginning-search
-    forward-char
-}
-
-zle -N up-line-or-beginning-search-color
-zle -N down-line-or-beginning-search-color
-
-bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search-color # Up
-bindkey "${terminfo[kcud1]}" down-line-or-beginning-search-color # Down
+bindkey "^[[A" history-beginning-search-backward # Up
+bindkey "^[[B" history-beginning-search-forward # Down
 
 #
 # Great stuff
