@@ -65,11 +65,14 @@ NeoBundle 'Align' " Statements alignment helper
 " Integration
 " -----------
 
-NeoBundle 'tpope/vim-fugitive' " Git wrapper
-NeoBundle 'pangloss/vim-javascript' " Improved JavaScript
-NeoBundle 'godlygeek/tabular' " Text alignment helper (used by `markdown`)
-NeoBundle 'plasticboy/vim-markdown' " Improved Markdown
-NeoBundle 'bohrshaw/vim-vimperator-syntax' " Vimperator syntax
+Plugin 'tpope/vim-fugitive' " Git wrapper
+Plugin 'pangloss/vim-javascript' " Improved JavaScript
+Plugin 'godlygeek/tabular' " Text alignment helper (used by `markdown`)
+Plugin 'plasticboy/vim-markdown' " Improved Markdown
+Plugin 'bohrshaw/vim-vimperator-syntax'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'wavded/vim-stylus'
+Plugin 'evidens/vim-twig'
 
 " Web API
 " -------
@@ -182,6 +185,10 @@ au FileType gitconfig set et!
 au FileType javascript set ts=2 sts=2 sw=2
 au FileType html set ts=2 sts=2 sw=2
 au FileType markdown set ts=2 sts=2 sw=2 wrap
+au FileType twig set ts=2 sts=2 sw=2 wrap
+au FileType jade set ts=2 sts=2 sw=2 wrap
+au FileType haml set ts=2 sts=2 sw=2 wrap
+au FileType stylus set ts=2 sts=2 sw=2 wrap
 
 " Syntax associations
 " ===================
