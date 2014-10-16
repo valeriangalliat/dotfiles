@@ -65,14 +65,14 @@ NeoBundle 'Align' " Statements alignment helper
 " Integration
 " -----------
 
-Plugin 'tpope/vim-fugitive' " Git wrapper
-Plugin 'pangloss/vim-javascript' " Improved JavaScript
-Plugin 'godlygeek/tabular' " Text alignment helper (used by `markdown`)
-Plugin 'plasticboy/vim-markdown' " Improved Markdown
-Plugin 'bohrshaw/vim-vimperator-syntax'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'wavded/vim-stylus'
-Plugin 'evidens/vim-twig'
+NeoBundle 'tpope/vim-fugitive' " Git wrapper
+NeoBundle 'pangloss/vim-javascript' " Improved JavaScript
+NeoBundle 'godlygeek/tabular' " Text alignment helper (used by `markdown`)
+NeoBundle 'plasticboy/vim-markdown' " Improved Markdown
+NeoBundle 'bohrshaw/vim-vimperator-syntax'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'wavded/vim-stylus'
+NeoBundle 'evidens/vim-twig'
 
 " Web API
 " -------
