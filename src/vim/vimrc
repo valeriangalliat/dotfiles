@@ -343,8 +343,12 @@ let SuperTabDefaultCompletionType='<C-n>'
 " `auto-pairs`
 " ------------
 
-let g:AutoPairsShortcutBackInsert = '' " Allow to type `â` char
+let g:AutoPairsMapBS = 0
+let g:AutoPairsMapCR = 0
+let g:AutoPairsMapSpace = 0
+let g:AutoPairsCenterLine = 0 " Do not center line when expanding braces
 let g:AutoPairsShortcutJump = '' " Allow to type `i` char
+let g:AutoPairsShortcutBackInsert = '' " Allow to type `â` char
 
 " `tagbar`
 " --------
