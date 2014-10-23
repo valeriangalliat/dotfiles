@@ -216,7 +216,7 @@ mode "$mode_system" {
 # ===
 
 bar {
-    status_command i3blocks -d ~/.config/i3blocks/scripts
+    status_command SCRIPTS_DIR=~/.config/i3blocks/scripts i3blocks
 
     # No tray icons
     tray_output none

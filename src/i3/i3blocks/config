@@ -4,23 +4,26 @@
 
 [track]
 command=[ "$BLOCK_BUTTON" = 1 ] && mpc toggle -q; mpc current | sed -r '/.{48,}/{s/(.{45}).*/\1.../g};p'; mpc | grep -q paused && echo '#FFFF00' || :
+interval=once
 signal=2
 
 [memory]
-command="$BLOCK_LIBEXEC/memory" | cut -d' ' -f2 | sed 's/\(.\)$/ \1iB/'
+command="$SCRIPTS_DIR/memory" | cut -d' ' -f2 | sed 's/\(.\)$/ \1iB/'
 interval=30
 
 [disk]
-command="$BLOCK_LIBEXEC/disk" | sed 's/\(.\)$/ \1iB/'
+command="$SCRIPTS_DIR/disk" | sed 's/\(.\)$/ \1iB/'
 interval=60
 
-[ethernet]
-command="$BLOCK_LIBEXEC/network" enp2s0 | cut -d' ' -f2
-color=#00FF00
+[network]
+command="$SCRIPTS_DIR/network" | cut -d' ' -f1
 interval=60
+color=#00FF00
+instance=enp2s0
 
 [volume]
-command=[ "$BLOCK_BUTTON" = 1 ] && amixer set Master toggle -q; "$BLOCK_LIBEXEC/volume_fix"
+command=[ "$BLOCK_BUTTON" = 1 ] && amixer set Master toggle -q; "$SCRIPTS_DIR/volume_fix"
+interval=once
 signal=1
 
 [date]
