@@ -28,6 +28,7 @@ NeoBundle 'Shougo/unite.vim' " Awesome finder
 NeoBundle 'tsukkee/unite-tag' " Find tags
 NeoBundle 'scrooloose/nerdtree' " File explorer
 "NeoBundle 'kien/ctrlp.vim' " Fuzzy finder
+NeoBundle 'Yggdroot/indentLine' " Mark indent
 
 " Autocompletion
 " --------------
@@ -270,6 +271,13 @@ let bufferline_echo=0
 autocmd VimEnter *
     \ let &statusline='%{bufferline#refresh_status()}'
     \ .bufferline#get_status_string()
+
+" `indentline`
+" ------------
+
+let indentLine_color_term=236
+let indentLine_color_gui='#32322f'
+let indentLine_char='│'
 
 " `markdown`
 " ----------
