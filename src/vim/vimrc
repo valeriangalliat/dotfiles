@@ -58,8 +58,8 @@ NeoBundle 'Align' " Statements alignment helper
 " Snippets
 " --------
 
-"NeoBundle 'SirVer/ultisnips' " Snippets engine
-"NeoBundle 'honza/vim-snippets' " Actual snippets
+NeoBundle 'SirVer/ultisnips' " Snippets engine
+NeoBundle 'honza/vim-snippets' " Actual snippets
 "NeoBundle 'Shougo/neosnippet'
 "NeoBundle 'Shougo/neosnippet-snippets'
 
