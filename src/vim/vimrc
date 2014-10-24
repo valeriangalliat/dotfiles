@@ -151,6 +151,7 @@ set nostartofline " Do not reset cursor with some commands
 set noswapfile " Do not create `.swp` files
 set exrc " Read `.vimrc` in the current directory
 set secure " Secure mode for `execrc`
+set completeopt-=preview " Remove preview window during completion
 
 " Change leader key
 let mapleader=','
