@@ -149,6 +149,8 @@ set formatoptions+=croqnlj " See `:help fo-table`
 set formatoptions-=t " No auto text wrap
 set nostartofline " Do not reset cursor with some commands
 set noswapfile " Do not create `.swp` files
+set exrc " Read `.vimrc` in the current directory
+set secure " Secure mode for `execrc`
 
 " Change leader key
 let mapleader=','
