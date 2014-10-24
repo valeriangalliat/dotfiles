@@ -161,6 +161,9 @@ let mapleader=','
 "
 set wildmode=longest,list,full
 
+" Files to ignore in completion
+set wildignore=.git,*.o,*.so,*.pyc
+
 " Indentation
 " ===========
 
