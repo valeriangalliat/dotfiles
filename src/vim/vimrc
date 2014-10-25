@@ -1,5 +1,5 @@
-" Vundle
-" ======
+" NeoBundle
+" =========
 
 set nocompatible " Not compatible with Vi
 set rtp+=~/.vim/bundle/neobundle.vim
