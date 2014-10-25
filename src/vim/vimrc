@@ -96,6 +96,7 @@ NeoBundle 'A2K/auto-pairs' " Auto close structures and quotes (awesome fork to a
 NeoBundle 'chrisbra/NrrwRgn' " Narrow region to focus edit
 NeoBundle 'scrooloose/nerdcommenter' " Comment helper
 NeoBundle 'mileszs/ack.vim' " Use ack from Vim
+NeoBundle 'mattn/emmet-vim'
 
 " Code analysis
 " -------------
