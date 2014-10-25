@@ -94,7 +94,6 @@ NeoBundle 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
 NeoBundle 'tpope/vim-commentary' " Comment stuff out
 NeoBundle 'A2K/auto-pairs' " Auto close structures and quotes (awesome fork to avoid annoying mode)
 NeoBundle 'chrisbra/NrrwRgn' " Narrow region to focus edit
-NeoBundle 'tpope/vim-commentary' " Comment helper
 NeoBundle 'mileszs/ack.vim' " Use ack from Vim
 NeoBundle 'mattn/emmet-vim'
 
