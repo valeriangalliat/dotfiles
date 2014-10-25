@@ -29,6 +29,7 @@ NeoBundle 'tsukkee/unite-tag' " Find tags
 NeoBundle 'scrooloose/nerdtree' " File explorer
 "NeoBundle 'kien/ctrlp.vim' " Fuzzy finder
 NeoBundle 'Yggdroot/indentLine' " Mark indent
+NeoBundle 'ciaranm/detectindent' " Detect indent
 
 " Autocompletion
 " --------------
