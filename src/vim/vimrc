@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/neobundle.vim
 try
     call neobundle#begin()
 catch
-    " Download Vundle and try again
+    " Download NeoBundle and try again
     silent! !sh -c '
     \ u="https://github.com/Shougo/neobundle.vim.git";
     \ p=~/.vim/bundle/neobundle.vim;
