@@ -24,12 +24,16 @@ NeoBundle 'Shougo/neobundle.vim' " Core
 NeoBundle 'bling/vim-airline' " Fancy status line
 NeoBundle 'bling/vim-bufferline' " Buffers in status line
 NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make'}}
-"NeoBundle 'Shougo/unite.vim' " Awesome finder
-"NeoBundle 'tsukkee/unite-tag' " Find tags
+NeoBundle 'Shougo/unite.vim' " Awesome finder
+NeoBundle 'tsukkee/unite-tag' " Find tags
+NeoBundle 'ujihisa/unite-colorscheme' " Switch color scheme
 NeoBundle 'scrooloose/nerdtree' " File explorer
+NeoBundle 'jistr/vim-nerdtree-tabs' " NERDTree tabs integration
 NeoBundle 'kien/ctrlp.vim' " Fuzzy finder
+"NeoBundle 'wincent/Command-T' " Fuzzy finder
 NeoBundle 'Yggdroot/indentLine' " Mark indent
 NeoBundle 'ciaranm/detectindent' " Detect indent
+NeoBundle 'christoomey/vim-tmux-navigator' " tmux integration
 
 " Autocompletion
 " --------------
@@ -67,6 +71,7 @@ NeoBundle 'honza/vim-snippets' " Actual snippets
 " Integration
 " -----------
 
+NeoBundle 'tpope/vim-git' " Git syntax (updated version of built-in syntax)
 NeoBundle 'tpope/vim-fugitive' " Git wrapper
 "NeoBundle 'airblade/vim-gitgutter' " Show modified lines
 NeoBundle 'pangloss/vim-javascript' " Improved JavaScript
@@ -76,6 +81,8 @@ NeoBundle 'bohrshaw/vim-vimperator-syntax'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'wavded/vim-stylus'
 NeoBundle 'evidens/vim-twig'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'elzr/vim-json'
 
 " Web API
 " -------
@@ -95,7 +102,10 @@ NeoBundle 'tpope/vim-commentary' " Comment stuff out
 NeoBundle 'A2K/auto-pairs' " Auto close structures and quotes (awesome fork to avoid annoying mode)
 NeoBundle 'chrisbra/NrrwRgn' " Narrow region to focus edit
 NeoBundle 'mileszs/ack.vim' " Use ack from Vim
-NeoBundle 'mattn/emmet-vim'
+NeoBundle 'mattn/emmet-vim' " HTML shortcuts
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'matchit.zip' " `%` shortcut for HTML, LaTeX and more
+"NeoBundle 'Shougo/vimshell.vim'
 
 " Code analysis
 " -------------
@@ -109,6 +119,7 @@ NeoBundle 'wesleyche/SrcExpl' " Source explorer
 NeoBundle 'mbbill/undotree' " Undo column
 NeoBundle 'kshenoy/vim-signature' " Marks column
 NeoBundle 'majutsushi/tagbar' " Tags column
+"NeoBundle 'myusuf3/numbers.vim' " Context-aware relative or absolute numbers
 
 call neobundle#end()
 
@@ -195,6 +206,7 @@ au FileType apache set et!
 au FileType gitconfig set et!
 
 au FileType javascript set ts=2 sts=2 sw=2
+au FileType json set ts=2 sts=2 sw=2
 au FileType html set ts=2 sts=2 sw=2
 au FileType markdown set ts=2 sts=2 sw=2 wrap
 au FileType twig set ts=2 sts=2 sw=2 wrap
@@ -250,26 +262,32 @@ let airline#extensions#tabline#enabled=1
 " `nerdtree`
 " ----------
 
-noremap <Leader>n :NERDTreeToggle<CR>
+noremap <Leader>n :NERDTreeTabsToggle<CR>
+
+" `detectindent`
+" --------------
+
+au BufRead * DetectIndent
 
 " `unite`
 " -------
 
-"noremap <Leader>f :Unite file file/new directory/new<CR>
-"noremap <Leader>r :Unite file_rec/async<CR>
-"noremap <Leader>b :Unite buffer<CR>
-"noremap <Leader>t :Unite tag<CR>
-"noremap <Leader>g :Unite grep:.<CR>
+noremap <Leader>f :Unite file file/new directory/new<CR>
+noremap <Leader>r :Unite file_rec/async<CR>
+noremap <Leader>b :Unite buffer<CR>
+noremap <Leader>t :Unite tag<CR>
+noremap <Leader>g :Unite grep:.<CR>
+noremap <Leader>c :Unite colorscheme<CR>
 
 " Fuzzy matching and sort like `ctrlp`
-"call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"call unite#filters#sorter_default#use(['sorter_length'])
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_length'])
 
 " Start in insert mode, and use the whole buffer
-"call unite#custom#profile('default', 'context', {
-"    \ 'start_insert': 1,
-"    \ 'no_split': 1,
-"    \ })
+call unite#custom#profile('default', 'context', {
+    \ 'start_insert': 1,
+    \ 'no_split': 1,
+    \ })
 
 " `bufferline`
 " ------------
@@ -288,6 +306,7 @@ autocmd VimEnter *
 let indentLine_color_term=236
 let indentLine_color_gui='#32322f'
 let indentLine_char='│'
+let indentLine_noConcealCursor=''
 
 " `markdown`
 " ----------
