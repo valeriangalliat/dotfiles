@@ -335,10 +335,10 @@ map <Leader>h <Plug>(easymotion-linebackward)
 let EasyMotion_startofline=0 " Keep cursor horizontal position
 
 " Replace search
-map / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
+"map / <Plug>(easymotion-sn)
+"omap / <Plug>(easymotion-tn)
+"map n <Plug>(easymotion-next)
+"map N <Plug>(easymotion-prev)
 
 " `syntastic`
 " -----------
