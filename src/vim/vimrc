@@ -191,13 +191,13 @@ set softtabstop=4 " Remove 4 spaces with backspace
 set shiftwidth=4 " Indentation command width
 set shiftround " Indentation is always a multiple of configured width
 
-" Custom filetypes
-" ================
+" Filetype text width
+" ===================
 
 " Auto return to line after 72 chars for text files
-au FileType text set textwidth=72
-au FileType tex set textwidth=72
-au FileType markdown set textwidth=72
+au FileType text set tw=72
+au FileType tex set tw=72
+au FileType markdown set tw=72
 
 " Filetype indentation
 " ====================
