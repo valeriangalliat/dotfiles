@@ -1,0 +1,53 @@
+#!/bin/sh -e
+#
+# Copy terminfo via SCP on remote host, either in global or user mode.
+#
+# Typically, you'll use `terminfo -gs root@host` to make a global install
+# and directly run a shell, or `terminfo -s user@host` to install as user.
+#
+# You can ommit the `-s` to just do the copy.
+#
+# Usage: terminfo [options] <target>
+#
+# Arguments:
+#  <target>  SSH target, in the `user@host` format.
+#
+# Options:
+#   -h, --help    Show help.
+#   -g, --global  Install in `/usr/share/terminfo` instead of `~/.terminfo`.
+#   -s, --shell   Run a shell after copy.
+#
+
+eval "$(sed -r '1d;/^#/!q;s/..?//' "$0" | docopts -h - : "$@")"
+
+first=$(echo "$TERM" | head -1 | cut -c1)
+
+if "$global"; then
+    dir=/usr/share/terminfo
+else
+    dir=.terminfo
+fi
+
+dir="$dir/$first"
+dest=$dir/$TERM
+
+file=$(
+    whereis -bB "$HOME/.terminfo/$first" "/usr/share/terminfo/$first" \
+        -f "$TERM" \
+        | sed 's/[^:]*: *//'
+)
+
+if [ -z "$file" ]; then
+    echo "Unable to find terminfo for $TERM" >&2
+    exit 1
+fi
+
+before=
+after=
+
+if "$shell"; then
+    before='-t'
+    after='&& $SHELL'
+fi
+
+ssh $before "$target" "mkdir -p '$dir' && echo '$(base64 -w0 $file)' | base64 -d > '$dest' $after"
