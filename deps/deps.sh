@@ -11,6 +11,9 @@ cat=misc
     dep=vimpager
     github rkitover/vimpager
 
+    dep=docopts
+    github docopt/docopts
+
 cat=zsh
     dep=ls-colors
     github trapd00r/LS_COLORS
