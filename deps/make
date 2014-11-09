@@ -5,6 +5,14 @@
 
 cd "$(dirname "$0")"
 
+# Environment
+# ===========
+
+#
+# Whether to update existing dependencies.
+#
+UPDATE="${UPDATE:-true}"
+
 # Global variables
 # ================
 
@@ -30,6 +38,17 @@ pp() {
 }
 
 #
+# Print a header for the current context.
+#
+header() {
+    echo
+    echo '#'
+    echo "# $cat/$dep"
+    echo '#'
+    echo
+}
+
+#
 # Run a builder.
 #
 # A builder is function declined in `_i` and `_u` variants, respectively
@@ -45,16 +64,12 @@ pp() {
 run() {
     prefix=$1; shift
 
-    echo
-    echo '#'
-    echo "# $cat/$dep"
-    echo '#'
-    echo
-
     if [ ! -d "$cat/$dep" ]; then
+        header
         mkdir -p "$cat/$dep"
         (cd "$cat/$dep" && "${prefix}_i" "$@")
-    else
+    elif "$UPDATE"; then
+        header
         (cd "$cat/$dep" && "${prefix}_u" "$@")
     fi
 }
