@@ -31,7 +31,7 @@ NeoBundle 'scrooloose/nerdtree' " File explorer
 NeoBundle 'jistr/vim-nerdtree-tabs' " NERDTree tabs integration
 NeoBundle 'kien/ctrlp.vim' " Fuzzy finder
 "NeoBundle 'wincent/Command-T' " Fuzzy finder
-NeoBundle 'Yggdroot/indentLine' " Mark indent
+"NeoBundle 'Yggdroot/indentLine' " Mark indent
 NeoBundle 'ciaranm/detectindent' " Detect indent
 NeoBundle 'christoomey/vim-tmux-navigator' " tmux integration
 
