@@ -74,8 +74,8 @@ NeoBundle 'honza/vim-snippets' " Actual snippets
 NeoBundle 'tpope/vim-git' " Git syntax (updated version of built-in syntax)
 NeoBundle 'tpope/vim-fugitive' " Git wrapper
 "NeoBundle 'airblade/vim-gitgutter' " Show modified lines
-"NeoBundle 'pangloss/vim-javascript' " Improved JavaScript
-NeoBundle 'othree/yajs.vim' " Improved JavaScript
+NeoBundle 'pangloss/vim-javascript' " Improved JavaScript
+"NeoBundle 'othree/yajs.vim' " Improved JavaScript
 NeoBundle 'godlygeek/tabular' " Text alignment helper (used by `markdown`)
 NeoBundle 'plasticboy/vim-markdown' " Improved Markdown
 NeoBundle 'bohrshaw/vim-vimperator-syntax'
