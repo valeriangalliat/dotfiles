@@ -90,6 +90,9 @@ bindsym $mod+Shift+c reload
 # Restart i3 in place
 bindsym $mod+Shift+r restart
 
+# Lock
+bindsym Scroll_Lock exec slock
+
 # Music
 # -----
 
