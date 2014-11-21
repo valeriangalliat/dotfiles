@@ -34,6 +34,7 @@ NeoBundle 'kien/ctrlp.vim' " Fuzzy finder
 "NeoBundle 'Yggdroot/indentLine' " Mark indent
 NeoBundle 'ciaranm/detectindent' " Detect indent
 NeoBundle 'christoomey/vim-tmux-navigator' " tmux integration
+NeoBundle 'https://gist.githubusercontent.com/sjl/3762227/raw/f46750139793115a7c6380b6e03fdac52af38ffe/nextlast.vim', {'script_type': 'plugin'}
 
 " Autocompletion
 " --------------
