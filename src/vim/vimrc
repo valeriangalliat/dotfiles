@@ -170,6 +170,7 @@ set noswapfile " Do not create `.swp` files
 set exrc " Read `.vimrc` in the current directory
 set secure " Secure mode for `execrc`
 set completeopt-=preview " Remove preview window during completion
+set scrolloff=8 " Keep 8 context lines when scrolling
 
 " Change leader key
 let mapleader=','
