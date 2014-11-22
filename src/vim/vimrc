@@ -1,409 +1,733 @@
-" NeoBundle
+" Initialization {{{
+" ==================
+
+    set noexrc " Don't use system Vim configuration
+
+    " NeoBundle {{{
+    " -------------
+
+        set rtp+=~/.vim/bundle/neobundle.vim
+
+        try
+            call neobundle#begin()
+        catch
+            " Download NeoBundle and try again
+            silent! !mkdir -p ~/.vim/bundle
+            silent! !git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+            call neobundle#begin()
+        endtry
+
+    " }}}
+
+" }}}
+
+" Plugins {{{
+" ===========
+
+    " Essentials {{{
+    " --------------
+
+        " NeoBundle core
+        NeoBundleFetch 'Shougo/neobundle.vim'
+
+        " Defaults everyone can agree on
+        NeoBundle 'tpope/vim-sensible'
+
+        " Fancy status line
+        NeoBundle 'bling/vim-airline'
+
+        " Buffers in status line
+        " NeoBundle 'bling/vim-bufferline'
+
+        " tmux integration
+        NeoBundle 'christoomey/vim-tmux-navigator'
+
+    " }}}
+
+    " Tree {{{
+    " --------
+
+        " File explorer
+        NeoBundle 'scrooloose/nerdtree'
+
+        " Tabs integration
+        NeoBundle 'jistr/vim-nerdtree-tabs'
+
+    " }}}
+
+    " Finder, fuzzy, menu {{{
+    " -----------------------
+
+        " Dependency for Unite and others (parallel execution)
+        NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make'}}
+
+        " Find anything
+        NeoBundle 'Shougo/unite.vim'
+
+        " Find tags
+        NeoBundle 'tsukkee/unite-tag'
+
+        " Switch color scheme
+        NeoBundle 'ujihisa/unite-colorscheme'
+
+        " Fuzzy finder (faster than Unite equivalent)
+        NeoBundle 'kien/ctrlp.vim'
+
+        " Fuzzy finder (needs Ruby)
+        " NeoBundle 'wincent/Command-T'
+
+    " }}}
+
+    " Autocompletion {{{
+    " ------------------
+
+        " Autocompletion (lightweight)
+        "NeoBundle 'AutoComplPop'
+
+        " Autocompletion (intermediate)
+        NeoBundle 'Shougo/neocomplcache.vim'
+
+        " Autocompletion (same as `neocomplcache`, faster, but needs Lua)
+        "NeoBundle 'Shougo/neocomplete.vim'
+
+        " Browse completion with `<Tab>`
+        NeoBundle 'ervandew/supertab'
+
+        " Autocompletion (heavy and powerful)
+        "NeoBundle 'Valloric/YouCompleteMe'
+
+    " }}}
+
+    " Snippets {{{
+    " ------------
+
+        " Snippets engine
+        NeoBundle 'SirVer/ultisnips'
+
+        " Actual snippets
+        NeoBundle 'honza/vim-snippets'
+
+        " Snippets engine (alternative)
+        "NeoBundle 'Shougo/neosnippet'
+
+        " Actual snippets (alternative)
+        "NeoBundle 'Shougo/neosnippet-snippets'
+
+    " }}}
+
+    " Theme {{{
+    " ---------
+
+        " Color scheme
+        NeoBundle 'wombat256.vim'
+
+    " }}}
+
+    " Misc {{{
+    " --------
+
+        " Repeat with `.` for plugins
+        NeoBundle 'tpope/vim-repeat'
+
+        " Multiple cursors (kinda) like Sublime Text
+        NeoBundle 'terryma/vim-multiple-cursors'
+
+        " A shell inside Vim
+        " NeoBundle 'Shougo/vimshell.vim'
+    " }}}
+
+    " Movments/objects {{{
+    " --------------------
+
+        " Add next/last movments (`dinb` to delete in next parentheses)
+        NeoBundle 'https://gist.githubusercontent.com/sjl/3762227/raw/f46750139793115a7c6380b6e03fdac52af38ffe/nextlast.vim',
+            \ {'script_type': 'plugin'}
+
+        " Switch arguments
+        NeoBundle 'PeterRincker/vim-argumentative'
+
+        " New text objects
+        "NeoBundle 'wellle/targets.vim'
+
+        " Quick motions
+        NeoBundle 'Lokaltog/vim-easymotion'
+
+        " Exchange operator
+        NeoBundle 'tommcdo/vim-exchange'
+
+        " Change surroundings
+        NeoBundle 'tpope/vim-surround'
+
+        " Select by indent level
+        NeoBundle 'qstrahl/vim-dentures'
+
+        " Alignment helper
+        NeoBundle 'Align'
+
+        " Alignment helper
+        " NeoBundle 'tommcdo/vim-lion'
+
+    " }}}
+
+    " Syntax {{{
+    " ---------------
+
+        NeoBundle 'tpope/vim-git'
+        NeoBundle 'pangloss/vim-javascript'
+        " NeoBundle 'othree/yajs.vim' " Alternative JavaScript
+        NeoBundle 'godlygeek/tabular' " Needed by `markdown`
+        NeoBundle 'plasticboy/vim-markdown'
+        NeoBundle 'bohrshaw/vim-vimperator-syntax'
+        NeoBundle 'digitaltoad/vim-jade'
+        NeoBundle 'wavded/vim-stylus'
+        NeoBundle 'evidens/vim-twig'
+        NeoBundle 'othree/html5.vim'
+        NeoBundle 'elzr/vim-json'
+        NeoBundle 'wting/rust.vim'
+
+    " }}}
+
+    " Web API {{{
+    " -----------
+
+        " Web API framework (needed by `gist`)
+        NeoBundle 'mattn/webapi-vim'
+
+        " Manage GitHub gists
+        NeoBundle 'mattn/gist-vim'
+
+    " }}}
+
+    " Auto {{{
+    " --------
+
+        " Auto close blocks
+        NeoBundle 'tpope/vim-endwise'
+
+        " Auto close structures and quotes (awesome fork to avoid annoying mode)
+        NeoBundle 'A2K/auto-pairs'
+
+        " Auto toggle paste mode
+        NeoBundle 'ConradIrwin/vim-bracketed-paste'
+
+        " Auto change to project root
+        " NeoBundle 'airblade/vim-rooter'
+
+        " Auto detect indent (disabled because not accurate)
+        " NeoBundle 'ciaranm/detectindent'
+
+    " }}}
+
+    " Helpers {{{
+    " -----------
+
+        " Git wrapper
+        NeoBundle 'tpope/vim-fugitive'
+
+        " Show modified lines in Git projects
+        " NeoBundle 'airblade/vim-gitgutter'
+
+        " Clipboard helper
+        NeoBundle 'svermeulen/vim-easyclip'
+
+        " Comment stuff out
+        NeoBundle 'tpope/vim-commentary'
+
+        " Narrow region to focus edit
+        NeoBundle 'chrisbra/NrrwRgn'
+
+        " Use ack with Vim
+        NeoBundle 'mileszs/ack.vim'
+
+        " HTML shortcuts
+        NeoBundle 'mattn/emmet-vim'
+
+        " `%` for HTML, LaTeX and more (native in recent Vim versions)
+        " NeoBundle 'matchit.zip'
+
+        " Syntax checker
+        NeoBundle 'scrooloose/syntastic'
+
+    " }}}
+
+    " UI {{{
+    " ------
+
+        " Source explorer
+        " NeoBundle 'wesleyche/SrcExpl'
+
+        " Browse undo tree
+        NeoBundle 'mbbill/undotree'
+
+        " Show marks
+        NeoBundle 'kshenoy/vim-signature'
+
+        " Show tags from file
+        NeoBundle 'majutsushi/tagbar'
+
+        " Context-aware relative or absolute numbers
+        " NeoBundle 'myusuf3/numbers.vim'
+
+        " Mark indent (disabled because slow)
+        " NeoBundle 'Yggdroot/indentLine'
+
+    " }}}
+
+    call neobundle#end()
+
+    " Install new plugins
+    NeoBundleCheck
+
+" }}}
+
+" Essentials {{{
+" ==============
+
+    " Force `sensible` to load before vimrc
+    runtime! plugin/sensible.vim
+
+    " Display line numbers
+    set number
+
+    " Highlight cursor line
+    set cursorline
+
+    " Show 80 chars limit
+    set colorcolumn=80
+
+    " UTF-8 support without BOM
+    set encoding=utf-8 nobomb
+
+    " No word wrap
+    set nowrap
+
+    " Silently change unsaved buffer
+    set hidden
+
+    " See `:help fo-table`
+    set formatoptions+=croqnlj
+    set formatoptions-=t
+
+    " Do not reset cursor with some commands (like `H`, `M`, `L`)
+    set nostartofline
+
+    " Do not create `.swp` files
+    set noswapfile
+
+    " Read `.vimrc` in the current directory
+    set exrc
+
+    " Secure mode for `exrc`
+    set secure
+
+    " No preview window during completion
+    set completeopt-=preview
+
+    " Keep 8 context lines when scrolling
+    set scrolloff=8
+
+    " No bounds when in visual block
+    set virtualedit=block
+
+    " Spell check language
+    set spelllang=en
+
+    " Set window title
+    set title
+
+    " Fold with markers
+    set foldmethod=marker
+
+    " Set leader
+    let mapleader=','
+
+" }}}
+
+" Optimization {{{
+" ================
+
+    " Fast terminal commections
+    set ttyfast
+
+    " Don't redraw when running macros
+    set lazyredraw
+
+    " Syntax optimization
+    syntax sync minlines=256
+
+    " Don't highlight past 128 characters
+    set synmaxcol=128
+
+" }}}
+
+" Theme {{{
 " =========
 
-set nocompatible " Not compatible with Vi
-set rtp+=~/.vim/bundle/neobundle.vim
+    set t_Co=256
+    colorscheme wombat256mod
 
-try
-    call neobundle#begin()
-catch
-    " Download NeoBundle and try again
-    silent! !sh -c '
-    \ u="https://github.com/Shougo/neobundle.vim.git";
-    \ p=~/.vim/bundle/neobundle.vim;
-    \ mkdir -p ~/.vim/bundle && git clone "$u" "$p"'
+    " Color columns like cursor line
+    highlight ColorColumn term=underline ctermbg=236 guibg=#32322f
 
-    call neobundle#begin()
-endtry
+" }}}
 
-NeoBundle 'Shougo/neobundle.vim' " Core
+" Completion {{{
+" ==============
 
-" Essentials
-" ----------
+    "
+    " Complete until longest match. On tab, list matches. If tab is pressed
+    " again, do full completion.
+    "
+    set wildmode=longest,list,full
 
-NeoBundle 'bling/vim-airline' " Fancy status line
-NeoBundle 'bling/vim-bufferline' " Buffers in status line
-NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make'}}
-NeoBundle 'Shougo/unite.vim' " Awesome finder
-NeoBundle 'tsukkee/unite-tag' " Find tags
-NeoBundle 'ujihisa/unite-colorscheme' " Switch color scheme
-NeoBundle 'scrooloose/nerdtree' " File explorer
-NeoBundle 'jistr/vim-nerdtree-tabs' " NERDTree tabs integration
-NeoBundle 'kien/ctrlp.vim' " Fuzzy finder
-"NeoBundle 'wincent/Command-T' " Fuzzy finder
-"NeoBundle 'Yggdroot/indentLine' " Mark indent
-NeoBundle 'ciaranm/detectindent' " Detect indent
-NeoBundle 'christoomey/vim-tmux-navigator' " tmux integration
-NeoBundle 'https://gist.githubusercontent.com/sjl/3762227/raw/f46750139793115a7c6380b6e03fdac52af38ffe/nextlast.vim', {'script_type': 'plugin'}
+    " Files to ignore in completion
+    set wildignore+=*.o,*.out,*.so,*.class,*.pyc " Compiled binaries
+    set wildignore+=*.tar,*.tar.*,*.zip,*.rar " Archives
+    set wildignore+=*.jpg,*.jpeg,*.png,*.gif
+    set wildignore+=*.gz,*.bz2,*.xz " Compressed files
+    set wildignore+=.git,.svn,.hg " Version control
 
-" Autocompletion
-" --------------
+" }}}
 
-"NeoBundle 'AutoComplPop' " Autocompletion (lightweight)
-"NeoBundle 'Shougo/neocomplete.vim' " Autocompletion
-NeoBundle 'Shougo/neocomplcache.vim' " Autocompletion
-NeoBundle 'ervandew/supertab' " Browse completion with Tab
-"NeoBundle 'Valloric/YouCompleteMe' " Autocompletion (heavy)
+" Indentation {{{
+" ===============
 
-" Theme
-" -----
+    " Copy previous line indentation settings
+    set copyindent
 
-NeoBundle 'wombat256.vim' " Color scheme
+    " Use spaces instead of tabs
+    set expandtab
 
-" Moves/objects
-" -------------
+    " Tab display width
+    set tabstop=4
 
-NeoBundle 'PeterRincker/vim-argumentative' " Switch arguments
-"NeoBundle 'wellle/targets.vim' " New text objects
-NeoBundle 'Lokaltog/vim-easymotion' " Quick motions
-NeoBundle 'tommcdo/vim-exchange' " Exchange operator
-NeoBundle 'tpope/vim-surround' " Change surroundings
-NeoBundle 'qstrahl/vim-dentures' " Select by indent level
-NeoBundle 'Align' " Statements alignment helper
+    " Remove 4 spaces with backspace
+    set softtabstop=4
 
-" Snippets
-" --------
+    " Indentation command width
+    set shiftwidth=4
 
-NeoBundle 'SirVer/ultisnips' " Snippets engine
-NeoBundle 'honza/vim-snippets' " Actual snippets
-"NeoBundle 'Shougo/neosnippet'
-"NeoBundle 'Shougo/neosnippet-snippets'
+    " Always indent to a multiple of the configuration value
+    set shiftround
 
-" Integration
-" -----------
+    " Show whitespaces
+    " set listchars=tab:——,trail:•,nbsp:•
+    set list
 
-NeoBundle 'tpope/vim-git' " Git syntax (updated version of built-in syntax)
-NeoBundle 'tpope/vim-fugitive' " Git wrapper
-"NeoBundle 'airblade/vim-gitgutter' " Show modified lines
-NeoBundle 'pangloss/vim-javascript' " Improved JavaScript
-"NeoBundle 'othree/yajs.vim' " Improved JavaScript
-NeoBundle 'godlygeek/tabular' " Text alignment helper (used by `markdown`)
-NeoBundle 'plasticboy/vim-markdown' " Improved Markdown
-NeoBundle 'bohrshaw/vim-vimperator-syntax'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'wavded/vim-stylus'
-NeoBundle 'evidens/vim-twig'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'wting/rust.vim'
+    " Indentation helper {{{
 
-" Web API
-" -------
+        function! Indent(width)
+            execute 'set ts='.a:width.' sts='.a:width.' sw='.a:width
+        endfunction
 
-NeoBundle 'mattn/webapi-vim' " Web API framework
-NeoBundle 'mattn/gist-vim' " Gist integration
+        command! -nargs=1 Indent :call Indent(<f-args>)
 
-" Helpers
-" -------
+    " }}}
 
-NeoBundle 'tpope/vim-repeat' " Repeat with `.` for plugins
-NeoBundle 'tpope/vim-endwise' " Auto close blocks
-"NeoBundle 'airblade/vim-rooter' " Change to project root
-NeoBundle 'svermeulen/vim-easyclip' " Clipboard helper
-NeoBundle 'ConradIrwin/vim-bracketed-paste' " Auto toggle paste mode
-NeoBundle 'tpope/vim-commentary' " Comment stuff out
-NeoBundle 'A2K/auto-pairs' " Auto close structures and quotes (awesome fork to avoid annoying mode)
-NeoBundle 'chrisbra/NrrwRgn' " Narrow region to focus edit
-NeoBundle 'mileszs/ack.vim' " Use ack from Vim
-NeoBundle 'mattn/emmet-vim' " HTML shortcuts
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'matchit.zip' " `%` shortcut for HTML, LaTeX and more
-"NeoBundle 'Shougo/vimshell.vim'
+" }}}
 
-" Code analysis
-" -------------
+" Filetype associations {{{
+" =========================
 
-NeoBundle 'scrooloose/syntastic' " Syntax checker
+    " Text width {{{
+    " --------------
 
-" UI
-" --
+        au FileType text set tw=72
+        au FileType tex set tw=72
+        au FileType markdown set tw=72
 
-NeoBundle 'wesleyche/SrcExpl' " Source explorer
-NeoBundle 'mbbill/undotree' " Undo column
-NeoBundle 'kshenoy/vim-signature' " Marks column
-NeoBundle 'majutsushi/tagbar' " Tags column
-"NeoBundle 'myusuf3/numbers.vim' " Context-aware relative or absolute numbers
+    " }}}
 
-call neobundle#end()
+    " Indentation {{{
+    " ---------------
 
-" Filetype
+        au FileType apache set et!
+        au FileType gitconfig set et!
+
+        au FileType javascript set ts=2 sts=2 sw=2
+        au FileType json set ts=2 sts=2 sw=2
+        au FileType html set ts=2 sts=2 sw=2 wrap
+        au FileType markdown set ts=2 sts=2 sw=2 wrap
+        au FileType twig set ts=2 sts=2 sw=2 wrap
+        au FileType jade set ts=2 sts=2 sw=2 wrap
+        au FileType haml set ts=2 sts=2 sw=2 wrap
+        au FileType stylus set ts=2 sts=2 sw=2 wrap
+
+    " }}}
+
+    " Syntax {{{
+    " ----------
+
+        au BufRead,BufNewFile *.md set filetype=markdown
+        au BufRead,BufNewFile *.ronn set filetype=markdown
+        au BufRead,BufNewFile vimperatorrc set filetype=vimperator
+
+    " }}}
+
+" }}}
+
+" Search {{{
+" =========
+
+    " Case insensitive
+    set ignorecase
+
+    " Sensitive completion
+    set infercase
+
+    " Sensitive search if upper characters
+    set smartcase
+
+" }}}
+
+" Wrap {{{
 " ========
 
-filetype plugin on " Filetype specific config (required for Vundle)
-filetype indent on " Load indentation rules regarding of filetype
+    " Include the wrap lines for following moves
+    noremap j gj
+    noremap k gk
 
-"
-" Check bundles to install and prompt.
-"
-" This must be executed after the Filetype part.
-"
-NeoBundleCheck
+    " Do not break words
+    set linebreak
 
-" Theme
-" =====
+" }}}
 
-set t_Co=256
-colorscheme wombat256mod
-syntax on " Syntax highlighting
-
-" Color columns like cursor line
-highlight ColorColumn term=underline ctermbg=236 guibg=#32322f
-
-" Global
-" ======
-
-set backspace=indent,eol,start " More powerful backspace
-set ruler " Show cursor position
-set number " Display numbers
-set cursorline " Highlight cursor line
-set colorcolumn=80 " Show 80 chars limit
-set wildmenu " Enhanced command mode (display matches on tab)
-set encoding=utf-8 " UTF-8 support
-set nowrap " No word wrap
-set showcmd " Show commands being typed
-set laststatus=2 " Always show status line
-set hidden " Silently change unsaved buffer
-set formatoptions+=croqnlj " See `:help fo-table`
-set formatoptions-=t " No auto text wrap
-set nostartofline " Do not reset cursor with some commands
-set noswapfile " Do not create `.swp` files
-set exrc " Read `.vimrc` in the current directory
-set secure " Secure mode for `execrc`
-set completeopt-=preview " Remove preview window during completion
-set scrolloff=8 " Keep 8 context lines when scrolling
-
-" Change leader key
-let mapleader=','
-
-"
-" Complete until longest match. On tab, list matches. If tab is pressed
-" again, do full completion.
-"
-set wildmode=longest,list,full
-
-" Files to ignore in completion
-set wildignore=.git,*.o,*.so,*.pyc
-
-" Indentation
-" ===========
-
-set autoindent " Automatic indentation (keep previous line offset)
-set copyindent " Copy previous line indentation
-set tabstop=4 " Tab width
-set expandtab " Use spaces instead of tabs
-set softtabstop=4 " Remove 4 spaces with backspace
-set shiftwidth=4 " Indentation command width
-set shiftround " Indentation is always a multiple of configured width
-
-" Filetype text width
+" Plugin settings {{{
 " ===================
 
-" Auto return to line after 72 chars for text files
-au FileType text set tw=72
-au FileType tex set tw=72
-au FileType markdown set tw=72
+    " `airline` {{{
+    " -------------
 
-" Filetype indentation
-" ====================
+        let airline#extensions#tabline#enabled=1
+        " let airline_powerline_fonts=1
 
-au FileType apache set et!
-au FileType gitconfig set et!
+    " }}}
 
-au FileType javascript set ts=2 sts=2 sw=2
-au FileType json set ts=2 sts=2 sw=2
-au FileType html set ts=2 sts=2 sw=2
-au FileType markdown set ts=2 sts=2 sw=2 wrap
-au FileType twig set ts=2 sts=2 sw=2 wrap
-au FileType jade set ts=2 sts=2 sw=2 wrap
-au FileType haml set ts=2 sts=2 sw=2 wrap
-au FileType stylus set ts=2 sts=2 sw=2 wrap
+    " `nerdtree` {{{
+    " --------------
 
-" Syntax associations
-" ===================
+        noremap <Leader>n :NERDTreeTabsToggle<CR>
 
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.ronn set filetype=markdown
-au BufRead,BufNewFile vimperatorrc set filetype=vimperator
+    " }}}
 
-" Search
-" ======
+    " `detectindent` {{{
+    " ------------------
 
-set ignorecase " Case insensitive
-set infercase " Sensitive completion
-set smartcase " Sensitive search if upper characters
-set incsearch " Highlight pattern while typed
+        " au BufRead * DetectIndent
 
-" Whitespaces
+    " }}}
+
+    " `unite` {{{
+    " -----------
+
+        noremap <Leader>f :Unite file file/new directory/new<CR>
+        noremap <Leader>r :Unite file_rec/async<CR>
+        noremap <Leader>b :Unite buffer<CR>
+        noremap <Leader>t :Unite tag<CR>
+        noremap <Leader>g :Unite grep:.<CR>
+        noremap <Leader>c :Unite colorscheme<CR>
+
+        " Fuzzy matching and sort like `ctrlp`
+        call unite#filters#matcher_default#use(['matcher_fuzzy'])
+        call unite#filters#sorter_default#use(['sorter_length'])
+
+        " Start in insert mode, and use the whole buffer
+        call unite#custom#profile('default', 'context', {
+            \ 'start_insert': 1,
+            \ 'no_split': 1,
+            \ })
+
+    " }}}
+
+    " `bufferline` {{{
+    " ----------------
+
+        " Do not echo since it's integrated in the status line
+        " let bufferline_echo=0
+
+        " Append buffer line to status line
+        " autocmd VimEnter *
+        "     \ let &statusline='%{bufferline#refresh_status()}'
+        "     \ .bufferline#get_status_string()
+
+    " }}}
+
+    " `indentline` {{{
+    " ----------------
+
+        let indentLine_color_term=236
+        let indentLine_color_gui='#32322f'
+        let indentLine_char='│'
+        let indentLine_noConcealCursor=''
+
+    " }}}
+
+    " `markdown` {{{
+    " --------------
+
+        " Do not fold
+        let vim_markdown_folding_disabled=1
+
+    " }}}
+
+    " `undotree` {{{
+    " --------------
+
+        noremap <Leader>u :UndotreeToggle<CR>
+
+    " }}}
+
+    " `easymotion` {{{
+    " ----------------
+
+        " Lower match upper
+        let EasyMotion_smartcase=1
+
+        let EasyMotion_enter_jump_first=1
+        let EasyMotion_space_jump_first=1
+
+        " Improve standard moves
+        map <Leader>l <Plug>(easymotion-lineforward)
+        map <Leader>j <Plug>(easymotion-j)
+        map <Leader>k <Plug>(easymotion-k)
+        map <Leader>h <Plug>(easymotion-linebackward)
+
+        " Keep cursor horizontal position
+        let EasyMotion_startofline=0
+
+        " Replace search
+        " map / <Plug>(easymotion-sn)
+        " omap / <Plug>(easymotion-tn)
+        " map n <Plug>(easymotion-next)
+        " map N <Plug>(easymotion-prev)
+
+    " }}}
+
+    " `syntastic` {{{
+    " ---------------
+
+        let syntastic_javascript_checkers=['eslint', 'jshint', 'jslint']
+
+    " }}}
+
+    " `gist` {{{
+    " ----------
+
+        let gist_post_anonymous=1
+
+    " }}}
+
+    " `easyclip` {{{
+    " --------------
+
+        let EasyClipUseCutDefaults=0 " Do not remap `m`
+        let EasyClipUseSubstituteDefaults=1 " Remap `s`
+
+        " Paste without format in insert mode
+        imap <C-v> <plug>EasyClipInsertModePaste
+
+        " Cut mappings
+        nmap dx <Plug>MoveMotionPlug
+        xmap dx <Plug>MoveMotionXPlug
+        nmap dxx <Plug>MoveMotionLinePlug
+        nmap dX <Plug>MoveMotionEndOfLinePlug
+        nmap dxX <Plug>MoveMotionReplaceLinePlug
+
+    " }}}
+
+    " `neocomplcache` {{{
+    " -------------------
+
+        let neocomplcache_enable_at_startup=1
+        let neocomplcache_enable_smart_case=1
+        let neocomplcache_enable_auto_select=1
+
+    " }}}
+
+    " `supertab` {{{
+    " --------------
+
+        let SuperTabDefaultCompletionType='<C-n>'
+
+    " }}}
+
+    " `auto-pairs` {{{
+    " ----------------
+
+        " Do not center line when expanding braces
+        let g:AutoPairsCenterLine = 0
+
+        " Allow to type `i` char
+        let g:AutoPairsShortcutJump = ''
+
+        " Allow to type `â` char
+        let g:AutoPairsShortcutBackInsert = ''
+
+    " }}}
+
+    " `tagbar` {{{
+    " ------------
+
+        noremap <Leader>t :TagbarToggle<CR>
+
+    " }}}
+
+" }}}
+
+" Mappings {{{
+" ============
+
+    " Use `Q` for formatting
+    map Q gq
+
+    " Logical `Y` behavior
+    map Y y$
+
+    " nmap <Left> :vertical resize -5<CR>
+    " nmap <Up> :resize -5<CR>
+    " nmap <Right> :vertical resize +5<CR>
+    " nmap <Down> :resize +5<CR>
+
+    " Open vimrc in split
+    nmap <Leader>v :vsp ~/.vimrc<CR>
+
+    " Shortcuts to browse buffers
+    map <C-n> :bn
+    map <C-p> :bp
+
+    " Toggle relative numbering
+    noremap <Leader>r :set relativenumber!<CR>
+
+    " Fix `align` plugin messing with `<Leader>r`
+    map <nop> <Plug>RestoreWinPosn
+
+" }}}
+
+" Helpers {{{
 " ===========
 
-set listchars=tab:——,trail:•,nbsp:•
-set list " Show whitespaces
+    " `dwall` {{{
+    " -----------
 
-" Misc
-" ====
+        function! Dwall(line1, line2, ...) range
+            let buffer=join(getline(a:line1, a:line2), "\n")
+            let args=(a:0 > 0) ? a:0 : ''
+            echom system('echo '.shellescape(buffer).' | dwall '.args)
+        endfunction
 
-set virtualedit=block " No bounds when in visual block
-set spelllang=en " Spell check language
+        command! -nargs=? -range=% Dwall :call Dwall(<line1>, <line2>, <f-args>)
 
-" Wrap
-" ====
+    " }}}
 
-" Include the wrap lines for following moves
-noremap j gj
-noremap k gk
+    " Cursor jump {{{
+    " ---------------
 
-set linebreak " Do not break words
+        " Jump to last known cursor position
+        autocmd BufReadPost *
+            \ if line("'\"") > 1 && line("'\"") <= line('$') |
+            \   exe 'normal! g`"' |
+            \ endif
 
-" Plugins
-" =======
+    " }}}
 
-" `airline`
-" ---------
-
-let airline#extensions#tabline#enabled=1
-"let airline_powerline_fonts=1
-
-" `nerdtree`
-" ----------
-
-noremap <Leader>n :NERDTreeTabsToggle<CR>
-
-" `detectindent`
-" --------------
-
-au BufRead * DetectIndent
-
-" `unite`
-" -------
-
-noremap <Leader>f :Unite file file/new directory/new<CR>
-noremap <Leader>r :Unite file_rec/async<CR>
-noremap <Leader>b :Unite buffer<CR>
-noremap <Leader>t :Unite tag<CR>
-noremap <Leader>g :Unite grep:.<CR>
-noremap <Leader>c :Unite colorscheme<CR>
-
-" Fuzzy matching and sort like `ctrlp`
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_length'])
-
-" Start in insert mode, and use the whole buffer
-call unite#custom#profile('default', 'context', {
-    \ 'start_insert': 1,
-    \ 'no_split': 1,
-    \ })
-
-" `bufferline`
-" ------------
-
-" Do not echo since it's integrated in the status line
-let bufferline_echo=0
-
-" Append buffer line to status line
-autocmd VimEnter *
-    \ let &statusline='%{bufferline#refresh_status()}'
-    \ .bufferline#get_status_string()
-
-" `indentline`
-" ------------
-
-let indentLine_color_term=236
-let indentLine_color_gui='#32322f'
-let indentLine_char='│'
-let indentLine_noConcealCursor=''
-
-" `markdown`
-" ----------
-
-" Do not fold
-let vim_markdown_folding_disabled=1
-
-" `undotree`
-" ----------
-
-noremap <Leader>u :UndotreeToggle<CR>
-
-" `easymotion`
-" ------------
-
-let EasyMotion_smartcase=1 " Lower match upper
-let EasyMotion_enter_jump_first=1
-let EasyMotion_space_jump_first=1
-
-" Improve standard moves
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-
-let EasyMotion_startofline=0 " Keep cursor horizontal position
-
-" Replace search
-"map / <Plug>(easymotion-sn)
-"omap / <Plug>(easymotion-tn)
-"map n <Plug>(easymotion-next)
-"map N <Plug>(easymotion-prev)
-
-" `syntastic`
-" -----------
-
-let syntastic_javascript_checkers=['eslint', 'jshint', 'jslint']
-
-" `gist`
-" ------
-
-let gist_post_anonymous=1
-
-" `easyclip`
-" ----------
-
-let EasyClipUseCutDefaults=0 " Do not remap `m`
-let EasyClipUseSubstituteDefaults=1 " Remap `s`
-
-" Paste without format in insert mode
-imap <C-v> <plug>EasyClipInsertModePaste
-
-" Cut mappings
-nmap dx <Plug>MoveMotionPlug
-xmap dx <Plug>MoveMotionXPlug
-nmap dxx <Plug>MoveMotionLinePlug
-nmap dX <Plug>MoveMotionEndOfLinePlug
-nmap dxX <Plug>MoveMotionReplaceLinePlug
-
-" `neocomplcache`
-" ---------------
-
-let neocomplcache_enable_at_startup=1
-let neocomplcache_enable_smart_case=1
-let neocomplcache_enable_auto_select=1
-
-" `supertab`
-" ----------
-
-let SuperTabDefaultCompletionType='<C-n>'
-
-" `auto-pairs`
-" ------------
-
-let g:AutoPairsCenterLine = 0 " Do not center line when expanding braces
-let g:AutoPairsShortcutJump = '' " Allow to type `i` char
-let g:AutoPairsShortcutBackInsert = '' " Allow to type `â` char
-
-" `tagbar`
-" --------
-
-noremap <Leader>t :TagbarToggle<CR>
-
-" Misc
-" ====
-
-" `dwall`
-" -------
-
-function! Dwall(line1, line2, ...) range
-    let buffer=join(getline(a:line1, a:line2), "\n")
-    let args=(a:0 > 0) ? a:0 : ''
-    echom system('echo '.shellescape(buffer).' | dwall '.args)
-endfunction
-
-command! -nargs=? -range=% Dwall :call Dwall(<line1>, <line2>, <f-args>)
+" }}}
