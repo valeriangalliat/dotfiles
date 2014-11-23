@@ -460,6 +460,7 @@
 
         au BufRead,BufNewFile *.md set filetype=markdown
         au BufRead,BufNewFile *.ronn set filetype=markdown
+        au BufRead,BufNewFile *.swig set filetype=twig
         au BufRead,BufNewFile vimperatorrc set filetype=vimperator
 
     " }}}
