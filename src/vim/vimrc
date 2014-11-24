@@ -706,7 +706,7 @@
     noremap <Leader>r :set relativenumber!<CR>
 
     " Fix `align` plugin messing with `<Leader>r`
-    map <nop> <Plug>RestoreWinPosn
+    map '' <Plug>RestoreWinPosn
 
 " }}}
 
