@@ -3,4 +3,8 @@
 # Wrapper for `urxvtc` setting `-cd` option if `xcwd` returns a path.
 #
 
-urxvtc -cd "$(xcwd)" || urxvtc
+if dir=$(i3cwd); then
+    urxvtc -cd "$dir"
+else
+    urxvtc
+fi
