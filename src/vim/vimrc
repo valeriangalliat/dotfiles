@@ -1,7 +1,13 @@
 " Initialization {{{
 " ==================
 
-    set noexrc " Don't use system Vim configuration
+    " Don't use system Vim configuration
+    set noexrc
+
+    " Leave compatible mode alone
+    if &compatible
+        finish
+    endif
 
     " NeoBundle {{{
     " -------------
