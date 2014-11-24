@@ -1,0 +1,6 @@
+#!/bin/sh -e
+#
+# Wrapper for `urxvtc` setting `-cd` option if `xcwd` returns a path.
+#
+
+urxvtc -cd "$(xcwd)" || urxvtc
