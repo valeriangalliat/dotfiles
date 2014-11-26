@@ -254,6 +254,9 @@
         " Syntax checker
         NeoBundle 'scrooloose/syntastic'
 
+        " Switch expressions (true/false, on/off, etc.)
+        NeoBundle 'AndrewRadev/switch.vim'
+
     " }}}
 
     " UI {{{
@@ -670,6 +673,12 @@
     " ------------
 
         noremap <Leader>t :TagbarToggle<CR>
+
+    " }}}
+
+    " `switch` {{{
+
+        nnoremap - :Switch<CR>
 
     " }}}
 
