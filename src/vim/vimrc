@@ -594,19 +594,13 @@
         let EasyMotion_space_jump_first=1
 
         " Improve standard moves
-        map <Leader>l <Plug>(easymotion-lineforward)
-        map <Leader>j <Plug>(easymotion-j)
-        map <Leader>k <Plug>(easymotion-k)
-        map <Leader>h <Plug>(easymotion-linebackward)
+        noremap <Leader>l <Plug>(easymotion-lineforward)
+        noremap <Leader>j <Plug>(easymotion-j)
+        noremap <Leader>k <Plug>(easymotion-k)
+        noremap <Leader>h <Plug>(easymotion-linebackward)
 
         " Keep cursor horizontal position
         let EasyMotion_startofline=0
-
-        " Replace search
-        " map / <Plug>(easymotion-sn)
-        " omap / <Plug>(easymotion-tn)
-        " map n <Plug>(easymotion-next)
-        " map N <Plug>(easymotion-prev)
 
     " }}}
 
@@ -631,14 +625,14 @@
         let EasyClipUseSubstituteDefaults=1 " Remap `s`
 
         " Paste without format in insert mode
-        imap <C-v> <plug>EasyClipInsertModePaste
+        inoremap <C-v> <plug>EasyClipInsertModePaste
 
         " Cut mappings
-        nmap dx <Plug>MoveMotionPlug
-        xmap dx <Plug>MoveMotionXPlug
-        nmap dxx <Plug>MoveMotionLinePlug
-        nmap dX <Plug>MoveMotionEndOfLinePlug
-        nmap dxX <Plug>MoveMotionReplaceLinePlug
+        nnoremap dx <Plug>MoveMotionPlug
+        xnoremap dx <Plug>MoveMotionXPlug
+        nnoremap dxx <Plug>MoveMotionLinePlug
+        nnoremap dX <Plug>MoveMotionEndOfLinePlug
+        nnoremap dxX <Plug>MoveMotionReplaceLinePlug
 
     " }}}
 
@@ -685,28 +679,28 @@
 " ============
 
     " Use `Q` for formatting
-    map Q gq
+    noremap Q gq
 
     " Logical `Y` behavior
-    map Y y$
+    noremap Y y$
 
-    " nmap <Left> :vertical resize -5<CR>
-    " nmap <Up> :resize -5<CR>
-    " nmap <Right> :vertical resize +5<CR>
-    " nmap <Down> :resize +5<CR>
+    " nnoremap <Left> :vertical resize -5<CR>
+    " nnoremap <Up> :resize -5<CR>
+    " nnoremap <Right> :vertical resize +5<CR>
+    " nnoremap <Down> :resize +5<CR>
 
     " Open vimrc in split
-    nmap <Leader>v :vsp ~/.vimrc<CR>
+    noremap <Leader>v :vsp ~/.vimrc<CR>
 
     " Shortcuts to browse buffers
-    map <C-n> :bn
-    map <C-p> :bp
+    noremap <C-n> :bn
+    noremap <C-p> :bp
 
     " Toggle relative numbering
     noremap <Leader>r :set relativenumber!<CR>
 
     " Fix `align` plugin messing with `<Leader>r`
-    map '' <Plug>RestoreWinPosn
+    noremap '' <Plug>RestoreWinPosn
 
 " }}}
 
