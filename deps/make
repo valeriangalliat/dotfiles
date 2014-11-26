@@ -82,7 +82,7 @@ git() {
 }
 
 git_i() {
-    pp command git clone "$1" .
+    pp command git clone --depth 1 "$1" .
 }
 
 git_u() {
