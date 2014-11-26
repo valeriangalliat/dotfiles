@@ -19,7 +19,7 @@
         catch
             " Download NeoBundle and try again
             silent! !mkdir -p ~/.vim/bundle
-            silent! !git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+            silent! !git clone --depth 1 https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
             call neobundle#begin()
         endtry
 
