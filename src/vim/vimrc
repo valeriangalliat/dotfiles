@@ -719,6 +719,9 @@
     " Fix `align` plugin messing with `<Leader>r`
     map '' <Plug>RestoreWinPosn
 
+    " Fix `align` plugin messing with `<Leader>w`
+    map '' <Plug>AM_w=
+
 " }}}
 
 " Helpers {{{
