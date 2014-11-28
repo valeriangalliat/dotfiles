@@ -347,6 +347,10 @@
     " Fold with markers
     set foldmethod=marker
 
+    " Save edit history to file
+    set undofile
+    set undodir=~/.vim/undo
+
     " Set leader
     let mapleader=','
 
