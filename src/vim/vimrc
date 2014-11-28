@@ -173,6 +173,9 @@
         " Alignment helper
         " NeoBundle 'tommcdo/vim-lion'
 
+        " Camel case and underscore motions
+        NeoBundle 'bkad/CamelCaseMotion'
+
     " }}}
 
     " Syntax {{{
