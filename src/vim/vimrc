@@ -190,6 +190,7 @@
         NeoBundle 'othree/html5.vim'
         NeoBundle 'elzr/vim-json'
         NeoBundle 'wting/rust.vim'
+        NeoBundle 'chrisbra/csv.vim'
 
     " }}}
 
