@@ -142,7 +142,7 @@
         " NeoBundle 'Shougo/vimshell.vim'
     " }}}
 
-    " Movments/objects {{{
+    " Motions/objects {{{
     " --------------------
 
         " Add next/last movments (`dinb` to delete in next parentheses)
