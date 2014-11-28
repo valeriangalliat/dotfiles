@@ -43,7 +43,7 @@
         NeoBundle 'bling/vim-airline'
 
         " Buffers in status line
-        " NeoBundle 'bling/vim-bufferline'
+        NeoBundle 'bling/vim-bufferline'
 
         " tmux integration
         NeoBundle 'christoomey/vim-tmux-navigator'
@@ -553,12 +553,12 @@
     " ----------------
 
         " Do not echo since it's integrated in the status line
-        " let bufferline_echo=0
+        let bufferline_echo=0
 
         " Append buffer line to status line
-        " autocmd VimEnter *
-        "     \ let &statusline='%{bufferline#refresh_status()}'
-        "     \ .bufferline#get_status_string()
+        autocmd VimEnter *
+            \ let &statusline='%{bufferline#refresh_status()}'
+            \ .bufferline#get_status_string()
 
     " }}}
 
