@@ -1,0 +1,30 @@
+#!/bin/sh -e
+
+main() {
+    # Destination file (do not follow symlinks)
+    local dest=$(realpath --no-symlinks "$1")
+
+    # Old link target
+    local old=$(readlink "$2")
+
+    echo
+    echo "Linking $2 to $dest"
+
+    # The destination is a link
+    if [ -h "$2" ]; then
+        # Target have not changed
+        if [ "$old" = "$dest" ]; then
+            return
+        fi
+
+        echo "$2 already links to $old"
+    elif [ -f "$2" ]; then
+        echo "$2 is a file"
+        echo
+        git --no-pager diff "$2" "$dest"
+    fi
+
+    ln -sfi --no-dereference "$dest" "$2"
+}
+
+. $(dirname "$0")/args.sh

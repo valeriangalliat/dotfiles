@@ -1,0 +1,31 @@
+#
+# ~/.config/i3blocks/config
+#
+
+[track]
+command=[ "$BLOCK_BUTTON" = 1 ] && mpc toggle -q; mpc current | sed -r '/.{48,}/{s/(.{45}).*/\1.../g};p'; mpc | grep -q paused && echo '#f7ca88' || :
+interval=once
+signal=2
+
+[memory]
+command="$SCRIPTS_DIR/memory" | cut -d' ' -f2 | sed 's/\(.\)$/ \1iB/'
+interval=30
+
+[disk]
+command="$SCRIPTS_DIR/disk" | sed 's/\(.\)$/ \1iB/' | sed 's/#FF000/#ab4642/g'
+interval=60
+
+[network]
+command="$SCRIPTS_DIR/network" | cut -d' ' -f1 | sed 's/#FF000/#ab4642/g'
+interval=60
+color=#a1b56c
+instance=enp2s0
+
+[volume]
+command=[ "$BLOCK_BUTTON" = 1 ] && amixer set Master toggle -q; "$SCRIPTS_DIR/volume_fix" | sed 's/#FFFF00/#f7ca88/g'
+interval=once
+signal=1
+
+[date]
+command=date | awk '{NF -= 2} 1'
+interval=1

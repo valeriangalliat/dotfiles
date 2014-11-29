@@ -1,68 +1,122 @@
-export PYTHON = python
-export DESTDIR ?= $(HOME)
+DESTDIR = $(HOME)
 
-all:
+# Destination
+D = $(DESTDIR)
 
-install: install-cli \
-	install-git \
-	install-gtk \
-	install-i3 \
-	install-mpd \
-	install-ncmpcpp \
-	install-qt \
-	install-sublime-text \
-	install-urxvt \
-	install-vimperator \
-	install-x11
+# Target destination
+C = $(D)/.config/$@
 
-install-cli: \
-	install-shell \
-	install-tmux \
-	install-vim \
-	install-weechat \
-	install-zsh
+# Target source directory
+S = src/$@
 
-install-shell:
-	tools/deploy src/shell
+CP = @tools/cp
+LN = @tools/ln
+MKDIR = @mkdir -p
 
-install-tmux:
-	tools/deploy src/tmux
+all: cli graph
 
-install-vim:
-	tools/deploy src/vim
+# CLI {{{
+# =======
 
-install-weechat:
-	tools/deploy src/weechat
+cli: \
+	git \
+	irssi \
+	shell \
+	tmux \
+	vim \
+	weechat \
+	zsh
 
-install-zsh:
-	tools/deploy src/zsh
+git:
+	$(LN) $(S)/gitconfig $(D)/.gitconfig
 
-install-git:
-	tools/deploy src/git
+irssi:
+	$(MKDIR) $(D)/.irssi
+	$(CP) $(S)/config $(D)/.irssi
+	$(CP) $(S)/default.theme $(D)/.irssi
 
-install-gtk:
-	tools/deploy src/gtk
+shell:
+	$(CP) $(S)/profile.home $(D)/.profile
 
-install-i3:
-	tools/deploy src/i3
+tmux:
+	$(CP) $(S)/tmux.conf.home $(D)/.tmux.conf
 
-install-mpd:
-	tools/deploy src/mpd
+vim:
+	$(LN) $(S)/vimrc $(D)/.vimrc
 
-install-ncmpcpp:
-	tools/deploy src/ncmpcpp
+weechat:
+	$(MKDIR) $(D)/.weechat
+	$(CP) $(S)/weechat.conf $(D)/.weechat
+	$(CP) $(S)/irc.conf $(D)/.weechat
 
-install-qt:
-	tools/deploy src/qt
+zsh:
+	$(LN) $(S)/zshrc $(D)/.zshrc
+	$(LN) $(D)/.profile $(D)/.zprofile
 
-install-sublime-text:
-	tools/deploy src/sublime-text
+# }}}
 
-install-urxvt:
-	tools/deploy src/urxvt
+# Graphical {{{
+# =============
 
-install-vimperator:
-	tools/deploy src/vimperator
+graph: \
+	dunst \
+	gtk \
+	i3 \
+	i3blocks \
+	mpd \
+	ncmpcpp \
+	qt \
+	sublime-text \
+	urxvt \
+	vimperator \
+	x11 \
+	zathura
 
-install-x11:
-	tools/deploy src/x11
+dunst:
+	$(MKDIR) $(C)
+	$(LN) $(S)/dunstrc $(C)
+
+gtk:
+	$(LN) $(S)/gtkrc-2.0 $(D)/.gtkrc-2.0
+
+i3:
+	$(MKDIR) $(C)
+	$(CP) $(S)/config $(C)
+
+i3blocks:
+	$(MKDIR) $(C)/scripts
+	$(CP) $(S)/config $(C)
+	$(LN) $(S)/scripts/* $(C)/scripts
+
+mpd:
+	$(MKDIR) $(C)
+	$(LN) $(S)/mpd.conf $(C)
+
+ncmpcpp:
+	$(MKDIR) $(D)/.ncmpcpp
+	$(LN) $(S)/config $(D)/.ncmpcpp
+
+qt:
+	$(CP) $(S)/Trolltech.conf $(D)/.config
+
+sublime-text:
+	$(MKDIR) $(C)-3/Packages/User
+	$(LN) $(S)/Packages/* $(C)-3/Packages
+	$(LN) $(S)/*.sublime-settings $(C)-3/Packages/User
+
+urxvt:
+	$(MKDIR) $(D)/.urxvt/ext
+	$(LN) $(S)/ext/* $(D)/.urxvt/ext
+
+vimperator:
+	$(CP) $(S)/vimperatorrc.home $(D)/.vimperatorrc
+
+x11:
+	$(CP) $(S)/session.home $(D)/.xsession
+	$(LN) $(D)/.xsession $(D)/.xinitrc
+
+zathura:
+	$(MKDIR) $(C)
+	$(LN) $(S)/zathurarc $(C)
+
+# }}}

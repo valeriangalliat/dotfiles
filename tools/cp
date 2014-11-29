@@ -1,0 +1,28 @@
+#!/bin/sh -e
+
+main() {
+    echo
+    echo "Copying $1 to $2"
+
+    # The destination already exists
+    if [ -f "$2" ]; then
+        if [ -h "$2" ]; then
+            # It's a symlink
+            echo "$2 is a symlink to $(readlink "$2")"
+        else
+            # Get the diff, stop if same content
+            if diff=$(git --no-pager diff "$2" "$1"); then
+                return
+            fi
+
+            echo "$2 already exists"
+            echo
+            echo "$diff"
+        fi
+    fi
+
+    # `--remove-destination` ensures symlinks are overwritten
+    cp -i --remove-destination "$1" "$2"
+}
+
+. $(dirname "$0")/args.sh
