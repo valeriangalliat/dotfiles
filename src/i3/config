@@ -1,235 +1,253 @@
 #
 # ~/.config/i3/config
 #
-# See i3(1) for documentation.
-#
 
-# Basics
-# ======
+# Essentials {{{
+# ==============
 
-# Modifiers
-set $mod Mod4
-floating_modifier $mod
+    # Modifiers
+    set $mod Mod4
+    floating_modifier $mod
 
-# Font
-font xft:monospace 8
+    # Font
+    font xft:monospace 8
 
-#
-# Window format.
-#
-# `1pixel` is like `pixel 1`. The borders will be 1 pixel large, and
-# if the window is "alone" the title bar is hidden (unline `default` mode).
-#
-new_window 1pixel
-new_float 1pixel
+    #
+    # Window format.
+    #
+    # `1pixel` is like `pixel 1`. The borders will be 1 pixel large, and
+    # if the window is "alone" the title bar is hidden (unline `default` mode).
+    #
+    new_window 1pixel
+    new_float 1pixel
 
-# Tabbed workspace by default
-workspace_layout tabbed
+    # Tabbed workspace by default
+    workspace_layout tabbed
 
-#
-# Focus previous workspace when switching two times to the same workspace.
-#
-workspace_auto_back_and_forth yes
+    #
+    # Focus previous workspace when switching two times to the same workspace.
+    #
+    workspace_auto_back_and_forth yes
 
-# Bindings
-# ========
+# }}}
 
-# Start launcher
-bindsym $mod+d exec dmenu_run -fn monospace:size=8
+# Bindings {{{
+# ============
 
-# Start terminal
-bindsym $mod+Return exec urxvtcwd
+    # Start launcher
+    bindsym $mod+d exec dmenu_run -fn monospace:size=8
 
-# Kill focused window
-bindsym $mod+Shift+a kill
+    # Start terminal
+    bindsym $mod+Return exec urxvtcwd
 
-# Change focus (Vi keys shifted right)
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+m focus right
+    # Kill focused window
+    bindsym $mod+Shift+a kill
 
-# Change focus (cursor keys)
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+    # Change focus (Vi keys shifted right)
+    bindsym $mod+j focus left
+    bindsym $mod+k focus down
+    bindsym $mod+l focus up
+    bindsym $mod+m focus right
 
-# Move window (Vi keys shifted right)
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+m move right
+    # Change focus (cursor keys)
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
 
-# Move window (cursor keys)
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+    # Move window (Vi keys shifted right)
+    bindsym $mod+Shift+j move left
+    bindsym $mod+Shift+k move down
+    bindsym $mod+Shift+l move up
+    bindsym $mod+Shift+m move right
 
-# Horizontal split
-bindsym $mod+h split h
+    # Move window (cursor keys)
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
 
-# Vertical split
-bindsym $mod+v split v
+    # Horizontal split
+    bindsym $mod+h split h
 
-# Toggle fullscreen
-bindsym $mod+f fullscreen
+    # Vertical split
+    bindsym $mod+v split v
 
-# Change layout
-bindsym $mod+z layout tabbed
-bindsym $mod+e layout toggle split
+    # Toggle fullscreen
+    bindsym $mod+f fullscreen
 
-# Focus parent/child container
-bindsym $mod+q focus parent
-bindsym $mod+s focus child
+    # Change layout
+    bindsym $mod+z layout tabbed
+    bindsym $mod+e layout toggle split
 
-# Reload configuration
-bindsym $mod+Shift+c reload
+    # Focus parent/child container
+    bindsym $mod+q focus parent
+    bindsym $mod+s focus child
 
-# Restart i3 in place
-bindsym $mod+Shift+r restart
+    # Reload configuration
+    bindsym $mod+Shift+c reload
 
-# Lock
-bindsym Scroll_Lock exec slock
+    # Restart i3 in place
+    bindsym $mod+Shift+r restart
 
-# Music
-# -----
+    # Lock
+    bindsym Scroll_Lock exec slock
 
-# Keyboard volume keys
-bindsym XF86AudioRaiseVolume exec amixer set Master 1+ && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer set Master 1- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec amixer set Master toggle && pkill -RTMIN+1 i3blocks
+    # Music {{{
+    # ---------
 
-# MPD controls
-bindsym $mod+space exec mpc toggle
-bindsym $mod+n exec mpc next
-bindsym $mod+p exec mpc prev
-bindsym $mod+BackSpace exec mpc seek 0
+    # Keyboard volume keys
+    bindsym XF86AudioRaiseVolume exec amixer set Master 1+ && pkill -RTMIN+1 i3blocks
+    bindsym XF86AudioLowerVolume exec amixer set Master 1- && pkill -RTMIN+1 i3blocks
+    bindsym XF86AudioMute exec amixer set Master toggle && pkill -RTMIN+1 i3blocks
 
-# Workspaces
-# ----------
+    # MPD controls
+    bindsym $mod+space exec mpc toggle
+    bindsym $mod+n exec mpc next
+    bindsym $mod+p exec mpc prev
+    bindsym $mod+BackSpace exec mpc seek 0
 
-# Workspace names
-set $w1 1-web
-set $w2 2-irc
-set $w3 3-dev
-set $w4 4-mus
-set $w5 5-xmpp
-set $w6 6
-set $w7 7
-set $w8 8
-set $w9 9
-set $w10 10
+    # }}}
 
-# Switch to workspace
-bindsym $mod+1 workspace $w1
-bindsym $mod+2 workspace $w2
-bindsym $mod+3 workspace $w3
-bindsym $mod+4 workspace $w4
-bindsym $mod+5 workspace $w5
-bindsym $mod+6 workspace $w6
-bindsym $mod+7 workspace $w7
-bindsym $mod+8 workspace $w8
-bindsym $mod+9 workspace $w9
-bindsym $mod+10 workspace $w10
+# }}}
 
-# Move container to workspace
-bindsym $mod+Shift+1 move container to workspace $w1
-bindsym $mod+Shift+2 move container to workspace $w2
-bindsym $mod+Shift+3 move container to workspace $w3
-bindsym $mod+Shift+4 move container to workspace $w4
-bindsym $mod+Shift+5 move container to workspace $w5
-bindsym $mod+Shift+6 move container to workspace $w6
-bindsym $mod+Shift+7 move container to workspace $w7
-bindsym $mod+Shift+8 move container to workspace $w8
-bindsym $mod+Shift+9 move container to workspace $w9
-bindsym $mod+Shift+10 move container to workspace $w10
+# Workspaces {{{
+# ==============
 
-# Modes
-# =====
+    # Names
+    set $w1 1-web
+    set $w2 2-irc
+    set $w3 3-dev
+    set $w4 4-mus
+    set $w5 5-xmpp
+    set $w6 6
+    set $w7 7
+    set $w8 8
+    set $w9 9
+    set $w10 10
 
-# Resize
-# ------
+    # Switch to workspace
+    bindsym $mod+1 workspace $w1
+    bindsym $mod+2 workspace $w2
+    bindsym $mod+3 workspace $w3
+    bindsym $mod+4 workspace $w4
+    bindsym $mod+5 workspace $w5
+    bindsym $mod+6 workspace $w6
+    bindsym $mod+7 workspace $w7
+    bindsym $mod+8 workspace $w8
+    bindsym $mod+9 workspace $w9
+    bindsym $mod+10 workspace $w10
 
-bindsym $mod+r mode resize
+    # Move container to workspace
+    bindsym $mod+Shift+1 move container to workspace $w1
+    bindsym $mod+Shift+2 move container to workspace $w2
+    bindsym $mod+Shift+3 move container to workspace $w3
+    bindsym $mod+Shift+4 move container to workspace $w4
+    bindsym $mod+Shift+5 move container to workspace $w5
+    bindsym $mod+Shift+6 move container to workspace $w6
+    bindsym $mod+Shift+7 move container to workspace $w7
+    bindsym $mod+Shift+8 move container to workspace $w8
+    bindsym $mod+Shift+9 move container to workspace $w9
+    bindsym $mod+Shift+10 move container to workspace $w10
 
-mode resize {
-    # Resize (Vi keys shifted right)
-    bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym m resize grow width 10 px or 10 ppt
+# }}}
 
-    # Resize (cursor keys)
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+# Modes {{{
+# =========
 
-    # Back to default mode
-    bindsym Return mode default
-    bindsym Escape mode default
-}
+    # Resize {{{
+    # ----------
 
-# Print
-# -----
+        bindsym $mod+r mode resize
 
-bindsym Print mode print
+        mode resize {
+            # Resize (Vi keys shifted right)
+            bindsym j resize shrink width 10 px or 10 ppt
+            bindsym k resize grow height 10 px or 10 ppt
+            bindsym l resize shrink height 10 px or 10 ppt
+            bindsym m resize grow width 10 px or 10 ppt
 
-mode print {
-    # Home
-    bindsym h exec sleep .5 && scrot -s; mode default
-    bindsym Control+h exec sleep .5 && scrot -u; mode default
-    bindsym Shift+h exec sleep .5 && scrot; mode default
+            # Resize (cursor keys)
+            bindsym Left resize shrink width 10 px or 10 ppt
+            bindsym Down resize grow height 10 px or 10 ppt
+            bindsym Up resize shrink height 10 px or 10 ppt
+            bindsym Right resize grow width 10 px or 10 ppt
 
-    # CodeJam
-    bindsym c exec printscreen cjup -s; mode default
-    bindsym Control+c exec printscreen cjup -u; mode default
-    bindsym Shift+c exec printscreen cjup; mode default
+            # Back to default mode
+            bindsym Return mode default
+            bindsym Escape mode default
+        }
 
-    # NoelShack
-    bindsym n exec printscreen noelup -s; mode default
-    bindsym Control+n exec printscreen noelup -u; mode default
-    bindsym Shift+n exec printscreen noelup; mode default
+    # }}}
 
-    # Back to default mode
-    bindsym Return mode default
-    bindsym Escape mode default
-}
+    # Print {{{
+    # ---------
 
-# System
-# ------
+        bindsym Print mode print
 
-set $mode_system system (l) lock, (e) logout, (r) reboot, (x) shutdown
-bindsym $mod+x mode "$mode_system"
+        mode print {
+            # Home
+            bindsym h exec sleep .5 && scrot -s; mode default
+            bindsym Control+h exec sleep .5 && scrot -u; mode default
+            bindsym Shift+h exec sleep .5 && scrot; mode default
 
-mode "$mode_system" {
-    bindsym l exec block; mode default
-    bindsym e exec i3-msg exit; mode default
-    bindsym r exec reboot; mode default
-    bindsym x exec poweroff; mode default
+            # CodeJam
+            bindsym c exec printscreen cjup -s; mode default
+            bindsym Control+c exec printscreen cjup -u; mode default
+            bindsym Shift+c exec printscreen cjup; mode default
 
-    # Back to default mode
-    bindsym Return mode default
-    bindsym Escape mode default
-}
+            # NoelShack
+            bindsym n exec printscreen noelup -s; mode default
+            bindsym Control+n exec printscreen noelup -u; mode default
+            bindsym Shift+n exec printscreen noelup; mode default
 
-# Bar
-# ===
+            # Back to default mode
+            bindsym Return mode default
+            bindsym Escape mode default
+        }
 
-bar {
-    status_command SCRIPTS_DIR=~/.config/i3blocks/scripts i3blocks
+    # }}}
 
-    # No tray icons
-    tray_output none
-}
+    # System {{{
+    # ----------
 
-# Autorun
+        set $mode_system system (l) lock, (e) logout, (r) reboot, (x) shutdown
+        bindsym $mod+x mode "$mode_system"
+
+        mode "$mode_system" {
+            bindsym l exec block; mode default
+            bindsym e exec i3-msg exit; mode default
+            bindsym r exec reboot; mode default
+            bindsym x exec poweroff; mode default
+
+            # Back to default mode
+            bindsym Return mode default
+            bindsym Escape mode default
+        }
+
+    # }}}
+
+# }}}
+
+# Bar {{{
 # =======
 
-exec i3-msg 'workspace $w1; exec firefox'
+    bar {
+        status_command SCRIPTS_DIR=~/.config/i3blocks/scripts i3blocks
+
+        # No tray icons
+        tray_output none
+    }
+
+# }}}
+
+# Autorun {{{
+# ===========
+
+exec i3-msg 'workspace $w1; exec $BROWSER'
 exec i3-msg 'workspace $w2; exec urxvtc'
 
 # Music background job
 exec while :; do mpc idle && pkill -RTMIN+2 i3blocks || sleep 10; done
+
+# }}}

@@ -1,13 +1,15 @@
-!
-! ~/.config/x11/resources
-!
+! urxvt {{{
+! =========
+
+!  Theme {{{
+! ---------
 
 ! Font
 URxvt.font: xft:monospace:size=8
 
 ! Terminal style
-URxvt.background: black
-URxvt.foreground: white
+! URxvt.background: black
+! URxvt.foreground: white
 URxvt.scrollBar: false
 
 ! Urgent
@@ -17,8 +19,13 @@ URxvt.urgentOnBell: true
 URxvt.iso14755: false
 
 ! Enable transparency
-!URxvt.transparent: true
-!URxvt.shading: 5
+! URxvt.transparent: true
+! URxvt.shading: 5
+
+! }}}
+
+! Extensions {{{
+! --------------
 
 !
 ! Extensions are from <https://github.com/muennich/urxvt-perls>, the key
@@ -33,13 +40,17 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 ! Clickable URLs and keyboard select
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/firefox
+URxvt.url-select.launcher: $BROWSER
 URxvt.url-select.underline: true
 
 ! Copy/paste (requires xsel(1))
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+
+! }}}
+
+! }}}
 
 ! Base16 {{{
 
