@@ -63,7 +63,7 @@
 # ============
 
     # Start launcher
-    bindsym $mod+d exec dmenu_run -fn monospace:size=8
+    bindsym $mod+d exec dmenu_run -fn monospace:size=8  -nb '$base00' -nf '$base07' -sb '$base0d' -sf '$base00'
 
     # Start terminal
     bindsym $mod+Return exec urxvtcwd
