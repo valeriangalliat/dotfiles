@@ -9,9 +9,14 @@ export XDG_CACHE_HOME=~/.cache
 export LANG=en_US.UTF-8
 
 PATH=~/.local/bin:$PATH # Local bin
+PATH=$DOTFILES/deps/misc/git-extras/bin:$PATH # Git extras
 PATH=$DOTFILES/bin:$PATH # Dotfiles' bin
 PATH=~/bin:$PATH # User bin
 export PATH
+
+MANPATH=$(manpath)
+MANPATH=$DOTFILES/src/git/extras/man:$MANPATH # Git extras
+export MANPATH
 
 # First generate cache if needed
 [ ! -f ~/.cache/shell/profile ] && "$DOTFILES/src/shell/bin/profile-gen"

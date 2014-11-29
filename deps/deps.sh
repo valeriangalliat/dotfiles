@@ -1,3 +1,7 @@
+cat=git
+    dep=git-extras
+    github tj/git-extras
+
 cat=misc
     dep=noelup
     github valeriangalliat/noelup
