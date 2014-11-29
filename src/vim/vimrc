@@ -127,6 +127,8 @@
         " Color scheme
         NeoBundle 'wombat256.vim'
 
+        NeoBundle 'chriskempson/base16-vim'
+
     " }}}
 
     " Misc {{{
@@ -380,11 +382,9 @@
 " Theme {{{
 " =========
 
-    set t_Co=256
-    colorscheme wombat256mod
-
-    " Color columns like cursor line
-    highlight ColorColumn term=underline ctermbg=236 guibg=#32322f
+    set background=dark
+    let base16colorspace=256
+    colorscheme base16-default
 
 " }}}
 
