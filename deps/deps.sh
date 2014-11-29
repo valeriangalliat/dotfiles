@@ -14,19 +14,12 @@ cat=misc
     dep=docopts
     github docopt/docopts
 
-cat=zsh
-    dep=ls-colors
-    github trapd00r/LS_COLORS
-
-    dep=syntax-highlighting
-    github trapd00r/zsh-syntax-highlighting-filetypes
-
     dep=jvc-tools
     github valeriangalliat/jvc-tools
 
-cat=urxvt
-    dep=perls
-    github muennich/urxvt-perls
+cat=shell
+    dep=base16-shell
+    github chriskempson/base16-shell
 
 cat=sublime-text
     dep=package-control
@@ -43,3 +36,15 @@ cat=sublime-text
 
     dep=twig
     github Anomareh/PHP-Twig.tmbundle
+
+
+cat=urxvt
+    dep=perls
+    github muennich/urxvt-perls
+
+cat=zsh
+    dep=oh-my-zsh
+    github robbyrussell/oh-my-zsh
+
+    dep=zsh-syntax-highlighting
+    github zsh-users/zsh-syntax-highlighting

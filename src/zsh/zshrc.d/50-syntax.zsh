@@ -1,1 +1,0 @@
-../../../deps/zsh/syntax-highlighting/zsh-syntax-highlighting-filetypes.zsh

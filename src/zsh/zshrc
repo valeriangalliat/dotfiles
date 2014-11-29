@@ -1,24 +1,142 @@
-#
-# ~/.config/zsh/zshrc
-#
-# See zshbuiltins(1) for zsh commands documentation.
-# See zshoptions(1) for options documentation.
-#
+# Initialization {{{
+# ==================
 
-# Source dotfiles' config files
-for file in "$DOTFILES"/src/zsh/zshrc.d/*.zsh; do
-    . "$file"
-done
+    export ZSH=$DOTFILES/deps/zsh/oh-my-zsh
 
-# Source local config files if any
-if [ -d ~/.config/zsh/zshrc.d ]; then
-    for file in ~/.config/zsh/zshrc.d/*.zsh; do
-        . "$file"
-    done
-fi
+    ZSH_THEME=robbyrussell
 
-#
-# Prevent the previous command to propagate an error in `$?`
-# by executing something that will not fail (typically the NOP command).
-#
-:
+    # ENABLE_CORRECTION=true
+    DISABLE_UNTRACKED_FILES_DIRTY=true
+
+    plugins=(git colored-man zsh-syntax-highlighting)
+
+    source $ZSH/oh-my-zsh.sh
+
+# }}}
+
+# Essentials {{{
+# ==============
+
+    setopt interactivecomments
+
+# }}}
+
+# Theme {{{
+
+    source $DOTFILES/deps/shell/base16-shell/base16-default.dark.sh
+
+# }}}
+
+# Aliases {{{
+# ===========
+
+    # Standard {{{
+    # ------------
+
+        # `GREP_OPTIONS` is deprecated
+        alias grep="grep $GREP_OPTIONS"
+        unset GREP_OPTIONS
+
+        # Shortcuts
+        alias l=ll
+        alias t='tail -f'
+        alias q=exit
+        alias j=jobs
+        alias r=reset
+        alias c=clear
+        alias h=history
+
+        # Websites
+        alias cj=codejam.info
+        alias vcj=val.codejam.info
+        alias mcj=mail.codejam.info
+        alias tw=twitter.com
+        alias gh=github.com
+        alias jvc=jeuxvideo.com
+        alias gmail=mail.google.com
+
+        # Configuration files
+        alias zshrc="$EDITOR $DOTFILES/src/zsh/zshrc"
+        alias vimrc="$EDITOR $DOTFILES/src/vim/vimrc"
+        alias xresources="$EDITOR $DOTFILES/src/x11/resources"
+        alias xsession="$EDITOR $DOTFILES/src/x11/session"
+
+        # Globbing move command
+        autoload zmv
+        alias mmv='noglob zmv -W'
+
+        # Get remote IP from SFR box homepage (absolute grep to skip alias)
+        alias ipb='curl -s 192.168.1.1 | awk "/Adresse IP/{getline;print;exit}" | /usr/bin/grep -Eo "[0-9\.]+"'
+
+        # Get remote IP from CodeJam (at home)
+        alias ipc='curl ip.codejam.info && echo'
+
+        # Get remote IP from Deblan (can't use home server when in LAN)
+        alias ipd='curl ip.deblan.org && echo'
+
+    # }}}
+
+    # Global {{{
+    # ----------
+
+        alias -g H='| head'
+        alias -g T='| tail'
+        alias -g S='| sort'
+        alias -g G='| grep'
+        alias -g L='| less'
+        alias -g C='| cut'
+        alias -g A='| awk'
+        alias -g W='| wc'
+        alias -g WC='| wc -c'
+        alias -g WM='| wc -m'
+        alias -g WL='| wc -l'
+        alias -g WW='| wc -w'
+
+    # }}}
+
+    # Suffix {{{
+    # ----------
+
+        for x in htm html com org net info; do
+            alias -s $x=$BROWSER
+        done
+
+        #
+        # https://en.wikipedia.org/wiki/List_of_file_formats#Graphics
+        #
+        for x in bmp gif ico jpg jpeg png svg; do
+            alias -s $x=$IMAGE_VIEWER
+        done
+
+        #
+        # https://en.wikipedia.org/wiki/List_of_file_formats#Sound_and_music
+        # https://en.wikipedia.org/wiki/List_of_file_formats#Video
+        #
+        for x in flac m4a mp3 ogg oga wav avi flv mkv mpv mpeg mpg mpe mp4 webm; do
+            alias -s $x=$MEDIA_PLAYER
+        done
+
+        unset x
+
+        alias -s pdf=zathura
+
+        # List archives
+        alias -s zip='unzip -l'
+        alias -s rar='unrar l'
+        alias -s tar='tar tf'
+        alias -s tar.gz='tar tzf'
+        alias -s tar.bz2='tar tjf'
+
+    # }}}
+
+# }}}
+
+# Functions {{{
+# =============
+
+    # Play a video from a JeuxVideo.com page
+    jvcp() {
+        "$VIDEO_PLAYER" $("$DOTFILES/deps/misc/jvc-tools/video" "$1")
+    }
+
+# }}}

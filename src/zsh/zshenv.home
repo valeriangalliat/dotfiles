@@ -1,2 +1,0 @@
-. ~/.config/shell/profile
-. "$DOTFILES/src/zsh/zshenv"
