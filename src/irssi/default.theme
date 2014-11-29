@@ -1,0 +1,7 @@
+#
+# ~/.irssi/default.theme
+#
+
+abstracts = {
+  sb_background = "%0%w";
+};

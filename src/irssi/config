@@ -1,0 +1,116 @@
+#
+# ~/.irssi/config
+#
+
+# Essentials {{{
+# ==============
+
+settings = {
+  core = { user_name = "val"; nick = "val"; };
+  "fe-text" = { paste_verify_line_count = "1"; };
+  "fe-common/core" = {
+    beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
+  };
+};
+
+# }}}
+
+# Servers {{{
+# ===========
+
+servers = (
+  {
+    address = "ssl.neutralnetwork.org";
+    chatnet = "nn";
+    port = "6668";
+    use_ssl = "Yes";
+  },
+  {
+    address = "irc.jeuxvideo.com";
+    chatnet = "jvc";
+    port = "6697";
+    use_ssl = "Yes";
+  },
+  {
+    address = "irc.codejam.info";
+    chatnet = "cj";
+    port = "6697";
+    use_ssl = "Yes";
+  },
+  {
+    address = "barjavel.freenode.net";
+    chatnet = "fn";
+    port = "6697";
+    use_ssl = "Yes";
+  }
+);
+
+# }}}
+
+# Channels {{{
+# ============
+
+channels = (
+  { name = "#linux"; chatnet = "nn"; },
+  { name = "#linux"; chatnet = "jvc"; },
+  { name = "#general"; chatnet = "cj"; },
+  { name = "#sassdoc"; chatnet = "fn"; }
+);
+
+# }}}
+
+# Default aliases {{{
+# ===================
+
+aliases = {
+  J = "join";
+  WJOIN = "join -window";
+  WQUERY = "query -window";
+  LEAVE = "part";
+  BYE = "quit";
+  EXIT = "quit";
+  SIGNOFF = "quit";
+  DESCRIBE = "action";
+  DATE = "time";
+  HOST = "userhost";
+  LAST = "lastlog";
+  SAY = "msg *";
+  WI = "whois";
+  WII = "whois $0 $0";
+  WW = "whowas";
+  W = "who";
+  N = "names";
+  M = "msg";
+  T = "topic";
+  C = "clear";
+  CL = "clear";
+  K = "kick";
+  KB = "kickban";
+  KN = "knockout";
+  BANS = "ban";
+  B = "ban";
+  MUB = "unban *";
+  UB = "unban";
+  IG = "ignore";
+  UNIG = "unignore";
+  SB = "scrollback";
+  UMODE = "mode $N";
+  WC = "window close";
+  WN = "window new hide";
+  SV = "say Irssi $J ($V) - http://irssi.org/";
+  GOTO = "sb goto";
+  CHAT = "dcc chat";
+  RUN = "SCRIPT LOAD";
+  CALC = "exec - if command -v bc >/dev/null 2>&1\\; then printf\012  SBAR = ";
+  STATUSBAR = ";\012  INVITELIST = ";
+  I = ";\012  Q = ";
+  QUERY = ";\012  ";
+  WINDOWS = " = ";
+  set = "autocreate_w";
+  EXEMPTLIST = "mode $C +e";
+  ATAG = "WINDOW SERVER";
+  UNSET = "set -clear";
+  RESET = "set -default";
+};
+
+# }}}
