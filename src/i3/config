@@ -31,6 +31,34 @@
 
 # }}}
 
+# Colors {{{
+# ==========
+
+    set $base00 #181818
+    set $base01 #282828
+    set $base02 #383838
+    set $base03 #585858
+    set $base04 #b8b8b8
+    set $base05 #d8d8d8
+    set $base06 #e8e8e8
+    set $base07 #f8f8f8
+    set $base08 #ab4642
+    set $base09 #dc9656
+    set $base0a #f7ca88
+    set $base0b #a1b56c
+    set $base0c #86c1b9
+    set $base0d #7cafc2
+    set $base0e #ba8baf
+    set $base0f #a16946
+
+    # Class                 Border  Backgr. Text    Indicator
+    client.focused          $base0d $base0d $base00 $base0a
+    client.focused_inactive $base03 $base03 $base07 $base04
+    client.unfocused        $base01 $base01 $base03 $base02
+    client.urgent           $base08 $base08 $base07 $base08
+
+# }}}
+
 # Bindings {{{
 # ============
 
@@ -234,6 +262,17 @@
 
     bar {
         status_command SCRIPTS_DIR=~/.config/i3blocks/scripts i3blocks
+
+        colors {
+            background $base00
+            statusline $base07
+
+            # Class            Border  Backgr. Text
+            focused_workspace  $base0d $base0d $base00
+            active_workspace   $base03 $base03 $base07
+            inactive_workspace $base00 $base00 $base03
+            urgent_workspace   $base08 $base08 $base07
+        }
 
         # No tray icons
         tray_output none
