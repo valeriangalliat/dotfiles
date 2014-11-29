@@ -1,0 +1,19 @@
+#!/bin/sh -e
+#
+# Graceful degradation for available commands.
+#
+# Usage: gd <constant> <command>...
+#
+# Arguments:
+#   <constant>  Name of environment variable to export.
+#   <command>   Command to try.
+#
+
+constant=$1; shift
+
+for x in $@; do
+    if command -v "$x" > /dev/null; then
+        echo "export $constant=$x"
+        break
+    fi
+done
