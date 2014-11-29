@@ -1,6 +1,5 @@
 #
-# ~/.config/gtk/gtkrc-2.0
+# ~/.gtkrc-2.0
 #
 
-# Use Clearlooks theme
 gtk-theme-name = "Clearlooks"

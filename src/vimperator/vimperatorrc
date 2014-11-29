@@ -1,5 +1,5 @@
 "
-" ~/.config/vimperator/vimperatorrc
+" ~/.vimperatorrc
 "
 
 " No navigation and scrollbars
@@ -26,3 +26,5 @@ function yankAll() {
   liberator.echomsg('Copied ' + urls.length + ' URLs');
 }
 EOF
+
+" vim: ft=vimperator

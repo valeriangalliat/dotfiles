@@ -1,1 +1,7 @@
+"
+" ~/.vimperatorrc
+"
+
 source $DOTFILES/src/vimperator/vimperatorrc
+
+" vim: ft=vimperator
