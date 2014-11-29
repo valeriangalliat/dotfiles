@@ -5,6 +5,7 @@
 
     ZSH_THEME=robbyrussell
 
+    DISABLE_AUTO_UPDATE=true
     # ENABLE_CORRECTION=true
     DISABLE_UNTRACKED_FILES_DIRTY=true
 
