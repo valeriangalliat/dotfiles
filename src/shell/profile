@@ -1,7 +1,5 @@
 #
-# ~/.config/shell/profile
-#
-# Profile environment variables.
+# ~/.profile
 #
 
 export XDG_DATA_HOME=~/.local/share
@@ -10,15 +8,9 @@ export XDG_CACHE_HOME=~/.cache
 
 export LANG=en_US.UTF-8
 
-# Include local bin
-PATH="$HOME/.local/bin:$PATH"
-
-# Include dotfiles' bin
-PATH="$DOTFILES/bin:$PATH"
-
-# Include private bin
-PATH="$HOME/bin:$PATH"
-
+PATH=~/.local/bin:$PATH # Local bin
+PATH=$DOTFILES/bin:$PATH # Dotfiles' bin
+PATH=~/bin:$PATH # User bin
 export PATH
 
 # First generate cache if needed
@@ -26,3 +18,5 @@ export PATH
 
 # Source cached profile
 . ~/.cache/shell/profile
+
+# vim: ft=sh
