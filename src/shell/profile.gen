@@ -12,7 +12,7 @@ GRACEFUL_IMAGE_VIEWER='meh,feh'
 
 if "$PROFILE_LINUX"; then
     # Generate custom directory colors
-    eval "$(dircolors "$DOTFILES/src/shell/dircolors")"
+    eval "$(dircolors)"
 
     # Cache generated colors
     cache LS_COLORS "$LS_COLORS"
