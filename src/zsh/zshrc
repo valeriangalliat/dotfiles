@@ -24,7 +24,11 @@
 
 # Theme {{{
 
+    # Terminal colors
     source $DOTFILES/deps/shell/base16-shell/base16-default.dark.sh
+
+    # Apply `LS_COLORS` to completion
+    zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
 
 # }}}
 
