@@ -11,7 +11,7 @@
 
 constant=$1; shift
 
-for x in $@; do
+for x in "$@"; do
     if command -v "$x" > /dev/null; then
         echo "export $constant=$x"
         break
