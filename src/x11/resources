@@ -108,3 +108,5 @@ URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 *.color21:      base06
 
 ! }}}
+
+! vim: ft=xdefaults
