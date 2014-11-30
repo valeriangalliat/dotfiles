@@ -50,6 +50,7 @@ weechat:
 	$(CP) $(S)/irc.conf $(D)/.weechat
 
 zsh:
+	$(MAKE) -C src/zsh/plugins
 	$(LN) $(S)/zshrc $(D)/.zshrc
 	$(LN) $(D)/.profile $(D)/.zprofile
 
