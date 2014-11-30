@@ -4,10 +4,10 @@
     export ZSH=$DOTFILES/deps/zsh/oh-my-zsh
 
     ZSH_THEME=robbyrussell
-
     DISABLE_AUTO_UPDATE=true
     # ENABLE_CORRECTION=true
     DISABLE_UNTRACKED_FILES_DIRTY=true
+    ZSH_CUSTOM="$DOTFILES/src/zsh"
 
     plugins=(git colored-man zsh-syntax-highlighting)
 
