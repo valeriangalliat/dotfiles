@@ -16,6 +16,7 @@ export PATH
 
 MANPATH=$(manpath)
 MANPATH=$DOTFILES/src/git/extras/man:$MANPATH # Git extras
+MANPATH=$DOTFILES/man:$MANPATH # Dotfiles' man
 export MANPATH
 
 # First generate cache if needed
