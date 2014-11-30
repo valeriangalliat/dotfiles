@@ -64,6 +64,7 @@
         alias gmail=mail.google.com
 
         # Configuration files
+        alias profile="$EDITOR $DOTFILES/src/shell/profile"
         alias zshrc="$EDITOR $DOTFILES/src/zsh/zshrc"
         alias vimrc="$EDITOR $DOTFILES/src/vim/vimrc"
         alias xresources="$EDITOR $DOTFILES/src/x11/resources"
