@@ -19,10 +19,8 @@ MANPATH=$DOTFILES/src/git/extras/man:$MANPATH # Git extras
 MANPATH=$DOTFILES/man:$MANPATH # Dotfiles' man
 export MANPATH
 
-# First generate cache if needed
-[ ! -f ~/.cache/shell/profile ] && "$DOTFILES/src/shell/bin/profile-gen"
-
-# Source cached profile
-. ~/.cache/shell/profile
+# Include dynamically generated environment variables
+source "$DOTFILES/src/shell/dircolors"
+source "$DOTFILES/src/shell/graceful"
 
 # vim: ft=sh
