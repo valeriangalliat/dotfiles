@@ -13,6 +13,9 @@
 
     source $ZSH/oh-my-zsh.sh
 
+    # Remove `oh-my-zsh` function which sets current command as title
+    preexec_functions=${preexec_functions#omz_termsupport_preexec}
+
 # }}}
 
 # Essentials {{{
