@@ -1,11 +1,15 @@
 #!/bin/sh -e
 
+relpath() {
+    python -c 'import os, sys; print(os.path.relpath(sys.argv[1], sys.argv[2]))' "$1" "$2"
+}
+
 main() {
-    # Destination file (do not follow symlinks)
-    local dest=$(realpath --no-symlinks "$1")
+    # Destination file
+    local dest="$(relpath "$1" "$(dirname "$2")")"
 
     # Old link target
-    local old=$(readlink "$2")
+    local old="$(readlink "$2")"
 
     echo
     echo "Linking $2 to $dest"
