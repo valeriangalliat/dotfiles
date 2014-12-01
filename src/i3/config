@@ -283,10 +283,10 @@
 # Autorun {{{
 # ===========
 
-exec i3-msg 'workspace $w1; exec $BROWSER'
-exec i3-msg 'workspace $w2; exec urxvtc'
+    exec i3-msg 'workspace $w1; exec $BROWSER'
+    exec i3-msg 'workspace $w2; exec urxvtc'
 
-# Music background job
-exec while :; do mpc idle && pkill -RTMIN+2 i3blocks || sleep 10; done
+    # Music background job
+    exec while :; do mpc idle && pkill -RTMIN+2 i3blocks || sleep 10; done
 
 # }}}
