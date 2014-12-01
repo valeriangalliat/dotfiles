@@ -690,6 +690,16 @@
 
     " }}}
 
+    " `align` {{{
+
+        " Don't mess with `<Leader>r`
+        map '' <Plug>RestoreWinPosn
+
+        " Don't mess with `<Leader>w`
+        map '' <Plug>AM_w=
+
+    " }}}
+
 " }}}
 
 " Mappings {{{
@@ -715,12 +725,6 @@
 
     " Toggle relative numbering
     map <Leader>r :set relativenumber!<CR>
-
-    " Fix `align` plugin messing with `<Leader>r`
-    map '' <Plug>RestoreWinPosn
-
-    " Fix `align` plugin messing with `<Leader>w`
-    map '' <Plug>AM_w=
 
 " }}}
 
