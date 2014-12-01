@@ -669,7 +669,7 @@
         " Do not center line when expanding braces
         let g:AutoPairsCenterLine = 0
 
-        " Allow to type `i` char
+        " Allow to type `î` char
         let g:AutoPairsShortcutJump = ''
 
         " Allow to type `â` char
