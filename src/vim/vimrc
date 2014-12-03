@@ -481,6 +481,15 @@
 
     " }}}
 
+    " Reload {{{
+    " ----------
+
+        " au BufWritePost .vimrc source %
+        " au BufWritePost vimrc source %
+        au BufWritePost $DOTFILES/src/x11/resources silent! !xrdb %
+
+    " }}}
+
 " }}}
 
 " Search {{{
