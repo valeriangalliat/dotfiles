@@ -8,19 +8,18 @@ cd "$(dirname "$0")"
 # Environment
 # ===========
 
-#
-# Whether to update existing dependencies.
-#
+# Install new dependencies
+readonly INSTALL="${INSTALL:-true}"
+
+# Update existing dependencies
 readonly UPDATE="${UPDATE:-true}"
 
-#
-# Whether to install all the dependencies or only included ones.
-#
+# Install all the dependencies
 ALL=true
 
 #
-# If there is any argument, mark `ALL` as false, then define
-# an environment variable for each included category.
+# If there is any argument, mark `ALL` as false, and define an
+# environment variable for each included category.
 #
 for cat in "$@"; do
     ALL=false
@@ -85,11 +84,11 @@ run() {
     # If we don't install everything and the current category is not
     # included, don't install the dependency.
     #
-    if ! "$ALL" && [ -z "${!include}" ]; then
+    if "$ALL" && [ -z "${!include}" ]; then
         return
     fi
 
-    if [ ! -d "$cat/$dep" ]; then
+    if "$INSTALL" && [ ! -d "$cat/$dep" ]; then
         header
         mkdir -p "$cat/$dep"
         (cd "$cat/$dep" && "${prefix}_i" "$@")
