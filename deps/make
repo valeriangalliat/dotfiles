@@ -11,7 +11,23 @@ cd "$(dirname "$0")"
 #
 # Whether to update existing dependencies.
 #
-UPDATE="${UPDATE:-true}"
+readonly UPDATE="${UPDATE:-true}"
+
+#
+# Whether to install all the dependencies or only included ones.
+#
+ALL=true
+
+#
+# If there is any argument, mark `ALL` as false, then define
+# an environment variable for each included category.
+#
+for cat in "$@"; do
+    ALL=false
+    readonly "INCLUDE_$cat=true"
+done
+
+readonly ALL
 
 # Global variables
 # ================
@@ -63,6 +79,15 @@ header() {
 #
 run() {
     prefix=$1; shift
+    include=INCLUDE_$cat
+
+    #
+    # If we don't install everything and the current category is not
+    # included, don't install the dependency.
+    #
+    if ! "$ALL" && [ -z "${!include}" ]; then
+        return
+    fi
 
     if [ ! -d "$cat/$dep" ]; then
         header
