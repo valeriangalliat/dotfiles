@@ -88,19 +88,19 @@
     " ------------------
 
         " Autocompletion (lightweight)
-        "NeoBundle 'AutoComplPop'
+        " NeoBundle 'AutoComplPop'
 
         " Autocompletion (intermediate)
         NeoBundle 'Shougo/neocomplcache.vim'
 
         " Autocompletion (same as `neocomplcache`, faster, but needs Lua)
-        "NeoBundle 'Shougo/neocomplete.vim'
+        " NeoBundle 'Shougo/neocomplete.vim'
 
         " Browse completion with `<Tab>`
         NeoBundle 'ervandew/supertab'
 
         " Autocompletion (heavy and powerful)
-        "NeoBundle 'Valloric/YouCompleteMe'
+        " NeoBundle 'Valloric/YouCompleteMe'
 
     " }}}
 
@@ -114,10 +114,10 @@
         NeoBundle 'honza/vim-snippets'
 
         " Snippets engine (alternative)
-        "NeoBundle 'Shougo/neosnippet'
+        " NeoBundle 'Shougo/neosnippet'
 
         " Actual snippets (alternative)
-        "NeoBundle 'Shougo/neosnippet-snippets'
+        " NeoBundle 'Shougo/neosnippet-snippets'
 
     " }}}
 
@@ -145,7 +145,7 @@
     " }}}
 
     " Motions/objects {{{
-    " --------------------
+    " -------------------
 
         " Add next/last movments (`dinb` to delete in next parentheses)
         NeoBundle 'https://gist.githubusercontent.com/sjl/3762227/raw/f46750139793115a7c6380b6e03fdac52af38ffe/nextlast.vim',
@@ -155,7 +155,7 @@
         NeoBundle 'PeterRincker/vim-argumentative'
 
         " New text objects
-        "NeoBundle 'wellle/targets.vim'
+        " NeoBundle 'wellle/targets.vim'
 
         " Quick motions
         NeoBundle 'Lokaltog/vim-easymotion'
@@ -181,7 +181,7 @@
     " }}}
 
     " Syntax {{{
-    " ---------------
+    " ----------
 
         NeoBundle 'tpope/vim-git'
         NeoBundle 'pangloss/vim-javascript'
@@ -433,6 +433,7 @@
     set list
 
     " Indentation helper {{{
+    " ----------------------
 
         function! Indent(width)
             execute 'set ts='.a:width.' sts='.a:width.' sw='.a:width
@@ -485,7 +486,7 @@
 " }}}
 
 " Search {{{
-" =========
+" ==========
 
     " Case insensitive
     set ignorecase
@@ -685,12 +686,14 @@
     " }}}
 
     " `switch` {{{
+    " ------------
 
         nmap - :Switch<CR>
 
     " }}}
 
     " `align` {{{
+    " -----------
 
         " Don't mess with `<Leader>r`
         map '' <Plug>RestoreWinPosn
