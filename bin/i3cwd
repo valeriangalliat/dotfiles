@@ -1,7 +1,8 @@
 #!/bin/sh -e
 #
-# Get the title of the focused window, expand `~`, then if it's a valid
-# directory, print the path, otherwise exit with `1` status code.
+# Get the title of the focused window, remove potential `user@host`,
+# expand `~`, then if it's a valid directory, print the path, otherwise
+# exit with `1` status code.
 #
 
 focused_title() {
