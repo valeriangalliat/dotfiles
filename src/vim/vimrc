@@ -375,8 +375,8 @@
     " Syntax optimization
     syntax sync minlines=256
 
-    " Don't highlight past 128 characters
-    set synmaxcol=128
+    " Don't highlight past 512 characters
+    " set synmaxcol=512
 
 " }}}
 
