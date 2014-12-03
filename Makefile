@@ -36,6 +36,7 @@ irssi:
 	$(CP) $(S)/default.theme $(D)/.irssi
 
 shell:
+	$(MAKE) -C $(S)
 	$(CP) $(S)/profile.home $(D)/.profile
 
 tmux:
@@ -50,7 +51,7 @@ weechat:
 	$(CP) $(S)/irc.conf $(D)/.weechat
 
 zsh:
-	$(MAKE) -C src/zsh/plugins
+	$(MAKE) -C $(S)/plugins
 	$(LN) $(S)/zshrc $(D)/.zshrc
 	$(LN) $(D)/.profile $(D)/.zprofile
 
