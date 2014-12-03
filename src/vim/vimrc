@@ -720,8 +720,8 @@
     map <Leader>v :vsp ~/.vimrc<CR>
 
     " Shortcuts to browse buffers
-    map <C-n> :bn
-    map <C-p> :bp
+    " map <C-n> :bn
+    " map <C-p> :bp
 
     " Toggle relative numbering
     map <Leader>r :set relativenumber!<CR>
