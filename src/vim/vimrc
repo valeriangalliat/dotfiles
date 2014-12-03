@@ -125,8 +125,6 @@
     " ---------
 
         " Color scheme
-        NeoBundle 'wombat256.vim'
-
         NeoBundle 'chriskempson/base16-vim'
 
     " }}}
