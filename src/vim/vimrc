@@ -168,10 +168,10 @@
         NeoBundle 'qstrahl/vim-dentures'
 
         " Alignment helper
-        NeoBundle 'Align'
+        " NeoBundle 'Align'
 
         " Alignment helper
-        " NeoBundle 'tommcdo/vim-lion'
+        NeoBundle 'tommcdo/vim-lion'
 
         " Camel case and underscore motions
         NeoBundle 'bkad/CamelCaseMotion'
@@ -696,17 +696,6 @@
     " ------------
 
         nmap - :Switch<CR>
-
-    " }}}
-
-    " `align` {{{
-    " -----------
-
-        " Don't mess with `<Leader>r`
-        map '' <Plug>RestoreWinPosn
-
-        " Don't mess with `<Leader>w`
-        map '' <Plug>AM_w=
 
     " }}}
 
