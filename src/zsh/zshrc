@@ -59,6 +59,10 @@
         alias c=clear
         alias h=history
 
+        # Git plugin additions
+        alias gcam='gc -am'
+        alias gdw='gc -w'
+
         # Websites
         alias cj=codejam.info
         alias vcj=val.codejam.info
