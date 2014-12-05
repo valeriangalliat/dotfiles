@@ -43,6 +43,7 @@ tmux:
 	$(CP) $(S)/tmux.conf.home $(D)/.tmux.conf
 
 vim:
+	$(MKDIR) $(D)/.vim/undo
 	$(LN) $(S)/vimrc $(D)/.vimrc
 
 weechat:
