@@ -1,1 +1,4 @@
+# Set background
+make -C "$DOTFILES/src/x11/bg" &
+
 . "$DOTFILES/src/x11/session"
