@@ -385,6 +385,9 @@
     let base16colorspace=256
     colorscheme base16-default
 
+    " No background color (see through Vim)
+    highlight Normal ctermbg=none
+
 " }}}
 
 " Completion {{{
