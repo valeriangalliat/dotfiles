@@ -32,3 +32,5 @@ command -v numlockx && numlockx
 
 # Execute window manager
 exec i3
+
+# vim: ft=sh
