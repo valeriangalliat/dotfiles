@@ -19,8 +19,8 @@ URxvt.urgentOnBell: true
 URxvt.iso14755: false
 
 ! Enable transparency
-! URxvt.transparent: true
-! URxvt.shading: 5
+URxvt.transparent: true
+URxvt.shading: 10
 
 ! }}}
 
