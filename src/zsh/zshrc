@@ -61,7 +61,7 @@
 
         # Git plugin additions
         alias gcam='gc -am'
-        alias gdw='gc -w'
+        alias gdw='gd -w'
 
         # Websites
         alias cj=codejam.info
