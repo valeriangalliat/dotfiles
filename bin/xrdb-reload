@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+# Load dotfiles' resources file
+xrdb "$DOTFILES/src/x11/resources"
+
+# Merge  local recources file if exists
+if [ -f ~/.config/x11/resources ]; then
+    xrdb -merge ~/.config/x11/resources
+fi

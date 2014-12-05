@@ -4,11 +4,8 @@
 # Executed at X11 start. Load and execute stuff, then start environment.
 #
 
-# Load dotfiles' resources file
-xrdb "$DOTFILES/src/x11/resources"
-
-# Load local recources file if exists
-[ -f ~/.config/x11/resources ] && xrdb -merge ~/.config/x11/resources
+# Reload X11 resources
+xrdb-reload
 
 # Auto lock screen if all commands are available
 command -v xautolock block scrot mogrify i3lock && xautolock -time 5 -locker block &
