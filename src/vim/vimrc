@@ -489,7 +489,8 @@
 
         " au BufWritePost .vimrc source %
         " au BufWritePost vimrc source %
-        au BufWritePost $DOTFILES/src/x11/resources silent! !xrdb %
+        au BufWritePost $DOTFILES/src/x11/resources silent! !xrdb-reload
+        au BufWritePost ~/.config/x11/resources silent! !xrdb-reload
 
     " }}}
 
