@@ -78,13 +78,12 @@ header() {
 #
 run() {
     prefix=$1; shift
-    include=INCLUDE_$cat
 
     #
     # If we don't install everything and the current category is not
     # included, don't install the dependency.
     #
-    if "$ALL" && [ -z "${!include}" ]; then
+    if "$ALL" && [ -z "$(echo \$INCLUDE_$cat)" ]; then
         return
     fi
 
