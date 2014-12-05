@@ -3,7 +3,7 @@
 #
 
 [track]
-command=[ "$BLOCK_BUTTON" = 1 ] && mpc toggle -q; mpc current | sed -r '/.{48,}/{s/(.{45}).*/\1.../g};p'; mpc | grep -q paused && echo '#f7ca88' || :
+command="$SCRIPTS_DIR/track" | sed 's/#ffff00/#f7ca88/g'
 interval=once
 signal=2
 
@@ -22,7 +22,7 @@ color=#a1b56c
 instance=enp2s0
 
 [volume]
-command=[ "$BLOCK_BUTTON" = 1 ] && amixer set Master toggle -q; "$SCRIPTS_DIR/volume_fix" | sed 's/#FFFF00/#f7ca88/g'
+command="$SCRIPTS_DIR/volume" | sed 's/#ffff00/#f7ca88/g'
 interval=once
 signal=1
 

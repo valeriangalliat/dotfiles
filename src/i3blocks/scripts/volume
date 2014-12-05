@@ -7,6 +7,12 @@ query() {
         | head -n1
 }
 
+case "$BLOCK_BUTTON" in
+  1) amixer -q set Master toggle ;;  # Left click toggle
+  4) amixer -q set Master 1+ ;; # Scroll up, increase
+  5) amixer -q set Master 1- ;; # Scroll down, decrease
+esac
+
 set -- $(query)
 volume="$1"
 status="$2"
@@ -14,7 +20,7 @@ status="$2"
 if [ "off" = "$status" ]; then
     echo 0%
     echo 0%
-    echo '#FFFF00'
+    echo '#ffff00'
 else
     echo "$volume"
     echo "$volume"

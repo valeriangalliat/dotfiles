@@ -1,0 +1,19 @@
+#!/bin/sh -e
+
+case "$BLOCK_BUTTON" in
+  1) mpc -q toggle ;; # Left click, toggle
+  4) mpc -q seek +1 ;; # Scroll up, increase
+  5) mpc -q seek -1 ;; # Scroll down, decrease
+esac
+
+# Trim input to 48 characters
+trim() {
+    sed -r '/.{48,}/{s/(.{45}).*/\1.../g}'
+}
+
+mpc current # Full text
+mpc current | trim # Short text
+
+if mpc | grep -q paused; then
+    echo '#ffff00'
+fi
