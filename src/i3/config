@@ -124,16 +124,16 @@
     # Music {{{
     # ---------
 
-    # Keyboard volume keys
-    bindsym XF86AudioRaiseVolume exec amixer set Master 1+ && pkill -RTMIN+1 i3blocks
-    bindsym XF86AudioLowerVolume exec amixer set Master 1- && pkill -RTMIN+1 i3blocks
-    bindsym XF86AudioMute exec amixer set Master toggle && pkill -RTMIN+1 i3blocks
+        # Keyboard volume keys
+        bindsym XF86AudioMute exec amixer set Master toggle && pkill -RTMIN+1 i3blocks
+        bindsym XF86AudioRaiseVolume exec amixer set Master 1+ && pkill -RTMIN+1 i3blocks
+        bindsym XF86AudioLowerVolume exec amixer set Master 1- && pkill -RTMIN+1 i3blocks
 
-    # MPD controls
-    bindsym $mod+space exec mpc toggle
-    bindsym $mod+n exec mpc next
-    bindsym $mod+p exec mpc prev
-    bindsym $mod+BackSpace exec mpc seek 0
+        # MPD controls
+        bindsym $mod+space exec mpc toggle
+        bindsym $mod+n exec mpc next
+        bindsym $mod+p exec mpc prev
+        bindsym $mod+BackSpace exec mpc seek 0
 
     # }}}
 
