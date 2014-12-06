@@ -9,7 +9,7 @@
     DISABLE_UNTRACKED_FILES_DIRTY=true
     ZSH_CUSTOM="$DOTFILES/src/zsh"
 
-    plugins=(git colored-man zsh-syntax-highlighting)
+    plugins=(git colored-man zsh-syntax-highlighting history-substring-search)
 
     source $ZSH/oh-my-zsh.sh
 
