@@ -20,7 +20,7 @@ URxvt.iso14755: false
 
 ! Enable transparency
 URxvt.transparent: true
-URxvt.shading: 10
+URxvt.shading: 7
 
 ! }}}
 
