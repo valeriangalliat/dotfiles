@@ -3,14 +3,30 @@
 
     export ZSH=$DOTFILES/deps/zsh/oh-my-zsh
 
+    # Theme
     ZSH_THEME=robbyrussell
+
+    # Do not auto update `oh-my-zsh` (performance)
     DISABLE_AUTO_UPDATE=true
+
+    # Correct mistyped commands
     # ENABLE_CORRECTION=true
+
+    # No title in tmux
+    if [ -n "$TMUX" ]; then
+        DISABLE_AUTO_TITLE="true"
+    fi
+
+    # Don't mark untracked files as dirty (performance)
     DISABLE_UNTRACKED_FILES_DIRTY=true
+
+    # Custom `oh-my-zsh` directory
     ZSH_CUSTOM="$DOTFILES/src/zsh"
 
+    # Enabled plugins
     plugins=(git colored-man zsh-syntax-highlighting history-substring-search)
 
+    # Load core
     source $ZSH/oh-my-zsh.sh
 
     # Remove `oh-my-zsh` function which sets current command as title
