@@ -11,7 +11,7 @@ feh-default: 1.jpg
 feh-%: bg-%.jpg
 	feh --bg-tile $<
 
-bg-%.jpg: 1-%.jpg 2-%.jpg
+bg-%.jpg: 1-%.jpg 3-%.jpg
 	convert +append $^ $@
 
 %-school.jpg: %.jpg
@@ -28,3 +28,6 @@ bg-%.jpg: 1-%.jpg 2-%.jpg
 
 2.jpg:
 	curl -o $@ http://imgindex.storage.googleapis.com/storage/img/2012/11/17/A5Rcb.jpg
+
+3.jpg:
+	curl -o $@ http://i.imgur.com/2t6rZ6m.jpg.jpg
