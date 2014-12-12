@@ -173,7 +173,7 @@
 # Functions {{{
 # =============
 
-    # Play a video from a JeuxVideo.com page
+    # Play a video from a jeuxvideo.com page
     jvcp() {
         "$VIDEO_PLAYER" $("$DOTFILES/deps/misc/jvc-tools/video" "$1")
     }
