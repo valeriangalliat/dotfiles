@@ -79,7 +79,10 @@
 
         # Git plugin additions
         alias gcam='gc -am'
+        alias gcam!='gcam --amend'
         alias gdw='gd -w'
+        alias gf='g fetch'
+        alias grb='g rebase'
 
         # Websites
         alias cj=codejam.info
