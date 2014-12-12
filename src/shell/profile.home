@@ -1,2 +1,7 @@
 export DOTFILES=~/dotfiles
+
+# Configuration environment (used for background for example)
+# export DOTFILES_ENV=school
+# export DOTFILES_ENV=work
+
 . "$DOTFILES/src/shell/profile"
