@@ -1,6 +1,13 @@
-# Set background
+
+# Setup multiscreen
+# if [ $(xrandr | grep connected | wc -l) -gt 1 ]; then
+#     xrandr --output DVI-I-2 --right-of DVI-I-1
+# fi
+
+# Set background (must be after multiscreen if multiple backgrounds)
 make -C "$DOTFILES/src/x11/bg" &
 
+# Run main session (will `exec`, do not put anything after)
 . "$DOTFILES/src/x11/session"
 
 # vim: ft=sh
