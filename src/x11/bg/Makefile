@@ -11,6 +11,8 @@ feh-default: 1.jpg
 feh-%: bg-%.jpg
 	feh --bg-tile $<
 
+.PRECIOUS: bg-%.jpg %-school.jpg %-work.jpg
+
 bg-%.jpg: 1-%.jpg 3-%.jpg
 	convert +append $^ $@
 
