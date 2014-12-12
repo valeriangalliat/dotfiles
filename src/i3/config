@@ -154,6 +154,10 @@
     set $w9 9
     set $w10 10
 
+    # Output association
+    # workspace $w1 output DVI-I-1
+    # workspace $w2 output DVI-I-2
+
     # Switch to workspace
     bindsym $mod+1 workspace $w1
     bindsym $mod+2 workspace $w2
