@@ -1,7 +1,7 @@
 Dotfiles
 ========
 
-My home directory skeleton with main configuration files.
+> My home directory skeleton with main configuration files.
 
 Description
 -----------
