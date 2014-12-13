@@ -5,8 +5,8 @@
 
 cd "$(dirname "$0")"
 
-# Environment
-# ===========
+# Environment {{{
+# ===============
 
 # Install new dependencies
 readonly INSTALL="${INSTALL:-true}"
@@ -17,25 +17,13 @@ readonly UPDATE="${UPDATE:-true}"
 # Install all the dependencies
 ALL=true
 
-#
-# If there is any argument, mark `ALL` as false, and define an
-# environment variable for each included category.
-#
-for cat in "$@"; do
-    ALL=false
-    readonly "INCLUDE_$cat=true"
-done
-
-readonly ALL
-
-# Global variables
-# ================
-
 cat=
 dep=
 
-# Helpers
-# =======
+# }}}
+
+# Helpers {{{
+# ===========
 
 #
 # Print arguments and execute them.
@@ -64,6 +52,27 @@ header() {
 }
 
 #
+# Replace dashes by underscores.
+#
+d2u() {
+    echo "$1" | sed 's/-/_/g'
+}
+
+#
+# Include a category (define a global variable).
+#
+include() {
+    readonly "INCLUDE_$(d2u "$1")=true"
+}
+
+#
+# Return whether given category is included.
+#
+included() {
+    ! "$ALL" && [ -z "$(eval "echo \$INCLUDE_$(d2u "$1")")" ]
+}
+
+#
 # Run a builder.
 #
 # A builder is function declined in `_i` and `_u` variants, respectively
@@ -83,7 +92,7 @@ run() {
     # If we don't install everything and the current category is not
     # included, don't install the dependency.
     #
-    if "$ALL" && [ -z "$(echo \$INCLUDE_$cat)" ]; then
+    if included "$cat"; then
         return
     fi
 
@@ -97,8 +106,26 @@ run() {
     fi
 }
 
-# Builders
-# ========
+# }}}
+
+# Arguments {{{
+# =============
+
+#
+# If there is any argument, mark `ALL` as false, and define an
+# environment variable for each included category.
+#
+for cat in "$@"; do
+    ALL=false
+    include "$cat"
+done
+
+readonly ALL
+
+# }}}
+
+# Builders {{{
+# ============
 
 git() {
     run git "$@"
@@ -117,7 +144,6 @@ github() {
     git "https://github.com/${1}.git"
 }
 
-# Main
-# ====
+# }}}
 
 . ./deps.sh
