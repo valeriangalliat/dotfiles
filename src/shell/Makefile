@@ -15,9 +15,9 @@ dircolors:
 	$(CURL) -s $(BSD_COLORS_URL) | $(BSD_COLORS_PATCH) > $@
 	$(CURL) -s $(GNU_COLORS_URL) | $(GNU_COLORS_PATCH) | dircolors - >> $@
 
-graceful:
+graceful: Makefile
 	./gd EDITOR vim vi > $@
 	./gd BROWSER firefox w3m elinks links lynx >> $@
 	./gd PAGER less more >> $@
-	./gd MDEDIA_PLAYER mpv mplayer vlc ffplay >> $@
+	./gd MEDIA_PLAYER mpv mplayer vlc ffplay >> $@
 	./gd IMAGE_VIEWER meh feh >> $@
