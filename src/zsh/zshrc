@@ -175,7 +175,7 @@
 
     # Play a video from a jeuxvideo.com page
     jvcp() {
-        "$VIDEO_PLAYER" $("$DOTFILES/deps/misc/jvc-tools/video" "$1")
+        "$MEDIA_PLAYER" $("$DOTFILES/deps/misc/jvc-tools/video" "$1")
     }
 
 # }}}
