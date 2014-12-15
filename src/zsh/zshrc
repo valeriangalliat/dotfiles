@@ -84,6 +84,10 @@
         alias gf='g fetch'
         alias grb='g rebase'
 
+        # Same as Git plugin but without `--max-count`
+        alias glg='g log --stat'
+        alias glgg='g log --graph'
+
         # Websites
         alias cj=codejam.info
         alias vcj=val.codejam.info
