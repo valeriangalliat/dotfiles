@@ -715,6 +715,9 @@
     " Logical `Y` behavior
     noremap Y y$
 
+    " Delete buffer without closing window
+    cnoremap <silent> bd bp <Bar> sp <Bar> bn <Bar> bd<CR>
+
     " nmap <Left> :vertical resize -5<CR>
     " nmap <Up> :resize -5<CR>
     " nmap <Right> :vertical resize +5<CR>
