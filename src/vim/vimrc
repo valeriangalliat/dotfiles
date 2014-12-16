@@ -485,6 +485,13 @@
 
     " }}}
 
+    " Comments {{{
+    " ============
+
+        au FileType php set cms=//\ %s
+
+    " }}}
+
     " Reload {{{
     " ----------
 
