@@ -262,6 +262,9 @@
         " Switch expressions (true/false, on/off, etc.)
         NeoBundle 'AndrewRadev/switch.vim'
 
+        " Upload on Deblan wall
+        NeoBundle 'valeriangalliat/dwall'
+
     " }}}
 
     " UI {{{
@@ -744,20 +747,6 @@
 
 " Helpers {{{
 " ===========
-
-    " `dwall` {{{
-    " -----------
-
-        function! Dwall(line1, line2, ...) range
-            let buffer=join(getline(a:line1, a:line2), '\n')
-            let args=join(a:000, ' ')
-            let url=system('echo '.shellescape(buffer).' | dwall '.args)
-            echo substitute(url, '\n$', '', '')
-        endfunction
-
-        command! -nargs=? -range=% Dwall :call Dwall(<line1>, <line2>, <f-args>)
-
-    " }}}
 
     " Cursor jump {{{
     " ---------------
