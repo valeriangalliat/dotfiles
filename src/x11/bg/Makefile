@@ -1,12 +1,12 @@
-DOTFILES_ENV ?= default
-BG_THEME ?= default
+ENV = default
+THEME = default
 
-all: feh-$(DOTFILES_ENV)
+all: feh-$(ENV)
 
 clean:
 	find . -name '*.jpg' -not -name '[0-9].jpg' -delete
 
-feh-default: 1-$(BG_THEME).jpg
+feh-default: 1-$(THEME).jpg
 	feh --bg-fill $<
 
 feh-%: bg-%.jpg
@@ -17,13 +17,13 @@ feh-%: bg-%.jpg
 bg-%.jpg: 1-%.jpg 2-%.jpg
 	convert +append $^ $@
 
-%-school.jpg: %-$(BG_THEME).jpg
+%-school.jpg: %-$(THEME).jpg
 	convert $< -resize 1920x1080^ -gravity center -crop 1920x1080+0+0 $@
 
-1-work.jpg: 1-$(BG_THEME).jpg
+1-work.jpg: 1-$(THEME).jpg
 	convert $< -resize 1920x1080^ -gravity center -crop 1920x1080+0+0 $@
 
-2-work.jpg: 2-$(BG_THEME).jpg
+2-work.jpg: 2-$(THEME).jpg
 	convert $< -resize 1280x1024^ -gravity center -crop 1280x1024+0+0 $@
 
 1-default.jpg:

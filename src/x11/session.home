@@ -5,7 +5,9 @@
 # fi
 
 # Set background (must be after multiscreen if multiple backgrounds)
-make -C "$DOTFILES/src/x11/bg" &
+make -C "$DOTFILES/src/x11/bg" THEME=landscape &
+# make -C "$DOTFILES/src/x11/bg" ENV=work THEME=landscape &
+# make -C "$DOTFILES/src/x11/bg" ENV=school &
 
 # Run main session (will `exec`, do not put anything after)
 . "$DOTFILES/src/x11/session"
