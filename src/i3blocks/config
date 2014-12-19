@@ -16,10 +16,9 @@ command="$SCRIPTS_DIR/disk" | sed 's/\(.\)$/ \1iB/' | sed 's/#FF000/#ab4642/g'
 interval=60
 
 [network]
-command="$SCRIPTS_DIR/network" | cut -d' ' -f1 | sed 's/#FF000/#ab4642/g'
+command=BLOCK_INSTANCE=$NETIF "$SCRIPTS_DIR/network" | cut -d' ' -f1 | sed 's/#FF000/#ab4642/g'
 interval=60
 color=#a1b56c
-instance=enp2s0
 
 [volume]
 command="$SCRIPTS_DIR/volume" | sed 's/#ffff00/#f7ca88/g'

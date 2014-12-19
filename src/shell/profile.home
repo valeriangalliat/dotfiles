@@ -6,4 +6,7 @@ export DOTFILES=~/dotfiles
 
 . "$DOTFILES/src/shell/profile"
 
+export NETIF=enp2s0
+# export NETIF=eth0
+
 # vim: ft=sh
