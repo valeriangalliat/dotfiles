@@ -1,5 +1,5 @@
 #
-# ~/.config/x11/session
+# ~/.xsession
 #
 # Executed at X11 start. Load and execute stuff, then start environment.
 #

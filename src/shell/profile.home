@@ -1,3 +1,7 @@
+#
+# ~/.profile
+#
+
 export DOTFILES=~/dotfiles
 
 . "$DOTFILES/src/shell/profile"

@@ -1,5 +1,5 @@
 #
-# ~/.config/ncmpcpp/config
+# ~/.ncmpcpp/config
 #
 
 mpd_music_dir = "~/music"

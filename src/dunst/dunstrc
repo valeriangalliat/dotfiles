@@ -1,3 +1,7 @@
+#
+# ~/.config/dunst/dunstrc
+#
+
 [urgency_low]
 background = "#585858"
 foreground = "#f8f8f8"
@@ -12,3 +16,5 @@ timeout = 10
 background = "#ab4642"
 foreground = "#f8f8f8"
 timeout = 3600
+
+# vim: ft=dosini

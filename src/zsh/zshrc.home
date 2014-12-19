@@ -1,3 +1,7 @@
+#
+# ~/.zshrc
+#
+
 . "$DOTFILES/src/zsh/zshrc"
 
 # For Debian

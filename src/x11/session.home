@@ -1,3 +1,6 @@
+#
+# ~/.xsession
+#
 
 # Setup multiscreen
 # if [ $(xrandr | grep connected | wc -l) -gt 1 ]; then
