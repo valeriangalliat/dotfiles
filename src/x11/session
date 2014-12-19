@@ -11,15 +11,7 @@ xrdb-reload
 command -v xautolock block scrot mogrify i3lock && xautolock -time 5 -locker block &
 
 # Execute Redshift if available
-if command -v redshift; then
-    if redshift -l list | grep geoclue; then
-        # Use GeoClue provider
-        redshift -l geoclue:name=org.freedesktop.Geoclue.Providers.Hostip:path=/org/freedesktop/Geoclue/Providers/Hostip &
-    else
-        # Static location (Grenoble)
-        redshift -l 45.188529:5.724524 &
-    fi
-fi
+redshift-maybe &
 
 # Start urxvt daemon (do not support concatenated options) if not started
 ps -C urxvtd || urxvtd -q -o -f
