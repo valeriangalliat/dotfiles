@@ -188,6 +188,9 @@
 # Functions {{{
 # =============
 
+    # Include fzf functions
+    source "$DOTFILES/src/fzf/fzf.zsh"
+
     # Play a video from a jeuxvideo.com page
     jvcp() {
         "$MEDIA_PLAYER" $("$DOTFILES/deps/misc/jvc-tools/video" "$1")
