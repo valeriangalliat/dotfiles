@@ -19,6 +19,7 @@ all: cli graph
 # =======
 
 cli: \
+	fzf \
 	git \
 	irssi \
 	shell \
@@ -26,6 +27,9 @@ cli: \
 	vim \
 	weechat \
 	zsh
+
+fzf:
+	$(MAKE) -C $(S)
 
 git:
 	$(LN) $(S)/gitconfig $(D)/.gitconfig
