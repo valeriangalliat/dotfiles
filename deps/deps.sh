@@ -25,6 +25,9 @@ cat=shell
     dep=vimpager
     github rkitover/vimpager
 
+    dep=fzf
+    github junegunn/fzf
+
 cat=sublime-text
     dep=package-control
     github wbond/sublime_package_control

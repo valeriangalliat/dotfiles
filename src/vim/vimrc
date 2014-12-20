@@ -86,7 +86,10 @@
         " Fuzzy finder (needs Ruby)
         " NeoBundle 'wincent/Command-T'
 
-    " }}}
+        " Fuzzy finder (fast, external)
+        NeoBundle $DOTFILES.'/deps/shell/fzf'
+
+ .   " }}}
 
     " Autocompletion {{{
     " ------------------
