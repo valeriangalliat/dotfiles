@@ -375,6 +375,10 @@
     set undofile
     set undodir=~/.vim/undo
 
+    " More natural split direction
+    set splitbelow
+    set splitright
+
     " Set leader
     let mapleader=','
 
