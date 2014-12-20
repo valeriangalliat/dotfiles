@@ -272,6 +272,12 @@
         " Upload on Deblan wall
         NeoBundle 'valeriangalliat/dwall'
 
+        " Switch between single-line and multiline statements
+        NeoBundle 'AndrewRadev/splitjoin.vim'
+
+        " Switch between single-line and multiple statements (alternative)
+        " NeoBundle 'FooSoft/vim-argwrap'
+
     " }}}
 
     " UI {{{
@@ -294,6 +300,9 @@
 
         " Mark indent (disabled because slow)
         " NeoBundle 'Yggdroot/indentLine'
+
+        " Distraction-free mode
+        NeoBundle 'junegunn/goyo.vim'
 
     " }}}
 
