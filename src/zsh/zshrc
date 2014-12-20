@@ -28,7 +28,14 @@
     ZSH_CUSTOM="$DOTFILES/src/zsh"
 
     # Enabled plugins
-    plugins=(git colored-man zsh-syntax-highlighting history-substring-search)
+    plugins=(
+        git
+        git-extras
+        colored-man
+        zsh-syntax-highlighting
+        history-substring-search
+        z
+    )
 
     # Load core
     source $ZSH/oh-my-zsh.sh
