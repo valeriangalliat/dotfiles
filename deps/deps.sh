@@ -12,9 +12,6 @@ cat=misc
     dep=block
     github valeriangalliat/block
 
-    dep=vimpager
-    github rkitover/vimpager
-
     dep=docopts
     github docopt/docopts
 
@@ -24,6 +21,9 @@ cat=misc
 cat=shell
     dep=base16-shell
     github chriskempson/base16-shell
+
+    dep=vimpager
+    github rkitover/vimpager
 
 cat=sublime-text
     dep=package-control
