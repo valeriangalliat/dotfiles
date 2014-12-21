@@ -146,6 +146,8 @@
         alias -g WL='| wc -l'
         alias -g WW='| wc -w'
 
+        alias -g dotfiles="$DOTFILES"
+
     # }}}
 
     # Suffix {{{
