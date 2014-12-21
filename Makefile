@@ -22,6 +22,7 @@ cli: \
 	fzf \
 	git \
 	irssi \
+	net \
 	shell \
 	tmux \
 	vim \
@@ -38,6 +39,10 @@ irssi:
 	$(MKDIR) $(D)/.irssi
 	$(CP) $(S)/config $(D)/.irssi
 	$(CP) $(S)/default.theme $(D)/.irssi
+
+net:
+	$(LN) $(S)/curlrc $(D)/.curlrc
+	$(LN) $(S)/wgetrc $(D)/.wgetrc
 
 shell:
 	$(MAKE) -C $(S)
