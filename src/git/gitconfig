@@ -8,6 +8,18 @@
 [credential]
 	helper = cache --timeout=604800
 
+[push]
+	default = simple
+
+[url "https://github.com/"]
+	insteadOf = "gh:"
+
+[url "https://bitbucket.org/"]
+	insteadOf = "bb:"
+
+[url "https://git.framasoft.org/"]
+	insteadOf = "fg:"
+
 [user]
 	email = val@codejam.info
 	name = Valérian Galliat
