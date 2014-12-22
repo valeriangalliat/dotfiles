@@ -578,10 +578,17 @@
 
     " }}}
 
+    " `fzf` {{{
+    " ---------
+
+        map <silent> <Leader>f :FZF<CR>
+
+    " }}}
+
     " `unite` {{{
     " -----------
 
-        map <silent> <Leader>f :Unite file file/new directory/new<CR>
+        " map <silent> <Leader>f :Unite file file/new directory/new<CR>
         map <silent> <Leader>r :Unite file_rec/async<CR>
         map <silent> <Leader>b :Unite buffer<CR>
         map <silent> <Leader>t :Unite tag<CR>
