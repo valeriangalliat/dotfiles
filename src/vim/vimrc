@@ -741,6 +741,14 @@
 
     " }}}
 
+    " `nrrwrgn` {{{
+    " -------------
+
+        " Don't delay `<Leader>n`
+        nmap <Plug>Nope <Plug>NrrwrgnDo
+
+    " }}}
+
 " }}}
 
 " Mappings {{{
