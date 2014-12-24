@@ -52,6 +52,9 @@
         " tmux integration
         NeoBundle 'christoomey/vim-tmux-navigator'
 
+        " Proper buffer closing
+        NeoBundle 'moll/vim-bbye'
+
     " }}}
 
     " Tree {{{
@@ -759,9 +762,6 @@
 
     " Logical `Y` behavior
     noremap Y y$
-
-    " Delete buffer without closing window
-    cnoremap <silent> bd<CR> bp <Bar> sp <Bar> bn <Bar> bd<CR>
 
     " nmap <silent> <Left> :vertical resize -5<CR>
     " nmap <silent> <Up> :resize -5<CR>
