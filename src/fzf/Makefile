@@ -9,4 +9,5 @@ vendor:
 #
 bindings.zsh:
 	curl -s 'https://raw.githubusercontent.com/junegunn/fzf/ee433ef6e9b8ab2860ca93dd39ed110fc79bf60e/install' \
-		| sed -n '179,232p' > $@
+		| sed -n '179,232p' \
+		| sed 's,~/.fzf.zsh,$(PWD)/bindings.zsh,' > $@
