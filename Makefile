@@ -63,7 +63,7 @@ weechat:
 zsh:
 	$(MAKE) -C $(S)/plugins
 	$(CP) $(S)/zshrc.home $(D)/.zshrc
-	$(LN) $(D)/.profile $(D)/.zprofile
+	$(LN) $(D)/.profile $(D)/.zshenv
 
 # }}}
 
