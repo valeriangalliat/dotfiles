@@ -348,7 +348,7 @@
     set nostartofline
 
     " Do not create `.swp` files
-    set noswapfile
+    " set noswapfile
 
     " Read `.vimrc` in the current directory
     set exrc
