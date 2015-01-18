@@ -205,6 +205,7 @@
         NeoBundle 'wting/rust.vim'
         NeoBundle 'chrisbra/csv.vim'
         NeoBundle 'PotatoesMaster/i3-vim-syntax'
+        NeoBundle 'kchmck/vim-coffee-script'
 
     " }}}
 
@@ -491,6 +492,7 @@
         au FileType gitconfig set et!
 
         au FileType javascript set ts=2 sts=2 sw=2
+        au FileType coffee set ts=2 sts=2 sw=2
         au FileType ruby set ts=2 sts=2 sw=2
         au FileType json set ts=2 sts=2 sw=2
         au FileType html set ts=2 sts=2 sw=2 wrap
