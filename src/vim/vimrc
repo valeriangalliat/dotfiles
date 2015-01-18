@@ -53,18 +53,20 @@
         NeoBundle 'christoomey/vim-tmux-navigator'
 
         " Proper buffer closing
-        NeoBundle 'moll/vim-bbye'
+        NeoBundleLazy 'moll/vim-bbye', {'autoload': {'commands': 'Bdelete'}}
 
     " }}}
 
     " Tree {{{
     " --------
 
-        " File explorer
-        NeoBundle 'scrooloose/nerdtree'
 
         " Tabs integration
-        NeoBundle 'jistr/vim-nerdtree-tabs'
+        NeoBundleLazy 'jistr/vim-nerdtree-tabs'
+
+        " File explorer
+        NeoBundleLazy 'scrooloose/nerdtree',
+            \ {'depends': 'vim-nerdtree-tabs', 'autoload': {'commands': 'NERDTreeTabsToggle'}}
 
     " }}}
 
@@ -72,42 +74,45 @@
     " -----------------------
 
         " Dependency for Unite and others (parallel execution)
-        NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make'}}
+        NeoBundleLazy 'Shougo/vimproc.vim', {'build': {'unix': 'make'}}
 
         " Find anything
-        NeoBundle 'Shougo/unite.vim'
+        NeoBundleLazy 'Shougo/unite.vim',
+            \ {'depends': 'vimproc.vim', 'autoload': {'commands': 'Unite'}}
 
         " Find tags
-        NeoBundle 'tsukkee/unite-tag'
+        NeoBundleLazy 'tsukkee/unite-tag'
 
         " Switch color scheme
-        NeoBundle 'ujihisa/unite-colorscheme'
+        NeoBundleLazy 'ujihisa/unite-colorscheme'
 
         " Fuzzy finder (faster than Unite equivalent)
-        NeoBundle 'kien/ctrlp.vim'
+        NeoBundleLazy 'kien/ctrlp.vim', {'autoload': {'commands': 'CtrlP'}}
 
         " Fuzzy finder (needs Ruby)
-        " NeoBundle 'wincent/Command-T'
+        " NeoBundleLazy 'wincent/Command-T'
 
         " Fuzzy finder (fast, external)
-        NeoBundle $DOTFILES.'/deps/shell/fzf'
+        NeoBundleLazy $DOTFILES.'/deps/shell/fzf', {'autoload': {'commands': 'FZF'}}
 
  .   " }}}
 
     " Autocompletion {{{
     " ------------------
 
+        " Browse completion with `<Tab>`
+        " NeoBundleLazy 'ervandew/supertab'
+
         " Autocompletion (lightweight)
-        " NeoBundle 'AutoComplPop'
+        " NeoBundleLazy 'AutoComplPop', {'autoload': {'insert': 1}}
 
         " Autocompletion (intermediate)
-        NeoBundle 'Shougo/neocomplcache.vim'
+        NeoBundleLazy 'Shougo/neocomplcache.vim',
+            \ {'autoload': {'insert': 1}}
 
         " Autocompletion (same as `neocomplcache`, faster, but needs Lua)
-        " NeoBundle 'Shougo/neocomplete.vim'
-
-        " Browse completion with `<Tab>`
-        NeoBundle 'ervandew/supertab'
+        " NeoBundleLazy 'Shougo/neocomplete.vim',
+        "     \ {'autoload': {'insert': 1}}
 
         " Autocompletion (heavy and powerful)
         " NeoBundle 'Valloric/YouCompleteMe'
@@ -117,17 +122,18 @@
     " Snippets {{{
     " ------------
 
-        " Snippets engine
-        NeoBundle 'SirVer/ultisnips'
-
         " Actual snippets
-        NeoBundle 'honza/vim-snippets'
+        NeoBundleLazy 'honza/vim-snippets'
 
-        " Snippets engine (alternative)
-        " NeoBundle 'Shougo/neosnippet'
+        " Snippets engine
+        " NeoBundle 'SirVer/ultisnips', {'depends': 'vim-snippets'}
 
         " Actual snippets (alternative)
-        " NeoBundle 'Shougo/neosnippet-snippets'
+        NeoBundleLazy 'Shougo/neosnippet-snippets'
+
+        " Snippets engine (alternative)
+        NeoBundleLazy 'Shougo/neosnippet',
+            \ {'depends': ['neosnippet-snippets', 'vim-snippets'], 'autoload': {'insert': 1}}
 
     " }}}
 
@@ -143,13 +149,15 @@
     " --------
 
         " Repeat with `.` for plugins
-        NeoBundle 'tpope/vim-repeat'
+        NeoBundleLazy 'tpope/vim-repeat', {'autoload': {'insert': 1}}
 
         " Multiple cursors (kinda) like Sublime Text
-        NeoBundle 'terryma/vim-multiple-cursors'
+        NeoBundleLazy 'terryma/vim-multiple-cursors',
+            \ {'autoload': {'mappings': '<C-n>'}}
 
         " A shell inside Vim
-        " NeoBundle 'Shougo/vimshell.vim'
+        " NeoBundleLazy 'Shougo/vimshell.vim',
+        "     \ {'autoload': {'commands': 'VimShell'}}
     " }}}
 
     " Motions/objects {{{
@@ -163,7 +171,7 @@
         NeoBundle 'PeterRincker/vim-argumentative'
 
         " New text objects
-        " NeoBundle 'wellle/targets.vim'
+        " NeoBund 'wellle/targets.vim'
 
         " Quick motions
         NeoBundle 'Lokaltog/vim-easymotion'
@@ -178,7 +186,7 @@
         NeoBundle 'qstrahl/vim-dentures'
 
         " Alignment helper
-        " NeoBundle 'Align'
+        " NeoBundleLazy 'Align', {'autoload': {'commands': 'Align'}}
 
         " Alignment helper
         NeoBundle 'tommcdo/vim-lion'
@@ -191,21 +199,21 @@
     " Syntax {{{
     " ----------
 
-        NeoBundle 'tpope/vim-git'
-        NeoBundle 'pangloss/vim-javascript'
-        " NeoBundle 'othree/yajs.vim' " Alternative JavaScript
-        NeoBundle 'godlygeek/tabular' " Needed by `markdown`
-        NeoBundle 'plasticboy/vim-markdown'
-        NeoBundle 'bohrshaw/vim-vimperator-syntax'
-        NeoBundle 'digitaltoad/vim-jade'
-        NeoBundle 'wavded/vim-stylus'
-        NeoBundle 'evidens/vim-twig'
-        NeoBundle 'othree/html5.vim'
-        NeoBundle 'elzr/vim-json'
-        NeoBundle 'wting/rust.vim'
-        NeoBundle 'chrisbra/csv.vim'
-        NeoBundle 'PotatoesMaster/i3-vim-syntax'
-        NeoBundle 'kchmck/vim-coffee-script'
+        NeoBundleLazy 'tpope/vim-git', {'autoload': {'filetypes': 'git'}}
+        NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': 'javascript'}}
+        " NeoBundleLazy 'othree/yajs.vim', {'autoload': {'filetypes': 'javascript'}} " Alternative JavaScript
+        NeoBundleLazy 'godlygeek/tabular'
+        NeoBundleLazy 'plasticboy/vim-markdown', {'depends': 'tabular', 'autoload': {'filetypes': 'markdown'}}
+        NeoBundleLazy 'bohrshaw/vim-vimperator-syntax', {'autoload': {'filetypes': 'vimperator'}}
+        NeoBundleLazy 'digitaltoad/vim-jade', {'autoload': {'filetypes': 'jade'}}
+        NeoBundleLazy 'wavded/vim-stylus', {'autoload': {'filetypes': 'stylus'}}
+        NeoBundleLazy 'evidens/vim-twig', {'autoload': {'filetypes': 'twig'}}
+        NeoBundleLazy 'othree/html5.vim', {'autoload': {'filetypes': 'html'}}
+        NeoBundleLazy 'elzr/vim-json', {'autoload': {'filetypes': 'json'}}
+        NeoBundleLazy 'wting/rust.vim', {'autoload': {'filetypes': 'rust'}}
+        NeoBundleLazy 'chrisbra/csv.vim', {'autoload': {'filetypes': 'csv'}}
+        NeoBundleLazy 'PotatoesMaster/i3-vim-syntax', {'autoload': {'filetypes': 'i3'}}
+        NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload': {'filetypes': 'coffee'}}
 
     " }}}
 
@@ -213,10 +221,11 @@
     " -----------
 
         " Web API framework (needed by `gist`)
-        NeoBundle 'mattn/webapi-vim'
+        NeoBundleLazy 'mattn/webapi-vim'
 
         " Manage GitHub gists
-        NeoBundle 'mattn/gist-vim'
+        NeoBundleLazy 'mattn/gist-vim',
+            \ {'depends': 'webapi-vim', 'autoload': {'command': 'Gist'}}
 
     " }}}
 
@@ -224,13 +233,13 @@
     " --------
 
         " Auto close blocks
-        NeoBundle 'tpope/vim-endwise'
+        NeoBundleLazy 'tpope/vim-endwise', {'autoload': {'insert': 1}}
 
         " Auto close structures and quotes (awesome fork to avoid annoying mode)
-        NeoBundle 'A2K/auto-pairs'
+        NeoBundleLazy 'A2K/auto-pairs', {'autoload': {'insert': 1}}
 
         " Auto toggle paste mode
-        NeoBundle 'ConradIrwin/vim-bracketed-paste'
+        NeoBundleLazy 'ConradIrwin/vim-bracketed-paste', {'autoload': {'insert': 1}}
 
         " Auto change to project root
         " NeoBundle 'airblade/vim-rooter'
@@ -244,10 +253,10 @@
     " -----------
 
         " Git wrapper
-        NeoBundle 'tpope/vim-fugitive'
+        " NeoBundle 'tpope/vim-fugitive'
 
         " Show modified lines in Git projects
-        " NeoBundle 'airblade/vim-gitgutter'
+        " NeoBundleLazy 'airblade/vim-gitgutter'
 
         " Clipboard helper
         NeoBundle 'svermeulen/vim-easyclip'
@@ -259,22 +268,22 @@
         NeoBundle 'chrisbra/NrrwRgn'
 
         " Use ack with Vim
-        NeoBundle 'mileszs/ack.vim'
+        NeoBundleLazy 'mileszs/ack.vim', {'autoload': {'commands': 'Ack'}}
 
         " HTML shortcuts
-        NeoBundle 'mattn/emmet-vim'
+        NeoBundleLazy 'mattn/emmet-vim', {'autoload': {'filetype': 'html'}}
 
         " `%` for HTML, LaTeX and more (native in recent Vim versions)
         " NeoBundle 'matchit.zip'
 
         " Syntax checker
-        NeoBundle 'scrooloose/syntastic'
+        " NeoBundle 'scrooloose/syntastic'
 
         " Switch expressions (true/false, on/off, etc.)
-        NeoBundle 'AndrewRadev/switch.vim'
+        NeoBundleLazy 'AndrewRadev/switch.vim', {'autoload': {'commands': 'Switch'}}
 
         " Upload on Deblan wall
-        NeoBundle 'valeriangalliat/dwall'
+        NeoBundleLazy 'valeriangalliat/dwall', {'autoload': {'commands': 'Dwall'}}
 
         " Switch between single-line and multiline statements
         NeoBundle 'AndrewRadev/splitjoin.vim'
@@ -291,13 +300,13 @@
         " NeoBundle 'wesleyche/SrcExpl'
 
         " Browse undo tree
-        NeoBundle 'mbbill/undotree'
+        NeoBundleLazy 'mbbill/undotree', {'autoload': {'commands': 'UndotreeToggle'}}
 
         " Show marks
-        NeoBundle 'kshenoy/vim-signature'
+        " NeoBundle 'kshenoy/vim-signature'
 
         " Show tags from file
-        NeoBundle 'majutsushi/tagbar'
+        NeoBundleLazy 'majutsushi/tagbar', {'autoload': {'commands': 'TagbarToggle'}}
 
         " Context-aware relative or absolute numbers
         " NeoBundle 'myusuf3/numbers.vim'
@@ -306,7 +315,7 @@
         " NeoBundle 'Yggdroot/indentLine'
 
         " Distraction-free mode
-        NeoBundle 'junegunn/goyo.vim'
+        NeoBundleLazy 'junegunn/goyo.vim', {'autoload': {'commands': 'Goyo'}}
 
     " }}}
 
@@ -708,6 +717,20 @@
         let neocomplcache_enable_at_startup=1
         let neocomplcache_enable_smart_case=1
         let neocomplcache_enable_auto_select=1
+
+    " }}}
+
+    " `neosnippet` {{{
+    " ----------------
+
+        " Expand snippets with `<Tab>` (from project readme)
+        imap <expr><Tab> neosnippet#expandable_or_jumpable()
+            \ ? "\<Plug>(neosnippet_expand_or_jump)"
+            \ : pumvisible() ? "\<C-n>" : "\<Tab>"
+
+        " SnipMate compatibility
+        let g:neosnippet#enable_snipmate_compatibility=1
+        let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
     " }}}
 
