@@ -800,9 +800,6 @@
     " map <silent> <C-n> :bn
     " map <silent> <C-p> :bp
 
-    " Toggle relative numbering
-    map <silent> <Leader>r :set relativenumber!<CR>
-
 " }}}
 
 " Helpers {{{
@@ -816,6 +813,21 @@
             \ if line("'\"") > 1 && line("'\"") <= line('$') |
             \   exe 'normal! g`"' |
             \ endif
+
+    " }}}
+
+    " Toggle relative numbering
+    " -------------------------
+
+        function! NumberToggle()
+            if &relativenumber
+                set number
+            else
+                set relativenumber
+            endif
+        endfunc
+
+        map <silent> <Leader>r :call NumberToggle()<CR>
 
     " }}}
 
