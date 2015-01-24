@@ -317,6 +317,9 @@
         " Distraction-free mode
         NeoBundleLazy 'junegunn/goyo.vim', {'autoload': {'commands': 'Goyo'}}
 
+        " Prompt for failed completion
+        NeoBundle 'EinfachToll/DidYouMean'
+
     " }}}
 
     call neobundle#end()
