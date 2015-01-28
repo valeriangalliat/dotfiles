@@ -34,6 +34,7 @@ fzf:
 
 git:
 	$(LN) $(S)/gitconfig $(D)/.gitconfig
+	$(LN) $(S)/gitignore $(D)/.gitignore
 
 irssi:
 	$(MKDIR) $(D)/.irssi
