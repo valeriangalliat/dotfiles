@@ -27,13 +27,13 @@ bg-%.jpg: 1-%.jpg 2-%.jpg
 	convert $< -resize 1280x1024^ -gravity center -crop 1280x1024+0+0 $@
 
 1-default.jpg:
-	curl -o $@ http://imgindex.storage.googleapis.com/storage/img/2013/02/07/NFbhG1O.jpg
+	curl -o $@ https://val.codejam.info/misc/bg/ariel-rebel.jpg
 
 2-default.jpg:
-	curl -o $@ http://imgindex.storage.googleapis.com/storage/img/2012/11/17/A5Rcb.jpg
+	curl -o $@ https://val.codejam.info/misc/bg/simon/wallhaven-4501.jpg
 
 3-default.jpg:
-	curl -o $@ http://i.imgur.com/2t6rZ6m.jpg.jpg
+	curl -o $@ https://val.codejam.info/misc/bg/ariel-rebel2.jpg
 
 1-landscape.jpg:
 	curl -o $@ https://val.codejam.info/misc/st-eynard/IMG_20141030_074929.jpg
