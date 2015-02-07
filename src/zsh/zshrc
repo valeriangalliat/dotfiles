@@ -123,7 +123,7 @@
         alias ipb='curl -s 192.168.1.1 | awk "/Adresse IP/{getline;print;exit}" | /usr/bin/grep -Eo "[0-9\.]+"'
 
         # Get remote IP from CodeJam (at home)
-        alias ipc='curl ip.codejam.info && echo'
+        alias ipc='curl ip.codejam.info'
 
         # Get remote IP from Deblan (can't use home server when in LAN)
         alias ipd='curl ip.deblan.org && echo'
