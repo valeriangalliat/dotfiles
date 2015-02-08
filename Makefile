@@ -53,6 +53,7 @@ tmux:
 	$(CP) $(S)/tmux.conf.home $(D)/.tmux.conf
 
 vim:
+	$(MAKE) -C $(S)
 	$(MKDIR) $(D)/.vim/undo
 	$(LN) $(S)/vimrc $(D)/.vimrc
 
