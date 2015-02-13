@@ -12,9 +12,6 @@ cat=misc
     dep=block
     github valeriangalliat/block
 
-    dep=docopts
-    github docopt/docopts
-
     dep=jvc-tools
     github valeriangalliat/jvc-tools
 
