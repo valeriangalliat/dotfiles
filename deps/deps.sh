@@ -22,6 +22,9 @@ cat=shell
     dep=vimpager
     github rkitover/vimpager
 
+    dep=vimsed
+    github ryanfmurphy/vimsed
+
     dep=fzf
     github junegunn/fzf
 
