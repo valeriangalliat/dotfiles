@@ -1,27 +1,17 @@
 #!/bin/sh -e
 
-query() {
-    amixer get Master \
-        | grep Playback \
-        | awk 'BEGIN {FS="[\\[\\]]"} length($2) && length($6) {print $2, $6}' \
-        | head -n1
-}
-
 case "$BLOCK_BUTTON" in
   1) amixer -q set Master toggle ;;  # Left click toggle
-  4) amixer -q set Master 1+ ;; # Scroll up, increase
-  5) amixer -q set Master 1- ;; # Scroll down, decrease
+  4) amixer -q set PCM 1%+ ;; # Scroll up, increase
+  5) amixer -q set PCM 1%- ;; # Scroll down, decrease
 esac
 
-set -- $(query)
-volume="$1"
-status="$2"
+volume=$(amixer get PCM | sed -n '/^ *Front Left:/{s/[^\[]*\[//;s/\].*//p}')
+status=$(amixer get Master | sed -n '/^ *Front Left:/{s/.*\[//;s/\].*//p}')
+
+echo "$volume"
+echo "$volume"
 
 if [ "off" = "$status" ]; then
-    echo 0%
-    echo 0%
     echo '#ffff00'
-else
-    echo "$volume"
-    echo "$volume"
 fi
