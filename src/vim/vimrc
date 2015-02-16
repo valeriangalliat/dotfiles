@@ -106,7 +106,7 @@
     set splitright
 
     " Set leader
-    let mapleader=','
+    let mapleader = ','
 
 " }}}
 
@@ -131,7 +131,7 @@
 " =========
 
     set background=dark
-    let base16colorspace=256
+    let base16colorspace = 256
     colorscheme base16-default
 
     " No background color (see through Vim)
@@ -286,8 +286,8 @@
     " `airline` {{{
     " -------------
 
-        let airline#extensions#tabline#enabled=1
-        " let airline_powerline_fonts=1
+        let airline#extensions#tabline#enabled = 1
+        " let airline_powerline_fonts = 1
 
     " }}}
 
@@ -338,11 +338,11 @@
     " ----------------
 
         " Do not echo since it's integrated in the status line
-        let bufferline_echo=0
+        let bufferline_echo = 0
 
         " Append buffer line to status line
         autocmd VimEnter *
-            \ let &statusline='%{bufferline#refresh_status()}'
+            \ let &statusline = '%{bufferline#refresh_status()}'
             \ .bufferline#get_status_string()
 
     " }}}
@@ -350,10 +350,10 @@
     " `indentline` {{{
     " ----------------
 
-        let indentLine_color_term=236
-        let indentLine_color_gui='#32322f'
-        let indentLine_char='│'
-        let indentLine_noConcealCursor=''
+        let indentLine_color_term = 236
+        let indentLine_color_gui = '#32322f'
+        let indentLine_char = '│'
+        let indentLine_noConcealCursor = ''
 
     " }}}
 
@@ -361,7 +361,7 @@
     " --------------
 
         " Do not fold
-        let vim_markdown_folding_disabled=1
+        let vim_markdown_folding_disabled = 1
 
     " }}}
 
@@ -376,10 +376,10 @@
     " ----------------
 
         " Lower match upper
-        let EasyMotion_smartcase=1
+        let EasyMotion_smartcase = 1
 
-        let EasyMotion_enter_jump_first=1
-        let EasyMotion_space_jump_first=1
+        let EasyMotion_enter_jump_first = 1
+        let EasyMotion_space_jump_first = 1
 
         " Improve standard moves
         map <Leader>l <Plug>(easymotion-lineforward)
@@ -388,30 +388,30 @@
         map <Leader>h <Plug>(easymotion-linebackward)
 
         " Keep cursor horizontal position
-        let EasyMotion_startofline=0
+        let EasyMotion_startofline = 0
 
     " }}}
 
     " `syntastic` {{{
     " ---------------
 
-        let syntastic_mode_map={ 'mode': 'passive' }
-        let syntastic_javascript_checkers=['eslint', 'jshint', 'jslint']
+        let syntastic_mode_map = {'mode': 'passive'}
+        let syntastic_javascript_checkers = ['eslint', 'jshint', 'jslint']
 
     " }}}
 
     " `gist` {{{
     " ----------
 
-        let gist_post_anonymous=1
+        let gist_post_anonymous = 1
 
     " }}}
 
     " `easyclip` {{{
     " --------------
 
-        let EasyClipUseCutDefaults=0 " Do not remap `m`
-        let EasyClipUseSubstituteDefaults=1 " Remap `s`
+        let EasyClipUseCutDefaults = 0 " Do not remap `m`
+        let EasyClipUseSubstituteDefaults = 1 " Remap `s`
 
         " Paste without format in insert mode
         imap <C-v> <plug>EasyClipInsertModePaste
@@ -428,9 +428,9 @@
     " `neocomplcache` {{{
     " -------------------
 
-        let neocomplcache_enable_at_startup=1
-        let neocomplcache_enable_smart_case=1
-        let neocomplcache_enable_auto_select=1
+        let neocomplcache_enable_at_startup = 1
+        let neocomplcache_enable_smart_case = 1
+        let neocomplcache_enable_auto_select = 1
 
     " }}}
 
@@ -443,15 +443,15 @@
             \ : pumvisible() ? "\<C-n>" : "\<Tab>"
 
         " SnipMate compatibility
-        let g:neosnippet#enable_snipmate_compatibility=1
-        let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+        let g:neosnippet#enable_snipmate_compatibility = 1
+        let g:neosnippet#snippets_directory = '~/.vim/bundle/vim-snippets/snippets'
 
     " }}}
 
     " `supertab` {{{
     " --------------
 
-        let SuperTabDefaultCompletionType='<C-n>'
+        let SuperTabDefaultCompletionType = '<C-n>'
 
     " }}}
 
