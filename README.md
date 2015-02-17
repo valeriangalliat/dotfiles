@@ -28,8 +28,8 @@ complete list), and you can install a subset of categories.
 deps/make # Install (or update) all dependencies
 deps/make shell zsh # Restrict to `shell` and `zsh` categories
 
-INSTALL=false deps/make " Don't install new dependencies (update only)
-UPDATE=false deps/make " Don't update existing dependencies (install only)
+INSTALL=false deps/make # Don't install new dependencies (update only)
+UPDATE=false deps/make # Don't update existing dependencies (install only)
 ```
 
 Installation
