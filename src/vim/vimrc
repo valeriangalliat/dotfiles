@@ -530,8 +530,8 @@
 
     " }}}
 
-    " Toggle relative numbering
-    " -------------------------
+    " Toggle relative numbering {{{
+    " -----------------------------
 
         function! NumberToggle()
             if &relativenumber
