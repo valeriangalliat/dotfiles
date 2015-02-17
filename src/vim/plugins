@@ -209,6 +209,9 @@
     # Use ack with Vim
     ack
 
+    # Advanced search and replace
+    github:dyng/ctrlsf.vim
+
     # HTML shortcuts
     Emmet
 
