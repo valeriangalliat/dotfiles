@@ -70,10 +70,6 @@
     # Standard {{{
     # ------------
 
-        # `GREP_OPTIONS` is deprecated
-        alias grep="grep $GREP_OPTIONS"
-        unset GREP_OPTIONS
-
         if [ "$(uname -s)" = Linux ]; then
             # Directories first (only on Linux), extend existing alias
             alias ls="$(whence ls) --group-directories-first"
