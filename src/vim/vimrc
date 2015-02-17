@@ -545,4 +545,13 @@
 
     " }}}
 
+    " Count words (not dumb like `wc -w`) {{{
+    " ---------------------------------------
+
+        function! WordCount()
+            write !grep -Eo '\w+' | wc -l
+        endfunction
+
+    " }}}
+
 " }}}
