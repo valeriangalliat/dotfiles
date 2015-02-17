@@ -177,7 +177,6 @@
     github:A2K/auto-pairs
 
     # Auto toggle paste mode
-    github:A2K/auto-pairs
     github:ConradIrwin/vim-bracketed-paste
 
     # Auto change to project root
