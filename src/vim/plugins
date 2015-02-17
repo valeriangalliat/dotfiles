@@ -212,6 +212,9 @@
     # Advanced search and replace
     github:dyng/ctrlsf.vim
 
+    # Advanced search and replace (change in place)
+    writable_search
+
     # HTML shortcuts
     Emmet
 
