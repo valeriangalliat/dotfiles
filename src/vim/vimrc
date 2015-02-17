@@ -137,6 +137,9 @@
     " No background color (see through Vim)
     highlight Normal ctermbg=none
 
+    " Fix for `goyo` plugin too
+    autocmd User GoyoLeave highlight Normal ctermbg=none
+
 " }}}
 
 " Completion {{{
