@@ -319,7 +319,7 @@
     " -----------
 
         " map <silent> <Leader>f :Unite file file/new directory/new<CR>
-        map <silent> <Leader>r :Unite file_rec/async<CR>
+        " map <silent> <Leader>r :Unite file_rec/async<CR>
         map <silent> <Leader>b :Unite buffer<CR>
         map <silent> <Leader>t :Unite tag<CR>
         map <silent> <Leader>g :Unite grep:.<CR>
@@ -536,15 +536,7 @@
     " Toggle relative numbering {{{
     " -----------------------------
 
-        function! NumberToggle()
-            if &relativenumber
-                set number
-            else
-                set relativenumber
-            endif
-        endfunc
-
-        map <silent> <Leader>r :call NumberToggle()<CR>
+        map <silent> <Leader>r :set relativenumber!<CR>
 
     " }}}
 
