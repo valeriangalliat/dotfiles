@@ -34,6 +34,9 @@
     " VAM plugins (compiled, edit `plugins` for source)
     source $DOTFILES/src/vim/plugins.vim
 
+    " Custom additions
+    set runtimepath+=$DOTFILES/src/vim
+
     " Fuzzy finder (fast, external)
     set runtimepath+=$DOTFILES/deps/shell/fzf
 
