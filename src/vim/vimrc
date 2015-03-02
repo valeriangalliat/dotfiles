@@ -550,6 +550,8 @@
             write !grep -Eo '\w+' | wc -l
         endfunction
 
+        command! WordCount :call WordCount()
+
     " }}}
 
 " }}}
