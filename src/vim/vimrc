@@ -554,4 +554,31 @@
 
     " }}}
 
+    " Highlight current Markdown fenced languages {{{
+    " -----------------------------------------------
+
+        function! FencedHighlight()
+            let g:markdown_fenced_languages = []
+
+            for line in getline('^', '$')
+                " Find fenced code block languages
+                let match = matchlist(line, '^\s*```\(..*\)$')
+
+                if empty(match)
+                    continue
+                endif
+
+                if index(g:markdown_fenced_languages, match[1]) == -1
+                    call add(g:markdown_fenced_languages, match[1])
+                endif
+            endfor
+
+            " Force syntax reload
+            doautocmd Syntax
+        endfunction
+
+        autocmd FileType markdown call FencedHighlight()
+
+    " }}}
+
 " }}}
