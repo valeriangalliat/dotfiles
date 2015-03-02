@@ -195,7 +195,7 @@
             execute 'set ts='.a:width.' sts='.a:width.' sw='.a:width
         endfunction
 
-        command! -nargs=1 Indent :call Indent(<f-args>)
+        command! -nargs=1 Indent call Indent(<f-args>)
 
     " }}}
 
@@ -550,7 +550,7 @@
             write !grep -Eo '\w+' | wc -l
         endfunction
 
-        command! WordCount :call WordCount()
+        command! WordCount call WordCount()
 
     " }}}
 
