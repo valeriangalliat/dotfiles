@@ -9,6 +9,7 @@ focused_title() {
     i3-msg -t get_tree \
         | sed 's/{/{\n/g' \
         | grep -A4 '"focused":true' \
+        | grep '"name":' \
         | tail -1 \
         | sed 's/.*"name":"//;s/",.*//'
 }
