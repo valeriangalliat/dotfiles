@@ -26,6 +26,9 @@
 [url "https://git.framasoft.org/"]
 	insteadOf = "fg:"
 
+[url "https://git.codejam.info/"]
+	insteadOf = "cj:"
+
 [user]
 	email = val@codejam.info
 	name = Valérian Galliat
