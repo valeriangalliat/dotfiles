@@ -15,8 +15,8 @@ interval=30
 command="$SCRIPTS_DIR/disk" | sed 's/\(.\)$/ \1iB/' | sed 's/#FF000/#ab4642/g'
 interval=60
 
-[network]
-command=BLOCK_INSTANCE=$NETIF "$SCRIPTS_DIR/network" | cut -d' ' -f1 | sed 's/#FF000/#ab4642/g'
+[iface]
+command=BLOCK_INSTANCE=$NETIF "$SCRIPTS_DIR/iface" | cut -d' ' -f1 | sed 's/#FF000/#ab4642/g'
 interval=60
 color=#a1b56c
 
