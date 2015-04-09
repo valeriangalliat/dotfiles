@@ -6,8 +6,8 @@ case "$BLOCK_BUTTON" in
   5) amixer -q set PCM 1%- ;; # Scroll down, decrease
 esac
 
-volume=$(amixer get PCM | sed -n '/^ *Front Left:/{s/[^\[]*\[//;s/\].*//p}')
-status=$(amixer get Master | sed -n '/^ *Front Left:/{s/.*\[//;s/\].*//p}')
+volume=$(amixer get PCM | sed -n '/^ *\(Front Left\|Mono\):/{s/[^\[]*\[//;s/\].*//p}')
+status=$(amixer get Master | sed -n '/^ *\(Front Left\|Mono\):/{s/.*\[//;s/\].*//p}')
 
 echo "$volume"
 echo "$volume"
