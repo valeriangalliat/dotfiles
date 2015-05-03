@@ -128,8 +128,8 @@
 
         # Keyboard volume keys
         bindsym XF86AudioMute exec amixer set Master toggle && pkill -RTMIN+1 i3blocks
-        bindsym XF86AudioRaiseVolume exec amixer set PCM 1%+ && pkill -RTMIN+1 i3blocks
-        bindsym XF86AudioLowerVolume exec amixer set PCM 1%- && pkill -RTMIN+1 i3blocks
+        bindsym XF86AudioRaiseVolume exec amixer set Master 1%+ && pkill -RTMIN+1 i3blocks
+        bindsym XF86AudioLowerVolume exec amixer set Master 1%- && pkill -RTMIN+1 i3blocks
 
         # MPD controls
         bindsym $mod+space exec mpc toggle
