@@ -12,19 +12,13 @@ set urlseparator='\n'
 autocmd PageLoadPre ^https://www\\.youtube\\.com/watch\\? :silent !mpc pause
 
 " Yank all tabs' URL
-nnoremap gya :js yankAll();<CR>
+nnoremap gya :js yankAll()<CR>
 
 :js << EOF
-function yankAll() {
-  var urls = [];
-
-  tabs.get().forEach(function (info) {
-    var url = info[2];
-    urls.push(url);
-  });
-
-  util.copyToClipboard(urls.join('\n'));
-  liberator.echomsg('Copied ' + urls.length + ' URLs');
+function yankAll () {
+  const urls = tabs.get().map(info => info[2])
+  util.copyToClipboard(urls.join('\n'))
+  liberator.echomsg('Copied ' + urls.length + ' URLs')
 }
 EOF
 
