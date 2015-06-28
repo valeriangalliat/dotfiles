@@ -82,6 +82,7 @@ graph: \
 	qt \
 	sublime-text \
 	urxvt \
+	firefox \
 	vimperator \
 	x11 \
 	zathura
@@ -121,6 +122,9 @@ sublime-text:
 urxvt:
 	$(MKDIR) $(D)/.urxvt/ext
 	$(LN) $(S)/ext/* $(D)/.urxvt/ext
+
+firefox:
+	$(LN) $(S)/user.js $(D)/.mozilla/firefox/*.default/user.js
 
 vimperator:
 	$(CP) $(S)/vimperatorrc.home $(D)/.vimperatorrc
