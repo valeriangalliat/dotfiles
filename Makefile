@@ -124,7 +124,7 @@ urxvt:
 	$(LN) $(S)/ext/* $(D)/.urxvt/ext
 
 firefox:
-	$(LN) $(S)/user.js $(D)/.mozilla/firefox/*.default/user.js
+	$(LN) $(S)/user.js $(wildcard $(D)/.mozilla/firefox/*.default)/user.js
 
 vimperator:
 	$(CP) $(S)/vimperatorrc.home $(D)/.vimperatorrc
