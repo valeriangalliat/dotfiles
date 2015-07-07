@@ -36,7 +36,7 @@ bg-%.jpg: 1-%.jpg 2-%.jpg
 	curl -o $@ https://val.codejam.info/misc/bg/ariel-rebel2.jpg
 
 1-landscape.jpg:
-	curl -o $@ https://val.codejam.info/misc/st-eynard/IMG_20141030_074929.jpg
+	curl -o $@ https://val.codejam.info/mountain/lac-achard/2015-06-27.25.jpg
 
 2-landscape.jpg:
-	curl -o $@ https://val.codejam.info/misc/st-eynard/IMG_20141030_082200.jpg
+	curl -o $@ https://val.codejam.info/mountain/pravouta/2015-05-30.30.jpg
