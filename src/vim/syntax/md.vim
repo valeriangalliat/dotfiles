@@ -1,1 +1,1 @@
-set ft=markdown
+set ft=mkd
