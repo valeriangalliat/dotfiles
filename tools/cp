@@ -21,8 +21,10 @@ main() {
         fi
     fi
 
-    # `--remove-destination` ensures symlinks are overwritten
-    cp -i --remove-destination "$1" "$2"
+    # Remove maybe existing destination
+    rm -f "$2"
+
+    cp -i "$1" "$2"
 }
 
 . $(dirname "$0")/args.sh

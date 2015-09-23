@@ -28,7 +28,7 @@ main() {
         git --no-pager diff "$2" "$1" || true
     fi
 
-    ln -sfi --no-dereference "$target" "$2"
+    ln -sfin "$target" "$2"
 }
 
 . $(dirname "$0")/args.sh
