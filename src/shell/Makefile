@@ -4,7 +4,7 @@ BSD_COLORS_URL = https://raw.githubusercontent.com/dotphiles/dotzsh/master/modul
 GNU_COLORS_URL = https://raw.githubusercontent.com/dotphiles/dotzsh/master/themes/dotphiles/dircolors/dircolors.base16.dark
 
 BSD_COLORS_PATCH = grep LSCOLORS | grep -v '\$$' | sed 's/^ *//'
-GNU_COLORS_PATCH = sed '/^TERM rxvt-unicode$$/a TERM rxvt-unicode-256color'
+GNU_COLORS_PATCH = sed $$'/^TERM rxvt-unicode$$/a\\\nTERM rxvt-unicode-256color\\\n'
 
 all: dircolors graceful
 
