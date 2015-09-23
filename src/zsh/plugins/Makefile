@@ -10,4 +10,4 @@ clean:
 
 colored-man: $(PLUGINS)/colored-man
 	cp -r $< $@
-	sed -i 's/1;44;33m/1;43;30m/' $@/colored-man.plugin.zsh
+	../../../bin/sedi 's/1;44;33m/1;43;30m/' $@/colored-man.plugin.zsh
