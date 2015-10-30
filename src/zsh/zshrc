@@ -129,18 +129,18 @@
     # Global {{{
     # ----------
 
-        alias -g H='| head'
-        alias -g T='| tail'
-        alias -g S='| sort'
-        alias -g G='| grep'
-        alias -g L='| less'
-        alias -g C='| cut'
-        alias -g A='| awk'
-        alias -g W='| wc'
-        alias -g WC='| wc -c'
-        alias -g WM='| wc -m'
-        alias -g WL='| wc -l'
-        alias -g WW='| wc -w'
+        alias -g :h='| head'
+        alias -g :t='| tail'
+        alias -g :s='| sort'
+        alias -g :g='| grep'
+        alias -g :l='| less'
+        alias -g :c='| cut'
+        alias -g :a='| awk'
+        alias -g :w='| wc'
+        alias -g :wc='| wc -c'
+        alias -g :wm='| wc -m'
+        alias -g :wl='| wc -l'
+        alias -g :ww='| wc -w'
 
         alias -g dotfiles="$DOTFILES"
 

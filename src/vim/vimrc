@@ -67,7 +67,8 @@
     set hidden
 
     " See `:help fo-table`
-    set formatoptions+=croqnlj
+    " set formatoptions+=croqnlj
+    set formatoptions+=croqnl
     set formatoptions-=t
 
     " Do not reset cursor with some commands (like `H`, `M`, `L`)
