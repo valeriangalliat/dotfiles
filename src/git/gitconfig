@@ -11,11 +11,20 @@
 [credential]
 	helper = cache --timeout=604800
 
+[fetch]
+	fsckobjects = true
+
 [merge]
 	conflictstyle = diff3
 
 [push]
 	default = simple
+
+[receive]
+	fsckObjects = true
+
+[transfer]
+	fsckobjects = true
 
 [url "https://github.com/"]
 	insteadOf = "gh:"
