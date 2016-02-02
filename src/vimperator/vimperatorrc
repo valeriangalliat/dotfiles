@@ -22,4 +22,7 @@ function yankAll () {
 }
 EOF
 
+" Toggle status line
+nnoremap s :js statusline.setVisibility(statusline.setVisibility.TOGGLE)<CR>
+
 " vim: ft=vimperator
