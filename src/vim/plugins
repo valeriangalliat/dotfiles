@@ -12,7 +12,8 @@
     sensible
 
     # Fancy status line
-    vim-airline
+    github:vim-airline/vim-airline
+    github:vim-airline/vim-airline-themes
 
     # Buffers in status line
     vim-bufferline
