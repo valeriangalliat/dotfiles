@@ -194,8 +194,4 @@
         "$MEDIA_PLAYER" $("$DOTFILES/deps/misc/jvc-tools/video" "$1")
     }
 
-    xml() {
-        xmllint --format ${1:--}
-    }
-
 # }}}
