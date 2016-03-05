@@ -24,18 +24,11 @@
     # Proper buffer closing
     bbye
 
-# }}}
-
-# Tree {{{
-# ========
-
-    # Tabs integration
-    github:jistr/vim-nerdtree-tabs
-
-    # File explorer
-    The_NERD_tree
+    # Better split explorer
+    vinegar
 
 # }}}
+
 
 # Finder, fuzzy, menu {{{
 # =======================
