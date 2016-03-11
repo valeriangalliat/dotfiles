@@ -379,6 +379,9 @@
         " Do not fold
         let vim_markdown_folding_disabled = 1
 
+        " Do not conceal
+        let vim_markdown_conceal = 0
+
     " }}}
 
     " `undotree` {{{
