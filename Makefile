@@ -84,6 +84,7 @@ graph: \
 	urxvt \
 	firefox \
 	vimperator \
+	vimfx \
 	x11 \
 	zathura
 
@@ -128,6 +129,10 @@ firefox:
 
 vimperator:
 	$(CP) $(S)/vimperatorrc.home $(D)/.vimperatorrc
+
+vimfx:
+	$(MKDIR) $(C)
+	$(CP) $(S)/* $(C)
 
 x11:
 	$(CP) $(S)/session.home $(D)/.xsession
