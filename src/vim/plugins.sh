@@ -180,7 +180,7 @@
     gh tpope/vim-commentary
 
     # Narrow region to focus edit
-    gh chrisbra/NrrwRgn
+    # gh chrisbra/NrrwRgn
 
     # Use ack with Vim
     # gh mileszs/ack.vim
@@ -192,7 +192,7 @@
     # gh AndrewRadev/writable_search.vim
 
     # HTML shortcuts
-    gh mattn/emmet-vim
+    # gh mattn/emmet-vim
 
     # `%` for HTML, LaTeX and more (native in recent Vim versions)
     # gh vim-scripts/matchit.zip
@@ -224,7 +224,7 @@
     # gh wesleyche/SrcExpl
 
     # Browse undo tree
-    gh mbbill/undotree
+    # gh mbbill/undotree
 
     # Show marks
     # gh kshenoy/vim-signature

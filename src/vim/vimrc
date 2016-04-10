@@ -45,12 +45,9 @@
     set runtimepath+=~/.vim/plugins/auto-pairs
     set runtimepath+=~/.vim/plugins/vim-easyclip
     set runtimepath+=~/.vim/plugins/vim-commentary
-    set runtimepath+=~/.vim/plugins/NrrwRgn
-    set runtimepath+=~/.vim/plugins/emmet-vim
     set runtimepath+=~/.vim/plugins/switch.vim
     set runtimepath+=~/.vim/plugins/gist-vim
     set runtimepath+=~/.vim/plugins/dwall
-    set runtimepath+=~/.vim/plugins/undotree
     set runtimepath+=~/.vim/plugins/tagbar
     set runtimepath+=~/.vim/plugins/goyo.vim
 
