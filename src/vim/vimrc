@@ -43,7 +43,6 @@
     set runtimepath+=~/.vim/plugins/vim-nix
     set runtimepath+=~/.vim/plugins/vim-endwise
     set runtimepath+=~/.vim/plugins/auto-pairs
-    set runtimepath+=~/.vim/plugins/vim-bracketed-paste
     set runtimepath+=~/.vim/plugins/vim-easyclip
     set runtimepath+=~/.vim/plugins/vim-commentary
     set runtimepath+=~/.vim/plugins/NrrwRgn
@@ -504,6 +503,8 @@
 
     " Logical `Y` behavior
     noremap Y y$
+
+    map <silent> <Leader>p :set paste!<CR>
 
     " nmap <silent> <Left> :vertical resize -5<CR>
     " nmap <silent> <Up> :resize -5<CR>

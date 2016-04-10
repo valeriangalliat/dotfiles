@@ -153,8 +153,8 @@
     # Auto close structures and quotes (awesome fork to avoid annoying mode)
     gh jiangmiao/auto-pairs
 
-    # Auto toggle paste mode
-    gh ConradIrwin/vim-bracketed-paste
+    # Auto toggle paste mode (disabled because super slow to load)
+    # gh ConradIrwin/vim-bracketed-paste
 
     # Auto change to project root
     # gh airblade/vim-rooter
