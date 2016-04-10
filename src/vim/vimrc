@@ -320,7 +320,7 @@
     " `airline` {{{
     " -------------
 
-        " let airline#extensions#tabline#enabled = 1
+        let airline#extensions#tabline#enabled = 1
         " let airline_powerline_fonts = 1
 
     " }}}
