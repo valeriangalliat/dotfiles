@@ -509,8 +509,8 @@
     " nmap <silent> <Down> :resize +5<CR>
 
     " Shortcuts to browse buffers
-    map <silent> <C-n> :bn
-    map <silent> <C-p> :bp
+    map <silent> <C-n> :bn<CR>
+    map <silent> <C-p> :bp<CR>
 
 " }}}
 
