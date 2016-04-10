@@ -13,32 +13,50 @@
         finish
     endif
 
-    " VAM {{{
-    " -------
-
-        set runtimepath+=~/.vim/vim-addons/vim-addon-manager
-
-        if !isdirectory(expand('~/.vim/vim-addons/vim-addon-manager'))
-            " Download VAM and try again
-            silent! !mkdir -p ~/.vim/vim-addons
-            silent! !git clone --depth 1 git://github.com/MarcWeber/vim-addon-manager ~/.vim/vim-addons/vim-addon-manager
-        endif
-
-    " }}}
-
 " }}}
 
 " Plugins {{{
 " ===========
 
-    " VAM plugins (compiled, edit `plugins` for source)
-    source $DOTFILES/src/vim/plugins.vim
+    set runtimepath+=~/.vim/plugins/vim-sensible
+    set runtimepath+=~/.vim/plugins/vim-airline
+    set runtimepath+=~/.vim/plugins/vim-airline-themes
+    set runtimepath+=~/.vim/plugins/vim-tmux-navigator
+    set runtimepath+=~/.vim/plugins/vim-bbye
+    set runtimepath+=~/.vim/plugins/vim-vinegar
+    set runtimepath+=~/.vim/plugins/fzf.git
+    set runtimepath+=~/.vim/plugins/neocomplcache.vim
+    set runtimepath+=~/.vim/plugins/base16-vim
+    set runtimepath+=~/.vim/plugins/vim-repeat
+    set runtimepath+=~/.vim/plugins/targets.vim
+    set runtimepath+=~/.vim/plugins/vim-easymotion
+    set runtimepath+=~/.vim/plugins/vim-exchange
+    set runtimepath+=~/.vim/plugins/vim-surround
+    set runtimepath+=~/.vim/plugins/vim-dentures
+    set runtimepath+=~/.vim/plugins/CamelCaseMotion
+    set runtimepath+=~/.vim/plugins/vim-javascript
+    set runtimepath+=~/.vim/plugins/tabular
+    set runtimepath+=~/.vim/plugins/vim-markdown
+    set runtimepath+=~/.vim/plugins/html5.vim
+    set runtimepath+=~/.vim/plugins/vim-json
+    set runtimepath+=~/.vim/plugins/rust.vim
+    set runtimepath+=~/.vim/plugins/vim-nix
+    set runtimepath+=~/.vim/plugins/vim-endwise
+    set runtimepath+=~/.vim/plugins/auto-pairs
+    set runtimepath+=~/.vim/plugins/vim-bracketed-paste
+    set runtimepath+=~/.vim/plugins/vim-easyclip
+    set runtimepath+=~/.vim/plugins/vim-commentary
+    set runtimepath+=~/.vim/plugins/NrrwRgn
+    set runtimepath+=~/.vim/plugins/emmet-vim
+    set runtimepath+=~/.vim/plugins/switch.vim
+    set runtimepath+=~/.vim/plugins/gist-vim
+    set runtimepath+=~/.vim/plugins/dwall
+    set runtimepath+=~/.vim/plugins/undotree
+    set runtimepath+=~/.vim/plugins/tagbar
+    set runtimepath+=~/.vim/plugins/goyo.vim
 
     " Custom additions
     set runtimepath+=$DOTFILES/src/vim
-
-    " Fuzzy finder (fast, external)
-    set runtimepath+=$DOTFILES/deps/shell/fzf
 
 " }}}
 
@@ -67,15 +85,18 @@
     set hidden
 
     " See `:help fo-table`
-    " set formatoptions+=croqnlj
-    set formatoptions+=croqnl
-    set formatoptions-=t
+    set formatoptions+=croqnlj
+    " set formatoptions-=t
 
     " Do not reset cursor with some commands (like `H`, `M`, `L`)
     set nostartofline
 
-    " Do not create `.swp` files
-    " set noswapfile
+    " Swap directory
+    set directory=~/.vim/swap
+
+    " Save edit history to file
+    set undofile
+    set undodir=~/.vim/undo
 
     " Read `.vimrc` in the current directory
     set exrc
@@ -101,10 +122,6 @@
     " Fold with markers
     set foldmethod=marker
 
-    " Save edit history to file
-    set undofile
-    set undodir=~/.vim/undo
-
     " More natural split direction
     set splitbelow
     set splitright
@@ -124,7 +141,7 @@
     set lazyredraw
 
     " Syntax optimization
-    syntax sync minlines=256
+    " syntax sync minlines=256
 
     " Don't highlight past 512 characters
     " set synmaxcol=512
@@ -158,7 +175,7 @@
     " Files to ignore in completion
     set wildignore+=*.o,*.out,*.so,*.class,*.pyc " Compiled binaries
     set wildignore+=*.tar,*.tar.*,*.zip,*.rar " Archives
-    set wildignore+=*.jpg,*.jpeg,*.png,*.gif
+    set wildignore+=*.jpg,*.jpeg,*.png,*.gif " Images
     set wildignore+=*.gz,*.bz2,*.xz " Compressed files
     set wildignore+=.git,.svn,.hg " Version control
 
@@ -193,10 +210,17 @@
     " ----------------------
 
         function! Indent(width)
-            execute 'set ts='.a:width.' sts='.a:width.' sw='.a:width
+            execute 'setl ts='.a:width.' sts='.a:width.' sw='.a:width.' et'
         endfunction
 
         command! -nargs=1 Indent call Indent(<f-args>)
+
+        function! Tabs()
+            call Indent(4)
+            setl noet
+        endfunction
+
+        command! Tabs call Tabs()
 
     " }}}
 
@@ -226,45 +250,39 @@
     " Indentation {{{
     " ---------------
 
-        au FileType apache set et!
-        au FileType gitconfig set et!
-
-        au FileType javascript set ts=2 sts=2 sw=2
-        au FileType coffee set ts=2 sts=2 sw=2
-        au FileType ruby set ts=2 sts=2 sw=2
-        au FileType json set ts=2 sts=2 sw=2
-        au FileType html set ts=2 sts=2 sw=2 wrap
-        au FileType markdown set ts=2 sts=2 sw=2 wrap
-        au FileType twig set ts=2 sts=2 sw=2 wrap
-        au FileType jade set ts=2 sts=2 sw=2 wrap
-        au FileType haml set ts=2 sts=2 sw=2 wrap
-        au FileType stylus set ts=2 sts=2 sw=2 wrap
+        au FileType apache setl noet
+        au FileType gitconfig setl noet
+        au FileType javascript setl ts=2 sts=2 sw=2
+        au FileType coffee setl ts=2 sts=2 sw=2
+        au FileType ruby setl ts=2 sts=2 sw=2
+        au FileType json setl ts=2 sts=2 sw=2
+        au FileType html setl ts=2 sts=2 sw=2 wrap
+        au FileType markdown setl ts=2 sts=2 sw=2 wrap
+        au FileType jade setl ts=2 sts=2 sw=2 wrap
+        au FileType stylus setl ts=2 sts=2 sw=2
 
     " }}}
 
     " Syntax {{{
     " ----------
 
-        au BufRead,BufNewFile *.md set filetype=markdown
-        au BufRead,BufNewFile *.ronn set filetype=markdown
-        au BufRead,BufNewFile *.swig set filetype=twig
+        " au BufRead,BufNewFile *.md setl filetype=markdown
+        au BufRead,BufNewFile *.ronn setl filetype=markdown
 
     " }}}
 
     " Comments {{{
     " ============
 
-        au FileType php set cms=//\ %s
+        au FileType php setl cms=//\ %s
 
     " }}}
 
     " Reload {{{
     " ----------
 
-        " au BufWritePost .vimrc source %
-        " au BufWritePost vimrc source %
-        au BufWritePost $DOTFILES/src/x11/resources silent! !xrdb-reload
-        au BufWritePost ~/.config/x11/resources silent! !xrdb-reload
+        " au BufWritePost $DOTFILES/src/x11/resources silent! !xrdb-reload
+        " au BufWritePost ~/.config/x11/resources silent! !xrdb-reload
 
     " }}}
 
@@ -302,15 +320,8 @@
     " `airline` {{{
     " -------------
 
-        let airline#extensions#tabline#enabled = 1
+        " let airline#extensions#tabline#enabled = 1
         " let airline_powerline_fonts = 1
-
-    " }}}
-
-    " `nerdtree` {{{
-    " --------------
-
-        map <silent> <Leader>n :NERDTreeTabsToggle<CR>
 
     " }}}
 
@@ -328,42 +339,7 @@
 
     " }}}
 
-    " `unite` {{{
-    " -----------
-
-        " map <silent> <Leader>f :Unite file file/new directory/new<CR>
-        " map <silent> <Leader>r :Unite file_rec/async<CR>
-        map <silent> <Leader>b :Unite buffer<CR>
-        map <silent> <Leader>t :Unite tag<CR>
-        map <silent> <Leader>g :Unite grep:.<CR>
-        map <silent> <Leader>c :Unite colorscheme<CR>
-
-        " Fuzzy matching and sort like `ctrlp`
-        call unite#filters#matcher_default#use(['matcher_fuzzy'])
-        call unite#filters#sorter_default#use(['sorter_length'])
-
-        " Start in insert mode, and use the whole buffer
-        call unite#custom#profile('default', 'context', {
-            \ 'start_insert': 1,
-            \ 'no_split': 1,
-            \ })
-
-    " }}}
-
-    " `bufferline` {{{
-    " ----------------
-
-        " Do not echo since it's integrated in the status line
-        let bufferline_echo = 0
-
-        " Append buffer line to status line
-        autocmd VimEnter *
-            \ let &statusline = '%{bufferline#refresh_status()}'
-            \ .bufferline#get_status_string()
-
-    " }}}
-
-    " `indentline` {{{
+    " `indentLine` {{{
     " ----------------
 
         let indentLine_color_term = 236
@@ -373,14 +349,17 @@
 
     " }}}
 
-    " `markdown` {{{
-    " --------------
+    " `vim-markdown` {{{
+    " ------------------
 
         " Do not fold
         let vim_markdown_folding_disabled = 1
 
         " Do not conceal
         let vim_markdown_conceal = 0
+
+        " Support front matter
+        let vim_markdown_frontmatter = 1
 
     " }}}
 
@@ -391,8 +370,8 @@
 
     " }}}
 
-    " `easymotion` {{{
-    " ----------------
+    " `vim-easymotion` {{{
+    " --------------------
 
         " Lower match upper
         let EasyMotion_smartcase = 1
@@ -419,15 +398,15 @@
 
     " }}}
 
-    " `gist` {{{
-    " ----------
+    " `gist-vim` {{{
+    " --------------
 
         let gist_post_anonymous = 1
 
     " }}}
 
-    " `easyclip` {{{
-    " --------------
+    " `vim-easyclip` {{{
+    " ------------------
 
         let EasyClipUseCutDefaults = 0 " Do not remap `m`
         let EasyClipUseSubstituteDefaults = 1 " Remap `s`
@@ -444,8 +423,8 @@
 
     " }}}
 
-    " `neocomplcache` {{{
-    " -------------------
+    " `neocomplcache.vim` {{{
+    " -----------------------
 
         let neocomplcache_enable_at_startup = 1
         let neocomplcache_enable_smart_case = 1
@@ -453,8 +432,8 @@
 
     " }}}
 
-    " `neosnippet` {{{
-    " ----------------
+    " `neosnippet.vim` {{{
+    " --------------------
 
         " Expand snippets with `<Tab>` (from project readme)
         imap <expr><Tab> neosnippet#expandable_or_jumpable()
@@ -463,7 +442,7 @@
 
         " SnipMate compatibility
         let g:neosnippet#enable_snipmate_compatibility = 1
-        let g:neosnippet#snippets_directory = '~/.vim/bundle/vim-snippets/snippets'
+        let g:neosnippet#snippets_directory = '~/.vim/plugins/vim-snippets/snippets'
 
     " }}}
 
@@ -495,14 +474,14 @@
 
     " }}}
 
-    " `switch` {{{
-    " ------------
+    " `switch.vim` {{{
+    " ----------------
 
         nmap - :Switch<CR>
 
     " }}}
 
-    " `nrrwrgn` {{{
+    " `NrrwRgn` {{{
     " -------------
 
         " Don't delay `<Leader>n`
@@ -510,13 +489,18 @@
 
     " }}}
 
+    " `CamelCaseMotion` {{{
+    " ---------------------
+
+        call camelcasemotion#CreateMotionMappings('<leader>')
+
+    " }}}
+
+
 " }}}
 
 " Mappings {{{
 " ============
-
-    " Use `Q` for formatting
-    noremap Q gq
 
     " Logical `Y` behavior
     noremap Y y$
@@ -526,12 +510,9 @@
     " nmap <silent> <Right> :vertical resize +5<CR>
     " nmap <silent> <Down> :resize +5<CR>
 
-    " Open vimrc in split
-    map <silent> <Leader>v :vsp ~/.vimrc<CR>
-
     " Shortcuts to browse buffers
-    " map <silent> <C-n> :bn
-    " map <silent> <C-p> :bp
+    map <silent> <C-n> :bn
+    map <silent> <C-p> :bp
 
 " }}}
 

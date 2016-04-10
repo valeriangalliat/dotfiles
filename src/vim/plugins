@@ -1,264 +1,41 @@
-#
-# ~/.vim/plugins
-#
-# * <https://github.com/MarcWeber/vim-addon-manager>
-# * <http://vam.mawercer.de/>
-#
-
-# Essentials {{{
-# ==============
-
-    # Defaults everyone can agree on
-    sensible
-
-    # Fancy status line
-    github:vim-airline/vim-airline
-    github:vim-airline/vim-airline-themes
-
-    # Buffers in status line
-    vim-bufferline
-
-    # tmux integration
-    github:christoomey/vim-tmux-navigator
-
-    # Proper buffer closing
-    bbye
-
-    # Better split explorer
-    vinegar
-
-# }}}
-
-
-# Finder, fuzzy, menu {{{
-# =======================
-
-    # Find anything
-    unite
-
-    # Find tags
-    github:tsukkee/unite-tag
-
-    # Switch color scheme
-    unite-colorscheme
-
-    # Fuzzy finder (faster than Unite equivalent)
-    ctrlp
-
-    # Fuzzy finder (needs Ruby)
-    # Command-T
-
-# }}}
-
-# Autocompletion {{{
-# ==================
-
-    # Browse completion with `<Tab>`
-    # Supertab
-
-    # Autocompletion (lightweight)
-    # AutoComplPop
-
-    # Autocompletion (intermediate)
-    neocomplcache
-
-    # Autocompletion (same as `neocomplcache`, faster, but needs Lua)
-    # neocomplete
-
-    # Autocompletion (heavy and powerful)
-    # YouCompleteMe
-
-# }}}
-
-# Snippets {{{
-# ============
-
-    # Actual snippets
-    vim-snippets
-
-    # Snippets engine
-    # UltiSnips
-
-    # Actual snippets (alternative)
-    neosnippet-snippets
-
-    # Snippets engine (alternative)
-    neosnippet
-
-# }}}
-
-# Theme {{{
-# =========
-
-    # Color scheme
-    github:chriskempson/base16-vim
-
-# }}}
-
-# Misc {{{
-# ========
-
-    # Repeat with `.` for plugins
-    repeat
-
-    # Multiple cursors (kinda) like Sublime Text
-    vim-multiple-cursors
-
-    # A shell inside Vim
-    # github:Shougo/vimshell.vim
-# }}}
-
-# Motions/objects {{{
-# ===================
-
-    # Add next/last movments (`dinb` to delete in next parentheses)
-    {'name': 'nextlast', 'type': '', 'url': 'https://gist.githubusercontent.com/sjl/3762227/raw/f46750139793115a7c6380b6e03fdac52af38ffe/nextlast.vim', 'script-type': 'plugin'}
-
-    # Switch arguments
-    argumentative
-
-    # New text objects
-    # github:wellle/targets.vim
-
-    # Quick motions
-    EasyMotion
-
-    # Exchange operator
-    vim-exchange
-
-    # Change surroundings
-    surround
-
-    # Select by indent level
-    github:qstrahl/vim-dentures
-
-    # Alignment helper
-    github:tommcdo/vim-lion
-
-    # Camel case and underscore motions
-    github:bkad/CamelCaseMotion
-
-# }}}
-
-# Syntax {{{
-# ==========
-
-    github:tpope/vim-git
-    vim-javascript
-    Tabular # Needed by `vim-markdown`
-    github:plasticboy/vim-markdown
-    github:bohrshaw/vim-vimperator-syntax
-    github:digitaltoad/vim-jade
-    vim-stylus
-    github:evidens/vim-twig
-    html5
-    JSON
-    rust
-    csv
-    github:PotatoesMaster/i3-vim-syntax
-    vim-coffee-script
-    vim-addon-nix
-
-# }}}
-
-# Auto {{{
-# ========
-
-    # Auto close blocks
-    endwise
-
-    # Auto close structures and quotes (awesome fork to avoid annoying mode)
-    github:A2K/auto-pairs
-
-    # Auto toggle paste mode
-    github:ConradIrwin/vim-bracketed-paste
-
-    # Auto change to project root
-    # vim-rooter
-
-    # Auto detect indent (disabled because not accurate)
-    # DetectIndent
-
-# }}}
-
-# Helpers {{{
-# ===========
-
-    # Git wrapper
-    # fugitive
-
-    # Show modified lines in Git projects
-    # vim-gitgutter
-
-    # Clipboard helper
-    EasyClip
-
-    # Comment stuff out
-    commentary
-
-    # Narrow region to focus edit
-    NrrwRgn
-
-    # Use ack with Vim
-    ack
-
-    # Advanced search and replace
-    github:dyng/ctrlsf.vim
-
-    # Advanced search and replace (change in place)
-    writable_search
-
-    # HTML shortcuts
-    Emmet
-
-    # `%` for HTML, LaTeX and more (native in recent Vim versions)
-    matchit.zip
-
-    # Syntax checker
-    Syntastic
-
-    # Switch expressions (true/false, on/off, etc.)
-    switch
-
-    # Manage GitHub gists
-    Gist
-
-    # Upload on Deblan wall
-    github:valeriangalliat/dwall
-
-    # Switch between single-line and multiline statements
-    splitjoin
-
-    # Switch between single-line and multiple statements (alternative)
-    argwrap
-
-# }}}
-
-# UI {{{
-# ======
-
-    # Source explorer
-    # Source_Explorer_SrcExpl
-
-    # Browse undo tree
-    undotree
-
-    # Show marks
-    # vim-signature
-
-    # Show tags from file
-    Tagbar
-
-    # Context-aware relative or absolute numbers
-    # github:myusuf3/numbers.vim
-
-    # Mark indent (disabled because slow)
-    # indentLine
-
-    # Distraction-free mode
-    goyo
-
-    # Prompt for failed completion
-    DidYouMean
-
-# }}}
+#!/bin/sh -e
+
+cd "$(dirname "$0")"
+plugins=$PWD/plugins.sh
+command=$1
+
+mkdir -vp ~/.vim/plugins
+cd ~/.vim/plugins
+
+git_install() {
+    if [ ! -d "$2" ]; then
+        echo "Cloning $1 into $2"
+        command git clone -q "$1" "$2" &
+    fi
+}
+
+git_update() {
+    if [ -d "$2" ]; then
+        echo "Pulling $2"
+        command git -C "$2" remote set-url origin "$1"
+        command git -C "$2" pull -q &
+    else
+        git_install "$@"
+    fi
+}
+
+git_gen() {
+    echo "set runtimepath+=~/.vim/plugins/$2"
+}
+
+git() {
+    "git_$command" "$1" "$(basename -s .git "$1")"
+}
+
+gh() {
+    git "https://github.com/$1.git"
+}
+
+source "$plugins"
+
+wait
