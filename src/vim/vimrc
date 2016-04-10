@@ -262,7 +262,6 @@
     " Syntax {{{
     " ----------
 
-        " au BufRead,BufNewFile *.md setl filetype=markdown
         au BufRead,BufNewFile *.ronn setl filetype=markdown
 
     " }}}
