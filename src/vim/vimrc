@@ -18,41 +18,41 @@
 " Plugins {{{
 " ===========
 
-    set runtimepath+=~/.vim/plugins/vim-sensible
-    set runtimepath+=~/.vim/plugins/vim-airline
-    set runtimepath+=~/.vim/plugins/vim-airline-themes
-    set runtimepath+=~/.vim/plugins/vim-tmux-navigator
-    set runtimepath+=~/.vim/plugins/vim-bbye
-    set runtimepath+=~/.vim/plugins/vim-vinegar
-    set runtimepath+=~/.vim/plugins/fzf.git
-    set runtimepath+=~/.vim/plugins/neocomplcache.vim
-    set runtimepath+=~/.vim/plugins/base16-vim
-    set runtimepath+=~/.vim/plugins/vim-repeat
-    set runtimepath+=~/.vim/plugins/targets.vim
-    set runtimepath+=~/.vim/plugins/vim-easymotion
-    set runtimepath+=~/.vim/plugins/vim-exchange
-    set runtimepath+=~/.vim/plugins/vim-surround
-    set runtimepath+=~/.vim/plugins/vim-dentures
-    set runtimepath+=~/.vim/plugins/CamelCaseMotion
-    set runtimepath+=~/.vim/plugins/vim-javascript
-    set runtimepath+=~/.vim/plugins/tabular
-    set runtimepath+=~/.vim/plugins/vim-markdown
-    set runtimepath+=~/.vim/plugins/html5.vim
-    set runtimepath+=~/.vim/plugins/vim-json
-    set runtimepath+=~/.vim/plugins/rust.vim
-    set runtimepath+=~/.vim/plugins/vim-nix
-    set runtimepath+=~/.vim/plugins/vim-endwise
-    set runtimepath+=~/.vim/plugins/auto-pairs
-    set runtimepath+=~/.vim/plugins/vim-easyclip
-    set runtimepath+=~/.vim/plugins/vim-commentary
-    set runtimepath+=~/.vim/plugins/switch.vim
-    set runtimepath+=~/.vim/plugins/gist-vim
-    set runtimepath+=~/.vim/plugins/dwall
-    set runtimepath+=~/.vim/plugins/tagbar
-    set runtimepath+=~/.vim/plugins/goyo.vim
+    set runtimepath^=~/.vim/plugins/vim-sensible
+    set runtimepath^=~/.vim/plugins/vim-airline
+    set runtimepath^=~/.vim/plugins/vim-airline-themes
+    set runtimepath^=~/.vim/plugins/vim-tmux-navigator
+    set runtimepath^=~/.vim/plugins/vim-bbye
+    set runtimepath^=~/.vim/plugins/vim-vinegar
+    set runtimepath^=~/.vim/plugins/fzf.git
+    set runtimepath^=~/.vim/plugins/neocomplcache.vim
+    set runtimepath^=~/.vim/plugins/base16-vim
+    set runtimepath^=~/.vim/plugins/vim-repeat
+    set runtimepath^=~/.vim/plugins/targets.vim
+    set runtimepath^=~/.vim/plugins/vim-easymotion
+    set runtimepath^=~/.vim/plugins/vim-exchange
+    set runtimepath^=~/.vim/plugins/vim-surround
+    set runtimepath^=~/.vim/plugins/vim-dentures
+    set runtimepath^=~/.vim/plugins/CamelCaseMotion
+    set runtimepath^=~/.vim/plugins/vim-javascript
+    set runtimepath^=~/.vim/plugins/tabular
+    set runtimepath^=~/.vim/plugins/vim-markdown
+    set runtimepath^=~/.vim/plugins/html5.vim
+    set runtimepath^=~/.vim/plugins/vim-json
+    set runtimepath^=~/.vim/plugins/rust.vim
+    set runtimepath^=~/.vim/plugins/vim-nix
+    set runtimepath^=~/.vim/plugins/vim-endwise
+    set runtimepath^=~/.vim/plugins/auto-pairs
+    set runtimepath^=~/.vim/plugins/vim-easyclip
+    set runtimepath^=~/.vim/plugins/vim-commentary
+    set runtimepath^=~/.vim/plugins/switch.vim
+    set runtimepath^=~/.vim/plugins/gist-vim
+    set runtimepath^=~/.vim/plugins/dwall
+    set runtimepath^=~/.vim/plugins/tagbar
+    set runtimepath^=~/.vim/plugins/goyo.vim
 
     " Custom additions
-    set runtimepath+=$DOTFILES/src/vim
+    set runtimepath^=$DOTFILES/src/vim
 
 " }}}
 
