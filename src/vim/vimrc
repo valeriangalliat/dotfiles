@@ -430,11 +430,6 @@
     " `neosnippet.vim` {{{
     " --------------------
 
-        " Expand snippets with `<Tab>` (from project readme)
-        imap <expr><Tab> neosnippet#expandable_or_jumpable()
-            \ ? "\<Plug>(neosnippet_expand_or_jump)"
-            \ : pumvisible() ? "\<C-n>" : "\<Tab>"
-
         " SnipMate compatibility
         let g:neosnippet#enable_snipmate_compatibility = 1
         let g:neosnippet#snippets_directory = '~/.vim/plugins/vim-snippets/snippets'
