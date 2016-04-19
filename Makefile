@@ -27,7 +27,8 @@ cli: \
 	tmux \
 	vim \
 	weechat \
-	zsh
+	zsh \
+	psql
 
 fzf:
 	$(MAKE) -C $(S)
@@ -66,6 +67,9 @@ zsh:
 	$(MAKE) -C $(S)/plugins
 	$(CP) $(S)/zshrc.home $(D)/.zshrc
 	$(LN) $(D)/.profile $(D)/.zshenv
+
+psql:
+	$(LN) $(S)/psqlrc $(D)/.psqlrc
 
 # }}}
 
