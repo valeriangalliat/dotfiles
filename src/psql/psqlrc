@@ -1,4 +1,5 @@
 \set QUIET
+\set HISTCONTROL ignoredups
 \setenv PAGER less
 \setenv LESS '-iMSFXx4'
 \timing on
