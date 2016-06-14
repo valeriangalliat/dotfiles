@@ -54,8 +54,7 @@ tmux:
 	$(CP) $(S)/tmux.conf.home $(D)/.tmux.conf
 
 vim:
-	$(MAKE) -C $(S)
-	$(MKDIR) $(D)/.vim/undo
+	$(MKDIR) $(D)/.vim/undo $(D)/.vim/swap
 	$(LN) $(S)/vimrc $(D)/.vimrc
 
 weechat:
