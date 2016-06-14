@@ -4,7 +4,7 @@
 #
 
 if dir=$(i3cwd); then
-    urxvtc -cd "$dir"
+    exec urxvtc -cd "$dir"
 else
-    urxvtc
+    exec urxvtc
 fi
