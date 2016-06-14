@@ -31,7 +31,7 @@
     plugins=(
         git
         git-extras
-        colored-man
+        colored-man-pages
         zsh-syntax-highlighting
         history-substring-search
         z
