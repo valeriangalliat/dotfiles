@@ -8,13 +8,10 @@
     export ZSH=$DOTFILES/deps/zsh/oh-my-zsh
 
     # Theme
-    ZSH_THEME=robbyrussell
+    # ZSH_THEME=robbyrussell
 
     # Do not auto update `oh-my-zsh` (performance)
     DISABLE_AUTO_UPDATE=true
-
-    # Correct mistyped commands
-    # ENABLE_CORRECTION=true
 
     # No title in tmux
     if [ -n "$TMUX" ]; then
@@ -25,29 +22,50 @@
     DISABLE_UNTRACKED_FILES_DIRTY=true
 
     # Custom `oh-my-zsh` directory
-    ZSH_CUSTOM=$DOTFILES/src/zsh
+    # ZSH_CUSTOM=$DOTFILES/src/zsh
 
-    # Enabled plugins
-    plugins=(
-        git
-        git-extras
-        colored-man-pages
-        zsh-syntax-highlighting
-        history-substring-search
-        z
-    )
+    # # Enabled plugins
+    # plugins=(
+    #     git
+    #     colored-man-pages
+    #     history-substring-search
+    #     zsh-syntax-highlighting
+    # )
 
     # Load core
-    source "$ZSH/oh-my-zsh.sh"
+    # source "$ZSH/oh-my-zsh.sh"
 
-    # Remove `oh-my-zsh` function which sets current command as title
-    preexec_functions=${preexec_functions#omz_termsupport_preexec}
+    autoload -U compinit
+
+    compinit -d ~/.zcompdump
+
+    # Load only what I want from `oh-my-zsh`
+    source "$ZSH/lib/clipboard.zsh"
+    source "$ZSH/lib/compfix.zsh"
+    source "$ZSH/lib/completion.zsh"
+    source "$ZSH/lib/correction.zsh"
+    source "$ZSH/lib/directories.zsh"
+    source "$ZSH/lib/git.zsh"
+    source "$ZSH/lib/grep.zsh"
+    source "$ZSH/lib/history.zsh"
+    source "$ZSH/lib/key-bindings.zsh"
+    source "$ZSH/lib/theme-and-appearance.zsh"
+
+    # Theme
+    source "$ZSH/themes/robbyrussell.zsh-theme"
+
+    # Plugins
+    source "$ZSH/plugins/git/git.plugin.zsh"
+    source "$ZSH/plugins/colored-man-pages/colored-man-pages.plugin.zsh"
+    source "$ZSH/plugins/history-substring-search/history-substring-search.plugin.zsh"
+    source "$DOTFILES/deps/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 
 # }}}
 
 # Essentials {{{
 # ==============
 
+    # Allow adding comments in interactive session
     setopt interactivecomments
 
 # }}}
@@ -56,7 +74,7 @@
 
     # Terminal colors (except in tmux)
     if [ -z "$TMUX" ]; then
-        source $DOTFILES/deps/shell/base16-shell/base16-default.dark.sh
+        source $DOTFILES/deps/shell/base16-shell/scripts/base16-default-dark.sh
     fi
 
     # Apply `LS_COLORS` to completion
@@ -67,131 +85,18 @@
 # Aliases {{{
 # ===========
 
-    # Standard {{{
-    # ------------
+    # Shortcuts
+    alias l=ll
+    alias q=exit
 
-        if [ "$(uname -s)" = Linux ]; then
-            # Directories first (only on Linux), extend existing alias
-            alias ls="$(whence ls) --group-directories-first"
-        fi
+    # Globbing move command
+    autoload zmv
+    alias mmv='noglob zmv -W'
 
-        # Shortcuts
-        alias l=ll
-        alias t='tail -f'
-        alias q=exit
-        alias j=jobs
-        alias r=reset
-        alias c=clear
-        alias h=history
+    # Get remote IP from CodeJam (at home)
+    alias ipc='curl ip.codejam.info'
 
-        # Git plugin additions
-        alias gcam='gc -am'
-        alias gcam!='gc --amend -am'
-        alias gdw='gd -w'
-        alias gf='g fetch'
-        alias grb='g rebase'
-
-        # Same as Git plugin but without `--max-count`
-        alias glg='g log --stat'
-        alias glgg='g log --graph'
-
-        # Websites
-        alias cj=codejam.info
-        alias vcj=val.codejam.info
-        alias mcj=mail.codejam.info
-        alias tw=twitter.com
-        alias gh=github.com
-        alias jvc=jeuxvideo.com
-        alias gmail=mail.google.com
-
-        # Configuration files
-        alias profile="$EDITOR $DOTFILES/src/shell/profile"
-        alias zshrc="$EDITOR $DOTFILES/src/zsh/zshrc"
-        alias vimrc="$EDITOR $DOTFILES/src/vim/vimrc"
-        alias xresources="$EDITOR $DOTFILES/src/x11/resources"
-        alias xsession="$EDITOR $DOTFILES/src/x11/session"
-
-        # Globbing move command
-        autoload zmv
-        alias mmv='noglob zmv -W'
-
-        # Get remote IP from SFR box homepage (absolute grep to skip alias)
-        alias ipb='curl -s 192.168.1.1 | awk "/Adresse IP/{getline;print;exit}" | /usr/bin/grep -Eo "[0-9\.]+"'
-
-        # Get remote IP from CodeJam (at home)
-        alias ipc='curl ip.codejam.info'
-
-        # Get remote IP from Deblan (can't use home server when in LAN)
-        alias ipd='curl ip.deblan.org && echo'
-
-    # }}}
-
-    # Global {{{
-    # ----------
-
-        alias -g :h='| head'
-        alias -g :t='| tail'
-        alias -g :s='| sort'
-        alias -g :g='| grep'
-        alias -g :l='| less'
-        alias -g :c='| cut'
-        alias -g :a='| awk'
-        alias -g :w='| wc'
-        alias -g :wc='| wc -c'
-        alias -g :wm='| wc -m'
-        alias -g :wl='| wc -l'
-        alias -g :ww='| wc -w'
-
-        alias -g dotfiles="$DOTFILES"
-
-    # }}}
-
-    # Suffix {{{
-    # ----------
-
-        for x in htm html com org net info; do
-            alias -s $x=$BROWSER
-        done
-
-        #
-        # https://en.wikipedia.org/wiki/List_of_file_formats#Graphics
-        #
-        for x in bmp gif ico jpg jpeg png svg; do
-            alias -s $x=$IMAGE_VIEWER
-        done
-
-        #
-        # https://en.wikipedia.org/wiki/List_of_file_formats#Sound_and_music
-        # https://en.wikipedia.org/wiki/List_of_file_formats#Video
-        #
-        for x in flac m4a mp3 ogg oga wav avi flv mkv mpv mpeg mpg mpe mp4 webm; do
-            alias -s $x=$MEDIA_PLAYER
-        done
-
-        unset x
-
-        alias -s pdf=zathura
-
-        # List archives
-        alias -s zip='unzip -l'
-        alias -s rar='unrar l'
-        alias -s tar='tar tf'
-        alias -s tar.gz='tar tzf'
-        alias -s tar.bz2='tar tjf'
-
-    # }}}
-
-# }}}
-
-# Functions {{{
-# =============
-
-    # Include fzf functions
-    source "$DOTFILES/src/fzf/fzf.zsh"
-
-    # Play a video from a jeuxvideo.com page
-    jvcp() {
-        "$MEDIA_PLAYER" $("$DOTFILES/deps/misc/jvc-tools/video" "$1")
-    }
+    # Get remote IP from Deblan (can't use home server when in LAN)
+    alias ipd='curl ip.deblan.org && echo'
 
 # }}}

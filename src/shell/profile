@@ -9,13 +9,11 @@ export XDG_CACHE_HOME=~/.cache
 export LANG=en_US.UTF-8
 
 PATH=~/.local/bin:$PATH # Local bin
-PATH=$DOTFILES/src/git/extras/bin:$PATH # Git extras
 PATH=$DOTFILES/bin:$PATH # Dotfiles' bin
 PATH=~/bin:$PATH # User bin
 export PATH
 
-# Include dynamically generated environment variables
-source "$DOTFILES/src/shell/dircolors"
-source "$DOTFILES/src/shell/graceful"
+export EDITOR=vim
+export PAGER=less
 
 # vim: ft=sh
