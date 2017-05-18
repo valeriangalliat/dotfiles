@@ -28,8 +28,8 @@
     # plugins=(
     #     git
     #     colored-man-pages
-    #     history-substring-search
     #     zsh-syntax-highlighting
+    #     history-substring-search # Must be after syntax highlighting
     # )
 
     # Load core
@@ -57,8 +57,8 @@
     # Plugins
     source "$ZSH/plugins/git/git.plugin.zsh"
     source "$ZSH/plugins/colored-man-pages/colored-man-pages.plugin.zsh"
-    source "$ZSH/plugins/history-substring-search/history-substring-search.plugin.zsh"
     source "$DOTFILES/deps/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+    source "$ZSH/plugins/history-substring-search/history-substring-search.plugin.zsh"
 
 # }}}
 
