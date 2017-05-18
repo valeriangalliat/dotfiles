@@ -3,8 +3,6 @@
 \setenv PAGER less
 \setenv LESS '-iMSFXx4'
 \timing on
-\pset linestyle unicode
-\pset border 2
 \pset null ¤
 \pset format wrapped
 \pset expanded auto
