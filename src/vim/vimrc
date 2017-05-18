@@ -389,7 +389,7 @@
     " ---------------
 
         let syntastic_mode_map = {'mode': 'passive'}
-        let syntastic_javascript_checkers = ['eslint', 'jshint', 'jslint']
+        let syntastic_javascript_checkers = ['eslint']
 
     " }}}
 
