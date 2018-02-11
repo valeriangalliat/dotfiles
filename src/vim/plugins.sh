@@ -12,21 +12,21 @@
     # vim-bufferline
 
     # tmux integration
-    gh christoomey/vim-tmux-navigator
+    # gh christoomey/vim-tmux-navigator
 
     # Proper buffer closing
     gh moll/vim-bbye
 
     # Better split explorer
-    gh tpope/vim-vinegar
+    # gh tpope/vim-vinegar
 
 # }}}
-
 
 # Finder, fuzzy, menu {{{
 # =======================
 
-    gh junegunn/fzf
+    # Fuzzy finder
+    # gh junegunn/fzf
 
     # Find anything
     # gh Shougo/unite.vim
@@ -105,7 +105,7 @@
     # gh PeterRincker/vim-argumentative
 
     # Quick motions
-    gh easymotion/vim-easymotion
+    # gh easymotion/vim-easymotion
 
     # Exchange operator
     gh tommcdo/vim-exchange
@@ -114,7 +114,7 @@
     gh tpope/vim-surround
 
     # Select by indent level
-    gh qstrahl/vim-dentures
+    # gh qstrahl/vim-dentures
 
     # Alignment helper
     # gh tommcdo/vim-lion
@@ -127,8 +127,8 @@
 # Syntax {{{
 # ==========
 
-    # gh tpope/vim-git
     gh pangloss/vim-javascript
+    gh leafgarland/typescript-vim
     gh godlygeek/tabular # Needed by `vim-markdown`
     gh plasticboy/vim-markdown
     # gh bohrshaw/vim-vimperator-syntax
@@ -201,13 +201,13 @@
     # gh scrooloose/syntastic
 
     # Switch expressions (true/false, on/off, etc.)
-    gh AndrewRadev/switch.vim
+    # gh AndrewRadev/switch.vim
 
     # Manage GitHub gists
-    gh mattn/gist-vim
+    # gh mattn/gist-vim
 
     # Upload on Deblan wall
-    gh valeriangalliat/dwall
+    # gh valeriangalliat/dwall
 
     # Switch between single-line and multiline statements
     # gh AndrewRadev/splitjoin.vim
@@ -230,7 +230,7 @@
     # gh kshenoy/vim-signature
 
     # Show tags from file
-    gh majutsushi/tagbar
+    # gh majutsushi/tagbar
 
     # Context-aware relative or absolute numbers
     # gh myusuf3/numbers.vim
@@ -239,6 +239,6 @@
     # gh Yggdroot/indentLine
 
     # Distraction-free mode
-    gh junegunn/goyo.vim
+    # gh junegunn/goyo.vim
 
 # }}}

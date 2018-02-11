@@ -10,7 +10,7 @@ cd ~/.vim/plugins
 git_install() {
     if [ ! -d "$2" ]; then
         echo "Cloning $1 into $2"
-        command git clone -q "$1" "$2" &
+        command git clone -q "$1" "$2"
     fi
 }
 
@@ -18,14 +18,14 @@ git_update() {
     if [ -d "$2" ]; then
         echo "Pulling $2"
         command git -C "$2" remote set-url origin "$1"
-        command git -C "$2" pull -q &
+        command git -C "$2" pull
     else
         git_install "$@"
     fi
 }
 
 git_gen() {
-    echo "set runtimepath+=~/.vim/plugins/$2"
+    echo "set runtimepath^=~/.vim/plugins/$2"
 }
 
 git() {
