@@ -24,7 +24,7 @@
     # Custom `oh-my-zsh` directory
     # ZSH_CUSTOM=$DOTFILES/src/zsh
 
-    # # Enabled plugins
+    # Enabled plugins (loaded manually below for performance)
     # plugins=(
     #     git
     #     colored-man-pages
@@ -32,7 +32,7 @@
     #     history-substring-search # Must be after syntax highlighting
     # )
 
-    # Load core
+    # Load core (loaded partially below for performance)
     # source "$ZSH/oh-my-zsh.sh"
 
     autoload -U compinit
@@ -93,10 +93,7 @@
     autoload zmv
     alias mmv='noglob zmv -W'
 
-    # Get remote IP from CodeJam (at home)
-    alias ipc='curl ip.codejam.info'
-
-    # Get remote IP from Deblan (can't use home server when in LAN)
-    alias ipd='curl ip.deblan.org && echo'
+    # Get remote IP from CodeJam
+    alias ip='curl https://ip.codejam.info/'
 
 # }}}
