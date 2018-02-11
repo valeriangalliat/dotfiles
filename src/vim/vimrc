@@ -349,6 +349,9 @@
         " Support front matter
         let vim_markdown_frontmatter = 1
 
+        " Do not recurse syntax (crashes plugin)
+        let vim_markdown_fenced_languages = ['markdown=text', 'md=text']
+
     " }}}
 
     " `undotree` {{{
