@@ -17,8 +17,11 @@
     # Proper buffer closing
     gh moll/vim-bbye
 
-    # Better split explorer
+    # Better directory explorer
     # gh tpope/vim-vinegar
+
+    # Better directory explorer
+    gh jeetsukumaran/vim-filebeagle
 
 # }}}
 

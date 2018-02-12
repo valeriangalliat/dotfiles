@@ -22,6 +22,7 @@
     set runtimepath^=~/.vim/plugins/vim-airline
     set runtimepath^=~/.vim/plugins/vim-airline-themes
     set runtimepath^=~/.vim/plugins/vim-bbye
+    set runtimepath^=~/.vim/plugins/vim-filebeagle
     set runtimepath^=~/.vim/plugins/neocomplcache.vim
     set runtimepath^=~/.vim/plugins/base16-vim
     set runtimepath^=~/.vim/plugins/vim-repeat
