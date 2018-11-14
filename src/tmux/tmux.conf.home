@@ -1,7 +1,0 @@
-#
-# ~/.tmux.conf
-#
-
-source-file "$DOTFILES/src/tmux/tmux.conf"
-
-# vim: ft=tmux

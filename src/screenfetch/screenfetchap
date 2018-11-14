@@ -1,3 +1,0 @@
-#!/bin/sh -e
-
-exec screenfetch "$@" -a "$(dirname "$(readlink -f "$0")")/hap.sh"

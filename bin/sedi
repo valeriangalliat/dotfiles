@@ -1,7 +1,0 @@
-#!/bin/sh -e
-
-if [ "$(uname)" = Darwin ]; then
-    sed -i '' "$@"
-else
-    sed -i "$@"
-fi

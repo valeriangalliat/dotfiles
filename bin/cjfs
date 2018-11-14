@@ -1,4 +1,0 @@
-#!/bin/sh -e
-
-sshfs -o follow_symlinks cj: ~/codejam
-nohup sh -c 'while :; do ls ~/codejam; sleep 60; done' > /dev/null 2>&1 &

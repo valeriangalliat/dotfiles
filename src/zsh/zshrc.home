@@ -1,8 +1,0 @@
-#
-# ~/.zshrc
-#
-
-. "$DOTFILES/src/zsh/zshrc"
-
-# For Debian
-# alias ack=ack-grep
