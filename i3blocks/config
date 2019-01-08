@@ -1,0 +1,52 @@
+#
+# ~/.config/i3blocks/config
+#
+
+command=/usr/lib/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[volume]
+label=VOL
+label=♪
+instance=Master
+interval=once
+signal=10
+
+[memory]
+label=MEM
+interval=30
+
+[disk]
+label=DISK
+interval=60
+
+[iface]
+color=#a1b56c
+interval=60
+
+[wifi]
+interval=10
+
+[bandwidth]
+interval=5
+min_width=IN 00K OUT 00K
+
+[cpu_usage]
+label=CPU
+interval=10
+min_width=CPU 100.00%
+
+[temperature]
+label=TEMP
+interval=10
+min_width=TEMP 00.0°C
+
+[battery]
+label=⚡
+interval=30
+min_width=⚡ 100%
+
+[time]
+command=date | awk '{NF -= 2} 1'
+interval=1

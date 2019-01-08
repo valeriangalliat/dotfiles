@@ -1,0 +1,27 @@
+#
+# ~/.gitconfig
+#
+
+[credential]
+	helper = cache --timeout=604800
+
+[fetch]
+	fsckobjects = true
+
+[merge]
+	conflictstyle = diff3
+
+[receive]
+	fsckObjects = true
+
+[transfer]
+	fsckObjects = true
+
+[url "https://github.com/"]
+	insteadOf = "gh:"
+
+[user]
+	email = val@codejam.info
+	name = Val
+
+# vim: ft=gitconfig

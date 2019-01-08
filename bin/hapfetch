@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+neofetch --source "$DOTFILES/neofetch/hap.ascii" --ascii_colors '3'

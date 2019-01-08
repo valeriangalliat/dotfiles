@@ -1,0 +1,27 @@
+#!/bin/sh -e
+#
+# Window title can look like:
+#
+#     user@host: ~/path/to/dir
+#     user@host: /path/to/dir
+#     file (~/path/to/dir) - VIM
+#     file (/path/to/dir) - VIM
+#
+# This program extracts the directory path from the title.
+#
+
+title() {
+    echo "Terminal - i3cwd (~/dotfiles-old/bin) - VIM"
+}
+
+path=$(i3-focused-window-title)
+path=$(echo "$path" | sed 's,[^~/]*\([~/]\),\1,')
+path=$(echo "$path" | sed 's,[) ].*,,')
+path=$(echo "$path" | sed "s,^~,$HOME,")
+
+if ! [ -d "$path" ]; then
+    echo "$HOME"
+    exit
+fi
+
+echo "$path"

@@ -1,0 +1,7 @@
+#
+# ~/.zshenv
+#
+
+export DOTFILES=~/dotfiles
+
+source "$DOTFILES/zsh/zshenv"

@@ -1,0 +1,16 @@
+#
+# ~/.xinitrc
+#
+
+# Setup multiscreen
+# if [ $(xrandr | grep connected | wc -l) -gt 1 ]; then
+#     xrandr --output DP1 --above eDP1
+# fi
+
+# Set backgrounds
+# feh --bg-fill ~/bg1.jpg --bg-fill ~/bg2.jpg
+
+# Run main script
+source "$DOTFILES/x11/xinitrc"
+
+# vim: ft=sh

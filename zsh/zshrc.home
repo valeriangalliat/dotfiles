@@ -1,0 +1,5 @@
+#
+# ~/.zshrc
+#
+
+source "$DOTFILES/zsh/zshrc"

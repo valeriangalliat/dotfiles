@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+i3-msg -t get_tree \
+    | jq -r 'recurse(.nodes[]) | select(.focused) | .name'

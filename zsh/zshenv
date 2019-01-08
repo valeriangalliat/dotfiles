@@ -1,0 +1,11 @@
+#
+# ~/.zshenv
+#
+
+PATH=~/.local/bin:$PATH # Local bin
+PATH=$DOTFILES/bin:$PATH # Dotfiles' bin
+PATH=~/bin:$PATH # User bin
+export PATH
+
+export EDITOR=vim
+export PAGER=less

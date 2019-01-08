@@ -1,0 +1,29 @@
+#
+# ~/.xinitrc
+#
+
+xrdb -merge "$DOTFILES/x11/Xresources"
+
+if [ -f ~/.Xresources ]; then
+    xrdb -merge ~/.Xresources
+fi
+
+# Set compose key
+setxkbmap -option compose:ralt
+
+# Auto lock screen if all commands are available
+command -v xautolock block scrot mogrify i3lock && xautolock -time 5 -locker block &
+
+# Execute Compton if available
+if command -v compton; then
+    compton &
+fi
+# Execute Redshift if available
+if command -v redshift; then
+    redshift &
+fi
+
+# Window manager
+exec i3
+
+# vim: ft=sh

@@ -1,0 +1,74 @@
+#
+# ~/.zshrc
+#
+
+# Initialization {{{
+# ==================
+
+    export ZSH="$DOTFILES/zsh/oh-my-zsh"
+
+    # Don't mark untracked files as dirty (performance), used by `$ZSH/lib/git.zsh`
+    DISABLE_UNTRACKED_FILES_DIRTY=true
+
+    # Set `LS_COLORS` before `$ZSH/lib/theme-and-appearance.zsh` is loaded
+    source "$DOTFILES/zsh/dircolors"
+
+    autoload -U compinit
+    compinit -d ~/.zcompdump
+
+    # Load only what I want from `oh-my-zsh`
+    source "$ZSH/lib/clipboard.zsh"
+    source "$ZSH/lib/completion.zsh"
+    source "$ZSH/lib/correction.zsh"
+    source "$ZSH/lib/directories.zsh"
+    source "$ZSH/lib/git.zsh"
+    source "$ZSH/lib/grep.zsh"
+    source "$ZSH/lib/history.zsh"
+    source "$ZSH/lib/key-bindings.zsh"
+    source "$ZSH/lib/termsupport.zsh"
+    source "$ZSH/lib/theme-and-appearance.zsh"
+
+    # Theme
+    source "$ZSH/themes/robbyrussell.zsh-theme"
+
+    # Plugins
+    source "$ZSH/plugins/git/git.plugin.zsh"
+    source "$ZSH/plugins/colored-man-pages/colored-man-pages.plugin.zsh"
+    source "$ZSH/plugins/history-substring-search/history-substring-search.plugin.zsh"
+    source "$DOTFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+
+# }}}
+
+# Essentials {{{
+# ==============
+
+    # Allow adding comments in interactive session
+    setopt interactivecomments
+
+# }}}
+
+# Theme {{{
+
+    # Terminal colors (except in tmux)
+    if [ -z "$TMUX" ]; then
+        source "$DOTFILES/zsh/base16-shell/scripts/base16-default-dark.sh"
+    fi
+
+# }}}
+
+# Aliases {{{
+# ===========
+
+    # Shortcuts
+    alias l=ll
+    alias q=exit
+    alias vi=vim
+
+    # Globbing move command
+    autoload zmv
+    alias mmv='noglob zmv -W'
+
+    # Get remote IP from CodeJam
+    alias ip='curl https://ip.codejam.info/'
+
+# }}}
