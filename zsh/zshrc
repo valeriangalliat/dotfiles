@@ -54,6 +54,14 @@
         source "$DOTFILES/zsh/base16-shell/scripts/base16-default-dark.sh"
     fi
 
+    #
+    # Disable changing title when command running to keep the working
+    # directory in the title.
+    #
+    function omz_termsupport_preexec {
+        return
+    }
+
 # }}}
 
 # Aliases {{{
