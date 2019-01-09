@@ -57,7 +57,6 @@ psql:
 x11: x11/block
 	cp -i $(PWD)/x11/xinitrc.home ~/.xinitrc
 	ln -si $(PWD)/x11/Xresources ~/.Xresources
-	ln -si $(PWD)/x11/Xmodmap ~/.Xmodmap
 
 x11/block:
 	git clone https://github.com/valeriangalliat/block.git $@

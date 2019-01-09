@@ -8,8 +8,11 @@ if [ -f ~/.Xresources ]; then
     xrdb -merge ~/.Xresources
 fi
 
-# Set compose key
+# Use Mac layout
 setxkbmap -variant mac
+
+# Load custom keyboard map (remap left Alt to Ctrl)
+xmodmap "$DOTFILES/x11/Xmodmap"
 
 # Auto lock screen if all commands are available
 command -v xautolock block scrot mogrify i3lock && xautolock -time 5 -locker block &
