@@ -1,0 +1,4 @@
+! Remap left Alt to Ctrl
+clear mod1
+keycode 64 = Control_L
+add control = Control_L Control_R
