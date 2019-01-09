@@ -14,6 +14,9 @@ setxkbmap -variant mac
 # Load custom keyboard map (remap left Alt to Ctrl)
 xmodmap "$DOTFILES/x11/Xmodmap"
 
+# Set keyboard repeat delay to 220 instead of default of 660
+xset r rate 220
+
 # Auto lock screen if all commands are available
 command -v xautolock block scrot mogrify i3lock && xautolock -time 5 -locker block &
 
