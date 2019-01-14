@@ -288,5 +288,6 @@
 
     exec i3-msg 'workspace $ws1; exec i3-sensible-terminal'
     exec i3-msg 'workspace $ws2; exec firefox'
+    exec node 'projects/playerctl-firefox-youtube/server'
 
 # }}}
