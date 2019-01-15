@@ -17,6 +17,7 @@ all: \
 	plugins/html5.vim \
 	plugins/vim-json \
 	plugins/rust.vim \
+	plugins/vim-pug \
 	plugins/vim-nix \
 	plugins/vim-endwise \
 	plugins/auto-pairs \
@@ -202,6 +203,9 @@ plugins/vim-json:
 
 plugins/rust.vim:
 	git clone https://github.com/rust-lang/rust.vim.git $@
+
+plugins/vim-pug:
+	git clone https://github.com/digitaltoad/vim-pug.git $@
 
 plugins/csv.vim:
 	git clone https://github.com/chrisbra/csv.vim.git $@

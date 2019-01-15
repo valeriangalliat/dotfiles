@@ -37,6 +37,7 @@
     set runtimepath^=$DOTFILES/vim/plugins/html5.vim
     set runtimepath^=$DOTFILES/vim/plugins/vim-json
     set runtimepath^=$DOTFILES/vim/plugins/rust.vim
+    set runtimepath^=$DOTFILES/vim/plugins/vim-pug
     set runtimepath^=$DOTFILES/vim/plugins/vim-nix
     set runtimepath^=$DOTFILES/vim/plugins/vim-endwise
     set runtimepath^=$DOTFILES/vim/plugins/auto-pairs
@@ -247,7 +248,7 @@
         au FileType json setl ts=2 sts=2 sw=2
         au FileType html setl ts=2 sts=2 sw=2 wrap
         au FileType markdown setl ts=2 sts=2 sw=2 wrap
-        au FileType jade setl ts=2 sts=2 sw=2 wrap
+        au FileType pug setl ts=2 sts=2 sw=2 wrap
         au FileType stylus setl ts=2 sts=2 sw=2
         au FileType go setl noet
 
