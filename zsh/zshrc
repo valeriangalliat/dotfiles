@@ -77,6 +77,6 @@
     alias mmv='noglob zmv -W'
 
     # Get remote IP from CodeJam
-    alias ip='curl https://ip.codejam.info/'
+    alias ipc='curl https://ip.codejam.info/'
 
 # }}}

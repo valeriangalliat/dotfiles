@@ -115,6 +115,9 @@
     set splitbelow
     set splitright
 
+    " Do not change window title
+    set notitle
+
     " Set leader
     let mapleader = ','
 
