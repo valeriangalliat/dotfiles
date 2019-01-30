@@ -3,3 +3,11 @@
 #
 
 source "$DOTFILES/zsh/zshrc"
+
+# nvm (lazy load because this shit is slow as fuck)
+# nvm() {
+#     source ~/.nvm/nvm.sh --no-use
+#     nvm "$@"
+# }
+
+# export PATH=~/.nvm/versions/node/vx.x.x/bin:$PATH
