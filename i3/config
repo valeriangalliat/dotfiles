@@ -224,9 +224,9 @@
 
         mode "$mode_print" {
             # Home
-            bindsym f exec sleep .5 && cd screenshots && scrot -s; mode default
-            bindsym Control+f exec sleep .5 && cd screenshots && scrot -u; mode default
-            bindsym Shift+f exec sleep .5 && cd screenshots && scrot; mode default
+            bindsym f exec sleep .5 && maim -s ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym Control+f exec sleep .5 && maim -i $(xdotool getactivewindow) ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym Shift+f exec sleep .5 && maim ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
 
             # Back to default mode
             bindsym Return mode default
