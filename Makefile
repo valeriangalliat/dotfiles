@@ -33,6 +33,7 @@ zsh/dircolors:
 vim:
 	make -C vim
 	mkdir -p ~/.vim/undo ~/.vim/swap
+	ln -si $(PWD)/vim/syntax ~/.vim/syntax
 	ln -si $(PWD)/vim/vimrc ~/.vimrc
 
 .PHONY: tmux
