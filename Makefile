@@ -25,9 +25,9 @@ zsh/base16-shell:
 
 zsh/dircolors:
 	# The sed part removes blinking effect from broken symlinks
-	curl https://raw.githubusercontent.com/dotphiles/dotzsh/master/themes/dotphiles/dircolors/dircolors.base16.dark \
+	command -v dircolors && curl https://raw.githubusercontent.com/dotphiles/dotzsh/master/themes/dotphiles/dircolors/dircolors.base16.dark \
 		| sed 's/05/00/g' \
-		| dircolors - > $@
+		| dircolors - > $@ || touch $@
 
 .PHONY: vim
 vim:
