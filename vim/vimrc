@@ -233,9 +233,9 @@
     " Spell {{{
     " ---------
 
-        au FileType text set spell
-        au FileType tex set spell
-        au FileType markdown set spell
+        au FileType text setl spell
+        au FileType tex setl spell
+        au FileType markdown setl spell
 
     " }}}
 
