@@ -2,23 +2,23 @@
 # ~/.config/i3blocks/config
 #
 
-command=/usr/lib/i3blocks/$BLOCK_NAME
+command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
 [volume]
-label=VOL
-label=♪
+label=VOL 
+label=♪ 
 instance=Master
 interval=once
 signal=10
 
 [memory]
-label=MEM
+label=MEM 
 interval=30
 
 [disk]
-label=DISK
+label=DISK 
 interval=60
 
 [iface]
@@ -26,6 +26,8 @@ color=#a1b56c
 interval=60
 
 [wifi]
+label=WIFI 
+INTERFACE=wlp2s0
 interval=10
 
 [bandwidth]
@@ -33,17 +35,17 @@ interval=5
 min_width=IN 00K OUT 00K
 
 [cpu_usage]
-label=CPU
+label=CPU 
 interval=10
 min_width=CPU 100.00%
 
 [temperature]
-label=TEMP
+label=TEMP 
 interval=10
 min_width=TEMP 00.0°C
 
 [battery]
-label=⚡
+label=⚡ 
 interval=30
 min_width=⚡ 100%
 

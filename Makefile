@@ -4,9 +4,16 @@ i3:
 	ln -si $(PWD)/i3/config ~/.config/i3/config
 
 .PHONY: i3blocks
-i3blocks:
+i3blocks: i3blocks/i3blocks i3blocks/i3blocks-contrib
 	mkdir -p ~/.config/i3blocks
 	ln -si $(PWD)/i3blocks/config ~/.config/i3blocks/config
+
+i3blocks/i3blocks:
+	git clone https://github.com/vivien/i3blocks.git $@
+	cd $@ && ./autogen.sh && ./configure && make
+
+i3blocks/i3blocks-contrib:
+	git clone https://github.com/vivien/i3blocks-contrib.git $@
 
 .PHONY: zsh
 zsh: zsh/oh-my-zsh zsh/zsh-syntax-highlighting zsh/base16-shell zsh/dircolors

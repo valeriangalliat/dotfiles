@@ -270,7 +270,7 @@
 # =======
 
     bar {
-        status_command i3blocks
+        status_command $DOTFILES/i3blocks/i3blocks/i3blocks
 
         colors {
             background $base00
