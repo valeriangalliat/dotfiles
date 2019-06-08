@@ -26,25 +26,27 @@ color=#a1b56c
 interval=60
 
 [wifi]
+command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | i3blocks-recolor
 label=WIFI 
 INTERFACE=wlp2s0
 interval=10
 
-[bandwidth]
-interval=5
-min_width=IN 00K OUT 00K
+#[bandwidth]
+#interval=5
+#min_width=IN 00K OUT 00K
 
 [cpu_usage]
 label=CPU 
 interval=10
 min_width=CPU 100.00%
 
-[temperature]
-label=TEMP 
-interval=10
-min_width=TEMP 00.0°C
+#[temperature]
+#label=TEMP 
+#interval=10
+#min_width=TEMP 00.0°C
 
 [battery]
+command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | i3blocks-recolor
 label=⚡ 
 interval=30
 min_width=⚡ 100%

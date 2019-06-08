@@ -133,13 +133,16 @@
     bindsym $mod+Shift+r restart
 
     # Media keys
-    bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
 
     # Sreen brightness
     bindsym XF86MonBrightnessUp exec xbacklight -inc 20
     bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+
+    # Screen saver
+    bindsym XF86ScreenSaver exec block
 
     # Media player controls
     bindsym XF86AudioPlay exec playerctl play-pause
@@ -292,8 +295,6 @@
 # Autorun {{{
 # ===========
 
-    exec i3-msg 'workspace $ws1; exec i3-sensible-terminal'
-    exec i3-msg 'workspace $ws2; exec firefox'
-    exec node 'projects/playerctl-firefox-youtube/server'
+    exec i3-msg 'workspace $ws1; exec firefox'
 
 # }}}

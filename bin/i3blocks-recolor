@@ -1,0 +1,12 @@
+#!/usr/bin/sed -f
+#
+# Recolor command output of i3blocks blocklets to match my color scheme.
+#
+# Only works for the blocklets I use right now.
+#
+
+s/#00ff00/#a1b56c/ig # Green
+s/#a8ff00/#a1b56c/ig # Green
+s/#fff600/#f7ca88/ig # Yellow
+s/#ffae00/#dc9656/ig # Orange
+s/#ff0000/#ab4642/ig # Red
