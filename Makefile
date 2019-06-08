@@ -73,3 +73,8 @@ x11/block:
 compton:
 	cp -i /etc/xdg/compton.conf ~/.config/compton.conf
 	cat compton/compton.conf >> ~/.config/compton.conf
+
+.PHONY: xfce4-terminal
+xfce4-terminal:
+	mkdir -p ~/.config/xfce4/terminal
+	ln -si $(PWD)/xfce4-terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
