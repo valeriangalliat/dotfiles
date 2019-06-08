@@ -6,6 +6,7 @@ source "$DOTFILES/zsh/zshrc"
 
 # nvm (lazy load because this shit is slow as fuck)
 # nvm() {
+#     [ -d ~/.nvm ] || git clone https://github.com/nvm-sh/nvm ~/.nvm
 #     source ~/.nvm/nvm.sh --no-use
 #     nvm "$@"
 # }
