@@ -2,17 +2,6 @@
 # ~/.xinitrc
 #
 
-#
-# Fix for corrupted graphics mostly after suspend/resume when using Intel
-# driver.
-#
-# Wighout this environment variable, some i3 windows would appear totally
-# transparent.
-#
-# From <https://wiki.archlinux.org/index.php/intel_graphics#Font_and_screen_corruption_in_GTK+_applications_(missing_glyphs_after_suspend/resume)>.
-#
-export COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer
-
 xrdb -merge "$DOTFILES/x11/Xresources"
 
 if [ -f ~/.Xresources ]; then
@@ -38,7 +27,7 @@ if command -v xss-lock block; then
 fi
 
 #
-# Auto suspend after 30 minutes of inactivity.
+# Auto suspend after 10 minutes of inactivity.
 #
 # I need to use `xautolock` for this instead of relying on `IdleAction` in
 # `/etc/systemd/logind.conf` because the latter doesn't work without a display
@@ -46,8 +35,11 @@ fi
 # reported to logind for some reason and results in systematic suspend even
 # when active.
 #
+# The `-corners` options as configured below makes it that if the mouse is in
+# any corner of the screen, the locker will not activate.
+#
 if command -v xautolock; then
-  xautolock -time 30 -locker 'systemctl suspend' &
+  xautolock -detectsleep -time 10 -corners ---- -locker 'systemctl suspend' &
 fi
 
 # Execute Compton if available
