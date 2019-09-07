@@ -246,6 +246,7 @@
         au FileType gitconfig setl noet
         au FileType javascript setl ts=2 sts=2 sw=2
         au FileType typescript setl ts=2 sts=2 sw=2
+        au FileType tex setl ts=2 sts=2 sw=2
         au FileType coffee setl ts=2 sts=2 sw=2
         au FileType ruby setl ts=2 sts=2 sw=2
         au FileType json setl ts=2 sts=2 sw=2
