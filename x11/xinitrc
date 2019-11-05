@@ -47,9 +47,9 @@ if command -v compton; then
     compton &
 fi
 
-# Execute Redshift if available
+# Execute Redshift if available (Montreal)
 if command -v redshift; then
-    redshift &
+    redshift -l 45.5017:-73.5673 &
 fi
 
 # Window manager
