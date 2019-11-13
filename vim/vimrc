@@ -254,6 +254,7 @@
         au FileType markdown setl ts=2 sts=2 sw=2 wrap
         au FileType pug setl ts=2 sts=2 sw=2 wrap
         au FileType stylus setl ts=2 sts=2 sw=2
+        au FileType tf setl ts=2 sts=2 sw=2
         au FileType go setl noet
 
     " }}}
