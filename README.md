@@ -28,4 +28,5 @@ make net
 make psql
 make x11
 make compton
+make xfce4-terminal
 ```
