@@ -69,10 +69,10 @@ x11: x11/block
 x11/block:
 	git clone https://github.com/valeriangalliat/block.git $@
 
-.PHONY: compton
-compton:
-	cp -i /etc/xdg/compton.conf ~/.config/compton.conf
-	cat compton/compton.conf >> ~/.config/compton.conf
+.PHONY: picom
+picom:
+	cp -i /etc/xdg/picom.conf ~/.config/picom.conf
+	cat picom/picom.conf >> ~/.config/picom.conf
 
 .PHONY: xfce4-terminal
 xfce4-terminal:

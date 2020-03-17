@@ -27,6 +27,6 @@ make git
 make net
 make psql
 make x11
-make compton
+make picom
 make xfce4-terminal
 ```

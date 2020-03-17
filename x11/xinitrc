@@ -42,9 +42,9 @@ if command -v xautolock; then
   xautolock -detectsleep -time 10 -corners ---- -locker 'systemctl suspend' &
 fi
 
-# Execute Compton if available
-if command -v compton; then
-    compton &
+# Execute Picom if available
+if command -v picom; then
+    picom &
 fi
 
 # Execute Redshift if available (Montreal)
