@@ -121,6 +121,9 @@
     " Set leader
     let mapleader = ','
 
+    " Auto close netrw after opening file
+    let g:netrw_fastbrowse = 0
+
 " }}}
 
 " Optimization {{{
