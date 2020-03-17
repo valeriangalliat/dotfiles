@@ -2,7 +2,10 @@
 ! ~/.xmodmaprc
 !
 
-! Remap left Alt to Ctrl
+! Invert left Alt and Ctrl
+clear control
 clear mod1
 keycode 64 = Control_L
+keycode 37 = Alt_L
 add control = Control_L Control_R
+add mod1 = Alt_L Meta_L

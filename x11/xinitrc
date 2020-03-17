@@ -11,7 +11,7 @@ fi
 # Use Mac layout
 setxkbmap -variant mac
 
-# Load custom keyboard map (remap left Alt to Ctrl)
+# Load custom keyboard map (invert left Alt and Ctrl)
 xmodmap "$DOTFILES/x11/xmodmaprc"
 
 if [ -f ~/.xmodmaprc ]; then
