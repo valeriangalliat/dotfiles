@@ -1,0 +1,12 @@
+#!/bin/sh -e
+#
+# Reload i3 and Picom, fixing the transparency bug with transparent windows in
+# stacked/tabbed layouts that would otherwise stay transparent forever.
+#
+
+i3-msg restart
+pkill -USR1 picom
+
+xprop -root | grep '_NET_CLIENT_LIST(WINDOW)' | grep -o '0x[0-9a-zA-Z]*' \
+    | xargs -I{} xprop -id {} -remove _NET_WM_WINDOW_OPACITY
+
