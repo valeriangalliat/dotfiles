@@ -3,6 +3,8 @@
 # Reload i3 and Picom, fixing the transparency bug with transparent windows in
 # stacked/tabbed layouts that would otherwise stay transparent forever.
 #
+# See <https://www.reddit.com/r/i3wm/comments/cqtu6t/i3_transparency/ex0v4hp/>.
+#
 
 i3-msg restart
 killall -USR1 picom
