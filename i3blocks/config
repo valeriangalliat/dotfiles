@@ -35,10 +35,10 @@ interval=10
 #interval=5
 #min_width=IN 00K OUT 00K
 
-[cpu_usage]
-label=CPU 
-interval=10
-min_width=CPU 100.00%
+#[cpu_usage]
+#label=CPU 
+#interval=10
+#min_width=CPU 100.00%
 
 #[temperature]
 #label=TEMP 
