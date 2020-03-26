@@ -138,8 +138,8 @@
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
 
     # Sreen brightness
-    bindsym XF86MonBrightnessUp exec xbacklight -inc 20
     bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+    bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 
     # Screen saver
     bindsym XF86ScreenSaver exec block
