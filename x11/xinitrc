@@ -21,25 +21,15 @@ fi
 # Set keyboard repeat delay to 220 instead of default of 660
 xset r rate 220
 
-# Auto lock on screen sleep, suspend, hibernate
+#
+# Auto lock on screen sleep, suspend, hibernate, also feed idle hint to logind
+# so that it can suspend after inactivity.
+#
+# This requires to be in a logind graphical session, so started from a login
+# manager as opposed to a TTY.
+#
 if command -v xss-lock block; then
-    xss-lock -l block &
-fi
-
-#
-# Auto suspend after 10 minutes of inactivity.
-#
-# I need to use `xautolock` for this instead of relying on `IdleAction` in
-# `/etc/systemd/logind.conf` because the latter doesn't work without a display
-# manager. Since I use `startx` without display manager, the idle status is not
-# reported to logind for some reason and results in systematic suspend even
-# when active.
-#
-# The `-corners` options as configured below makes it that if the mouse is in
-# any corner of the screen, the locker will not activate.
-#
-if command -v xautolock; then
-  xautolock -detectsleep -time 10 -corners ---- -locker 'systemctl suspend' &
+    xss-lock -l block
 fi
 
 # Execute Picom if available
