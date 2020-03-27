@@ -64,6 +64,7 @@ psql:
 .PHONY: x11
 x11: x11/block
 	cp -i $(PWD)/x11/xinitrc.home ~/.xinitrc
+	ln -si $(PWD)/x11/xprofile ~/.xprofile
 	ln -si $(PWD)/x11/Xresources ~/.Xresources
 
 x11/block:

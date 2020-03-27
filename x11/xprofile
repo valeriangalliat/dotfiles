@@ -1,0 +1,11 @@
+#
+# ~/.xprofile
+#
+# When started from a display manager, we don't have the shell environment that
+# would otherwise have been loaded on TTY login, so source it first.
+#
+
+source "$HOME/.zshenv"
+source "$HOME/.xinitrc"
+
+# vim: ft=sh
