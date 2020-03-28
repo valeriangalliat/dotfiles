@@ -29,7 +29,7 @@ xset r rate 220
 # manager as opposed to a TTY.
 #
 if command -v xss-lock block; then
-    xss-lock -l block
+    xss-lock -l block &
 fi
 
 # Execute Picom if available
