@@ -26,7 +26,10 @@ xset r rate 220
 # so that it can suspend after inactivity.
 #
 # This requires to be in a logind graphical session, so started from a login
-# manager as opposed to a TTY.
+# manager as opposed to a TTY, or srarting the TTY session as a graphical
+# session e.g. by setting `XDG_SESSION_TYPE=x11` in `~/.pam_environment`.
+#
+# See <https://github.com/systemd/systemd/issues/14053>.
 #
 if command -v xss-lock block; then
     xss-lock -l block &

@@ -70,6 +70,11 @@ x11: x11/block
 x11/block:
 	git clone https://github.com/valeriangalliat/block.git $@
 
+# See <https://github.com/systemd/systemd/issues/14053#issuecomment-571363297>.
+.PHONY: x11-pam-hack
+x11-pam-hack:
+	cp -i $(PWD)/x11/pam_environment ~/.pam_environment
+
 .PHONY: picom
 picom:
 	cp -i /etc/xdg/picom.conf ~/.config/picom.conf
