@@ -51,7 +51,11 @@
 
     # Terminal colors (except in tmux)
     if [ -z "$TMUX" ]; then
-        source "$DOTFILES/zsh/base16-shell/scripts/base16-default-dark.sh"
+        if [ -f "$HOME/.dotfiles_color_theme" ]; then
+            source "$HOME/.dotfiles_color_theme"
+        else
+            source "$DOTFILES/zsh/base16-shell/scripts/base16-default-dark.sh"
+        fi
     fi
 
     #
