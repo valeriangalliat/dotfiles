@@ -66,6 +66,8 @@ x11: x11/block
 	cp -i $(PWD)/x11/xinitrc.home ~/.xinitrc
 	ln -si $(PWD)/x11/xprofile ~/.xprofile
 	ln -si $(PWD)/x11/Xresources ~/.Xresources
+	mkdir -p ~/.config/fontconfig
+	ln -si $(PWD)/x11/fonts.conf ~/.config/fontconfig/fonts.conf
 
 x11/block:
 	git clone https://github.com/valeriangalliat/block.git $@
