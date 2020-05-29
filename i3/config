@@ -10,7 +10,7 @@
     floating_modifier $mod
 
     # Font
-    font pango:monospace 12
+    font pango:monospace 11
 
     #
     # Window format.
@@ -71,7 +71,7 @@
 # ============
 
     # Start launcher
-    bindsym $mod+d exec dmenu_run -fn monospace:size=12 -nb '$base00' -nf '$base07' -sb '$base0d' -sf '$base00'
+    bindsym $mod+d exec dmenu_run -fn monospace:size=11 -nb '$base00' -nf '$base07' -sb '$base0d' -sf '$base00'
 
     # Start terminal
     bindsym $mod+Return exec cd "$(i3-focused-window-cwd)" && i3-sensible-terminal
