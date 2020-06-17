@@ -1,4 +1,7 @@
 #!/bin/sh -e
 
 source "$DOTFILES/zsh/base16-shell/scripts/base16-atelier-plateau-light.sh"
-ln -fs "$0" ~/.dotfiles_color_theme
+
+if [ "$0" != "$HOME/.dotfiles_color_theme" ]; then
+    ln -fs "$0" ~/.dotfiles_color_theme
+fi
