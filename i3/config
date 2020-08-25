@@ -133,9 +133,9 @@
     bindsym $mod+Shift+r exec i3-picom-restart
 
     # Media keys
-    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
+    bindsym XF86AudioMute exec pactl set-sink-mute "$(pactl list short sinks | grep RUNNING | awk '{print $1}')" toggle && pkill -RTMIN+10 i3blocks
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume "$(pactl list short sinks | grep RUNNING | awk '{print $1}')" -5% && pkill -RTMIN+10 i3blocks
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "$(pactl list short sinks | grep RUNNING | awk '{print $1}')" +5% && pkill -RTMIN+10 i3blocks
 
     # Sreen brightness
     bindsym XF86MonBrightnessDown exec xbacklight -dec 20

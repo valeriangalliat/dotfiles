@@ -6,12 +6,11 @@ command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-[volume]
-label=VOL 
+[volume-pulseaudio]
 label=♪ 
-instance=Master
 interval=once
 signal=10
+command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | grep -Eo '(^#.*|[0-9]*%)'
 
 [memory]
 label=MEM 
