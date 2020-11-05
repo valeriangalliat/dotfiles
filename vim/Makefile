@@ -19,6 +19,7 @@ all: \
 	plugins/rust.vim \
 	plugins/vim-pug \
 	plugins/vim-nix \
+	plugins/vim-python-pep8-indent \
 	plugins/vim-endwise \
 	plugins/auto-pairs \
 	plugins/vim-easyclip \
@@ -218,6 +219,9 @@ plugins/vim-coffee-script:
 
 plugins/vim-nix:
 	git clone https://github.com/LnL7/vim-nix.git $@
+
+plugins/vim-python-pep8-indent:
+	git clone https://github.com/Vimjas/vim-python-pep8-indent.git $@
 
 # }}}
 
