@@ -35,6 +35,14 @@ if command -v xss-lock block; then
     xss-lock -l block &
 fi
 
+if command -v xidlehook; then
+    xidlehook \
+        --not-when-audio \
+        --timer 120 'xbacklight -dec 20' 'xbacklight -inc 20' \
+        --timer 30 'xbacklight -inc 20; block' '' \
+        --timer 1800 'systemctl suspend' '' &
+fi
+
 # Execute Picom if available
 if command -v picom; then
     picom &
