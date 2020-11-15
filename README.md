@@ -31,3 +31,10 @@ make x11-pam-hack
 make picom
 make xfce4-terminal
 ```
+
+I also made an alias for macOS that just installs `zsh`, `vim`, and
+`git`.
+
+```sh
+make mac
+```

@@ -1,3 +1,6 @@
+.PHONY: mac
+mac: zsh vim git
+
 .PHONY: i3
 i3:
 	mkdir -p ~/.config/i3
