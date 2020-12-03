@@ -3,5 +3,6 @@
 #
 
 export DOTFILES=~/dotfiles
+export PATH=$DOTFILES/bin/linux:$PATH # Linux helpers
 
 source "$DOTFILES/zsh/zshenv"
