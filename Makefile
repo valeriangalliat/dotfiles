@@ -53,6 +53,7 @@ tmux:
 .PHONY: git
 git:
 	ln -si $(PWD)/git/gitconfig ~/.gitconfig
+	ln -si $(PWD)/git/gitignore ~/.gitignore
 
 .PHONY: net
 net:
