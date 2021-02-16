@@ -66,6 +66,11 @@
         return
     }
 
+    #
+    # Add time to prompt instead of arrow.
+    #
+    PROMPT=$(echo "$PROMPT" | sed 's/➜ /%T/g')
+
 # }}}
 
 # Aliases {{{
