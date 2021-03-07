@@ -157,9 +157,9 @@
     " Bad spell force foreground to white (otherwise can end up being red on
     " red and you can't see shit)
     highlight SpellBad ctermfg=white
-
-    " Fix for `goyo` plugin too
-    autocmd User GoyoLeave highlight Normal ctermbg=none
+    highlight SpellCap ctermfg=white
+    highlight SpellRare ctermfg=white
+    highlight SpellLocal ctermfg=white
 
 " }}}
 
