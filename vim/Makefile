@@ -3,6 +3,7 @@ all: \
 	plugins/vim-airline \
 	plugins/vim-airline-themes \
 	plugins/vim-bbye \
+	plugins/vim-filebeagle \
 	plugins/neocomplcache.vim \
 	plugins/base16-vim \
 	plugins/vim-repeat \
@@ -21,7 +22,7 @@ all: \
 	plugins/vim-nix \
 	plugins/vim-python-pep8-indent \
 	plugins/vim-endwise \
-	plugins/auto-pairs \
+	plugins/vim-closer \
 	plugins/vim-easyclip \
 	plugins/vim-commentary
 
@@ -132,6 +133,10 @@ plugins/vim-repeat:
 plugins/vim-multiple-cursors:
 	git clone https://github.com/terryma/vim-multiple-cursors.git $@
 
+# Clean directory listing
+plugins/vim-filebeagle:
+	git clone https://github.com/jeetsukumaran/vim-filebeagle.git $@
+
 # }}}
 
 # Motions/objects {{{
@@ -235,6 +240,10 @@ plugins/vim-endwise:
 # Auto close structures and quotes (awesome fork to avoid annoying mode)
 plugins/auto-pairs:
 	git clone https://github.com/jiangmiao/auto-pairs.git $@
+
+# Auto close brackets
+plugins/vim-closer:
+	git clone https://github.com/rstacruz/vim-closer.git $@
 
 # Auto toggle paste mode (disabled because super slow to load)
 plugins/vim-bracketed-paste:

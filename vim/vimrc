@@ -41,7 +41,7 @@
     set runtimepath^=$DOTFILES/vim/plugins/vim-nix
     set runtimepath^=$DOTFILES/vim/plugins/vim-python-pep8-indent
     set runtimepath^=$DOTFILES/vim/plugins/vim-endwise
-    set runtimepath^=$DOTFILES/vim/plugins/auto-pairs
+    set runtimepath^=$DOTFILES/vim/plugins/vim-closer
     set runtimepath^=$DOTFILES/vim/plugins/vim-easyclip
     set runtimepath^=$DOTFILES/vim/plugins/vim-commentary
 
