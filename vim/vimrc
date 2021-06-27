@@ -294,6 +294,9 @@
     " Do not break words
     set linebreak
 
+    " When joining lines or formatting text, don't add two spaces between sentences
+    set nojoinspaces
+
 " }}}
 
 " Plugin settings {{{
@@ -343,6 +346,12 @@
 
         " Support front matter
         let vim_markdown_frontmatter = 1
+
+        " Support strikethrough
+        let vim_markdown_strikethrough = 1
+
+        " Set list indent
+        let g:vim_markdown_new_list_item_indent = 2
 
         " Do not recurse syntax (crashes plugin)
         let vim_markdown_fenced_languages = ['markdown=text', 'md=text']

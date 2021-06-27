@@ -71,6 +71,13 @@
     #
     PROMPT=$(echo "$PROMPT" | sed 's/➜ /%T/g')
 
+    #
+    # Prepend `user@host` to prompt when under SSH.
+    #
+    if [ -n "$SSH_CLIENT" ]; then
+        PROMPT="%{$fg[cyan]%}%n@%{$fg[blue]%}%m ${PROMPT}"
+    fi
+
 # }}}
 
 # Aliases {{{
