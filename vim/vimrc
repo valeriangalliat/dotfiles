@@ -19,34 +19,37 @@
 " ===========
 
     set runtimepath^=$DOTFILES/vim/plugins/vim-sensible
+    set runtimepath^=$DOTFILES/vim/plugins/base16-vim
     set runtimepath^=$DOTFILES/vim/plugins/vim-airline
     set runtimepath^=$DOTFILES/vim/plugins/vim-airline-themes
-    set runtimepath^=$DOTFILES/vim/plugins/vim-bbye
-    set runtimepath^=$DOTFILES/vim/plugins/vim-filebeagle
-    set runtimepath^=$DOTFILES/vim/plugins/neocomplcache.vim
-    set runtimepath^=$DOTFILES/vim/plugins/base16-vim
+    set runtimepath^=$DOTFILES/vim/plugins/AutoComplPop
+    " set runtimepath^=$DOTFILES/vim/plugins/neocomplcache.vim
+    " set runtimepath^=$DOTFILES/vim/plugins/coc.nvim
     set runtimepath^=$DOTFILES/vim/plugins/vim-repeat
     set runtimepath^=$DOTFILES/vim/plugins/targets.vim
     set runtimepath^=$DOTFILES/vim/plugins/vim-exchange
     set runtimepath^=$DOTFILES/vim/plugins/vim-surround
     set runtimepath^=$DOTFILES/vim/plugins/CamelCaseMotion
+    set runtimepath^=$DOTFILES/vim/plugins/vim-endwise
+    set runtimepath^=$DOTFILES/vim/plugins/vim-closer
+    set runtimepath^=$DOTFILES/vim/plugins/vim-sleuth
+    set runtimepath^=$DOTFILES/vim/plugins/vim-bbye
+    set runtimepath^=$DOTFILES/vim/plugins/vim-filebeagle
+    set runtimepath^=$DOTFILES/vim/plugins/vim-cutlass
+    set runtimepath^=$DOTFILES/vim/plugins/vim-commentary
     set runtimepath^=$DOTFILES/vim/plugins/vim-javascript
     set runtimepath^=$DOTFILES/vim/plugins/typescript-vim
     set runtimepath^=$DOTFILES/vim/plugins/tabular
     set runtimepath^=$DOTFILES/vim/plugins/vim-markdown
+    " set runtimepath^=$DOTFILES/vim/plugins/vim-jade
+    " set runtimepath^=$DOTFILES/vim/plugins/vim-stylus
     set runtimepath^=$DOTFILES/vim/plugins/html5.vim
     set runtimepath^=$DOTFILES/vim/plugins/vim-json
-    set runtimepath^=$DOTFILES/vim/plugins/rust.vim
-    set runtimepath^=$DOTFILES/vim/plugins/vim-pug
-    set runtimepath^=$DOTFILES/vim/plugins/vim-nix
+    " set runtimepath^=$DOTFILES/vim/plugins/rust.vim
+    " set runtimepath^=$DOTFILES/vim/plugins/vim-pug
+    " set runtimepath^=$DOTFILES/vim/plugins/i3config.vim
+    " set runtimepath^=$DOTFILES/vim/plugins/vim-nix
     set runtimepath^=$DOTFILES/vim/plugins/vim-python-pep8-indent
-    set runtimepath^=$DOTFILES/vim/plugins/vim-endwise
-    set runtimepath^=$DOTFILES/vim/plugins/vim-closer
-    set runtimepath^=$DOTFILES/vim/plugins/vim-easyclip
-    set runtimepath^=$DOTFILES/vim/plugins/vim-commentary
-
-    " Custom additions
-    set runtimepath^=$DOTFILES/src/vim
 
 " }}}
 
@@ -70,6 +73,12 @@
 
     " No word wrap
     set nowrap
+
+    " When wrapping, do not break words
+    set linebreak
+
+    " When joining lines or formatting text, don't add two spaces between sentences
+    set nojoinspaces
 
     " Silently change unsaved buffer
     set hidden
@@ -119,6 +128,15 @@
     " Do not change window title
     set notitle
 
+    " Case insensitive search
+    set ignorecase
+
+    " Sensitive completion
+    set infercase
+
+    " Sensitive search if upper characters
+    set smartcase
+
     " Set leader
     let mapleader = ','
 
@@ -130,7 +148,7 @@
 " Optimization {{{
 " ================
 
-    " Fast terminal commections
+    " Fast terminal connections
     set ttyfast
 
     " Don't redraw when running macros
@@ -147,19 +165,25 @@
 " Theme {{{
 " =========
 
-    set background=dark
     let base16colorspace = 256
-    colorscheme base16-default-dark
 
     " No background color (see through Vim)
-    highlight Normal ctermbg=none
+    autocmd ColorScheme * highlight Normal ctermbg=NONE
 
+    "
     " Bad spell force foreground to white (otherwise can end up being red on
-    " red and you can't see shit)
-    highlight SpellBad ctermfg=white
-    highlight SpellCap ctermfg=white
-    highlight SpellRare ctermfg=white
-    highlight SpellLocal ctermfg=white
+    " red and you can't see shit).
+    "
+    autocmd ColorScheme base16-default-dark highlight SpellBad ctermfg=white
+    autocmd ColorScheme base16-default-dark highlight SpellCap ctermfg=white
+    autocmd ColorScheme base16-default-dark highlight SpellRare ctermfg=white
+    autocmd ColorScheme base16-default-dark highlight SpellLocal ctermfg=white
+
+    let $BASE16_MODE = $BASE16_MODE ?? 'dark'
+    execute 'set background='.$BASE16_MODE
+
+    let $BASE16_THEME = $BASE16_THEME ?? 'base16-default-dark'
+    execute 'colorscheme '.$BASE16_THEME
 
 " }}}
 
@@ -206,134 +230,57 @@
     set listchars=tab:——,trail:•,extends:>,precedes:<,nbsp:•
     set list
 
-    " Indentation helper {{{
-    " ----------------------
-
-        function! Indent(width)
-            execute 'setl ts='.a:width.' sts='.a:width.' sw='.a:width.' et'
-        endfunction
-
-        command! -nargs=1 Indent call Indent(<f-args>)
-
-        function! Tabs()
-            call Indent(4)
-            setl noet
-        endfunction
-
-        command! Tabs call Tabs()
-
-    " }}}
-
 " }}}
 
 " Filetype associations {{{
 " =========================
 
-    " Text width {{{
-    " --------------
+    " Text width
+    au FileType text set tw=72
+    au FileType tex set tw=72
+    au FileType markdown set tw=72
 
-        au FileType text set tw=72
-        au FileType tex set tw=72
-        au FileType markdown set tw=72
+    " Spell
+    au FileType text setl spell
+    au FileType tex setl spell
+    au FileType markdown setl spell
 
-    " }}}
-
-    " Spell {{{
-    " ---------
-
-        au FileType text setl spell
-        au FileType tex setl spell
-        au FileType markdown setl spell
-
-    " }}}
-
-    " Indentation {{{
-    " ---------------
-
-        au FileType apache setl noet
-        au FileType gitconfig setl noet
-        au FileType javascript setl ts=2 sts=2 sw=2
-        au FileType typescript setl ts=2 sts=2 sw=2
-        au FileType typescriptreact setl ts=2 sts=2 sw=2
-        au FileType tex setl ts=2 sts=2 sw=2
-        au FileType coffee setl ts=2 sts=2 sw=2
-        au FileType ruby setl ts=2 sts=2 sw=2
-        au FileType json setl ts=2 sts=2 sw=2
-        au FileType html setl ts=2 sts=2 sw=2 wrap
-        au FileType markdown setl ts=2 sts=2 sw=2 wrap
-        au FileType pug setl ts=2 sts=2 sw=2 wrap
-        au FileType stylus setl ts=2 sts=2 sw=2
-        au FileType tf setl ts=2 sts=2 sw=2
-        au FileType go setl noet
-
-    " }}}
-
-" }}}
-
-" Search {{{
-" ==========
-
-    " Case insensitive
-    set ignorecase
-
-    " Sensitive completion
-    set infercase
-
-    " Sensitive search if upper characters
-    set smartcase
-
-" }}}
-
-" Wrap {{{
-" ========
-
-    " Include the wrap lines for following moves
-    noremap j gj
-    noremap k gk
-
-    " Do not break words
-    set linebreak
-
-    " When joining lines or formatting text, don't add two spaces between sentences
-    set nojoinspaces
+    " Indentation
+    au FileType apache setl noet
+    au FileType gitconfig setl noet
+    au FileType javascript setl ts=2 sts=2 sw=2
+    au FileType typescript setl ts=2 sts=2 sw=2
+    au FileType typescriptreact setl ts=2 sts=2 sw=2
+    au FileType tex setl ts=2 sts=2 sw=2
+    au FileType coffee setl ts=2 sts=2 sw=2
+    au FileType ruby setl ts=2 sts=2 sw=2
+    au FileType json setl ts=2 sts=2 sw=2
+    au FileType html setl ts=2 sts=2 sw=2 wrap
+    au FileType markdown setl ts=2 sts=2 sw=2 wrap
+    au FileType pug setl ts=2 sts=2 sw=2 wrap
+    au FileType stylus setl ts=2 sts=2 sw=2
+    au FileType tf setl ts=2 sts=2 sw=2
+    au FileType go setl noet
 
 " }}}
 
 " Plugin settings {{{
 " ===================
 
-    " `airline` {{{
-    " -------------
+    " `airline`
+    let airline#extensions#tabline#enabled = 1
+    let airline_symbols_ascii = 1
 
-        let airline#extensions#tabline#enabled = 1
-        let airline_symbols_ascii = 1
-        " let airline_powerline_fonts = 1
+    " `neocomplcache.vim`
+    let neocomplcache_enable_at_startup = 1
+    let neocomplcache_enable_smart_case = 1
+    let neocomplcache_enable_auto_select = 1
 
-    " }}}
+    " `CamelCaseMotion`
+    if exists('camelcasemotion#CreateMotionMappings')
+        call camelcasemotion#CreateMotionMappings('<leader>')
+    endif
 
-    " `detectindent` {{{
-    " ------------------
-
-        " au BufRead * DetectIndent
-
-    " }}}
-
-    " `fzf` {{{
-    " ---------
-
-        map <silent> <Leader>f :FZF<CR>
-
-    " }}}
-
-    " `indentLine` {{{
-    " ----------------
-
-        let indentLine_color_term = 236
-        let indentLine_color_gui = '#32322f'
-        let indentLine_char = '│'
-        let indentLine_noConcealCursor = ''
-
-    " }}}
 
     " `vim-markdown` {{{
     " ------------------
@@ -358,138 +305,6 @@
 
     " }}}
 
-    " `undotree` {{{
-    " --------------
-
-        map <silent> <Leader>u :UndotreeToggle<CR>
-
-    " }}}
-
-    " `vim-easymotion` {{{
-    " --------------------
-
-        " Lower match upper
-        let EasyMotion_smartcase = 1
-
-        let EasyMotion_enter_jump_first = 1
-        let EasyMotion_space_jump_first = 1
-
-        " Improve standard moves
-        map <Leader>l <Plug>(easymotion-lineforward)
-        map <Leader>j <Plug>(easymotion-j)
-        map <Leader>k <Plug>(easymotion-k)
-        map <Leader>h <Plug>(easymotion-linebackward)
-
-        " Keep cursor horizontal position
-        let EasyMotion_startofline = 0
-
-    " }}}
-
-    " `syntastic` {{{
-    " ---------------
-
-        let syntastic_mode_map = {'mode': 'passive'}
-        let syntastic_javascript_checkers = ['eslint']
-
-    " }}}
-
-    " `gist-vim` {{{
-    " --------------
-
-        let gist_post_anonymous = 1
-
-    " }}}
-
-    " `vim-easyclip` {{{
-    " ------------------
-
-        let EasyClipUseCutDefaults = 0 " Do not remap `m`
-        let EasyClipUseSubstituteDefaults = 1 " Remap `s`
-
-        " Paste without format in insert mode
-        imap <C-v> <plug>EasyClipInsertModePaste
-
-        " Cut mappings
-        nmap dx <Plug>MoveMotionPlug
-        xmap dx <Plug>MoveMotionXPlug
-        nmap dxx <Plug>MoveMotionLinePlug
-        nmap dX <Plug>MoveMotionEndOfLinePlug
-        nmap dxX <Plug>MoveMotionReplaceLinePlug
-
-    " }}}
-
-    " `neocomplcache.vim` {{{
-    " -----------------------
-
-        let neocomplcache_enable_at_startup = 1
-        let neocomplcache_enable_smart_case = 1
-        let neocomplcache_enable_auto_select = 1
-
-    " }}}
-
-    " `neosnippet.vim` {{{
-    " --------------------
-
-        " SnipMate compatibility
-        let g:neosnippet#enable_snipmate_compatibility = 1
-        let g:neosnippet#snippets_directory = '~/.vim/plugins/vim-snippets/snippets'
-
-    " }}}
-
-    " `supertab` {{{
-    " --------------
-
-        let SuperTabDefaultCompletionType = '<C-n>'
-
-    " }}}
-
-    " `auto-pairs` {{{
-    " ----------------
-
-        " Do not center line when expanding braces
-        let g:AutoPairsCenterLine = 0
-
-        " Allow to type `î` char
-        let g:AutoPairsShortcutJump = ''
-
-        " Allow to type `â` char
-        let g:AutoPairsShortcutBackInsert = ''
-
-        " Disable annoying mode
-        let g:AutoPairsMultilineClose = 0
-
-    " }}}
-
-    " `tagbar` {{{
-    " ------------
-
-        map <Leader>t :TagbarToggle<CR>
-
-    " }}}
-
-    " `switch.vim` {{{
-    " ----------------
-
-        nmap - :Switch<CR>
-
-    " }}}
-
-    " `NrrwRgn` {{{
-    " -------------
-
-        " Don't delay `<Leader>n`
-        nmap <Plug>Nope <Plug>NrrwrgnDo
-
-    " }}}
-
-    " `CamelCaseMotion` {{{
-    " ---------------------
-
-        call camelcasemotion#CreateMotionMappings('<leader>')
-
-    " }}}
-
-
 " }}}
 
 " Mappings {{{
@@ -498,12 +313,17 @@
     " Logical `Y` behavior
     noremap Y y$
 
-    map <silent> <Leader>p :set paste!<CR>
+    " Include the wrap lines when moving
+    noremap j gj
+    noremap k gk
 
-    " nmap <silent> <Left> :vertical resize -5<CR>
-    " nmap <silent> <Up> :resize -5<CR>
-    " nmap <silent> <Right> :vertical resize +5<CR>
-    " nmap <silent> <Down> :resize +5<CR>
+    " Explicite delete with yanking (complement to `vim-cutlass`)
+    nnoremap dx d
+    xnoremap dx d
+    nnoremap dxx dd
+    nnoremap dX D
+
+    map <silent> <Leader>p :set paste!<CR>
 
     " Shortcuts to browse buffers
     map <silent> <C-n> :bn<CR>
@@ -514,33 +334,35 @@
 " Helpers {{{
 " ===========
 
-    " Cursor jump {{{
-    " ---------------
+    " Jump to last known cursor position
+    autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line('$') |
+        \   exe 'normal! g`"' |
+        \ endif
 
-        " Jump to last known cursor position
-        autocmd BufReadPost *
-            \ if line("'\"") > 1 && line("'\"") <= line('$') |
-            \   exe 'normal! g`"' |
-            \ endif
+    " Toggle relative numbering
+    map <silent> <Leader>r :set relativenumber!<CR>
 
-    " }}}
+    " Count words (not "dumb" like `wc -w`)
+    function! WordCount()
+        write !grep -Eo '\w+' | wc -l
+    endfunction
 
-    " Toggle relative numbering {{{
-    " -----------------------------
+    command! WordCount call WordCount()
 
-        map <silent> <Leader>r :set relativenumber!<CR>
+    " Easily set space indentation
+    function! Indent(width)
+        execute 'setl ts='.a:width.' sts='.a:width.' sw='.a:width.' et'
+    endfunction
 
-    " }}}
+    command! -nargs=1 Indent call Indent(<f-args>)
 
-    " Count words (not dumb like `wc -w`) {{{
-    " ---------------------------------------
+    " Easily reset to tabs
+    function! Tabs()
+        call Indent(4)
+        setl noet
+    endfunction
 
-        function! WordCount()
-            write !grep -Eo '\w+' | wc -l
-        endfunction
-
-        command! WordCount call WordCount()
-
-    " }}}
+    command! Tabs call Tabs()
 
 " }}}
