@@ -51,11 +51,14 @@
 
     # Terminal colors (except in tmux)
     if [ -z "$TMUX" ]; then
+        export BASE16_MODE=dark
+        export BASE16_THEME=base16-default-dark
+
         if [ -f "$HOME/.dotfiles_color_theme" ]; then
             source "$HOME/.dotfiles_color_theme"
-        else
-            source "$DOTFILES/zsh/base16-shell/scripts/base16-default-dark.sh"
         fi
+
+        source "$DOTFILES/zsh/base16-shell/scripts/$BASE16_THEME.sh"
     fi
 
     #
@@ -94,5 +97,26 @@
 
     # Get remote IP from CodeJam
     alias ipc='curl https://ip.codejam.info/'
+
+# }}}
+
+# Functions {{{
+# ===========
+
+    function theme {
+        export BASE16_MODE=$1; shift
+        export BASE16_THEME=$1; shift
+        echo "export BASE16_MODE=$BASE16_MODE" > ~/.dotfiles_color_theme
+        echo "export BASE16_THEME=$BASE16_THEME" >> ~/.dotfiles_color_theme
+        source "$DOTFILES/zsh/base16-shell/scripts/$BASE16_THEME.sh"
+    }
+
+    function light {
+        theme light base16-atelier-plateau-light
+    }
+
+    function dark {
+        theme dark base16-default-dark
+    }
 
 # }}}

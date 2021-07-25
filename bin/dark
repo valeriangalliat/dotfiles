@@ -1,4 +1,0 @@
-#!/bin/sh -e
-
-source "$DOTFILES/zsh/base16-shell/scripts/base16-default-dark.sh"
-ln -fs "$0" ~/.dotfiles_color_theme
