@@ -228,16 +228,14 @@
     # Print {{{
     # ---------
 
-        set $mode_print print (f) interactive, (^f) focused, (F) all
+        set $mode_print print (a) all, (s) select, (f) focused
         bindsym Print mode "$mode_print"
 
         mode "$mode_print" {
-            # Home
-            bindsym f exec sleep .5 && maim -s ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
-            bindsym Control+f exec sleep .5 && maim -i $(xdotool getactivewindow) ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
-            bindsym Shift+f exec sleep .5 && maim ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym a exec sleep .5 && maim ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym s exec sleep .5 && maim -s ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym f exec sleep .5 && maim -i $(xdotool getactivewindow) ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
 
-            # Back to default mode
             bindsym Return mode default
             bindsym Escape mode default
             bindsym Print mode default
@@ -259,7 +257,6 @@
             bindsym r exec reboot; mode default
             bindsym x exec poweroff; mode default
 
-            # Back to default mode
             bindsym Return mode default
             bindsym Escape mode default
             bindsym $mod+x mode default
