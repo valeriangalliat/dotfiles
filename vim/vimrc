@@ -290,6 +290,7 @@
 
         " Do not conceal
         let vim_markdown_conceal = 0
+        let vim_markdown_conceal_code_blocks = 0
 
         " Support front matter
         let vim_markdown_frontmatter = 1
