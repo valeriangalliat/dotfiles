@@ -22,8 +22,8 @@
     set runtimepath^=$DOTFILES/vim/plugins/base16-vim
     set runtimepath^=$DOTFILES/vim/plugins/vim-airline
     set runtimepath^=$DOTFILES/vim/plugins/vim-airline-themes
-    set runtimepath^=$DOTFILES/vim/plugins/AutoComplPop
-    " set runtimepath^=$DOTFILES/vim/plugins/neocomplcache.vim
+    " set runtimepath^=$DOTFILES/vim/plugins/AutoComplPop
+    set runtimepath^=$DOTFILES/vim/plugins/neocomplcache.vim
     " set runtimepath^=$DOTFILES/vim/plugins/coc.nvim
     set runtimepath^=$DOTFILES/vim/plugins/vim-repeat
     set runtimepath^=$DOTFILES/vim/plugins/targets.vim
