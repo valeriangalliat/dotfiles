@@ -36,11 +36,15 @@ if command -v xss-lock block; then
 fi
 
 if command -v xidlehook; then
+    #
+    # Dim screen after 2 minutes, lock after 3 more minutes, and hibernate
+    # after 25 more minutes.
+    #
     xidlehook \
         --not-when-audio \
         --timer 120 'xbacklight -dec 20' 'xbacklight -inc 20' \
-        --timer 30 'xbacklight -inc 20; block' '' \
-        --timer 1800 'systemctl suspend' '' &
+        --timer 180 'xbacklight -inc 20; block' '' \
+        --timer 1500 'systemctl suspend' '' &
 fi
 
 # Execute Picom if available
