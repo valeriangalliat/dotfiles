@@ -101,8 +101,7 @@ x11-pam-hack:
 
 .PHONY: picom
 picom:
-	cp -i /etc/xdg/picom.conf ~/.config/picom.conf
-	cat picom/picom.conf >> ~/.config/picom.conf
+	ln -si $(PWD)/picom/picom.conf ~/.config/picom.conf
 
 .PHONY: xfce4-terminal
 xfce4-terminal:
