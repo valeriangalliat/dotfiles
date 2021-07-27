@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+# Capture whole screen
+maim --delay 2 /tmp/screenshot.png
+
+# Show the full screenshot
+feh --fullscreen /tmp/screenshot.png &
+pid=$!
+
+# Give some time for feh to display
+sleep .2
+
+# Now allow to select part of it, forwarding arguments
+maim --hidecursor --select "$@"
+code=$?
+
+# Close feh
+kill "$pid"
+
+# Proxy return code
+exit "$code"

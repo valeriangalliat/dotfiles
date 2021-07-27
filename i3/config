@@ -228,13 +228,19 @@
     # Print {{{
     # ---------
 
-        set $mode_print print (a) all, (s) select, (f) focused
+        set $mode_print print (a) all, (s) select, (d) delay, (f) focused, (A/S/F/D) copy to clipboard
         bindsym Print mode "$mode_print"
 
         mode "$mode_print" {
-            bindsym a exec sleep .5 && maim ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
-            bindsym s exec sleep .5 && maim -s -u ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
-            bindsym f exec sleep .5 && maim -i $(xdotool getactivewindow) ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym a exec maim ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym s exec maim --select --hidecursor ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym f exec maim --window $(xdotool getactivewindow) ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym d exec maim-context-menu-hack ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+
+            bindsym Shift+a exec sleep .5 && maim | xclip -selection clipboard -t image/png; mode default
+            bindsym Shift+s exec sleep .5 && maim --select --hidecursor | xclip -selection clipboard -t image/png; mode default
+            bindsym Shift+f exec sleep .5 && maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png; mode default
+            bindsym Shift+d exec maim-context-menu-hack | xclip -selection clipboard -t image/png; mode default
 
             bindsym Return mode default
             bindsym Escape mode default
