@@ -1,22 +1,17 @@
+.PHONY: base
+base: zsh vim git net psql tmux
+
 .PHONY: mac
-mac: zsh vim git
+mac: base
 
-.PHONY: i3
-i3:
-	mkdir -p ~/.config/i3
-	ln -si $(PWD)/i3/config ~/.config/i3/config
+.PHONY: linux
+linux: base i3 i3blocks x11 picom xfce4-terminal feh
 
-.PHONY: i3blocks
-i3blocks: i3blocks/i3blocks i3blocks/i3blocks-contrib
-	mkdir -p ~/.config/i3blocks
-	ln -si $(PWD)/i3blocks/config ~/.config/i3blocks/config
+# Base {{{
+# ========
 
-i3blocks/i3blocks:
-	git clone https://github.com/vivien/i3blocks.git $@
-	cd $@ && ./autogen.sh && ./configure && make
-
-i3blocks/i3blocks-contrib:
-	git clone https://github.com/vivien/i3blocks-contrib.git $@
+	# Zsh {{{
+	# -------
 
 .PHONY: zsh
 zsh: zsh/oh-my-zsh zsh/zsh-syntax-highlighting zsh/base16-shell zsh/dircolors
@@ -39,16 +34,14 @@ zsh/dircolors:
 		| sed 's/05/00/g' \
 		| dircolors - > $@ || touch $@
 
+	# }}}
+
 .PHONY: vim
 vim:
-	make -C vim
 	mkdir -p ~/.vim/undo ~/.vim/swap
 	ln -si $(PWD)/vim/syntax ~/.vim/syntax
 	ln -si $(PWD)/vim/vimrc ~/.vimrc
-
-.PHONY: tmux
-tmux:
-	cp -i $(PWD)/tmux/tmux.conf.home ~/.tmux.conf
+	make -C vim
 
 .PHONY: git
 git:
@@ -64,6 +57,31 @@ net:
 psql:
 	ln -si $(PWD)/psql/psqlrc ~/.psqlrc
 
+.PHONY: tmux
+tmux:
+	cp -i $(PWD)/tmux/tmux.conf.home ~/.tmux.conf
+
+# }}}
+
+# Linux {{{
+# =========
+
+.PHONY: i3
+i3:
+	mkdir -p ~/.config/i3
+	ln -si $(PWD)/i3/config ~/.config/i3/config
+
+.PHONY: i3blocks
+i3blocks: i3blocks/i3blocks i3blocks/i3blocks-contrib
+	mkdir -p ~/.config/i3blocks
+	ln -si $(PWD)/i3blocks/config ~/.config/i3blocks/config
+
+i3blocks/i3blocks:
+	git clone https://github.com/vivien/i3blocks.git $@
+	cd $@ && ./autogen.sh && ./configure && make
+
+i3blocks/i3blocks-contrib:
+	git clone https://github.com/vivien/i3blocks-contrib.git $@
 
 .PHONY: x11
 x11: x11/block
@@ -76,7 +94,7 @@ x11: x11/block
 x11/block:
 	git clone https://github.com/valeriangalliat/block.git $@
 
-# See <https://github.com/systemd/systemd/issues/14053#issuecomment-571363297>.
+# See <https://github.com/systemd/systemd/issues/14053#issuecomment-571363297>
 .PHONY: x11-pam-hack
 x11-pam-hack:
 	cp -i $(PWD)/x11/pam_environment ~/.pam_environment
@@ -90,3 +108,10 @@ picom:
 xfce4-terminal:
 	mkdir -p ~/.config/xfce4/terminal
 	ln -si $(PWD)/xfce4-terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
+
+.PHONY: feh
+feh:
+	mkdir -p ~/.config/feh
+	ln -si $(PWD)/feh/themes ~/.config/feh/themes
+
+# }}}
