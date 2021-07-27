@@ -71,7 +71,10 @@
 # ============
 
     # Start launcher
-    bindsym $mod+d exec dmenu_run -fn monospace:size=11 -nb '$base00' -nf '$base07' -sb '$base0d' -sf '$base00'
+    bindsym $mod+d exec dmenu_run
+
+    # Emoji picker
+    bindsym $mod+period exec dmenumoji
 
     # Start terminal
     bindsym $mod+Return exec cd "$(i3-focused-window-cwd)" && i3-sensible-terminal
