@@ -17,7 +17,6 @@ linux: base i3 i3blocks x11 picom xfce4-terminal feh
 zsh: zsh/oh-my-zsh zsh/zsh-syntax-highlighting zsh/base16-shell zsh/dircolors
 	cp -i $(PWD)/zsh/zshrc.home ~/.zshrc
 	cp -i $(PWD)/zsh/zshenv.home ~/.zshenv
-	ln -si .zshenv ~/.zlogin
 
 zsh/oh-my-zsh:
 	git clone https://github.com/robbyrussell/oh-my-zsh.git $@
