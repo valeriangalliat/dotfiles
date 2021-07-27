@@ -10,13 +10,18 @@
 # This program extracts the directory path from the title.
 #
 
-title() {
-    echo "Terminal - i3cwd (~/dotfiles-old/bin) - VIM"
-}
+prefix="$(whoami)@$(hostname)"
 
-path=$(i3-focused-window-title)
-path=$(echo "$path" | sed 's,[^~/]*\([~/]\),\1,')
-path=$(echo "$path" | sed 's,[) ].*,,')
+path=$(i3-focused-window-title | sed -n "
+    s/$prefix: //p
+
+    /) - VIM$/ {
+        s/) - VIM$//
+        s/.*(//
+        p
+    }
+")
+
 path=$(echo "$path" | sed "s,^~,$HOME,")
 
 if ! [ -d "$path" ]; then
