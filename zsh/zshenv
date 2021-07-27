@@ -2,6 +2,19 @@
 # ~/.zshenv
 #
 
+#
+# Deduplicate `PATH` entries.
+#
+# When starting X through a TTY, the environment will be loaded once already,
+# so when we open a new terminal, this file is sourced again and we'll
+# duplicate everything.
+#
+# Or even when using a login manager, I like those paths to be available to
+# programs in the graphical session so I also source this file in
+# `~/.xprofile` and we end up with the the same duplication in terminals.
+#
+typeset -U PATH
+
 PATH=~/.local/bin:$PATH # Local bin
 PATH=$DOTFILES/bin:$PATH # Dotfiles' bin
 PATH=~/bin:$PATH # User bin
