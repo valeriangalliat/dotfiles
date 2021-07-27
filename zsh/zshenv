@@ -16,7 +16,7 @@
 typeset -U PATH
 
 PATH=~/.local/bin:$PATH # Local bin
-PATH=$DOTFILES/bin:$PATH # Dotfiles' bin
+PATH=$DOTFILES/bin/common:$PATH # Dotfiles' bin (all systems)
 PATH=~/bin:$PATH # User bin
 export PATH
 
