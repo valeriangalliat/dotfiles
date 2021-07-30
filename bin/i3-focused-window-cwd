@@ -2,8 +2,8 @@
 #
 # Window title can look like:
 #
-#     user@host: ~/path/to/dir
-#     user@host: /path/to/dir
+#     user@host:~/path/to/dir
+#     user@host:/path/to/dir
 #     file (~/path/to/dir) - VIM
 #     file (/path/to/dir) - VIM
 #
@@ -13,7 +13,7 @@
 prefix="$(whoami)@$(hostname)"
 
 path=$(i3-focused-window-title | sed -n "
-    s/$prefix: //p
+    s/$prefix: *//p
 
     /) - VIM$/ {
         s/) - VIM$//
