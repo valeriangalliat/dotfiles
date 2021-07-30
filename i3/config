@@ -76,6 +76,9 @@
     # Emoji picker
     bindsym $mod+period exec dmenumoji
 
+    # Bluetooth manager
+    bindsym $mod+b exec rofi-bluetooth
+
     # Start terminal
     bindsym $mod+Return exec cd "$(i3-focused-window-cwd)" && i3-sensible-terminal
 
