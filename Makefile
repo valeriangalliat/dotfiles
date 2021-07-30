@@ -5,7 +5,7 @@ base: zsh vim git net psql tmux
 mac: base
 
 .PHONY: linux
-linux: base i3 i3blocks x11 picom xfce4-terminal feh
+linux: base i3 i3blocks dmenu x11 picom xfce4-terminal feh
 
 # Base {{{
 # ========
@@ -40,7 +40,7 @@ vim:
 	mkdir -p ~/.vim/undo ~/.vim/swap
 	ln -si $(PWD)/vim/syntax ~/.vim/syntax
 	ln -si $(PWD)/vim/vimrc ~/.vimrc
-	make -C vim
+	make -C $@
 
 .PHONY: git
 git:
@@ -81,6 +81,10 @@ i3blocks/i3blocks:
 
 i3blocks/i3blocks-contrib:
 	git clone https://github.com/vivien/i3blocks-contrib.git $@
+
+.PHONY: dmenu
+dmenu:
+	make -C $@
 
 .PHONY: x11
 x11: x11/block
