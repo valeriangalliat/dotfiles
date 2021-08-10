@@ -277,9 +277,7 @@
     let neocomplcache_enable_auto_select = 1
 
     " `CamelCaseMotion`
-    if exists('camelcasemotion#CreateMotionMappings')
-        call camelcasemotion#CreateMotionMappings('<leader>')
-    endif
+    let camelcasemotion_key = '<Leader>'
 
 
     " `vim-markdown` {{{
