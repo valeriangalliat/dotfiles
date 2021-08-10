@@ -11,11 +11,12 @@ pid=$!
 sleep .2
 
 # Now allow to select part of it, forwarding arguments
-maim --hidecursor --select "$@"
-code=$?
+maim --hidecursor --select "$@" || code=$?
 
 # Close feh
 kill "$pid"
 
-# Proxy return code
-exit "$code"
+if [ -n "$code" ]; then
+    # Proxy return code
+    exit "$code"
+fi
