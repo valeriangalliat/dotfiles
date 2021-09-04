@@ -145,4 +145,7 @@ plugins/vim-nix:
 plugins/vim-python-pep8-indent:
 	git clone https://github.com/Vimjas/vim-python-pep8-indent.git $@
 
+plugins/vim-elixir:
+	git clone https://github.com/elixir-editors/vim-elixir $@
+
 # }}}
