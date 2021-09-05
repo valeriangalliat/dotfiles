@@ -22,3 +22,5 @@ export PATH
 
 export EDITOR=vim
 export PAGER=less
+
+export ERL_AFLAGS='-kernel shell_history enabled' # Keep history in IEx
