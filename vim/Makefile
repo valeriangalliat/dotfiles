@@ -100,6 +100,10 @@ plugins/vim-cutlass:
 plugins/vim-commentary:
 	git clone https://github.com/tpope/vim-commentary.git $@
 
+# fzf integration
+plugins/fzf.vim:
+	git clone https://github.com/junegunn/fzf.vim $@
+
 # }}}
 
 # Syntax {{{

@@ -37,6 +37,7 @@
     set runtimepath^=$DOTFILES/vim/plugins/vim-filebeagle
     set runtimepath^=$DOTFILES/vim/plugins/vim-cutlass
     set runtimepath^=$DOTFILES/vim/plugins/vim-commentary
+    set runtimepath^=$DOTFILES/vim/plugins/fzf.vim
     set runtimepath^=$DOTFILES/vim/plugins/vim-javascript
     set runtimepath^=$DOTFILES/vim/plugins/typescript-vim
     set runtimepath^=$DOTFILES/vim/plugins/tabular
@@ -280,7 +281,6 @@
     " `CamelCaseMotion`
     let camelcasemotion_key = '<Leader>'
 
-
     " `vim-markdown` {{{
     " ------------------
 
@@ -328,6 +328,9 @@
     " Shortcuts to browse buffers
     map <silent> <C-n> :bn<CR>
     map <silent> <C-p> :bp<CR>
+
+    " fzf shortcut
+    map <silent> <Leader><Leader> :Files<CR>
 
 " }}}
 
