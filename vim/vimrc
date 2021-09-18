@@ -23,8 +23,9 @@
     set runtimepath^=$DOTFILES/vim/plugins/vim-airline
     set runtimepath^=$DOTFILES/vim/plugins/vim-airline-themes
     " set runtimepath^=$DOTFILES/vim/plugins/AutoComplPop
-    set runtimepath^=$DOTFILES/vim/plugins/neocomplcache.vim
+    " set runtimepath^=$DOTFILES/vim/plugins/neocomplcache.vim
     " set runtimepath^=$DOTFILES/vim/plugins/coc.nvim
+    set runtimepath^=$DOTFILES/vim/plugins/vim-mucomplete
     set runtimepath^=$DOTFILES/vim/plugins/vim-repeat
     set runtimepath^=$DOTFILES/vim/plugins/targets.vim
     set runtimepath^=$DOTFILES/vim/plugins/vim-exchange
@@ -274,9 +275,16 @@
     let airline_symbols_ascii = 1
 
     " `neocomplcache.vim`
-    let neocomplcache_enable_at_startup = 1
-    let neocomplcache_enable_smart_case = 1
-    let neocomplcache_enable_auto_select = 1
+    " let neocomplcache_enable_at_startup = 1
+    " let neocomplcache_enable_smart_case = 1
+    " let neocomplcache_enable_auto_select = 1
+
+    " `vim-mucomplete`
+    let mucomplete#enable_auto_at_startup = 1
+    set completeopt+=menuone
+    set completeopt+=noselect
+    " set completeopt+=noinsert
+    set shortmess+=c
 
     " `CamelCaseMotion`
     let camelcasemotion_key = '<Leader>'
@@ -331,6 +339,8 @@
 
     " fzf shortcut
     map <silent> <Leader><Leader> :Files<CR>
+    map <silent> <Leader>g :GFiles<CR>
+    map <silent> <Leader>a :Ag<CR>
 
 " }}}
 

@@ -33,6 +33,10 @@ plugins/AutoComplPop:
 plugins/neocomplcache.vim:
 	git clone https://github.com/Shougo/neocomplcache.vim.git $@
 
+# Autocompletion
+plugins/vim-mucomplete:
+	git clone https://github.com/lifepillar/vim-mucomplete.git $@
+
 # Autocompletion (LSP support)
 plugins/coc.nvim:
 	git clone https://github.com/neoclide/coc.nvim.git $@
