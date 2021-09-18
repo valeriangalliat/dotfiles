@@ -38,6 +38,7 @@
     set runtimepath^=$DOTFILES/vim/plugins/vim-filebeagle
     set runtimepath^=$DOTFILES/vim/plugins/vim-cutlass
     set runtimepath^=$DOTFILES/vim/plugins/vim-commentary
+    set runtimepath^=$DOTFILES/vim/plugins/fzf
     set runtimepath^=$DOTFILES/vim/plugins/fzf.vim
     set runtimepath^=$DOTFILES/vim/plugins/vim-javascript
     set runtimepath^=$DOTFILES/vim/plugins/typescript-vim

@@ -105,6 +105,10 @@ plugins/vim-commentary:
 	git clone https://github.com/tpope/vim-commentary.git $@
 
 # fzf integration
+plugins/fzf:
+	git clone https://github.com/junegunn/fzf $@
+
+# fzf extras
 plugins/fzf.vim:
 	git clone https://github.com/junegunn/fzf.vim $@
 
