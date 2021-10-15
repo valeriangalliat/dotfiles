@@ -54,6 +54,7 @@
     " set runtimepath^=$DOTFILES/vim/plugins/vim-nix
     set runtimepath^=$DOTFILES/vim/plugins/vim-python-pep8-indent
     set runtimepath^=$DOTFILES/vim/plugins/vim-elixir
+    set runtimepath^=$DOTFILES/vim/plugins/dbext.vim
 
 " }}}
 
@@ -140,6 +141,9 @@
 
     " Sensitive search if upper characters
     set smartcase
+
+    " Restore the default value for macOS
+    set modelines=5
 
     " Set leader
     let mapleader = ','
