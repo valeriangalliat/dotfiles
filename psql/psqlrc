@@ -1,9 +1,10 @@
 \set QUIET
 \set HISTCONTROL ignoredups
 \setenv PAGER less
-\setenv LESS '-iMSFXx4'
+\setenv LESS '--ignore-case --LONG-PROMPT --chop-long-lines --quit-if-one-screen --no-init --tabs=4'
 \timing on
 \pset null ¤
-\pset format wrapped
 \pset expanded auto
 \unset QUIET
+
+-- vim: ft=sql
