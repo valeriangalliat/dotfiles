@@ -294,6 +294,9 @@
     " `CamelCaseMotion`
     let camelcasemotion_key = '<Leader>'
 
+    " `vim-javascript`
+    let javascript_plugin_jsdoc = 1
+
     " `vim-markdown` {{{
     " ------------------
 
