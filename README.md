@@ -1,10 +1,8 @@
-Dotfiles
-========
+# 💡 Dotfiles
 
 > My home directory skeleton with main configuration files.
 
-Description
------------
+## Description
 
 This repository contains my configuration files for GNU/Linux or BSD
 environment.
@@ -12,8 +10,7 @@ environment.
 Some files are stored as symbolic link and this repository needs to be
 cloned into a compliant filesystem for the links to work.
 
-Installation
-------------
+## Installation
 
 A makefile will help to deploy the configuration files.
 
