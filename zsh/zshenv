@@ -23,4 +23,8 @@ export PATH
 export EDITOR=vim
 export PAGER=less
 
-export ERL_AFLAGS='-kernel shell_history enabled' # Keep history in IEx
+# Keep history in IEx
+export ERL_AFLAGS='-kernel shell_history enabled'
+
+# Make fzf ignore files from `.gitignore`
+export FZF_DEFAULT_COMMAND='ag -g ""'
