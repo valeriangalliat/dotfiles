@@ -1,5 +1,5 @@
 .PHONY: base
-base: zsh vim git net psql tmux
+base: zsh vim git net psql asdf
 
 .PHONY: mac
 mac: base
@@ -55,6 +55,10 @@ net:
 .PHONY: psql
 psql:
 	ln -si $(PWD)/psql/psqlrc ~/.psqlrc
+
+.PHONY: asdf
+asdf:
+	ln -si $(PWD)/asdf/tool-versions ~/.tool-versions
 
 .PHONY: tmux
 tmux:
