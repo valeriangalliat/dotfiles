@@ -7,5 +7,15 @@
 #     exec startx
 # fi
 
+#
+# Hack to run `compinit` with `-i` to ignore "insecure" directories when used
+# with Homebrew in a multi-user system, and shadow the function to prevent
+# dotfiles `zshrc` to run it again. Replace `-i` with `-u` to allow loading
+# those.
+#
+# autoload -U compinit
+# compinit -i -d ~/.zcompdump
+# compinit() {}
+
 source "$DOTFILES/zsh/zshrc"
 # source "$DOTFILES/zsh/asdf.sh"
