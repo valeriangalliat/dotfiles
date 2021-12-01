@@ -187,10 +187,12 @@
     autocmd ColorScheme base16-default-dark highlight SpellRare ctermfg=white
     autocmd ColorScheme base16-default-dark highlight SpellLocal ctermfg=white
 
-    let $BASE16_MODE = $BASE16_MODE ?? 'dark'
+    " let $BASE16_MODE = $BASE16_MODE ?? 'dark'
+    let $BASE16_MODE = $BASE16_MODE ? $BASE16_MODE : 'dark'
     execute 'set background='.$BASE16_MODE
 
-    let $BASE16_THEME = $BASE16_THEME ?? 'base16-default-dark'
+    " let $BASE16_THEME = $BASE16_THEME ?? 'base16-default-dark'
+    let $BASE16_THEME = $BASE16_THEME ? $BASE16_THEME : 'base16-default-dark'
     execute 'colorscheme '.$BASE16_THEME
 
 " }}}
