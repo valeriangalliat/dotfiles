@@ -350,7 +350,7 @@
     " fzf shortcut
     map <silent> <Leader><Leader> :Files<CR>
     map <silent> <Leader>g :GFiles<CR>
-    map <silent> <Leader>a :Ag<CR>
+    map <silent> <Leader>a :Rg<CR>
 
 " }}}
 
