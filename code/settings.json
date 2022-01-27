@@ -1,0 +1,164 @@
+{
+    "workbench.activityBar.visible": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "vim.handleKeys": {
+        "<C-w>": false
+    },
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "D"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "D"
+            ]
+        },
+        {
+            "before": [
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "c"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "c"
+            ]
+        },
+        {
+            "before": [
+                "C"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "C"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "c"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "c",
+                "c"
+            ]
+        },
+        {
+            "before": [
+                "x"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "x"
+            ]
+        },
+        {
+            "before": [
+                "X"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "X"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "X"
+            ],
+            "after": [
+                "D"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "x"
+            ],
+            "after": [
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "x",
+                "x"
+            ],
+            "after": [
+                "d",
+                "d"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "c"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "c"
+            ]
+        },
+        {
+            "before": [
+                "x"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "x"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "x"
+            ],
+            "after": [
+                "d"
+            ]
+        }
+    ]
+}
