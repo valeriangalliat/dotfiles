@@ -1,11 +1,41 @@
 {
     "workbench.activityBar.visible": false,
+    "window.nativeTabs": true,
+    "extensions.ignoreRecommendations": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "vim.handleKeys": {
         "<C-w>": false
     },
     "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "after": [
+                ":",
+                "b",
+                "n",
+                "<CR>"
+            ]
+        },
+        {
+            "before": [
+                "<C-p>"
+            ],
+            "after": [
+                ":",
+                "b",
+                "p",
+                "<CR>"
+            ]
+        },
         {
             "before": [
                 "D"

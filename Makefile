@@ -64,6 +64,12 @@ asdf:
 tmux:
 	cp -i $(PWD)/tmux/tmux.conf.home ~/.tmux.conf
 
+.PHONY: code
+code:
+	if [ -d "$(HOME)/Library/Application Support" ]; then code_dir="$(HOME)/Library/Application Support/Code/User"; else code_dir=~/.config/Code/User; fi && \
+		ln -si $(PWD)/code/keybindings.json "$$code_dir/keybindings.json" && \
+		ln -si $(PWD)/code/settings.json "$$code_dir/settings.json"
+
 # }}}
 
 # Linux {{{
