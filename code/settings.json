@@ -10,10 +10,21 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "vim.leader": ",",
+    "vim.camelCaseMotion.enable": true,
     "vim.handleKeys": {
         "<C-w>": false
     },
     "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "Y"
+            ],
+            "after": [
+                "y",
+                "$"
+            ]
+        },
         {
             "before": [
                 "<C-n>"
