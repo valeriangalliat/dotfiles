@@ -4,6 +4,7 @@
     "extensions.ignoreRecommendations": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
+    "files.insertFinalNewline": true,
     "vim.leader": ",",
     "vim.camelCaseMotion.enable": true,
     "vim.handleKeys": {
