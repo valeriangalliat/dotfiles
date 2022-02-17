@@ -8,7 +8,8 @@
     "vim.camelCaseMotion.enable": true,
     "vim.handleKeys": {
         "<C-w>": false,
-        "<C-p>": false
+        "<C-p>": false,
+        "<C-f>": false
     },
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -22,23 +23,23 @@
         },
         {
             "before": [
-                "<C-]>"
-            ],
-            "after": [
-                ":",
-                "b",
-                "n",
-                "<CR>"
-            ]
-        },
-        {
-            "before": [
-                "<C-[>"
+                "<C-j>"
             ],
             "after": [
                 ":",
                 "b",
                 "p",
+                "<CR>"
+            ]
+        },
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "after": [
+                ":",
+                "b",
+                "n",
                 "<CR>"
             ]
         },
