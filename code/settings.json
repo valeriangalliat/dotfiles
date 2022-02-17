@@ -4,16 +4,11 @@
     "extensions.ignoreRecommendations": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "vim.leader": ",",
     "vim.camelCaseMotion.enable": true,
     "vim.handleKeys": {
-        "<C-w>": false
+        "<C-w>": false,
+        "<C-p>": false
     },
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -27,7 +22,7 @@
         },
         {
             "before": [
-                "<C-n>"
+                "<C-]>"
             ],
             "after": [
                 ":",
@@ -38,7 +33,7 @@
         },
         {
             "before": [
-                "<C-p>"
+                "<C-[>"
             ],
             "after": [
                 ":",
