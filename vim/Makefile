@@ -160,6 +160,9 @@ plugins/vim-python-pep8-indent:
 plugins/vim-elixir:
 	git clone https://github.com/elixir-editors/vim-elixir $@
 
+plugins/vim-toml:
+	git clone https://github.com/cespare/vim-toml $@
+
 # Needed for SQL autocompletion
 plugins/dbext.vim:
 	git clone --config fetch.fsckobjects=false https://github.com/vim-scripts/dbext.vim $@
