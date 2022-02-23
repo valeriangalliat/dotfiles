@@ -150,7 +150,7 @@
     let mapleader = ','
 
     " Auto close netrw after opening file
-    let g:netrw_fastbrowse = 0
+    let netrw_fastbrowse = 0
 
 " }}}
 
@@ -317,7 +317,7 @@
         let vim_markdown_strikethrough = 1
 
         " Set list indent
-        let g:vim_markdown_new_list_item_indent = 2
+        let vim_markdown_new_list_item_indent = 2
 
         " Do not recurse syntax (crashes plugin)
         let vim_markdown_fenced_languages = ['markdown=text', 'md=text']
