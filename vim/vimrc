@@ -339,8 +339,8 @@
     map <silent> <Leader>p :set paste!<CR>
 
     " Shortcuts to browse buffers
-    map <silent> <C-j> :bp<CR>
-    map <silent> <C-k> :bn<CR>
+    map <silent> <C-j> :bn<CR>
+    map <silent> <C-k> :bp<CR>
 
     " fzf shortcut
     map <silent> <Leader><Leader> :Files<CR>
