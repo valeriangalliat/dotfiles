@@ -5,9 +5,6 @@
 " Initialization {{{
 " ==================
 
-    " Don't use system Vim configuration
-    set noexrc
-
     " Leave compatible mode alone
     if &compatible
         finish
@@ -102,9 +99,6 @@
     " Save edit history to file
     set undofile
     set undodir=~/.vim/undo
-
-    " Read `.vimrc` in the current directory
-    set exrc
 
     " Secure mode for `exrc`
     set secure
