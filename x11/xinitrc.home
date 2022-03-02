@@ -11,7 +11,7 @@
 # feh --bg-fill ~/bg1.jpg --bg-fill ~/bg2.jpg
 
 # Lock screen before actually starting, to be used with autologin
-# i3lock -nui ~/lock.png
+# i3lock -ni ~/lock.png
 
 # Run main script
 source "$DOTFILES/x11/xinitrc"

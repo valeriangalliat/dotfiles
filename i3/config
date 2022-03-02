@@ -23,8 +23,8 @@
 
     # Gaps
     gaps inner 20
-    # smart_gaps on
-    # smart_borders no_gaps
+    smart_gaps on
+    smart_borders no_gaps
 
     # Default workspace layout
     workspace_layout default
