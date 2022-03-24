@@ -5,6 +5,15 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "files.insertFinalNewline": true,
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.tabSize": 2
+    },
     "vim.leader": ",",
     "vim.camelCaseMotion.enable": true,
     "vim.handleKeys": {
