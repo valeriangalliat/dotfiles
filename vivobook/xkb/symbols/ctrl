@@ -1,0 +1,25 @@
+partial modifier_keys
+
+# Hijack the existing `ctrl:nocaps` option to do my own inversion of
+# media keys and function keys.
+#
+# I need to do this becuse it's easy to overwrite an existing option but it
+# seems tricky to add a new one.
+xkb_symbols "nocaps" {
+    replace key <FK05> { [ XF86MonBrightnessDown ] };
+    replace key <FK06> { [ XF86MonBrightnessUp ] };
+    replace key <FK07> { [ XF86ScreenSaver ] };
+    replace key <FK09> { [ XF86TouchpadToggle ] };
+    replace key <FK10> { [ XF86AudioMute ] };
+    replace key <FK11> { [ XF86AudioLowerVolume ] };
+    replace key <FK12> { [ XF86AudioRaiseVolume ] };
+    replace key <I232> { [ F5 ] };
+    replace key <I233> { [ F6 ] };
+    replace key <I160> { [ F7 ] };
+    replace key <I199> { [ F9 ] };
+    replace key <I121> { [ F10 ] };
+    replace key <I122> { [ F11 ] };
+    replace key <I123> { [ F12 ] };
+};
+
+# vim: ft=conf

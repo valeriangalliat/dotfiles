@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+exec bemenu-run -p '' --fn 'pango:monospace 11' --tb '#181818' --tf '#7cafc2' --nb '#181818' --nf '#f8f8f8' --hb '#7cafc2' --hf '#181818' "$@"

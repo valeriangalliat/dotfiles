@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+emoji=$(cat "$DOTFILES/menu/dmenumoji/emoji.txt" | bemenu-styled -i -l 30 "$@" | sed 's/ .*//')
+
+if [ -z "$emoji" ]; then
+    exit
+fi
+
+if [ "$1" = copy ]; then
+    printf "$emoji" | pbcopy
+    echo "Copied $emoji to clipboard!"
+else
+    wtype "$emoji"
+fi

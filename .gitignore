@@ -1,10 +1,8 @@
-/i3blocks/i3blocks
 /i3blocks/i3blocks-contrib
 /zsh/oh-my-zsh
 /zsh/zsh-syntax-highlighting
 /zsh/base16-shell
 /zsh/dircolors
 /vim/plugins
-/x11/block
-/dmenu/dmenumoji
-/dmenu/rofi-bluetooth
+/menu/dmenumoji
+/menu/rofi-bluetooth

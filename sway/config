@@ -1,0 +1,345 @@
+#
+# ~/.config/sway/config
+#
+
+# Essentials {{{
+# ==============
+
+    # Font
+    font pango:monospace 11
+
+    #
+    # Window format.
+    #
+    # The borders will be 1 pixel large, and if the window is "alone" the title
+    # bar is hidden (unline `default` mode).
+    #
+    default_border pixel 1
+    default_floating_border pixel 1
+
+    # Gaps
+    gaps inner 20
+    smart_gaps on
+    smart_borders no_gaps
+
+    #
+    # Focus previous workspace when switching two times to the same workspace.
+    #
+    workspace_auto_back_and_forth yes
+
+# }}}
+
+# Colors {{{
+# ==========
+
+    set $base00 #181818
+    set $base01 #282828
+    set $base02 #383838
+    set $base03 #585858
+    set $base04 #b8b8b8
+    set $base05 #d8d8d8
+    set $base06 #e8e8e8
+    set $base07 #f8f8f8
+    set $base08 #ab4642
+    set $base09 #dc9656
+    set $base0a #f7ca88
+    set $base0b #a1b56c
+    set $base0c #86c1b9
+    set $base0d #7cafc2
+    set $base0e #ba8baf
+    set $base0f #a16946
+
+    # Class                 Border  Backgr. Text    Indicator
+    client.focused          $base0d $base0d $base00 $base0a
+    client.focused_inactive $base03 $base03 $base07 $base04
+    client.unfocused        $base01 $base01 $base03 $base02
+    client.urgent           $base08 $base08 $base07 $base08
+
+# }}}
+
+# Bindings {{{
+# ============
+
+    # Modifier
+    set $mod Mod4
+    floating_modifier $mod
+
+    # Start launcher
+    bindsym $mod+d exec bemenu-run-styled
+
+    # Emoji picker
+    bindsym $mod+period exec bemenumoji
+    bindsym $mod+Shift+period exec bemenumoji copy
+
+    # Bluetooth manager
+    bindsym $mod+Shift+b exec rofi-bluetooth
+
+    # Start terminal
+    bindsym $mod+Return exec cd "$(sway-focused-window-cwd)" && foot
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Change focus (Vi keys)
+    bindsym $mod+h focus left
+    bindsym $mod+j focus down
+    bindsym $mod+k focus up
+    bindsym $mod+l focus right
+
+    # Change focus (cursor keys)
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move window (Vi keys)
+    bindsym $mod+Shift+h move left
+    bindsym $mod+Shift+j move down
+    bindsym $mod+Shift+k move up
+    bindsym $mod+Shift+l move right
+
+    # Move window (cursor keys)
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+    # Horizontal split
+    bindsym $mod+b splith
+
+    # Vertical split
+    bindsym $mod+v splitv
+
+    # Change layout
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Toggle fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle tiling and floating
+    bindsym $mod+Shift+space floating toggle
+
+    # Change focus between tiling and floating windows
+    bindsym $mod+space focus mode_toggle
+
+    # Focus parent/child container
+    bindsym $mod+a focus parent
+    bindsym $mod+s focus child
+
+    # Scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+minus scratchpad show
+
+    # Media keys
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
+
+    # Sreen brightness
+    bindsym XF86MonBrightnessDown exec light -U 5
+    bindsym XF86MonBrightnessUp exec light -A 5
+
+    # Screen saver
+    bindsym XF86ScreenSaver exec block
+
+    # Media player controls
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+
+# }}}
+
+# Workspaces {{{
+# ==============
+
+    # Names
+    set $ws1 1
+    set $ws2 2
+    set $ws3 3
+    set $ws4 4
+    set $ws5 5
+    set $ws6 6
+    set $ws7 7
+    set $ws8 8
+    set $ws9 9
+    set $ws0 0
+
+    # Switch to workspace
+    bindsym $mod+1 workspace number $ws1
+    bindsym $mod+2 workspace number $ws2
+    bindsym $mod+3 workspace number $ws3
+    bindsym $mod+4 workspace number $ws4
+    bindsym $mod+5 workspace number $ws5
+    bindsym $mod+6 workspace number $ws6
+    bindsym $mod+7 workspace number $ws7
+    bindsym $mod+8 workspace number $ws8
+    bindsym $mod+9 workspace number $ws9
+    bindsym $mod+0 workspace number $ws0
+
+    # Move container to workspace
+    bindsym $mod+Shift+1 move container to workspace number $ws1
+    bindsym $mod+Shift+2 move container to workspace number $ws2
+    bindsym $mod+Shift+3 move container to workspace number $ws3
+    bindsym $mod+Shift+4 move container to workspace number $ws4
+    bindsym $mod+Shift+5 move container to workspace number $ws5
+    bindsym $mod+Shift+6 move container to workspace number $ws6
+    bindsym $mod+Shift+7 move container to workspace number $ws7
+    bindsym $mod+Shift+8 move container to workspace number $ws8
+    bindsym $mod+Shift+9 move container to workspace number $ws9
+    bindsym $mod+Shift+0 move container to workspace number $ws0
+
+# }}}
+
+# Modes {{{
+# =========
+
+    # Resize {{{
+    # ----------
+
+        bindsym $mod+r mode resize
+
+        mode resize {
+            # Resize (Vi keys shifted right)
+            bindsym h resize shrink width 10px
+            bindsym j resize grow height 10px
+            bindsym k resize shrink height 10px
+            bindsym l resize grow width 10px
+
+            # Resize (cursor keys)
+            bindsym Left resize shrink width 10px
+            bindsym Down resize grow height 10px
+            bindsym Up resize shrink height 10px
+            bindsym Right resize grow width 10px
+
+            # Back to default mode
+            bindsym Return mode default
+            bindsym Escape mode default
+            bindsym $mod+r mode default
+        }
+
+    # }}}
+
+    # Print {{{
+    # ---------
+
+        #
+        # Focused and select are reversed for legacy muscle memory reasons,
+        # as `f` used to stand for save to file.
+        #
+        set $mode_print print (a) all, (s) focused, (d) delay, (f) select, (A/S/F/D) copy to clipboard
+        bindsym Print mode "$mode_print"
+
+        mode "$mode_print" {
+            bindsym a exec grim ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym s exec grim -g "$(slurp-focused)" ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym d exec grim-context-menu-hack ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+            bindsym f exec grim -g "$(slurp)" ~/screenshots/$(date +%Y-%m-%d-%H%M%S).png; mode default
+
+            bindsym Shift+a exec grim - | pbcopy; mode default
+            bindsym Shift+s exec grim -g "$(slurp-focused)" - | pbcopy; mode default
+            bindsym Shift+d exec grim-context-menu-hack - | pbcopy; mode default
+            bindsym Shift+f exec grim -g "$(slurp)" - | pbcopy; mode default
+
+            bindsym Return mode default
+            bindsym Escape mode default
+            bindsym Print mode default
+        }
+
+    # }}}
+
+    # System {{{
+    # ----------
+
+        set $mode_system system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (x) shutdown
+        bindsym $mod+x mode "$mode_system"
+
+        mode "$mode_system" {
+            bindsym l exec block; mode default
+            bindsym e exec swaymsg exit; mode default
+            bindsym s exec systemctl suspend; mode default
+            bindsym h exec systemctl hibernate; mode default
+            bindsym r exec reboot; mode default
+            bindsym x exec poweroff; mode default
+
+            bindsym Return mode default
+            bindsym Escape mode default
+            bindsym $mod+x mode default
+        }
+
+    # }}}
+
+# }}}
+
+# Bar {{{
+# =======
+
+    bar {
+        status_command i3blocks
+
+        colors {
+            background $base00
+            statusline $base07
+
+            # Class            Border  Backgr. Text
+            focused_workspace  $base0d $base0d $base00
+            active_workspace   $base03 $base03 $base07
+            inactive_workspace $base00 $base00 $base03
+            urgent_workspace   $base08 $base08 $base07
+        }
+    }
+
+# }}}
+
+# Autorun {{{
+# ===========
+
+    # Lock screen before actually starting, to be used with autologin
+    exec swaylock -i ~/Downloads/archive/P2590560.jpg -s fill
+
+    exec swaymsg 'workspace $ws1; exec firefox'
+
+    exec swayidle -w \
+        timeout 120 'light -U 20' resume 'light -A 20' \
+        timeout 300 'light -A 20; block' \
+        timeout 1800 'systemctl suspend' \
+        before-sleep 'block'
+
+    # Adjust colors (Montreal)
+    exec gammastep -l 45.5017:-73.5673
+
+# }}}
+
+# I/O {{{
+# ===========
+
+    input type:keyboard {
+        xkb_layout us
+
+        # Use Mac layout
+        xkb_variant mac
+
+        #
+        # 1. Invert left Alt and Ctrl (native).
+        # 2. Hijack `ctrl:nocaps` to invert media keys with function keys,
+        #    as defined in `~/.xkb/symbols/ctrl`.
+        #
+        xkb_options ctrl:swap_lalt_lctl,ctrl:nocaps
+
+        # Set keyboard repeat delay to 200 instead of default of 600
+        repeat_delay 200
+    }
+
+    input type:touchpad {
+        natural_scroll enabled
+        click_method clickfinger
+    }
+
+    output * {
+        bg ~/Downloads/archive/P2590560.jpg fill
+    }
+
+# }}}

@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-exec xclip -selection clipboard
+exec wl-copy "$@"

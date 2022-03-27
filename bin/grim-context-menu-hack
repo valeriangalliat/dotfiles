@@ -1,19 +1,16 @@
 #!/bin/sh -e
 
 # Capture whole screen
-maim --delay 2 /tmp/screenshot.png
+grim /tmp/screenshot.png
 
 # Show the full screenshot
-feh --fullscreen /tmp/screenshot.png &
+imv -f /tmp/screenshot.png &
 pid=$!
 
-# Give some time for feh to display
-sleep .2
-
 # Now allow to select part of it, forwarding arguments
-maim --hidecursor --select "$@" || code=$?
+grim -g $(slurp) "$@" || code=$?
 
-# Close feh
+# Close imv
 kill "$pid"
 
 if [ -n "$code" ]; then

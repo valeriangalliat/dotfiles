@@ -12,7 +12,7 @@
 
 prefix="$(whoami)@$(hostname)"
 
-path=$(i3-focused-window-title | sed -n "
+path=$(sway-focused-window-title | sed -n "
     s/$prefix: *//p
 
     /) - VIM$/ {

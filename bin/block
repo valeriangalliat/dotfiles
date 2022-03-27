@@ -1,1 +1,10 @@
-../x11/block/block
+#!/bin/sh -e
+#
+# Based on <https://github.com/valeriangalliat/block> but with Sway and
+# Wayland.
+#
+
+grim /tmp/lock.png
+mogrify -blur 0x5 /tmp/lock.png
+swaylock -i /tmp/lock.png
+rm /tmp/lock.png
