@@ -304,7 +304,7 @@
 
     exec swayidle -w \
         timeout 120 'light -U 20' resume 'light -A 20' \
-        timeout 300 'light -A 20; block' \
+        timeout 300 'light -A 20; block' resume 'light -U 20' \
         timeout 1800 'systemctl suspend' \
         before-sleep 'block'
 
