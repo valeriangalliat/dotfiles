@@ -5,7 +5,7 @@ base: zsh vim git net psql asdf
 mac: base
 
 .PHONY: linux
-linux: base vivobook sway i3blocks menu foot
+linux: base vivobook sway i3blocks menu xfce4-terminal
 
 # Base {{{
 # ========
@@ -103,9 +103,9 @@ i3blocks/i3blocks-contrib:
 menu:
 	make -C $@
 
-.PHONY: foot
-foot:
-	mkdir -p ~/.config/foot
-	ln -si $(PWD)/foot/foot.ini ~/.config/foot/foot.ini
+.PHONY: xfce4-terminal
+	xfce4-terminal:
+	mkdir -p ~/.config/xfce4/terminal
+	ln -si $(PWD)/xfce4-terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
 
 # }}}

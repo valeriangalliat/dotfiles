@@ -10,15 +10,6 @@
         finish
     endif
 
-    "
-    " Make Vim and foot collaborate.
-    "
-    " See <https://codeberg.org/dnkl/foot/wiki#ctrl-key-breaks-input-in-vim>
-    " and <https://github.com/vim/vim/issues/9014>.
-    "
-    let &t_TI = "\<Esc>[>4;2m"
-    let &t_TE = "\<Esc>[>4m"
-
 " }}}
 
 " Plugins {{{

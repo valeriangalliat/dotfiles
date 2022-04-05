@@ -75,7 +75,7 @@
     bindsym $mod+Shift+b exec rofi-bluetooth
 
     # Start terminal
-    bindsym $mod+Return exec cd "$(sway-focused-window-cwd)" && foot
+    bindsym $mod+Return exec cd "$(sway-focused-window-cwd)" && xfce4-terminal
 
     # Kill focused window
     bindsym $mod+Shift+q kill
