@@ -1,0 +1,4 @@
+! option = symbols
+  ctrl:swap_fn_keys = +ctrl(swap_fn_keys)
+
+! include %S/evdev

@@ -1,11 +1,5 @@
 partial modifier_keys
-
-# Hijack the existing `ctrl:nocaps` option to do my own inversion of
-# media keys and function keys.
-#
-# I need to do this becuse it's easy to overwrite an existing option but it
-# seems tricky to add a new one.
-xkb_symbols "nocaps" {
+xkb_symbols "swap_fn_keys" {
     replace key <FK05> { [ XF86MonBrightnessDown ] };
     replace key <FK06> { [ XF86MonBrightnessUp ] };
     replace key <FK07> { [ XF86ScreenSaver ] };
@@ -21,5 +15,3 @@ xkb_symbols "nocaps" {
     replace key <I122> { [ F11 ] };
     replace key <I123> { [ F12 ] };
 };
-
-# vim: ft=conf

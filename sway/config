@@ -327,7 +327,7 @@
         # 2. Hijack `ctrl:nocaps` to invert media keys with function keys,
         #    as defined in `~/.xkb/symbols/ctrl`.
         #
-        xkb_options ctrl:swap_lalt_lctl,ctrl:nocaps
+        xkb_options ctrl:swap_lalt_lctl,ctrl:swap_fn_keys
 
         # Set keyboard repeat delay to 200 instead of default of 600
         repeat_delay 200

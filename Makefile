@@ -77,8 +77,9 @@ code:
 
 .PHONY: vivobook
 vivobook:
-	mkdir -p ~/.xkb/symbols
-	ln -si $(PWD)/vivobook/xkb/symbols/ctrl ~/.xkb/symbols/ctrl
+	mkdir -p ~/.config/xkb/symbols ~/.config/xkb/rules
+	ln -si $(PWD)/vivobook/xkb/symbols/ctrl ~/.config/xkb/symbols/ctrl
+	ln -si $(PWD)/vivobook/xkb/rules/evdev ~/.config/xkb/rules/evdev
 
 .PHONY: i3
 i3:
