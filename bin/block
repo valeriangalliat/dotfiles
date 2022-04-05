@@ -6,5 +6,5 @@
 
 grim /tmp/lock.png
 mogrify -blur 0x5 /tmp/lock.png
-swaylock -i /tmp/lock.png
+swaylock --daemonize -i /tmp/lock.png
 rm /tmp/lock.png
