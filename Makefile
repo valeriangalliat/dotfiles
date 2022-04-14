@@ -1,5 +1,5 @@
 .PHONY: base
-base: zsh vim git net psql asdf
+base: zsh vim git net psql sqlite asdf
 
 .PHONY: mac
 mac: base
@@ -55,6 +55,10 @@ net:
 .PHONY: psql
 psql:
 	ln -si $(PWD)/psql/psqlrc ~/.psqlrc
+
+.PHONY: sqlite
+sqlite:
+	ln -si $(PWD)/sqlite/sqliterc ~/.sqliterc
 
 .PHONY: asdf
 asdf:

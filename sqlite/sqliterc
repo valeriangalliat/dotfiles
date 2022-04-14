@@ -1,0 +1,4 @@
+.mode column
+# .mode line
+.headers on
+.nullvalue ¤
