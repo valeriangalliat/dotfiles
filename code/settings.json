@@ -4,6 +4,7 @@
     "extensions.ignoreRecommendations": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
+    "editor.inlineSuggest.enabled": true,
     "files.insertFinalNewline": true,
     "[javascript]": {
         "editor.tabSize": 2
@@ -14,6 +15,7 @@
     "[json]": {
         "editor.tabSize": 2
     },
+    "explorer.autoReveal": false,
     "vim.leader": ",",
     "vim.camelCaseMotion.enable": true,
     "vim.handleKeys": {
