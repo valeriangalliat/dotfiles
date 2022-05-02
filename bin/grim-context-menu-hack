@@ -8,7 +8,7 @@ imv -f /tmp/screenshot.png &
 pid=$!
 
 # Now allow to select part of it, forwarding arguments
-grim -g $(slurp) "$@" || code=$?
+grim -g "$(slurp)" "$@" || code=$?
 
 # Close imv
 kill "$pid"
