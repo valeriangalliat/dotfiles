@@ -209,5 +209,6 @@
                 "d"
             ]
         }
-    ]
+    ],
+    "workbench.colorTheme": "Base16 Dark Default"
 }
