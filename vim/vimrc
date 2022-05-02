@@ -294,6 +294,9 @@
     " `vim-javascript`
     let javascript_plugin_jsdoc = 1
 
+    " `fzf.vim`
+    let $FZF_DEFAULT_COMMAND = 'rg --files'
+
     " `vim-markdown` {{{
     " ------------------
 
