@@ -111,11 +111,11 @@
         source "$DOTFILES/zsh/base16-shell/scripts/$BASE16_THEME.sh"
     }
 
-    function light {
+    function tlight {
         theme light base16-atelier-plateau-light
     }
 
-    function dark {
+    function tdark {
         theme dark base16-default-dark
     }
 
