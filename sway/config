@@ -298,7 +298,7 @@
 # ===========
 
     # Lock screen before actually starting, to be used with autologin
-    exec swaylock -i ~/Downloads/archive/P2590560.jpg -s fill
+    # exec swaylock -i ~/Downloads/archive/P2590560.jpg -s fill
 
     # Notification daemon
     exec dunst

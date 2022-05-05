@@ -2,20 +2,10 @@
 # ~/.zshrc
 #
 
-# Start X on login on TTY1
-# if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-#     exec startx
+# Start Sway on login on TTY1
+# if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+#     exec sway
 # fi
-
-#
-# Hack to run `compinit` with `-i` to ignore "insecure" directories when used
-# with Homebrew in a multi-user system, and shadow the function to prevent
-# dotfiles `zshrc` to run it again. Replace `-i` with `-u` to allow loading
-# those.
-#
-# autoload -U compinit
-# compinit -i -d ~/.zcompdump
-# compinit() {}
 
 source "$DOTFILES/zsh/zshrc"
 # source "$DOTFILES/zsh/asdf.sh"
