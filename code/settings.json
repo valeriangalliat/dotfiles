@@ -5,6 +5,7 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.inlineSuggest.enabled": true,
+    "editor.cursorSurroundingLines": 8,
     "files.insertFinalNewline": true,
     "[javascript]": {
         "editor.tabSize": 2
