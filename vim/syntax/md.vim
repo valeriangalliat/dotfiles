@@ -1,1 +1,1 @@
-set ft=markdown
+runtime syntax/markdown.vim

@@ -1,1 +1,1 @@
-set ft=typescript
+runtime syntax/typescript.vim

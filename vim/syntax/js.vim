@@ -1,1 +1,1 @@
-set ft=javascript
+runtime syntax/javascript.vim
