@@ -95,8 +95,7 @@
     autoload zmv
     alias mmv='noglob zmv -W'
 
-    # Get remote IP from CodeJam
-    alias ipc='curl https://ip.codejam.info/'
+    alias rgm='rg --max-columns 1000'
 
 # }}}
 
