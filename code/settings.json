@@ -211,5 +211,6 @@
             ]
         }
     ],
-    "workbench.colorTheme": "Base16 Dark Default"
+    "workbench.colorTheme": "Base16 Dark Default",
+    "editor.bracketPairColorization.enabled": false
 }
