@@ -6,11 +6,9 @@ command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-[volume-pulseaudio]
-label=♪ 
-interval=once
-signal=10
-command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | grep -Eo '(^#.*|[0-9]*%)'
+[volume]
+interval=persist
+command=$DOTFILES/i3blocks/volume
 
 [memory]
 label=MEM 
@@ -23,26 +21,13 @@ interval=60
 [iface]
 color=#a1b56c
 interval=60
+command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | xargs
 
 [wifi]
 command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | i3blocks-recolor
 label=WIFI 
 INTERFACE=wlp2s0
 interval=10
-
-#[bandwidth]
-#interval=5
-#min_width=IN 00K OUT 00K
-
-#[cpu_usage]
-#label=CPU 
-#interval=10
-#min_width=CPU 100.00%
-
-#[temperature]
-#label=TEMP 
-#interval=10
-#min_width=TEMP 00.0°C
 
 [battery]
 command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | i3blocks-recolor

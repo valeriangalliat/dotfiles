@@ -1,0 +1,35 @@
+#!/bin/sh -e
+
+volume_pulseaudio=$DOTFILES/i3blocks/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio
+
+audio_playing() {
+    # Use `pacmd` because `pactl` trigger recursive events otherwise
+    pacmd list-sink-inputs | grep -q 'state: RUNNING'
+}
+
+parse() {
+    grep -Eo '(^#.*|[0-9]*%)'
+}
+
+output() {
+    read volume
+    read
+    read color
+
+    if [ "$color" != "#ffffff" ]; then
+        label=🔇
+    elif audio_playing; then
+        label=🔊
+    else
+        label=🔈
+    fi
+
+    echo "$label $volume"
+}
+
+"$volume_pulseaudio" | parse | output
+
+# Match change on `sink` but not `sink-input` to limit duplicates
+pactl subscribe | grep --line-buffered "^Event 'change' on sink " | while read _; do
+    "$volume_pulseaudio" | parse | output
+done
