@@ -11,11 +11,9 @@ interval=persist
 command=$DOTFILES/i3blocks/volume
 
 [memory]
-label=MEM 
 interval=30
 
 [disk]
-label=DISK 
 interval=60
 
 [iface]
@@ -36,5 +34,6 @@ interval=30
 min_width=⚡ 100%
 
 [time]
+label=📅 
 command=date | awk '{NF -= 2} 1'
 interval=1
