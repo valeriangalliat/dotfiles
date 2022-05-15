@@ -300,8 +300,8 @@
     # Lock screen before actually starting, to be used with autologin
     # exec swaylock -i ~/Downloads/archive/P2590560.jpg -s fill
 
-    # Notification daemon
     exec dunst
+    exec sway-audio-idle-inhibit
 
     exec swaymsg 'workspace $ws1; exec firefox'
 
