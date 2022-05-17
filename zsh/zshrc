@@ -69,14 +69,10 @@
         return
     }
 
-    #
-    # Add time to prompt instead of arrow.
-    #
+    # Add time to prompt instead of arrow
     PROMPT=$(echo "$PROMPT" | sed 's/➜ /%T/g')
 
-    #
-    # Prepend `user@host` to prompt when under SSH.
-    #
+    # Prepend `user@host` to prompt when under SSH
     if [ -n "$SSH_CLIENT" ]; then
         PROMPT="%{$fg[cyan]%}%n@%{$fg[blue]%}%m ${PROMPT}"
     fi
@@ -96,6 +92,19 @@
     alias mmv='noglob zmv -W'
 
     alias rgm='rg --max-columns 1000'
+
+    alias jcurl='curl -H "Content-Type: application/json"'
+
+    #
+    # Now many repos squash before merging, we can't rely on simple
+    # `git branch --merged` to identify local branches to clean.
+    #
+    # This trick prunes all the branches that were deleted from upstream,
+    # usually synonymous of them being merged (or closed) and we liekly
+    # don't need the branch locally anymore, so goes and deletes the matching
+    # local branch if any.
+    #
+    alias gprune='git remote prune origin | grep origin/ | cut -d/ -f2- | xargs git branch -D 2>1 | grep -v "not found"'
 
 # }}}
 
