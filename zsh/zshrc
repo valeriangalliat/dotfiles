@@ -104,7 +104,7 @@
     # don't need the branch locally anymore, so goes and deletes the matching
     # local branch if any.
     #
-    alias gprune='git remote prune origin | grep origin/ | cut -d/ -f2- | xargs git branch -D 2>1 | grep -v "not found"'
+    alias gprune='git remote prune origin | grep origin/ | cut -d/ -f2- | xargs git branch -D 2>&1 | grep -v "not found"'
 
 # }}}
 
