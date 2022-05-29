@@ -16,10 +16,14 @@ output() {
     read
     read color
 
-    if [ "$color" != "#ffffff" ]; then
+    if [ "$color" != '#ffffff' ]; then
         label=🔇
     elif audio_playing; then
-        label=🔊
+        if [ ${volume/'%'/} -gt 50 ]; then
+            label=🔊
+        else
+            label=🔉
+        fi
     else
         label=🔈
     fi
