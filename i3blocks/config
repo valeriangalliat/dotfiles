@@ -10,20 +10,27 @@ markup=none
 interval=persist
 command=$DOTFILES/i3blocks/volume
 
-[memory]
-interval=30
-
 [disk]
+label=💻 
 interval=60
 
+[memory]
+label=🧠 
+interval=30
+
+[temperature]
+label=🔥 
+interval=30
+command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | sed 's/\.[0-9]*//;s/C$//'
+
 [iface]
-color=#a1b56c
+label=🌐 
 interval=60
 command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | xargs
 
 [wifi]
 command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | i3blocks-recolor
-label=WIFI 
+label=📶 WIFI 
 INTERFACE=wlp2s0
 interval=10
 
