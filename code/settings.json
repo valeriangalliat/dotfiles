@@ -7,6 +7,14 @@
     "editor.inlineSuggest.enabled": true,
     "editor.cursorSurroundingLines": 8,
     "files.insertFinalNewline": true,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "workbench.colorCustomizations": {
+        // Base16 Default Dark but use a darker line so it's less contrasty
+        "editorRuler.foreground": "#282828"
+    },
     "[javascript]": {
         "editor.tabSize": 2
     },
