@@ -30,7 +30,7 @@ command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | xargs
 
 [wifi]
 command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | i3blocks-recolor
-label=📶 WIFI 
+label=📶 
 INTERFACE=wlp2s0
 interval=10
 
