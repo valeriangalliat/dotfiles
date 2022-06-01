@@ -1,242 +1,124 @@
 {
-    "workbench.activityBar.visible": false,
-    "window.nativeTabs": true,
-    "extensions.ignoreRecommendations": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.inlineSuggest.enabled": true,
-    "editor.cursorSurroundingLines": 8,
-    "files.insertFinalNewline": true,
-    "editor.rulers": [
-        80,
-        120
-    ],
-    "workbench.colorCustomizations": {
-        // Base16 Default Dark but use a darker line so it's less contrasty
-        "editorRuler.foreground": "#282828"
+  "workbench.activityBar.visible": false,
+  "window.nativeTabs": true,
+  "extensions.ignoreRecommendations": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.cursorSurroundingLines": 8,
+  "files.insertFinalNewline": true,
+  "editor.rulers": [80, 120],
+  "workbench.colorCustomizations": {
+    // Base16 Default Dark but use a darker line so it's less contrasty
+    "editorRuler.foreground": "#282828"
+  },
+  "gopls": {
+    "importShortcut": "Definition"
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.autoReveal": false,
+  "vim.leader": ",",
+  "vim.camelCaseMotion.enable": true,
+  "vim.handleKeys": {
+    "<C-w>": false,
+    "<C-p>": false,
+    "<C-f>": false
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
     },
-    "[javascript]": {
-        "editor.tabSize": 2
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
     },
-    "[typescript]": {
-        "editor.tabSize": 2
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
     },
-    "[json]": {
-        "editor.tabSize": 2
+    {
+      "before": ["<C-j>"],
+      "after": [":", "b", "n", "<CR>"]
     },
-    "explorer.autoReveal": false,
-    "vim.leader": ",",
-    "vim.camelCaseMotion.enable": true,
-    "vim.handleKeys": {
-        "<C-w>": false,
-        "<C-p>": false,
-        "<C-f>": false
+    {
+      "before": ["<C-k>"],
+      "after": [":", "b", "p", "<CR>"]
     },
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "j"
-            ],
-            "after": [
-                "g",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "k"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
-        },
-        {
-            "before": [
-                "Y"
-            ],
-            "after": [
-                "y",
-                "$"
-            ]
-        },
-        {
-            "before": [
-                "<C-j>"
-            ],
-            "after": [
-                ":",
-                "b",
-                "n",
-                "<CR>"
-            ]
-        },
-        {
-            "before": [
-                "<C-k>"
-            ],
-            "after": [
-                ":",
-                "b",
-                "p",
-                "<CR>"
-            ]
-        },
-        {
-            "before": [
-                "D"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "D"
-            ]
-        },
-        {
-            "before": [
-                "d"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "d"
-            ]
-        },
-        {
-            "before": [
-                "d",
-                "d"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "d",
-                "d"
-            ]
-        },
-        {
-            "before": [
-                "c"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "c"
-            ]
-        },
-        {
-            "before": [
-                "C"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "C"
-            ]
-        },
-        {
-            "before": [
-                "c",
-                "c"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "c",
-                "c"
-            ]
-        },
-        {
-            "before": [
-                "x"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "x"
-            ]
-        },
-        {
-            "before": [
-                "X"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "X"
-            ]
-        },
-        {
-            "before": [
-                "d",
-                "X"
-            ],
-            "after": [
-                "D"
-            ]
-        },
-        {
-            "before": [
-                "d",
-                "x"
-            ],
-            "after": [
-                "d"
-            ]
-        },
-        {
-            "before": [
-                "d",
-                "x",
-                "x"
-            ],
-            "after": [
-                "d",
-                "d"
-            ]
-        }
-    ],
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "d"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "d"
-            ]
-        },
-        {
-            "before": [
-                "c"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "c"
-            ]
-        },
-        {
-            "before": [
-                "x"
-            ],
-            "after": [
-                "\"",
-                "_",
-                "x"
-            ]
-        },
-        {
-            "before": [
-                "d",
-                "x"
-            ],
-            "after": [
-                "d"
-            ]
-        }
-    ],
-    "workbench.colorTheme": "Base16 Dark Default",
-    "editor.bracketPairColorization.enabled": false
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["d", "d"],
+      "after": ["\"", "_", "d", "d"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["C"],
+      "after": ["\"", "_", "C"]
+    },
+    {
+      "before": ["c", "c"],
+      "after": ["\"", "_", "c", "c"]
+    },
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      "before": ["X"],
+      "after": ["\"", "_", "X"]
+    },
+    {
+      "before": ["d", "X"],
+      "after": ["D"]
+    },
+    {
+      "before": ["d", "x"],
+      "after": ["d"]
+    },
+    {
+      "before": ["d", "x", "x"],
+      "after": ["d", "d"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      "before": ["d", "x"],
+      "after": ["d"]
+    }
+  ],
+  "workbench.colorTheme": "Base16 Dark Default",
+  "editor.bracketPairColorization.enabled": false
 }
