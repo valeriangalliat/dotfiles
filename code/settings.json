@@ -6,6 +6,7 @@
   "editor.formatOnSave": true,
   "editor.inlineSuggest.enabled": true,
   "editor.cursorSurroundingLines": 8,
+  "editor.renderWhitespace": "trailing",
   "files.insertFinalNewline": true,
   "editor.rulers": [80, 120],
   "workbench.colorCustomizations": {
@@ -26,6 +27,11 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false
   },
   "explorer.autoReveal": false,
   "vim.leader": ",",
