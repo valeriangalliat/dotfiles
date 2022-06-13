@@ -3,7 +3,7 @@ asdf() {
     [ -d ~/.asdf ] || git clone https://github.com/asdf-vm/asdf ~/.asdf
     [ -d ~/.asdf/asdf-partial ] || git clone https://github.com/valeriangalliat/asdf-partial ~/.asdf/asdf-partial
     . ~/.asdf/asdf.sh
-    export PATH=~/projects/asdf-partial:$PATH
+    export PATH=~/.asdf/asdf-partial:$PATH
 
     if [ "$#" -gt 0 ]; then
         asdf "$@"
