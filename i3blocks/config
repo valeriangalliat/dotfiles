@@ -26,7 +26,7 @@ command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | sed 's/\.[
 [iface]
 label=🌐 
 interval=60
-command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | xargs
+command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | sed 's/^ *//'
 
 [wifi]
 command=$DOTFILES/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME | i3blocks-recolor
