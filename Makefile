@@ -75,6 +75,8 @@ code:
 		ln -si $(PWD)/code/keybindings.json "$$code_dir/keybindings.json" && \
 		ln -si $(PWD)/code/settings.json "$$code_dir/settings.json"
 
+	make -C $@
+
 # }}}
 
 # Linux {{{
