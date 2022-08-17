@@ -6,3 +6,4 @@ golang.go
 standard.vscode-standard
 vscodevim.vim
 gimenete.github-linker
+val.vscode-continue-inline-comments
