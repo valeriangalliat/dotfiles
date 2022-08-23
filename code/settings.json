@@ -9,6 +9,7 @@
   "editor.renderWhitespace": "trailing",
   "files.insertFinalNewline": true,
   "editor.rulers": [80, 120],
+  "search.smartCase": true,
   "workbench.colorCustomizations": {
     // Base16 Default Dark but use a darker line so it's less contrasty
     "editorRuler.foreground": "#282828"
@@ -29,9 +30,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.tabSize": 2,
-    "editor.formatOnPaste": false,
-    "editor.formatOnSave": false
+    "editor.tabSize": 2
   },
   "explorer.autoReveal": false,
   "vim.leader": ",",
