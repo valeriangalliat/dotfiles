@@ -7,35 +7,42 @@
 
     export ZSH="$DOTFILES/zsh/oh-my-zsh"
 
-    # Don't mark untracked files as dirty (performance), used by `$ZSH/lib/git.zsh`
-    DISABLE_UNTRACKED_FILES_DIRTY=true
-
-    # Set `LS_COLORS` before `$ZSH/lib/theme-and-appearance.zsh` is loaded
+    # Set `LS_COLORS` on Linux before `$ZSH/lib/theme-and-appearance.zsh` is loaded
     source "$DOTFILES/zsh/dircolors"
 
-    autoload -U compinit
-    compinit -d ~/.zcompdump
+    autoload -U compinit && compinit # Command completion
 
     # Load only what I want from `oh-my-zsh`
-    source "$ZSH/lib/clipboard.zsh"
-    source "$ZSH/lib/completion.zsh"
-    source "$ZSH/lib/correction.zsh"
-    source "$ZSH/lib/directories.zsh"
-    source "$ZSH/lib/git.zsh"
-    source "$ZSH/lib/grep.zsh"
-    source "$ZSH/lib/history.zsh"
-    source "$ZSH/lib/key-bindings.zsh"
-    source "$ZSH/lib/termsupport.zsh"
-    source "$ZSH/lib/theme-and-appearance.zsh"
-
-    # Theme
-    source "$ZSH/themes/robbyrussell.zsh-theme"
+    source "$ZSH/lib/completion.zsh" # Nice completion settings
+    source "$ZSH/lib/grep.zsh" # Enable colors and ignore VCS directories
+    source "$ZSH/lib/history.zsh" # Nice history settings
+    source "$ZSH/lib/key-bindings.zsh" # Nice key bindings
+    source "$ZSH/lib/termsupport.zsh" # Set terminal window title
+    source "$ZSH/lib/theme-and-appearance.zsh" # Enable colors on various commands, also `auto_cd`
 
     # Plugins
-    source "$ZSH/plugins/git/git.plugin.zsh"
+    source "$ZSH/plugins/git/git.plugin.zsh" # Nice Git aliases, could cherery pick though
     source "$ZSH/plugins/colored-man-pages/colored-man-pages.plugin.zsh"
     source "$ZSH/plugins/history-substring-search/history-substring-search.plugin.zsh"
     source "$DOTFILES/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+
+# }}}
+
+# Prompt {{{
+# ==========
+
+    autoload -U vcs_info
+    precmd() { vcs_info }
+    setopt prompt_subst
+    zstyle ':vcs_info:*' formats "%{$fg_bold[blue]%}(%{$fg_bold[red]%}%b%{$fg_bold[blue]%})%{$reset_color%} "
+    PROMPT="%(?..%{$fg[red]%}●%{$reset_color%} )%{$fg_bold[cyan]%}%1~%{$reset_color%} \${vcs_info_msg_0_}"
+    # Need to use `%F{}` (set) and `%f` (reset) pattern because color 8 (grey) is not an ANSI color
+    RPROMPT="%F{8}%*%f"
+
+    # Prepend `user@host` to prompt when under SSH
+    if [ -n "$SSH_CLIENT" ]; then
+        PROMPT="%{$fg[cyan]%}%n@%{$fg[blue]%}%m ${PROMPT}"
+    fi
 
 # }}}
 
@@ -69,21 +76,14 @@
         return
     }
 
-    # Add time to prompt instead of arrow
-    PROMPT=$(echo "$PROMPT" | sed 's/➜ /%T/g')
-
-    # Prepend `user@host` to prompt when under SSH
-    if [ -n "$SSH_CLIENT" ]; then
-        PROMPT="%{$fg[cyan]%}%n@%{$fg[blue]%}%m ${PROMPT}"
-    fi
-
 # }}}
 
 # Aliases {{{
 # ===========
 
     # Shortcuts
-    alias l=ll
+    alias l='ls -lh'
+    alias la='ls -lAh'
     alias q=exit
     alias vi=vim
 
