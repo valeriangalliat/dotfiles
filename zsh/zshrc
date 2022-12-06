@@ -35,6 +35,7 @@
     precmd() { vcs_info }
     setopt prompt_subst
     zstyle ':vcs_info:*' formats "%{$fg_bold[blue]%}(%{$fg_bold[red]%}%b%{$fg_bold[blue]%})%{$reset_color%} "
+    zstyle ':vcs_info:*' actionformats "%{$fg_bold[blue]%}(%{$fg_bold[red]%}%b%{$fg_bold[yellow]%}:%a%{$fg_bold[blue]%})%{$reset_color%} "
     PROMPT="%(?..%{$fg[red]%}●%{$reset_color%} )%{$fg_bold[cyan]%}%1~%{$reset_color%} \${vcs_info_msg_0_}"
     # Need to use `%F{}` (set) and `%f` (reset) pattern because color 8 (grey) is not an ANSI color
     RPROMPT="%F{8}%*%f"
