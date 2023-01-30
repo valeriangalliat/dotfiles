@@ -1,27 +1,35 @@
-#
-# ~/.gitconfig
-#
+;
+; ~/.gitconfig
+;
 
 [core]
 	excludesfile = ~/.gitignore
 
-[credential]
-	helper = cache --timeout=604800
+;
+; Check files on transfer, fetch and receive (not enabled by default).
+;
+[transfer]
+	fsckObjects = true
 
 [fetch]
 	fsckobjects = true
 
-[merge]
-	conflictstyle = diff3
-
-[pull]
-	rebase = false
-
 [receive]
 	fsckObjects = true
 
-[transfer]
-	fsckObjects = true
+;
+; Merge style to show the original code in a 3rd "segment" instead of the
+; default of `diff` that shows just the two conflicting versions.
+;
+[merge]
+	conflictstyle = diff3
+
+;
+; Default Git behavior to create a merge commit on pull if diverged. The
+; option needs to be explicitly set otherwise Git shows a warning.
+;
+[pull]
+	rebase = false
 
 [url "https://github.com/"]
 	insteadOf = "gh:"
@@ -30,4 +38,4 @@
 	email = val@codejam.info
 	name = Val
 
-# vim: ft=gitconfig
+; vim: ft=gitconfig
