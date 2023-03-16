@@ -34,6 +34,9 @@
 [url "git@github.com:"]
 	insteadOf = "gh:"
 
+[url "git@github.com:valeriangalliat/"]
+	insteadOf = "ghv:"
+
 [user]
 	email = val@codejam.info
 	name = Val
