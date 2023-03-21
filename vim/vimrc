@@ -1,7 +1,6 @@
 "
 " ~/.vimrc
 "
-
 " Initialization {{{
 " ==================
 
@@ -37,6 +36,7 @@
     set runtimepath^=$DOTFILES/vim/plugins/vim-commentary
     set runtimepath^=$DOTFILES/vim/plugins/fzf
     set runtimepath^=$DOTFILES/vim/plugins/fzf.vim
+    set runtimepath^=$DOTFILES/vim/plugins/switch.vim
     set runtimepath^=$DOTFILES/vim/plugins/vim-javascript
     set runtimepath^=$DOTFILES/vim/plugins/typescript-vim
     set runtimepath^=$DOTFILES/vim/plugins/tabular
@@ -296,6 +296,12 @@
 
     " `fzf.vim`
     let $FZF_DEFAULT_COMMAND = 'rg --files'
+
+    " `vim-filebeagle` to not map `-`
+    let filebeagle_suppress_keymaps = 1
+
+    " `switch.vim`
+    let switch_mapping = '-'
 
     " `vim-markdown` {{{
     " ------------------

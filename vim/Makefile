@@ -112,6 +112,9 @@ plugins/fzf:
 plugins/fzf.vim:
 	git clone https://github.com/junegunn/fzf.vim $@
 
+plugins/switch.vim:
+	git clone https://github.com/AndrewRadev/switch.vim $@
+
 # }}}
 
 # Syntax {{{
