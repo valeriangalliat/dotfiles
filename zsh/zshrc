@@ -17,6 +17,7 @@
     source "$ZSH/lib/grep.zsh" # Enable colors and ignore VCS directories
     source "$ZSH/lib/history.zsh" # Nice history settings
     source "$ZSH/lib/key-bindings.zsh" # Nice key bindings
+    source "$ZSH/lib/functions.zsh" # Necessary for `termsupport.zsh`
     source "$ZSH/lib/termsupport.zsh" # Set terminal window title
     source "$ZSH/lib/theme-and-appearance.zsh" # Enable colors on various commands
     source "$ZSH/lib/directories.zsh" # `ls` and other directory shortcuts, as well as `autocd`
