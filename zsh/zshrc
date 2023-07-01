@@ -18,7 +18,8 @@
     source "$ZSH/lib/history.zsh" # Nice history settings
     source "$ZSH/lib/key-bindings.zsh" # Nice key bindings
     source "$ZSH/lib/termsupport.zsh" # Set terminal window title
-    source "$ZSH/lib/theme-and-appearance.zsh" # Enable colors on various commands, also `auto_cd`
+    source "$ZSH/lib/theme-and-appearance.zsh" # Enable colors on various commands
+    source "$ZSH/lib/directories.zsh" # `ls` and other directory shortcuts, as well as `autocd`
 
     # Plugins
     source "$ZSH/plugins/git/git.plugin.zsh" # Nice Git aliases, could cherery pick though
@@ -82,9 +83,10 @@
 # Aliases {{{
 # ===========
 
-    # Shortcuts
+    # Invert `l` and `ll` from Oh My Zsh
     alias l='ls -lh'
-    alias la='ls -lAh'
+    alias ll='ls -lah'
+
     alias q=exit
     alias vi=vim
 
