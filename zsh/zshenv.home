@@ -3,7 +3,8 @@
 #
 
 export DOTFILES=~/dotfiles
-# export PATH=$DOTFILES/bin:$PATH # Linux commands
-# export PATH=$DOTFILES/bin/shared:$PATH # Common commands
 
 source "$DOTFILES/zsh/zshenv"
+
+# export PATH=$DOTFILES/bin:$PATH # Linux commands
+# export PATH=$DOTFILES/bin/shared:$PATH # Common commands

@@ -2,6 +2,33 @@
 # ~/.zshrc
 #
 
+
+# macOS hack {{{
+# ==============
+
+#
+# On macOS, `/etc/zprofile`, which runs after `~/.zshenv`, calls `path_helper`
+# which reorders `PATH` in a way that put system paths before whatever was set
+# in `~/.zshenv`.
+#
+# This is a problem e.g. to use Homebrew's version of `rsync` instead of the
+# system's older version.
+#
+# See <https://gist.github.com/Linerre/f11ad4a6a934dcf01ee8415c9457e7b2> for
+# details.
+#
+# To work around that, on macOS, I make `~/.zshenv` return instantly when
+# loaded initially, but then force load it from `~/.zshrc`, whic runs _after_
+# `path_helper` is called.
+#
+if [[ "$OSTYPE" = darwin* ]]; then
+    IN_ZSHRC=true
+    source ~/.zshenv
+    unset IN_ZSHRC
+fi
+
+# }}}
+
 # Initialization {{{
 # ==================
 
