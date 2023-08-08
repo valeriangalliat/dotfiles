@@ -20,9 +20,9 @@ fi
 #
 typeset -U PATH
 
-PATH=~/.local/bin:$PATH # Local bin
-PATH=$DOTFILES/bin/common:$PATH # Dotfiles' bin (all systems)
-PATH=~/bin:$PATH # User bin
+PATH=$PATH:~/.local/bin # Local bin
+PATH=$PATH:$DOTFILES/bin/shared # Dotfiles' bin (all systems)
+PATH=$PATH:~/bin # User bin
 export PATH
 
 export EDITOR=vim
