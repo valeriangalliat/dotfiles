@@ -311,8 +311,8 @@
         timeout 1800 'systemctl suspend' \
         before-sleep 'block'
 
-    # Adjust colors (Montreal)
-    exec gammastep -l 45.5017:-73.5673
+    # Adjust colors (Squamish), disable fading to prevent resume delay
+    exec gammastep -l 49.7016:123.1558 -r
 
 # }}}
 
