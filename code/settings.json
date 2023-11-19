@@ -1,5 +1,4 @@
 {
-  "workbench.activityBar.visible": false,
   "window.nativeTabs": true,
   "extensions.ignoreRecommendations": true,
   "editor.formatOnPaste": true,
@@ -125,5 +124,7 @@
     }
   ],
   "workbench.colorTheme": "Base16 Dark Default",
-  "editor.bracketPairColorization.enabled": false
+  "editor.bracketPairColorization.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "lldb.suppressUpdateNotifications": true
 }
