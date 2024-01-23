@@ -311,8 +311,8 @@
         timeout 1800 'systemctl suspend' \
         before-sleep 'block'
 
-    # Adjust colors (Squamish), disable fading to prevent resume delay
-    exec gammastep -l 49.7016:123.1558 -r
+    # Adjust colors based on time of day, disable fading to prevent resume delay
+    exec gammastep -r
 
 # }}}
 
