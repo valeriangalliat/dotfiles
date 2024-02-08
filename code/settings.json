@@ -39,6 +39,7 @@
     "<C-p>": false,
     "<C-f>": false
   },
+  "vim.matchpairs": "(:),{:},[:],<:>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["j"],
@@ -103,6 +104,14 @@
     {
       "before": ["d", "x", "x"],
       "after": ["d", "d"]
+    },
+    {
+      "before": ["<leader>", "5"],
+      "commands": [
+        {
+          "command": "editor.emmet.action.matchTag"
+        }
+      ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -124,7 +133,11 @@
     }
   ],
   "workbench.colorTheme": "Base16 Dark Default",
-  "editor.bracketPairColorization.enabled": false,
   "workbench.activityBar.location": "hidden",
-  "lldb.suppressUpdateNotifications": true
+  "workbench.layoutControl.enabled": false,
+  "editor.bracketPairColorization.enabled": false,
+  "lldb.suppressUpdateNotifications": true,
+  "editor.inlayHints.enabled": "off",
+  "git.openRepositoryInParentFolders": "never",
+  "window.commandCenter": false
 }
