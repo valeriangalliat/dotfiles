@@ -31,7 +31,7 @@
   "[markdown]": {
     "editor.tabSize": 2
   },
-  "explorer.autoReveal": false,
+  // "explorer.autoReveal": false,
   "vim.leader": ",",
   "vim.camelCaseMotion.enable": true,
   "vim.handleKeys": {
@@ -139,5 +139,9 @@
   "lldb.suppressUpdateNotifications": true,
   "editor.inlayHints.enabled": "off",
   "git.openRepositoryInParentFolders": "never",
-  "window.commandCenter": false
+  "window.commandCenter": false,
+  // Useful for Tailwind CSS in React
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
 }
