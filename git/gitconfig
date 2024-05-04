@@ -24,6 +24,9 @@
 [merge]
 	conflictstyle = diff3
 
+[push]
+	autoSetupRemote = true
+
 ;
 ; Default Git behavior to create a merge commit on pull if diverged. The
 ; option needs to be explicitly set otherwise Git shows a warning.
