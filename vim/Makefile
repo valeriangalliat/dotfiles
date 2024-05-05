@@ -2,6 +2,9 @@ PLUGINS = $(shell grep runtimepath vimrc | grep -v '"' | grep -o 'plugins/.*')
 
 all: $(PLUGINS)
 
+update:
+	for p in plugins/*; do git -C "$p" pull; done
+
 # Essentials {{{
 # ==============
 
