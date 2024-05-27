@@ -28,11 +28,11 @@
 	autoSetupRemote = true
 
 ;
-; Default Git behavior to create a merge commit on pull if diverged. The
+; Default Git behavior is to create a merge commit on pull if diverged. The
 ; option needs to be explicitly set otherwise Git shows a warning.
 ;
 [pull]
-	rebase = false
+	rebase = true
 
 [url "git@github.com:"]
 	insteadOf = "gh:"
