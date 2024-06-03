@@ -143,5 +143,6 @@
   // Useful for Tailwind CSS in React
   "editor.quickSuggestions": {
     "strings": "on"
-  }
+  },
+  "github.copilot.editor.enableAutoCompletions": true
 }
