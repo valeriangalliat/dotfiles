@@ -137,6 +137,8 @@ fi
     #
     alias gprune='git remote prune origin | grep origin/ | cut -d/ -f2- | xargs git branch -D 2>&1 | grep -v "not found"'
 
+    alias ytmp3='yt-dlp -x --audio-format mp3'
+
 # }}}
 
 # Functions {{{
