@@ -1,0 +1,152 @@
+{
+  "window.nativeTabs": true,
+  "extensions.ignoreRecommendations": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.cursorSurroundingLines": 8,
+  "editor.renderWhitespace": "trailing",
+  "files.insertFinalNewline": true,
+  "editor.rulers": [80, 120],
+  "search.smartCase": true,
+  "workbench.colorCustomizations": {
+    // Base16 Default Dark but use a darker line so it's less contrasty
+    "editorRuler.foreground": "#282828"
+  },
+  "gopls": {
+    "importShortcut": "Definition"
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.tabSize": 2
+  },
+  // "explorer.autoReveal": false,
+  "vim.leader": ",",
+  "vim.camelCaseMotion.enable": true,
+  "vim.handleKeys": {
+    "<C-w>": false,
+    "<C-p>": false,
+    "<C-f>": false
+  },
+  "vim.matchpairs": "(:),{:},[:],<:>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
+    {
+      "before": ["<C-j>"],
+      "after": [":", "b", "n", "<CR>"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": [":", "b", "p", "<CR>"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["d", "d"],
+      "after": ["\"", "_", "d", "d"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["C"],
+      "after": ["\"", "_", "C"]
+    },
+    {
+      "before": ["c", "c"],
+      "after": ["\"", "_", "c", "c"]
+    },
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      "before": ["X"],
+      "after": ["\"", "_", "X"]
+    },
+    {
+      "before": ["d", "X"],
+      "after": ["D"]
+    },
+    {
+      "before": ["d", "x"],
+      "after": ["d"]
+    },
+    {
+      "before": ["d", "x", "x"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<leader>", "5"],
+      "commands": [
+        {
+          "command": "editor.emmet.action.matchTag"
+        }
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      "before": ["d", "x"],
+      "after": ["d"]
+    }
+  ],
+  "workbench.colorTheme": "Base16 Dark Default",
+  "workbench.activityBar.location": "hidden",
+  "workbench.layoutControl.enabled": false,
+  "editor.bracketPairColorization.enabled": false,
+  "lldb.suppressUpdateNotifications": true,
+  "editor.inlayHints.enabled": "off",
+  "git.openRepositoryInParentFolders": "never",
+  "window.commandCenter": false,
+  // Useful for Tailwind CSS in React
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "emmet.showExpandedAbbreviation": "never",
+  "codium.enable": true,
+  "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+  "lldb.launch.expressions": "native"
+}
