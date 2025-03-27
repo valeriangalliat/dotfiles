@@ -81,8 +81,8 @@ code:
 cursor:
 	cursor_dir="$(HOME)/Library/Application Support/Cursor/User" && \
 		mkdir -p "$$cursor_dir" && \
-		ln -si $(PWD)/code/keybindings.json "$$cursor_dir/keybindings.json" && \
-		ln -si $(PWD)/code/settings.json "$$cursor_dir/settings.json"
+		ln -si $(PWD)/cursor/keybindings.json "$$cursor_dir/keybindings.json" && \
+		ln -si $(PWD)/cursor/settings.json "$$cursor_dir/settings.json"
 
 	make -C $@
 
