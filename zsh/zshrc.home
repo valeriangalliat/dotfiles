@@ -8,4 +8,5 @@
 # fi
 
 source "$DOTFILES/zsh/zshrc"
-# source "$DOTFILES/zsh/asdf.sh"
+
+export PATH="$HOME/.asdf/shims:$PATH"
