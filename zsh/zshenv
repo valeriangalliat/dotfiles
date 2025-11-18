@@ -28,8 +28,11 @@ export PATH
 export EDITOR=vim
 export PAGER=less
 
-# Keep history in IEx
-export ERL_AFLAGS='-kernel shell_history enabled'
-
-# Make fzf ignore files from `.gitignore`
-export FZF_DEFAULT_COMMAND='ag -g ""'
+if [ "$TERM" = xterm-ghostty ]; then
+    #
+    # Keep until `xterm-ghostty` is supported broadly.
+    # For now this makes nested Zsh sessions work through SSH, as well as
+    # control sequences forwarding to Vim.
+    #
+    export TERM=xterm-256color
+fi

@@ -2,7 +2,7 @@
 base: zsh vim git net psql sqlite asdf
 
 .PHONY: mac
-mac: base
+mac: base ghostty
 
 .PHONY: linux
 linux: base vivobook sway i3blocks menu xfce4-terminal
@@ -85,6 +85,17 @@ cursor:
 		ln -si $(PWD)/cursor/settings.json "$$cursor_dir/settings.json"
 
 	make -C $@
+
+# }}}
+
+
+# MacOS {{{
+# =========
+
+.PHONY: ghostty
+ghostty:
+	mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
+	ln -si $(PWD)/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
 # }}}
 
