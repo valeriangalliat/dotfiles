@@ -139,6 +139,17 @@ fi
 
     alias ytmp3='yt-dlp -x --audio-format mp3'
 
+    alias n='npm'
+    alias p='pnpm'
+    alias y='yarn'
+    alias sn='sfw npm'
+    alias sp='sfw pnpm'
+    alias sy='sfw yarn'
+    alias snpm='sfw npm'
+    alias spnpm='sfw pnpm'
+    alias syarn='sfw yarn'
+    alias snpx='sfw npx'
+
 # }}}
 
 # Functions {{{
