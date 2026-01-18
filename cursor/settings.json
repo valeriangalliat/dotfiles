@@ -26,7 +26,7 @@
     "editor.tabSize": 2
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.tabSize": 2
   },
   "[markdown]": {
     "editor.tabSize": 2
@@ -148,5 +148,6 @@
   "emmet.showExpandedAbbreviation": "never",
   "codium.enable": true,
   "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
-  "lldb.launch.expressions": "native"
+  "lldb.launch.expressions": "native",
+  "diffEditor.renderSideBySide": false
 }
