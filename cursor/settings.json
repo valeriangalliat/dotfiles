@@ -29,7 +29,8 @@
     "editor.tabSize": 2
   },
   "[markdown]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "vim.textwidth": 72
   },
   // "explorer.autoReveal": false,
   "vim.leader": ",",
