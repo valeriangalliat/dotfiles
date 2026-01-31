@@ -150,5 +150,6 @@
   "codium.enable": true,
   "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
   "lldb.launch.expressions": "native",
-  "diffEditor.renderSideBySide": false
+  "diffEditor.renderSideBySide": false,
+  "json.schemaDownload.enable": true
 }
