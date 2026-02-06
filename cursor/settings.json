@@ -11,26 +11,26 @@
   "search.smartCase": true,
   "workbench.colorCustomizations": {
     // Base16 Default Dark but use a darker line so it's less contrasty
-    "editorRuler.foreground": "#282828"
+    "editorRuler.foreground": "#282828",
   },
   "gopls": {
-    "importShortcut": "Definition"
+    "importShortcut": "Definition",
   },
   "[javascript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[typescript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[json]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[jsonc]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "[markdown]": {
     "editor.tabSize": 2,
-    "vim.textwidth": 72
+    "vim.textwidth": 72,
   },
   // "explorer.autoReveal": false,
   "vim.leader": ",",
@@ -38,100 +38,100 @@
   "vim.handleKeys": {
     "<C-w>": false,
     "<C-p>": false,
-    "<C-f>": false
+    "<C-f>": false,
   },
   "vim.matchpairs": "(:),{:},[:],<:>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["j"],
-      "after": ["g", "j"]
+      "after": ["g", "j"],
     },
     {
       "before": ["k"],
-      "after": ["g", "k"]
+      "after": ["g", "k"],
     },
     {
       "before": ["Y"],
-      "after": ["y", "$"]
+      "after": ["y", "$"],
     },
     {
       "before": ["<C-j>"],
-      "after": [":", "b", "n", "<CR>"]
+      "after": [":", "b", "n", "<CR>"],
     },
     {
       "before": ["<C-k>"],
-      "after": [":", "b", "p", "<CR>"]
+      "after": [":", "b", "p", "<CR>"],
     },
     {
       "before": ["D"],
-      "after": ["\"", "_", "D"]
+      "after": ["\"", "_", "D"],
     },
     {
       "before": ["d"],
-      "after": ["\"", "_", "d"]
+      "after": ["\"", "_", "d"],
     },
     {
       "before": ["d", "d"],
-      "after": ["\"", "_", "d", "d"]
+      "after": ["\"", "_", "d", "d"],
     },
     {
       "before": ["c"],
-      "after": ["\"", "_", "c"]
+      "after": ["\"", "_", "c"],
     },
     {
       "before": ["C"],
-      "after": ["\"", "_", "C"]
+      "after": ["\"", "_", "C"],
     },
     {
       "before": ["c", "c"],
-      "after": ["\"", "_", "c", "c"]
+      "after": ["\"", "_", "c", "c"],
     },
     {
       "before": ["x"],
-      "after": ["\"", "_", "x"]
+      "after": ["\"", "_", "x"],
     },
     {
       "before": ["X"],
-      "after": ["\"", "_", "X"]
+      "after": ["\"", "_", "X"],
     },
     {
       "before": ["d", "X"],
-      "after": ["D"]
+      "after": ["D"],
     },
     {
       "before": ["d", "x"],
-      "after": ["d"]
+      "after": ["d"],
     },
     {
       "before": ["d", "x", "x"],
-      "after": ["d", "d"]
+      "after": ["d", "d"],
     },
     {
       "before": ["<leader>", "5"],
       "commands": [
         {
-          "command": "editor.emmet.action.matchTag"
-        }
-      ]
-    }
+          "command": "editor.emmet.action.matchTag",
+        },
+      ],
+    },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["d"],
-      "after": ["\"", "_", "d"]
+      "after": ["\"", "_", "d"],
     },
     {
       "before": ["c"],
-      "after": ["\"", "_", "c"]
+      "after": ["\"", "_", "c"],
     },
     {
       "before": ["x"],
-      "after": ["\"", "_", "x"]
+      "after": ["\"", "_", "x"],
     },
     {
       "before": ["d", "x"],
-      "after": ["d"]
-    }
+      "after": ["d"],
+    },
   ],
   "workbench.colorTheme": "Base16 Dark Default",
   "workbench.activityBar.location": "hidden",
@@ -143,7 +143,7 @@
   "window.commandCenter": false,
   // Useful for Tailwind CSS in React
   "editor.quickSuggestions": {
-    "strings": "on"
+    "strings": "on",
   },
   "github.copilot.editor.enableAutoCompletions": true,
   "emmet.showExpandedAbbreviation": "never",
@@ -151,5 +151,6 @@
   "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
   "lldb.launch.expressions": "native",
   "diffEditor.renderSideBySide": false,
-  "json.schemaDownload.enable": true
+  "json.schemaDownload.enable": true,
+  "cursor.composer.usageSummaryDisplay": "always",
 }
