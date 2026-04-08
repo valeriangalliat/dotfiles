@@ -9,10 +9,6 @@
   "files.insertFinalNewline": true,
   "editor.rulers": [80, 120],
   "search.smartCase": true,
-  "workbench.colorCustomizations": {
-    // Base16 Default Dark but use a darker line so it's less contrasty
-    "editorRuler.foreground": "#282828",
-  },
   "gopls": {
     "importShortcut": "Definition",
   },
@@ -133,7 +129,14 @@
       "after": ["d"],
     },
   ],
-  "workbench.colorTheme": "Base16 Dark Default",
+  // "workbench.colorTheme": "Base16 Dark Default",
+  "workbench.colorTheme": "Dark 2026",
+  "workbench.colorCustomizations": {
+    // Base16 Default Dark but use a darker line so it's less contrasty
+    // "editorRuler.foreground": "#282828",
+    // Dark 2026 but use a darker line so it's less contrasty
+    "editorRuler.foreground": "#2a2b2c",
+  },
   "workbench.activityBar.location": "hidden",
   "workbench.layoutControl.enabled": false,
   "editor.bracketPairColorization.enabled": false,
@@ -153,4 +156,7 @@
   "diffEditor.renderSideBySide": false,
   "json.schemaDownload.enable": true,
   "cursor.composer.usageSummaryDisplay": "always",
+  "chat.tools.urls.autoApprove": {
+    "*": true,
+  },
 }
