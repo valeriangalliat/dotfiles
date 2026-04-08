@@ -67,7 +67,11 @@ fi
     zstyle ':vcs_info:*' actionformats "%{$fg_bold[blue]%}(%{$fg_bold[red]%}%b%{$fg_bold[yellow]%}:%a%{$fg_bold[blue]%})%{$reset_color%} "
     PROMPT="%(?..%{$fg[red]%}●%{$reset_color%} )%{$fg_bold[cyan]%}%1~%{$reset_color%} \${vcs_info_msg_0_}"
     # Need to use `%F{}` (set) and `%f` (reset) pattern because color 8 (grey) is not an ANSI color
-    RPROMPT="%F{8}%*%f"
+
+    # Skip RPROMPT in VS Code terminal as AI agent integration chokes on it
+    if [ "$TERM_PROGRAM" != vscode ]; then
+        RPROMPT="%F{8}%*%f"
+    fi
 
     # Prepend `user@host` to prompt when under SSH
     if [ -n "$SSH_CLIENT" ]; then
