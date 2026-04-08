@@ -70,7 +70,7 @@ tmux:
 
 .PHONY: code
 code:
-	if [ -d "$(HOME)/Library/Application Support" ]; then code_dir="$(HOME)/Library/Application Support/Code/User"; else code_dir="$(HOME)/.config/Code - OSS/User"; fi && \
+	if [ -d "$(HOME)/Library/Application Support" ]; then code_dir="$(HOME)/Library/Application Support/Code/User"; else code_dir="$(HOME)/.config/Code/User"; fi && \
 		mkdir -p "$$code_dir" && \
 		ln -si $(PWD)/code/keybindings.json "$$code_dir/keybindings.json" && \
 		ln -si $(PWD)/code/settings.json "$$code_dir/settings.json"
