@@ -8,5 +8,8 @@ extensions:
 cursor-install:
 	echo "Cursor doesn't support installing extensions from the CLI, need to install manually"
 
+antigravity-install:
+	echo "Antigravity doesn't support installing extensions from the CLI, need to install manually"
+
 cursor-extensions:
 	cursor --list-extensions > $@

@@ -159,4 +159,5 @@
   "chat.tools.urls.autoApprove": {
     "*": true,
   },
+  "update.showReleaseNotes": false,
 }

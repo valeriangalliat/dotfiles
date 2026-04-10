@@ -86,6 +86,15 @@ cursor:
 
 	make -C code cursor-install
 
+.PHONY: antigravity
+antigravity:
+	antigravity_dir="$(HOME)/Library/Application Support/Antigravity/User" && \
+		mkdir -p "$$antigravity_dir" && \
+		ln -si $(PWD)/code/keybindings.json "$$antigravity_dir/keybindings.json" && \
+		ln -si $(PWD)/code/settings.json "$$antigravity_dir/settings.json"
+
+	make -C code antigravity-install
+
 # }}}
 
 # MacOS {{{
