@@ -160,4 +160,5 @@
     "*": true,
   },
   "update.showReleaseNotes": false,
+  "window.systemColorTheme": "dark",
 }
