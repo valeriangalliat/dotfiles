@@ -4,6 +4,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
 
 ;
 ; Check files on transfer, fetch and receive (not enabled by default).
@@ -43,5 +44,14 @@
 [user]
 	email = val@codejam.info
 	name = Val
+
+;
+; For `git-diff-image`.
+;
+[alias]
+	diff-image = "!f() { cd -- \"${GIT_PREFIX:-.}\"; GIT_DIFF_IMAGE_ENABLED=1 git diff \"$@\"; }; f"
+
+[diff "image"]
+	command = "$DOTFILES/git/git-diff-image/git_diff_image"
 
 ; vim: ft=gitconfig

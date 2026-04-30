@@ -47,6 +47,13 @@ git:
 	ln -si $(PWD)/git/gitconfig ~/.gitconfig
 	ln -si $(PWD)/git/gitignore ~/.gitignore
 
+.PHONY: git-diff-image
+git-diff-image: git/git-diff-image
+	ln -si $(PWD)/git/gitattributes ~/.gitattributes
+
+git/git-diff-image:
+	git clone https://github.com/ewanmellor/git-diff-image.git $@
+
 .PHONY: net
 net:
 	ln -si $(PWD)/net/curlrc ~/.curlrc
