@@ -161,4 +161,6 @@
   },
   "update.showReleaseNotes": false,
   "window.systemColorTheme": "dark",
+  "window.autoDetectColorScheme": false,
+  "extensions.autoUpdate": false,
 }
