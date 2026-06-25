@@ -27,6 +27,12 @@
   "[markdown]": {
     "editor.tabSize": 2,
     "vim.textwidth": 72,
+    "editor.wordWrap": "bounded",
+  },
+  "[mdx]": {
+    "editor.tabSize": 2,
+    "vim.textwidth": 72,
+    "editor.wordWrap": "bounded",
   },
   // "explorer.autoReveal": false,
   "vim.leader": ",",
