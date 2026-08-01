@@ -1,0 +1,14 @@
+#!/bin/sh -e
+cd "$(dirname "$0")"
+
+echo "Configuring macOS settings"
+. defaults.sh
+
+echo "Installing Homebrew"
+. homebrew.sh
+
+echo "Installing Homebrew packages"
+brew bundle install
+
+echo "Manual steps still needed:"
+echo "https://www.codejam.info/2021/11/mac-setup.html"

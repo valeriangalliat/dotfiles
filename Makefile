@@ -4,6 +4,10 @@ base: zsh vim git net psql sqlite asdf
 .PHONY: mac
 mac: base ghostty
 
+.PHONY: mac-setup
+mac-setup: mac
+	$(PWD)/mac/setup
+
 .PHONY: linux
 linux: base vivobook sway i3blocks menu xfce4-terminal
 
