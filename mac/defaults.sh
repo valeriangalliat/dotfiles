@@ -8,8 +8,15 @@ defaults write com.apple.dock persistent-others -array
 mkdir -p ~/Desktop/Screenshots
 defaults write com.apple.screencapture location ~/Desktop/Screenshots
 
+# General > AirDrop & Continuity: Allow Handoff between this Mac and your iCloud devices
+defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool false
+defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool false
+
 # General > Date & Time: 24-hour time
 defaults write -g AppleICUForce24HourTime -bool true
+
+# Accessibility > Zoom: Use scroll gesture with modifier keys to zoom (Control is default)
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 
 # Desktop & Dock > Dock: Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
