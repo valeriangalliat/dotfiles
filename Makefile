@@ -19,8 +19,8 @@ linux: base vivobook sway i3blocks menu xfce4-terminal
 
 .PHONY: zsh
 zsh: zsh/oh-my-zsh zsh/zsh-syntax-highlighting zsh/base16-shell zsh/dircolors
-	cp -i $(PWD)/zsh/zshrc.home ~/.zshrc
-	cp -i $(PWD)/zsh/zshenv.home ~/.zshenv
+	-cp -i $(PWD)/zsh/zshrc.home ~/.zshrc
+	-cp -i $(PWD)/zsh/zshenv.home ~/.zshenv
 
 zsh/oh-my-zsh:
 	git clone https://github.com/robbyrussell/oh-my-zsh.git $@
@@ -77,7 +77,7 @@ asdf:
 
 .PHONY: tmux
 tmux:
-	cp -i $(PWD)/tmux/tmux.conf.home ~/.tmux.conf
+	-cp -i $(PWD)/tmux/tmux.conf.home ~/.tmux.conf
 
 .PHONY: skills
 skills:
