@@ -1,5 +1,5 @@
 .PHONY: base
-base: zsh vim git net psql sqlite asdf
+base: zsh vim git net psql sqlite asdf skills
 
 .PHONY: mac
 mac: base ghostty
@@ -78,6 +78,12 @@ asdf:
 .PHONY: tmux
 tmux:
 	cp -i $(PWD)/tmux/tmux.conf.home ~/.tmux.conf
+
+.PHONY: skills
+skills:
+	mkdir -p ~/.agents/skills/honey
+	curl https://raw.githubusercontent.com/Green-PT/honey-for-devs/refs/heads/main/skills/honey/SKILL.md \
+		-o ~/.agents/skills/honey/SKILL.md
 
 # }}}
 
