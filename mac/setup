@@ -8,7 +8,7 @@ echo "Installing Homebrew"
 . homebrew.sh
 
 echo "Installing Homebrew packages"
-brew bundle install
+brew bundle install --verbose
 
 echo "Manual steps still needed:"
 echo "https://www.codejam.info/2021/11/mac-setup.html"
