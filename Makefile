@@ -42,67 +42,72 @@ zsh/dircolors:
 .PHONY: vim
 vim:
 	mkdir -p ~/.vim/undo ~/.vim/swap
-	ln -si $(PWD)/vim/syntax ~/.vim/syntax
-	ln -si $(PWD)/vim/vimrc ~/.vimrc
+	-ln -sin $(PWD)/vim/syntax ~/.vim/syntax
+	-ln -si $(PWD)/vim/vimrc ~/.vimrc
 	make -C $@
 
 .PHONY: git
 git:
-	ln -si $(PWD)/git/gitconfig ~/.gitconfig
-	ln -si $(PWD)/git/gitignore ~/.gitignore
+	-ln -si $(PWD)/git/gitconfig ~/.gitconfig
+	-ln -si $(PWD)/git/gitignore ~/.gitignore
 
 .PHONY: git-diff-image
 git-diff-image: git/git-diff-image
-	ln -si $(PWD)/git/gitattributes ~/.gitattributes
+	-ln -si $(PWD)/git/gitattributes ~/.gitattributes
 
 git/git-diff-image:
 	git clone https://github.com/ewanmellor/git-diff-image.git $@
 
 .PHONY: net
 net:
-	ln -si $(PWD)/net/curlrc ~/.curlrc
-	ln -si $(PWD)/net/wgetrc ~/.wgetrc
+	-ln -si $(PWD)/net/curlrc ~/.curlrc
+	-ln -si $(PWD)/net/wgetrc ~/.wgetrc
 
 .PHONY: psql
 psql:
-	ln -si $(PWD)/psql/psqlrc ~/.psqlrc
+	-ln -si $(PWD)/psql/psqlrc ~/.psqlrc
 
 .PHONY: sqlite
 sqlite:
-	ln -si $(PWD)/sqlite/sqliterc ~/.sqliterc
+	-ln -si $(PWD)/sqlite/sqliterc ~/.sqliterc
 
 .PHONY: asdf
 asdf:
-	ln -si $(PWD)/asdf/tool-versions ~/.tool-versions
+	-ln -si $(PWD)/asdf/tool-versions ~/.tool-versions
 
 .PHONY: tmux
 tmux:
 	cp -i $(PWD)/tmux/tmux.conf.home ~/.tmux.conf
 
+# }}}
+
+# Editors {{{
+# ===========
+
 .PHONY: code
 code:
-	if [ -d "$(HOME)/Library/Application Support" ]; then code_dir="$(HOME)/Library/Application Support/Code/User"; else code_dir="$(HOME)/.config/Code/User"; fi && \
-		mkdir -p "$$code_dir" && \
-		ln -si $(PWD)/code/keybindings.json "$$code_dir/keybindings.json" && \
-		ln -si $(PWD)/code/settings.json "$$code_dir/settings.json"
+	if [ -d "$(HOME)/Library/Application Support" ]; then code_dir="$(HOME)/Library/Application Support/Code/User"; else code_dir="$(HOME)/.config/Code/User"; fi; \
+		mkdir -p "$$code_dir"; \
+		ln -si $(PWD)/code/keybindings.json "$$code_dir/keybindings.json" || :; \
+		ln -si $(PWD)/code/settings.json "$$code_dir/settings.json" || :
 
 	make -C $@
 
 .PHONY: cursor
 cursor:
-	cursor_dir="$(HOME)/Library/Application Support/Cursor/User" && \
-		mkdir -p "$$cursor_dir" && \
-		ln -si $(PWD)/code/keybindings.json "$$cursor_dir/keybindings.json" && \
-		ln -si $(PWD)/code/settings.json "$$cursor_dir/settings.json"
+	cursor_dir="$(HOME)/Library/Application Support/Cursor/User"; \
+		mkdir -p "$$cursor_dir"; \
+		ln -si $(PWD)/code/keybindings.json "$$cursor_dir/keybindings.json" || :; \
+		ln -si $(PWD)/code/settings.json "$$cursor_dir/settings.json" || :
 
 	make -C code cursor-install
 
 .PHONY: antigravity
 antigravity:
-	antigravity_dir="$(HOME)/Library/Application Support/Antigravity/User" && \
-		mkdir -p "$$antigravity_dir" && \
-		ln -si $(PWD)/code/keybindings.json "$$antigravity_dir/keybindings.json" && \
-		ln -si $(PWD)/code/settings.json "$$antigravity_dir/settings.json"
+	antigravity_dir="$(HOME)/Library/Application Support/Antigravity/User"; \
+		mkdir -p "$$antigravity_dir"; \
+		ln -si $(PWD)/code/keybindings.json "$$antigravity_dir/keybindings.json" || :; \
+		ln -si $(PWD)/code/settings.json "$$antigravity_dir/settings.json" || :
 
 	make -C code antigravity-install
 
@@ -114,7 +119,7 @@ antigravity:
 .PHONY: ghostty
 ghostty:
 	mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
-	ln -si $(PWD)/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
+	-ln -si $(PWD)/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
 # }}}
 
@@ -124,23 +129,23 @@ ghostty:
 .PHONY: vivobook
 vivobook:
 	mkdir -p ~/.config/xkb/symbols ~/.config/xkb/rules
-	ln -si $(PWD)/vivobook/xkb/symbols/ctrl ~/.config/xkb/symbols/ctrl
-	ln -si $(PWD)/vivobook/xkb/rules/evdev ~/.config/xkb/rules/evdev
+	-ln -si $(PWD)/vivobook/xkb/symbols/ctrl ~/.config/xkb/symbols/ctrl
+	-ln -si $(PWD)/vivobook/xkb/rules/evdev ~/.config/xkb/rules/evdev
 
 .PHONY: i3
 i3:
 	mkdir -p ~/.config/i3
-	ln -si $(PWD)/i3/config ~/.config/i3/config
+	-ln -si $(PWD)/i3/config ~/.config/i3/config
 
 .PHONY: sway
 sway:
 	mkdir -p ~/.config/sway
-	ln -si $(PWD)/sway/config ~/.config/sway/config
+	-ln -si $(PWD)/sway/config ~/.config/sway/config
 
 .PHONY: i3blocks
 i3blocks: i3blocks/i3blocks-contrib
 	mkdir -p ~/.config/i3blocks
-	ln -si $(PWD)/i3blocks/config ~/.config/i3blocks/config
+	-ln -si $(PWD)/i3blocks/config ~/.config/i3blocks/config
 
 i3blocks/i3blocks-contrib:
 	git clone https://github.com/vivien/i3blocks-contrib.git $@
@@ -152,6 +157,6 @@ menu:
 .PHONY: xfce4-terminal
 	xfce4-terminal:
 	mkdir -p ~/.config/xfce4/terminal
-	ln -si $(PWD)/xfce4-terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
+	-ln -si $(PWD)/xfce4-terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
 
 # }}}
