@@ -136,7 +136,7 @@
     },
   ],
   // "workbench.colorTheme": "Base16 Dark Default",
-  "workbench.colorTheme": "Dark 2026",
+  "workbench.colorTheme": "Cursor Dark",
   "workbench.colorCustomizations": {
     // Base16 Default Dark but use a darker line so it's less contrasty
     // "editorRuler.foreground": "#282828",
