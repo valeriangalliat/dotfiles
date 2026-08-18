@@ -80,10 +80,18 @@ tmux:
 	-cp -i $(PWD)/tmux/tmux.conf.home ~/.tmux.conf
 
 .PHONY: skills
-skills:
-	mkdir -p ~/.agents/skills/honey
-	curl https://raw.githubusercontent.com/Green-PT/honey-for-devs/refs/heads/main/skills/honey/SKILL.md \
-		-o ~/.agents/skills/honey/SKILL.md
+skills: skills/honey/SKILL.md skills/orwell-writing/SKILL.md
+	mkdir -p ~/.agents/skills
+	-ln -sin $(PWD)/skills/honey ~/.agents/skills/honey
+	-ln -sin $(PWD)/skills/orwell-writing ~/.agents/skills/orwell-writing
+
+skills/honey/SKILL.md:
+	mkdir -p $(dir $@)
+	curl -fsSL https://raw.githubusercontent.com/Green-PT/honey-for-devs/refs/heads/main/skills/honey/SKILL.md -o $@
+
+skills/orwell-writing/SKILL.md:
+	mkdir -p $(dir $@)
+	curl -fsSL https://raw.githubusercontent.com/tamdogood/builder-essential-skills/main/skills/orwell-writing/SKILL.md -o $@
 
 # }}}
 
