@@ -142,9 +142,8 @@ ghostty:
 
 .PHONY: vivobook
 vivobook:
-	mkdir -p ~/.config/xkb/symbols ~/.config/xkb/rules
-	-ln -si $(PWD)/vivobook/xkb/symbols/ctrl ~/.config/xkb/symbols/ctrl
-	-ln -si $(PWD)/vivobook/xkb/rules/evdev ~/.config/xkb/rules/evdev
+	sudo mkdir -p /etc/keyd
+	sudo cp $(PWD)/vivobook/keyd/default.conf /etc/keyd/default.conf
 
 .PHONY: i3
 i3:
