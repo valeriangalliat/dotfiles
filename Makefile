@@ -80,10 +80,11 @@ tmux:
 	-cp -i $(PWD)/tmux/tmux.conf.home ~/.tmux.conf
 
 .PHONY: skills
-skills: skills/honey/SKILL.md skills/orwell-writing/SKILL.md
+skills: skills/honey/SKILL.md skills/orwell-writing/SKILL.md skills/thermo-nuclear-code-quality-review/SKILL.md
 	mkdir -p ~/.agents/skills
 	-ln -sin $(PWD)/skills/honey ~/.agents/skills/honey
 	-ln -sin $(PWD)/skills/orwell-writing ~/.agents/skills/orwell-writing
+	-ln -sin $(PWD)/skills/thermo-nuclear-code-quality-review ~/.agents/skills/thermo-nuclear-code-quality-review
 
 skills/honey/SKILL.md:
 	mkdir -p $(dir $@)
@@ -92,6 +93,10 @@ skills/honey/SKILL.md:
 skills/orwell-writing/SKILL.md:
 	mkdir -p $(dir $@)
 	curl -fsSL https://raw.githubusercontent.com/tamdogood/builder-essential-skills/main/skills/orwell-writing/SKILL.md -o $@
+
+skills/thermo-nuclear-code-quality-review/SKILL.md:
+	mkdir -p $(dir $@)
+	curl -fsSL https://raw.githubusercontent.com/cursor/plugins/main/cursor-team-kit/skills/thermo-nuclear-code-quality-review/SKILL.md -o $@
 
 # }}}
 
