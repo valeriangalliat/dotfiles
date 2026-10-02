@@ -54,4 +54,12 @@
 [diff "image"]
 	command = "$DOTFILES/git/git-diff-image/git_diff_image"
 
+;
+; Strip Claude attribution from commits made by Claude Code (script in
+; `bin/shared`).
+;
+[hook "no-claude-attribution"]
+	event = commit-msg
+	command = git-no-claude-attribution
+
 ; vim: ft=gitconfig

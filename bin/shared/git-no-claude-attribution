@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Global Git `commit-msg` hook, see `hook.no-claude-attribution` in
+# `~/.gitconfig`.
+#
+# Strips Claude attribution lines from commits made by Claude Code, which sets
+# `CLAUDECODE=1` in its shells. Commits from my own shell are left alone.
+#
+[ "$CLAUDECODE" = 1 ] || exit 0
+
+pattern='/^[Cc]o-[Aa]uthored-[Bb]y:.*([Cc]laude|[Aa]nthropic)/d; /[Gg]enerated with \[?[Cc]laude/d'
+
+if [ "$(uname)" = Darwin ]; then
+    sed -i '' -E "$pattern" "$1"
+else
+    sed -i -E "$pattern" "$1"
+fi

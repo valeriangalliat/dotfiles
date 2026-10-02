@@ -79,6 +79,11 @@ asdf:
 tmux:
 	-cp -i $(PWD)/tmux/tmux.conf.home ~/.tmux.conf
 
+.PHONY: claude
+claude:
+	mkdir -p ~/.claude
+	-ln -si $(PWD)/claude/settings.json ~/.claude/settings.json
+
 .PHONY: skills
 skills: skills/honey/SKILL.md skills/orwell-writing/SKILL.md skills/thermo-nuclear-code-quality-review/SKILL.md
 	mkdir -p ~/.agents/skills

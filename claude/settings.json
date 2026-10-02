@@ -1,0 +1,9 @@
+{
+  "theme": "dark",
+  "model": "opus[1m]",
+  "outputStyle": "Concise",
+  "attribution": false,
+  "env": {
+    "CLAUDE_CODE_SHELL_PREFIX": "claude-low-priority"
+  }
+}

@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Runs each Claude Code shell command in Zsh if that's the user's shell, Bash
+# otherwise, at utility QoS on macOS so interactive apps keep the CPU. Used as
+# `CLAUDE_CODE_SHELL_PREFIX` in `claude/settings.json`.
+#
+case "$SHELL" in */zsh) shell=zsh ;; *) shell=bash ;; esac
+
+if [ -x /usr/sbin/taskpolicy ]; then
+    exec /usr/sbin/taskpolicy -c utility "$shell" -c "$1"
+fi
+
+exec "$shell" -c "$1"
