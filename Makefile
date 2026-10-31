@@ -9,7 +9,7 @@ mac-setup: mac
 	$(PWD)/mac/setup
 
 .PHONY: linux
-linux: base vivobook sway i3blocks menu xfce4-terminal
+linux: base vivobook
 
 # Base {{{
 # ========
@@ -154,32 +154,5 @@ ghostty:
 vivobook:
 	sudo mkdir -p /etc/keyd
 	sudo cp $(PWD)/vivobook/keyd/default.conf /etc/keyd/default.conf
-
-.PHONY: i3
-i3:
-	mkdir -p ~/.config/i3
-	-ln -si $(PWD)/i3/config ~/.config/i3/config
-
-.PHONY: sway
-sway:
-	mkdir -p ~/.config/sway
-	-ln -si $(PWD)/sway/config ~/.config/sway/config
-
-.PHONY: i3blocks
-i3blocks: i3blocks/i3blocks-contrib
-	mkdir -p ~/.config/i3blocks
-	-ln -si $(PWD)/i3blocks/config ~/.config/i3blocks/config
-
-i3blocks/i3blocks-contrib:
-	git clone https://github.com/vivien/i3blocks-contrib.git $@
-
-.PHONY: menu
-menu:
-	make -C $@
-
-.PHONY: xfce4-terminal
-	xfce4-terminal:
-	mkdir -p ~/.config/xfce4/terminal
-	-ln -si $(PWD)/xfce4-terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
 
 # }}}

@@ -1,4 +1,0 @@
-#!/bin/sh -e
-
-swaymsg -t get_tree \
-    | jq -r 'recurse(.nodes[]) | select(.focused) | .name'

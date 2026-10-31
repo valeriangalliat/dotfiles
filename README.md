@@ -10,9 +10,9 @@ A makefile will help to deploy the configuration files.
 # Terminal base, for anywhere
 make base
 
-# macOS dotfiles, currently just alias for `base`
+# macOS dotfiles
 make mac
 
-# For a Linux graphical environment
+# Base configuration and Vivobook keyboard mapping
 make linux
 ```
