@@ -90,6 +90,9 @@ fi
 
 # Theme {{{
 
+    # The default style is invisible on the Base16 theme
+    ZSH_HIGHLIGHT_STYLES[comment]='fg=#888888'
+
     # Terminal colors (except in tmux)
     if [ -z "$TMUX" ]; then
         export BASE16_MODE=dark
