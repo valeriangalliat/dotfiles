@@ -27,12 +27,3 @@ export PATH
 
 export EDITOR=vim
 export PAGER=less
-
-if [ "$TERM" = xterm-ghostty ]; then
-    #
-    # Keep until `xterm-ghostty` is supported broadly.
-    # For now this makes nested Zsh sessions work through SSH, as well as
-    # control sequences forwarding to Vim.
-    #
-    export TERM=xterm-256color
-fi

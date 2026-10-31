@@ -18,9 +18,6 @@
     set runtimepath^=$DOTFILES/vim/plugins/base16-vim
     set runtimepath^=$DOTFILES/vim/plugins/vim-airline
     set runtimepath^=$DOTFILES/vim/plugins/vim-airline-themes
-    " set runtimepath^=$DOTFILES/vim/plugins/AutoComplPop
-    " set runtimepath^=$DOTFILES/vim/plugins/neocomplcache.vim
-    " set runtimepath^=$DOTFILES/vim/plugins/coc.nvim
     set runtimepath^=$DOTFILES/vim/plugins/vim-mucomplete
     set runtimepath^=$DOTFILES/vim/plugins/vim-repeat
     set runtimepath^=$DOTFILES/vim/plugins/targets.vim
@@ -31,28 +28,11 @@
     set runtimepath^=$DOTFILES/vim/plugins/vim-closer
     set runtimepath^=$DOTFILES/vim/plugins/vim-sleuth
     set runtimepath^=$DOTFILES/vim/plugins/vim-bbye
-    set runtimepath^=$DOTFILES/vim/plugins/vim-filebeagle
     set runtimepath^=$DOTFILES/vim/plugins/vim-cutlass
     set runtimepath^=$DOTFILES/vim/plugins/vim-commentary
-    set runtimepath^=$DOTFILES/vim/plugins/fzf
-    set runtimepath^=$DOTFILES/vim/plugins/fzf.vim
     set runtimepath^=$DOTFILES/vim/plugins/switch.vim
-    set runtimepath^=$DOTFILES/vim/plugins/vim-javascript
-    set runtimepath^=$DOTFILES/vim/plugins/typescript-vim
     set runtimepath^=$DOTFILES/vim/plugins/tabular
     set runtimepath^=$DOTFILES/vim/plugins/vim-markdown
-    " set runtimepath^=$DOTFILES/vim/plugins/vim-jade
-    " set runtimepath^=$DOTFILES/vim/plugins/vim-stylus
-    set runtimepath^=$DOTFILES/vim/plugins/html5.vim
-    set runtimepath^=$DOTFILES/vim/plugins/vim-json
-    " set runtimepath^=$DOTFILES/vim/plugins/rust.vim
-    " set runtimepath^=$DOTFILES/vim/plugins/vim-pug
-    " set runtimepath^=$DOTFILES/vim/plugins/i3config.vim
-    " set runtimepath^=$DOTFILES/vim/plugins/vim-nix
-    set runtimepath^=$DOTFILES/vim/plugins/vim-python-pep8-indent
-    set runtimepath^=$DOTFILES/vim/plugins/vim-elixir
-    set runtimepath^=$DOTFILES/vim/plugins/vim-toml
-    set runtimepath^=$DOTFILES/vim/plugins/dbext.vim
 
 " }}}
 
@@ -259,7 +239,7 @@
     au FileType tex setl ts=2 sts=2 sw=2
     au FileType coffee setl ts=2 sts=2 sw=2
     au FileType ruby setl ts=2 sts=2 sw=2
-    au FileType json setl ts=2 sts=2 sw=2
+    au FileType json setl ts=2 sts=2 sw=2 conceallevel=2
     au FileType html setl ts=2 sts=2 sw=2 wrap
     au FileType markdown setl ts=2 sts=2 sw=2 wrap
     au FileType pug setl ts=2 sts=2 sw=2 wrap
@@ -276,11 +256,6 @@
     let airline#extensions#tabline#enabled = 1
     let airline_symbols_ascii = 1
 
-    " `neocomplcache.vim`
-    " let neocomplcache_enable_at_startup = 1
-    " let neocomplcache_enable_smart_case = 1
-    " let neocomplcache_enable_auto_select = 1
-
     " `vim-mucomplete`
     let mucomplete#enable_auto_at_startup = 1
     set completeopt+=menuone
@@ -290,15 +265,6 @@
 
     " `CamelCaseMotion`
     let camelcasemotion_key = '<Leader>'
-
-    " `vim-javascript`
-    let javascript_plugin_jsdoc = 1
-
-    " `fzf.vim`
-    let $FZF_DEFAULT_COMMAND = 'rg --files'
-
-    " `vim-filebeagle` to not map `-`
-    let filebeagle_suppress_keymaps = 1
 
     " `switch.vim`
     let switch_mapping = '-'
@@ -350,11 +316,6 @@
     " Shortcuts to browse buffers
     map <silent> <C-j> :bn<CR>
     map <silent> <C-k> :bp<CR>
-
-    " fzf shortcut
-    map <silent> <Leader><Leader> :Files<CR>
-    map <silent> <Leader>g :GFiles<CR>
-    map <silent> <Leader>a :Rg<CR>
 
 " }}}
 
