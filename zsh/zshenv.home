@@ -7,3 +7,4 @@ export DOTFILES=~/dotfiles
 source "$DOTFILES/zsh/zshenv"
 
 # export PATH=$DOTFILES/bin:$PATH # Linux commands
+export PATH="$HOME/.local/share/mise/shims:$PATH"

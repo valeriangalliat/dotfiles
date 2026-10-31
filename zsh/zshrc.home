@@ -3,4 +3,3 @@
 #
 
 source "$DOTFILES/zsh/zshrc"
-# source "$DOTFILES/zsh/asdf.sh"

@@ -1,5 +1,5 @@
 .PHONY: base
-base: zsh vim git net psql sqlite asdf skills
+base: zsh vim git net psql sqlite mise skills
 
 .PHONY: mac
 mac: base ghostty
@@ -71,9 +71,9 @@ psql:
 sqlite:
 	-ln -si $(PWD)/sqlite/sqliterc ~/.sqliterc
 
-.PHONY: asdf
-asdf:
-	-ln -si $(PWD)/asdf/tool-versions ~/.tool-versions
+.PHONY: mise
+mise:
+	-ln -si $(PWD)/mise/tool-versions ~/.tool-versions
 
 .PHONY: tmux
 tmux:
