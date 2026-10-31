@@ -85,15 +85,10 @@ claude:
 	-ln -si $(PWD)/claude/settings.json ~/.claude/settings.json
 
 .PHONY: skills
-skills: skills/honey/SKILL.md skills/orwell-writing/SKILL.md skills/thermo-nuclear-code-quality-review/SKILL.md
+skills: skills/orwell-writing/SKILL.md skills/thermo-nuclear-code-quality-review/SKILL.md
 	mkdir -p ~/.agents/skills
-	-ln -sin $(PWD)/skills/honey ~/.agents/skills/honey
 	-ln -sin $(PWD)/skills/orwell-writing ~/.agents/skills/orwell-writing
 	-ln -sin $(PWD)/skills/thermo-nuclear-code-quality-review ~/.agents/skills/thermo-nuclear-code-quality-review
-
-skills/honey/SKILL.md:
-	mkdir -p $(dir $@)
-	curl -fsSL https://raw.githubusercontent.com/Green-PT/honey-for-devs/refs/heads/main/skills/honey/SKILL.md -o $@
 
 skills/orwell-writing/SKILL.md:
 	mkdir -p $(dir $@)
