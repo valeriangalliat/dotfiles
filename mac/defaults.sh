@@ -46,6 +46,9 @@ defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
 defaults write -g KeyRepeat -int 2
 defaults write -g InitialKeyRepeat -int 15
 
+# Power Nap: off (no toggle settings)
+sudo pmset -a powernap 0
+
 # Cursor
 defaults write com.todesktop.230313mzl4w4u92 ApplePressAndHoldEnabled -bool false
 defaults write com.todesktop.230313mzl4w4u92 AppleWindowTabbingMode -string always
