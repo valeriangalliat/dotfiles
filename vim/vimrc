@@ -31,6 +31,7 @@
     set runtimepath^=$DOTFILES/vim/plugins/vim-cutlass
     set runtimepath^=$DOTFILES/vim/plugins/vim-commentary
     set runtimepath^=$DOTFILES/vim/plugins/switch.vim
+    set runtimepath^=$DOTFILES/vim/plugins/typescript-vim
     set runtimepath^=$DOTFILES/vim/plugins/tabular
     set runtimepath^=$DOTFILES/vim/plugins/vim-markdown
 

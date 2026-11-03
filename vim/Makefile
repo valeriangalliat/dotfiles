@@ -99,6 +99,10 @@ plugins/switch.vim:
 # Syntax {{{
 # ==========
 
+# Faster than built-in syntax
+plugins/typescript-vim:
+	git clone https://github.com/leafgarland/typescript-vim.git $@
+
 # Needed by `vim-markdown`
 plugins/tabular:
 	git clone https://github.com/godlygeek/tabular.git $@
