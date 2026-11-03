@@ -2,7 +2,7 @@
 base: zsh vim git net psql sqlite mise skills
 
 .PHONY: mac
-mac: base ghostty
+mac: base ghostty t3
 
 .PHONY: mac-setup
 mac-setup: mac
@@ -139,6 +139,14 @@ antigravity:
 ghostty:
 	mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
 	-ln -si $(PWD)/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
+
+.PHONY: t3
+t3:
+	t3_dir="$(HOME)/.t3/userdata"; \
+		mkdir -p "$$t3_dir"; \
+		if [ ! -f "$$t3_dir/settings.json" ]; then echo '{}' > "$$t3_dir/settings.json"; fi; \
+		jq -s '.[0] * .[1]' "$$t3_dir/settings.json" $(PWD)/t3/settings.json > "$$t3_dir/settings.json.new" && \
+		mv "$$t3_dir/settings.json.new" "$$t3_dir/settings.json"
 
 # }}}
 
