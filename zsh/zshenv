@@ -27,3 +27,5 @@ export PATH
 
 export EDITOR=vim
 export PAGER=less
+
+export HOMEBREW_NO_UPGRADE_QUIT_CASKS=1
