@@ -1,5 +1,5 @@
 .PHONY: base
-base: zsh vim git net psql sqlite mise skills
+base: zsh vim git net psql sqlite mise npm skills
 
 .PHONY: mac
 mac: base ghostty t3
@@ -62,6 +62,12 @@ git/git-diff-image:
 net:
 	-ln -si $(PWD)/net/curlrc ~/.curlrc
 	-ln -si $(PWD)/net/wgetrc ~/.wgetrc
+
+.PHONY: npm
+npm:
+	touch ~/.npmrc
+	chmod 600 ~/.npmrc
+	grep -q '^globalconfig=' ~/.npmrc || echo 'globalconfig=$${HOME}/dotfiles/npm/npmrc' >> ~/.npmrc
 
 .PHONY: psql
 psql:
