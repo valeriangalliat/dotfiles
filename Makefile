@@ -113,8 +113,8 @@ skills/thermo-nuclear-code-quality-review/SKILL.md:
 code:
 	if [ -d "$(HOME)/Library/Application Support" ]; then code_dir="$(HOME)/Library/Application Support/Code/User"; else code_dir="$(HOME)/.config/Code/User"; fi; \
 		mkdir -p "$$code_dir"; \
-		ln -si $(PWD)/code/keybindings.json "$$code_dir/keybindings.json" || :; \
-		ln -si $(PWD)/code/settings.json "$$code_dir/settings.json" || :
+		ln -siv $(PWD)/code/keybindings.json "$$code_dir/keybindings.json" || :; \
+		ln -siv $(PWD)/code/settings.json "$$code_dir/settings.json" || :
 
 	make -C $@
 
@@ -122,8 +122,8 @@ code:
 cursor:
 	cursor_dir="$(HOME)/Library/Application Support/Cursor/User"; \
 		mkdir -p "$$cursor_dir"; \
-		ln -si $(PWD)/code/keybindings.json "$$cursor_dir/keybindings.json" || :; \
-		ln -si $(PWD)/code/settings.json "$$cursor_dir/settings.json" || :
+		ln -siv $(PWD)/code/keybindings.json "$$cursor_dir/keybindings.json" || :; \
+		ln -siv $(PWD)/code/settings.json "$$cursor_dir/settings.json" || :
 
 	make -C code cursor-install
 
@@ -131,8 +131,8 @@ cursor:
 antigravity:
 	antigravity_dir="$(HOME)/Library/Application Support/Antigravity/User"; \
 		mkdir -p "$$antigravity_dir"; \
-		ln -si $(PWD)/code/keybindings.json "$$antigravity_dir/keybindings.json" || :; \
-		ln -si $(PWD)/code/settings.json "$$antigravity_dir/settings.json" || :
+		ln -siv $(PWD)/code/keybindings.json "$$antigravity_dir/keybindings.json" || :; \
+		ln -siv $(PWD)/code/settings.json "$$antigravity_dir/settings.json" || :
 
 	make -C code antigravity-install
 
@@ -152,7 +152,7 @@ firefox:
 		"$(HOME)/Library/Application Support/Firefox/Profiles"/* \
 		"$(HOME)/.mozilla/firefox"/* \
 		"$(HOME)/.config/mozilla/firefox"/*; do \
-		[ -f "$$profile/prefs.js" ] && ln -si $(PWD)/firefox/user.js "$$profile/user.js" || :; \
+		[ -f "$$profile/prefs.js" ] && ln -siv $(PWD)/firefox/user.js "$$profile/user.js" || :; \
 	done
 
 .PHONY: t3
