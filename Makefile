@@ -2,14 +2,14 @@
 base: zsh vim git net psql sqlite mise npm skills
 
 .PHONY: mac
-mac: base ghostty t3
+mac: base ghostty t3 firefox
 
 .PHONY: mac-setup
 mac-setup: mac
 	$(PWD)/mac/setup
 
 .PHONY: linux
-linux: base vivobook
+linux: base firefox vivobook
 
 # Base {{{
 # ========
@@ -145,6 +145,15 @@ antigravity:
 ghostty:
 	mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
 	-ln -si $(PWD)/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
+
+.PHONY: firefox
+firefox:
+	for profile in \
+		"$(HOME)/Library/Application Support/Firefox/Profiles"/* \
+		"$(HOME)/.mozilla/firefox"/* \
+		"$(HOME)/.config/mozilla/firefox"/*; do \
+		[ -f "$$profile/prefs.js" ] && ln -si $(PWD)/firefox/user.js "$$profile/user.js" || :; \
+	done
 
 .PHONY: t3
 t3:
